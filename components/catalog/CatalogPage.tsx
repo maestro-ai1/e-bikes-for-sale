@@ -6,6 +6,7 @@ import type { Product } from '@/lib/types';
 import {
   CATALOG,
   EBIKE_CATEGORY_IDS,
+  LANDING_PATHS,
   SECTION_MATCH,
   SITE_URL,
   childrenOf,
@@ -16,7 +17,10 @@ import {
 import ProductGrid from './ProductGrid';
 
 const money = (n: number) => `$${n.toLocaleString('en-AU')}`;
-const productsFor = (n: CatalogNode): Product[] => PRODUCTS.filter(n.matches);
+const productsFor = (n: CatalogNode): Product[] => {
+  const ps = PRODUCTS.filter(n.matches);
+  return n.productLimit ? ps.slice(0, n.productLimit) : ps;
+};
 const fromPrice = (ps: Product[]) => (ps.length ? Math.min(...ps.map((p) => p.price)) : null);
 
 function crumbs(n: CatalogNode): { name: string; path: string }[] {
@@ -24,6 +28,7 @@ function crumbs(n: CatalogNode): { name: string; path: string }[] {
   if (n.id === 'sc-electric') return [home, { name: 'Scooters', path: '/scooters' }];
   if (n.id === 'sc-adults') return [home, { name: 'Scooters', path: '/scooters' }, { name: n.name, path: n.path }];
   if (n.id === 'hub') return [home, { name: 'E-Bikes', path: '/ebikes' }];
+  if (n.kind === 'landing') return [home, { name: n.name, path: n.path }];
   const out = [home, { name: 'E-Bikes', path: '/ebikes' }];
   if (n.kind === 'sub' && n.parent) {
     const p = nodeById(n.parent)!;
@@ -161,6 +166,21 @@ export default function CatalogPage({ node }: { node: CatalogNode }) {
         </section>
       )}
 
+      {isEbikeHub && (
+        <nav aria-label="More ways to shop" className="mx-auto max-w-6xl px-4 pb-4 sm:px-6">
+          <h2 className="text-sm font-black uppercase tracking-wider text-gray-500">More ways to shop</h2>
+          <ul className="mt-3 flex flex-wrap gap-2">
+            {CATALOG.filter((c) => LANDING_PATHS.includes(c.path)).map((c) => (
+              <li key={c.id}>
+                <Link href={c.path} className="inline-flex min-h-11 items-center rounded-full border border-gray-300 bg-white px-4 text-sm font-bold text-gray-800 hover:border-[#2E6B4D] hover:text-[#2E6B4D]">
+                  {c.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
+
       {!isEbikeHub && kids.length > 0 && (
         <nav aria-label={`${node.name} subcategories`} className="mx-auto max-w-6xl px-4 pt-8 sm:px-6">
           <h2 className="text-sm font-black uppercase tracking-wider text-gray-500">Shop by style</h2>
@@ -205,7 +225,15 @@ export default function CatalogPage({ node }: { node: CatalogNode }) {
             Shop {node.name.toLowerCase()}
           </h2>
           <div className="mt-5">
-            {ownProducts.length ? <ProductGrid products={ownProducts} /> : <p className="text-gray-600">New models are being added. Contact us for current availability.</p>}
+            {ownProducts.length ? (
+              <ProductGrid products={ownProducts} />
+            ) : (
+              <div className="rounded-2xl border border-emerald-200 bg-emerald-50/60 p-6">
+                <h3 className="text-lg font-black text-gray-900">Ask about availability</h3>
+                <p className="mt-1 max-w-2xl text-gray-700">Stock for this category changes, so there is no fixed list yet. Tell us what you need and we will come back to you.</p>
+                <Link href="/contact" className="mt-4 inline-flex min-h-11 items-center rounded-xl bg-[#2E6B4D] px-5 text-sm font-black text-white hover:bg-[#1E4733]">Contact us</Link>
+              </div>
+            )}
           </div>
         </section>
       )}

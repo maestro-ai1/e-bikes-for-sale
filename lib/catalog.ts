@@ -1,5 +1,6 @@
 import type { Product } from '@/lib/types';
 import { CATALOG_KEYWORDS, type NodeKeywords } from '@/lib/catalog-keywords';
+import { LANDING_NODES } from '@/lib/landing-pages';
 
 /**
  * Category tree for the /ebikes and /scooters hubs.
@@ -9,7 +10,7 @@ import { CATALOG_KEYWORDS, type NodeKeywords } from '@/lib/catalog-keywords';
  * - Keywords come from lib/catalog-keywords.ts (generated). Search terms for BOTH electric and non-electric bikes are used on purpose.
  */
 
-export type NodeKind = 'hub' | 'category' | 'sub';
+export type NodeKind = 'hub' | 'category' | 'sub' | 'landing';
 
 export interface FaqItem { q: string; a: string }
 export interface GuideSection { heading: string; body: string }
@@ -32,6 +33,8 @@ export interface CatalogNode {
   /** In-page sections (subcategories that have no keyword data and therefore no standalone URL) */
   sections?: { id: string; heading: string; blurb: string; anchor: string }[];
   matches: (p: Product) => boolean;
+  /** Show at most this many products (landing pages) */
+  productLimit?: number;
   keywords: NodeKeywords;
 }
 
@@ -526,7 +529,8 @@ export const SECTION_MATCH: Record<string, (p: Product) => boolean> = {
   'sc-accessories': (p) => p.category === 'scooters' && p.subcategoryId === 'scooters-accessories',
 };
 
-export const CATALOG: CatalogNode[] = NODES.map((n) => ({ ...n, keywords: kw(n.id) }));
+export const CATALOG: CatalogNode[] = [...NODES, ...LANDING_NODES].map((n) => ({ ...n, keywords: kw(n.id) }));
+export const LANDING_PATHS = LANDING_NODES.map((n) => n.path);
 export const nodeById = (id: string) => CATALOG.find((n) => n.id === id);
 export const nodeByPath = (path: string) => CATALOG.find((n) => n.path === path);
 export const childrenOf = (n: CatalogNode) => (n.children || []).map((id) => nodeById(id)!).filter(Boolean);
