@@ -16,6 +16,9 @@ import {
 
 export default function WholesalePage() {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState('');
+  const [honeypot, setHoneypot] = useState('');
   const [formData, setFormData] = useState({
     businessName: '',
     abn: '',
@@ -28,9 +31,24 @@ export default function WholesalePage() {
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormSubmitted(true);
+    if (sending) return;
+    setSendError('');
+    setSending(true);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ website: honeypot, formName: 'wholesale', contactName: formData.contactName, email: formData.email, phone: formData.phone, message: formData.message, meta: { Business: formData.businessName, ABN: formData.abn, 'Suburb / postcode': formData.suburbPostcode, 'Weekly volume': formData.weeklyVolume, 'Products required': formData.productsRequired } }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.ok) setFormSubmitted(true);
+      else setSendError(data.error === 'invalid-email' ? 'Please check your email address.' : 'We could not send your message just now. Please try again, or call or WhatsApp us on ' + BUSINESS_INFO.phone + '.');
+    } catch {
+      setSendError('Network error. Please try again, or call or WhatsApp us on ' + BUSINESS_INFO.phone + '.');
+    }
+    setSending(false);
   };
 
   return (
@@ -232,11 +250,16 @@ export default function WholesalePage() {
                   />
                 </div>
 
+                <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, overflow: 'hidden' }}>
+                  <label>Website<input type="text" tabIndex={-1} autoComplete="off" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} /></label>
+                </div>
+                {sendError && <p role="alert" className="rounded-lg border border-red-200 bg-red-50 p-3 text-xs font-semibold text-red-700">{sendError}</p>}
                 <button
                   type="submit"
-                  className="cursor-pointer w-full bg-[#2E6B4D] hover:bg-[#1E4733] text-white py-3.5 rounded-xl font-black text-sm uppercase tracking-wider shadow-md transition-colors active:scale-95"
+                  disabled={sending}
+                  className="cursor-pointer w-full bg-[#2E6B4D] hover:bg-[#1E4733] text-white py-3.5 rounded-xl font-black text-sm uppercase tracking-wider shadow-md transition-colors active:scale-95 disabled:opacity-60"
                 >
-                  Request Wholesale Pricing
+                  {sending ? 'Sending…' : 'Request Wholesale Pricing'}
                 </button>
               </form>
             )}

@@ -1,10 +1,13 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Image from 'next/image';
 import { useApp } from '@/context/AppContext';
 import { BUSINESS_INFO, COMMON_ADDONS, PRODUCTS } from '@/lib/data';
 import { Product } from '@/lib/types';
+import { makeOrderNumber } from '@/lib/order';
+import { waOrderLink } from '@/lib/whatsapp';
+import { REPLY } from '@/lib/reply-config';
 import { 
   X, 
   Trash2, 
@@ -44,6 +47,12 @@ export default function CartDrawer() {
   const [checkoutComplete, setCheckoutComplete] = useState(false);
   const [selectedPayment, setSelectedPayment] = useState<'payid' | 'osko' | 'crypto'>('payid');
   const [addedAddonIds, setAddedAddonIds] = useState<string[]>([]);
+  const [submitting, setSubmitting] = useState<'email' | 'whatsapp' | null>(null);
+  const [submitError, setSubmitError] = useState('');
+  const [placed, setPlaced] = useState<{ orderNumber: string; amountDue: number } | null>(null);
+  const [honeypot, setHoneypot] = useState('');
+  // minted once per checkout attempt so a retry can never create a second order
+  const orderRef = useRef<string | null>(null);
   
   const [formData, setFormData] = useState({
     fullName: '',
@@ -62,12 +71,80 @@ export default function CartDrawer() {
   const amountToFreeShipping = Math.max(0, freeShippingThreshold - cartSubtotal);
   const isBelowMinOrder = cartSubtotal < BUSINESS_INFO.minOrder && cartSubtotal > 0;
 
+  const ERROR_TEXT: Record<string, string> = {
+    'below-minimum-order': `The minimum order is ${BUSINESS_INFO.minOrder} AUD.`,
+    'invalid-email': 'Please check your email address.',
+    'invalid-phone': 'Please check your phone number.',
+    'invalid-address': 'Please check your street address and 4-digit postcode.',
+    'service-unavailable': 'We could not reach our order system just now. Your order was NOT placed. Please try again in a moment, or message us on WhatsApp or phone.',
+  };
+
+  const submitOrder = async (channel: 'email' | 'whatsapp') => {
+    if (submitting) return;
+    setSubmitError('');
+    if (!orderRef.current) orderRef.current = makeOrderNumber();
+    const orderNumber = orderRef.current;
+    const methodLabel = REPLY.paymentMethods.find((m) => m.id === selectedPayment)?.label || selectedPayment;
+
+    // WhatsApp: open the pre-filled chat synchronously inside the click (before any await) so pop-up blockers allow it
+    if (channel === 'whatsapp') {
+      window.open(
+        waOrderLink({
+          orderNumber,
+          items: cart.map((i) => ({ name: i.product.name, quantity: i.quantity, lineTotal: (i.product.price + (i.product.sizeVariants?.find((v) => v.label === i.selectedSize)?.priceDelta || 0) + i.selectedAddOns.reduce((a, x) => a + x.price, 0)) * i.quantity })),
+          amountDue: cartTotal,
+          name: formData.fullName,
+          phone: formData.phone,
+          address: `${formData.address}, ${formData.state} ${formData.postcode}`,
+          paymentMethod: methodLabel,
+        }),
+        '_blank',
+        'noopener,noreferrer',
+      );
+    }
+
+    setSubmitting(channel);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          formName: 'order',
+          website: honeypot,
+          orderNumber,
+          channel,
+          customerName: formData.fullName,
+          customerEmail: formData.email,
+          customerPhone: formData.phone,
+          address: formData.address,
+          state: formData.state,
+          postcode: formData.postcode,
+          notes: formData.orderNotes,
+          paymentMethod: selectedPayment,
+          items: cart.map((i) => ({ productId: i.product.id, quantity: i.quantity, selectedSize: i.selectedSize, addOnIds: i.selectedAddOns.map((a) => a.id) })),
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.ok) {
+        setPlaced({ orderNumber, amountDue: data.amountDue ?? cartTotal });
+        setCheckoutComplete(true);
+      } else {
+        setSubmitError(ERROR_TEXT[data.error] || 'Something went wrong placing your order. Please check your details and try again, or message us on WhatsApp.');
+      }
+    } catch {
+      setSubmitError(ERROR_TEXT['service-unavailable']);
+    }
+    setSubmitting(null);
+  };
+
   const handleCheckoutSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setCheckoutComplete(true);
+    submitOrder('email');
   };
 
   const handleFinishOrder = () => {
+    orderRef.current = null;
+    setPlaced(null);
     clearCart();
     setCheckoutComplete(false);
     setIsCheckingOut(false);
@@ -209,14 +286,18 @@ export default function CartDrawer() {
               <div className="space-y-1">
                 <h4 className="text-lg font-black text-gray-900">Order Confirmed!</h4>
                 <p className="text-xs text-gray-600 max-w-xs mx-auto leading-relaxed">
-                  Thank you, <strong>{formData.fullName || 'Valued Customer'}</strong>! An Australian tax invoice and tracking details will be sent to <strong>{formData.email || 'your email'}</strong> once dispatched.
+                  Thank you, <strong>{formData.fullName || 'Valued Customer'}</strong>! We have emailed a confirmation to <strong>{formData.email || 'your email'}</strong>. Watch for a follow-up email from us with the payment details for your order.
                 </p>
               </div>
 
               <div className="bg-gray-50 border border-gray-200 p-3.5 rounded-xl text-xs text-left space-y-1.5 font-medium">
                 <div className="flex justify-between">
+                  <span className="text-gray-500">Order number:</span>
+                  <strong className="text-gray-900 font-black">{placed?.orderNumber}</strong>
+                </div>
+                <div className="flex justify-between">
                   <span className="text-gray-500">Total:</span>
-                  <strong className="text-gray-900 font-black">${cartTotal.toLocaleString()} AUD</strong>
+                  <strong className="text-gray-900 font-black">${(placed?.amountDue ?? cartTotal).toLocaleString()} AUD</strong>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-500">Method:</span>
@@ -377,11 +458,33 @@ export default function CartDrawer() {
                 </div>
               </div>
 
+              {/* honeypot: hidden from people, filled by bots */}
+              <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, overflow: 'hidden' }}>
+                <label>Website<input type="text" tabIndex={-1} autoComplete="off" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} /></label>
+              </div>
+
+              {submitError && (
+                <p role="alert" className="mt-3 rounded-xl border border-red-200 bg-red-50 p-3 text-xs font-semibold text-red-700">{submitError}</p>
+              )}
+
               <button
                 type="submit"
-                className="cursor-pointer w-full mt-3 bg-[#1E4733] hover:bg-[#2E6B4D] text-white py-3.5 rounded-xl font-black text-xs uppercase tracking-wider shadow-md transition-colors active:scale-95"
+                disabled={!!submitting}
+                className="cursor-pointer w-full mt-3 bg-[#1E4733] hover:bg-[#2E6B4D] disabled:opacity-60 text-white py-3.5 rounded-xl font-black text-xs uppercase tracking-wider shadow-md transition-colors active:scale-95"
               >
-                Place Order • ${cartTotal.toLocaleString()} AUD
+                {submitting === 'email' ? 'Placing your order…' : `Place Order • $${cartTotal.toLocaleString()} AUD`}
+              </button>
+              <button
+                type="button"
+                disabled={!!submitting}
+                onClick={(e) => {
+                  const form = (e.currentTarget as HTMLButtonElement).closest('form');
+                  if (form && !form.reportValidity()) return;
+                  submitOrder('whatsapp');
+                }}
+                className="cursor-pointer w-full mt-2 bg-green-600 hover:bg-green-700 disabled:opacity-60 text-white py-3 rounded-xl font-black text-xs uppercase tracking-wider transition-colors"
+              >
+                {submitting === 'whatsapp' ? 'Placing your order…' : 'Order via WhatsApp'}
               </button>
             </form>
           ) : cart.length === 0 ? (
