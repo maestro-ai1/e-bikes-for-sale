@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="e bikes for sale">
+  <rect width="64" height="64" rx="14" fill="#2E6B4D"/>
+  <g fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="18" cy="40" r="9"/>
+    <circle cx="46" cy="40" r="9"/>
+    <path d="M18 40 L28 24 H40 L46 40 M28 24 L34 40 H18 M38 18 H44"/>
+  </g>
+</svg>

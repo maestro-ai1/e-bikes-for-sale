@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useApp } from '@/context/AppContext';
 import { BUSINESS_INFO, CATEGORIES_CONFIG } from '@/lib/data';
+import { catalogUrlFor } from '@/lib/catalog-nav';
 import Logo from '@/components/Logo';
 import { 
   Phone, 
@@ -122,6 +123,12 @@ export default function Header() {
   };
 
   const navigateTo = (view: string, category = 'all', subcategory = 'all') => {
+    // E-bike and scooter categories are real, crawlable pages: go to the matching URL instead of a JS-only filter.
+    const catalogUrl = catalogUrlFor(view, category, subcategory);
+    if (catalogUrl && typeof window !== 'undefined') {
+      window.location.assign(catalogUrl);
+      return;
+    }
     setCurrentView(view);
     setCategoryFilter(category);
     setSubcategoryFilter(subcategory);
@@ -172,11 +179,11 @@ export default function Header() {
                 <button
                   key={i}
                   onClick={() => setActiveSlide(i)}
-                  className={`w-1.5 h-1.5 rounded-full transition-all ${
-                    activeSlide === i ? 'bg-emerald-300 w-3' : 'bg-emerald-700'
-                  }`}
+                  className="flex h-6 min-w-6 items-center justify-center"
                   aria-label={`Go to slide ${i + 1}`}
-                />
+                >
+                  <span className={`block h-1.5 rounded-full transition-all ${activeSlide === i ? 'w-3 bg-emerald-300' : 'w-1.5 bg-emerald-700'}`} />
+                </button>
               ))}
             </div>
           </div>

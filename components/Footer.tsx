@@ -3,6 +3,7 @@
 import React from 'react';
 import { useApp } from '@/context/AppContext';
 import { BUSINESS_INFO, CATEGORIES_CONFIG } from '@/lib/data';
+import { catalogUrlFor } from '@/lib/catalog-nav';
 import Logo from '@/components/Logo';
 import { 
   Bike, 
@@ -103,17 +104,25 @@ export default function Footer() {
             <ul className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-xs text-gray-400">
               {CATEGORIES_CONFIG.map((cat) => (
                 <li key={cat.id}>
-                  <button
-                    onClick={() => {
-                      if (cat.id === 'parts') handleNav('parts');
-                      else if (cat.id === 'scooters') handleNav('scooters');
-                      else if (cat.id === 'accessories') handleNav('accessories');
-                      else handleNav('shop', cat.id);
-                    }}
-                    className="cursor-pointer hover:text-white transition-colors text-left"
-                  >
-                    {cat.title}
-                  </button>
+                  {catalogUrlFor(cat.id === 'scooters' ? 'scooters' : 'ebikes', cat.id, 'all') && (cat.id === 'scooters' || cat.id !== 'parts') && ['emtb', 'folding', 'cruiser', 'fat-tyre', 'cargo', 'road', 'commuter', 'scooters'].includes(cat.id) ? (
+                    <a
+                      href={catalogUrlFor(cat.id === 'scooters' ? 'scooters' : 'ebikes', cat.id, 'all')!}
+                      className="inline-block py-1.5 cursor-pointer hover:text-white transition-colors text-left"
+                    >
+                      {cat.title}
+                    </a>
+                  ) : (
+                    <button
+                      onClick={() => {
+                        if (cat.id === 'parts') handleNav('parts');
+                        else if (cat.id === 'accessories') handleNav('accessories');
+                        else handleNav('shop', cat.id);
+                      }}
+                      className="inline-block py-1.5 cursor-pointer hover:text-white transition-colors text-left"
+                    >
+                      {cat.title}
+                    </button>
+                  )}
                 </li>
               ))}
               <li className="col-span-2 pt-1">
@@ -135,7 +144,7 @@ export default function Footer() {
             </h4>
             <ul className="space-y-1.5 text-xs text-gray-400">
               <li>
-                <button onClick={() => handleNav('contact')} className="cursor-pointer hover:text-white transition-colors">
+                <button onClick={() => handleNav('contact')} className="inline-block py-1 cursor-pointer hover:text-white transition-colors">
                   Contact Us
                 </button>
               </li>
@@ -146,47 +155,47 @@ export default function Footer() {
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('legal')} className="cursor-pointer hover:text-white transition-colors">
+                <button onClick={() => handleNav('legal')} className="inline-block py-1 cursor-pointer hover:text-white transition-colors">
                   Delivery & Logistics Information
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('legal')} className="cursor-pointer hover:text-white transition-colors">
+                <button onClick={() => handleNav('legal')} className="inline-block py-1 cursor-pointer hover:text-white transition-colors">
                   Returns & 2-Year Local Warranty
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('home')} className="cursor-pointer hover:text-white transition-colors">
+                <button onClick={() => handleNav('home')} className="inline-block py-1 cursor-pointer hover:text-white transition-colors">
                   Frequently Asked Questions (FAQs)
                 </button>
               </li>
               <li>
-                <a href="/used-electric-bikes" className="cursor-pointer hover:text-white transition-colors">
+                <a href="/used-electric-bikes" className="inline-block py-1 cursor-pointer hover:text-white transition-colors">
                   Used Electric Bikes
                 </a>
               </li>
               <li>
-                <button onClick={() => handleNav('brands')} className="cursor-pointer hover:text-white transition-colors text-emerald-300 font-semibold">
+                <button onClick={() => handleNav('brands')} className="inline-block py-1 cursor-pointer hover:text-white transition-colors text-emerald-300 font-semibold">
                   Brands Showcase
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('wholesale')} className="cursor-pointer hover:text-white transition-colors text-amber-300 font-semibold">
+                <button onClick={() => handleNav('wholesale')} className="inline-block py-1 cursor-pointer hover:text-white transition-colors text-amber-300 font-semibold">
                   Wholesale Fleet Supply (B2B)
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('legal')} className="cursor-pointer hover:text-white transition-colors">
+                <button onClick={() => handleNav('legal')} className="inline-block py-1 cursor-pointer hover:text-white transition-colors">
                   Road Rules (EN15194 Compliance)
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('blog')} className="cursor-pointer hover:text-white transition-colors">
+                <button onClick={() => handleNav('blog')} className="inline-block py-1 cursor-pointer hover:text-white transition-colors">
                   Buying Guides & Blog
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('about')} className="cursor-pointer hover:text-white transition-colors">
+                <button onClick={() => handleNav('about')} className="inline-block py-1 cursor-pointer hover:text-white transition-colors">
                   About Us
                 </button>
               </li>
@@ -251,7 +260,7 @@ export default function Footer() {
           </div>
 
           {/* SECURITY & LEGAL POLICIES */}
-          <div className="pt-3 border-t border-gray-800/80 flex flex-col sm:flex-row items-center justify-between gap-2.5 text-[11px] text-gray-500">
+          <div className="pt-3 border-t border-gray-800/80 flex flex-col sm:flex-row items-center justify-between gap-2.5 text-[11px] text-gray-400">
             <div className="flex items-center gap-1.5 text-emerald-400 font-medium">
               <ShieldCheck className="w-4 h-4 shrink-0" />
               <span>256-Bit SSL Encrypted Australian Checkout • 2-Year Local Warranty</span>

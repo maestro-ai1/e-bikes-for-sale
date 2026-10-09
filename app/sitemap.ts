@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { BLOG_POSTS, PRODUCTS } from '@/lib/data';
+import { ALL_CATALOG_PATHS } from '@/lib/catalog';
 
 const BASE_URL = 'https://ebikesforsale.com.au';
 
@@ -31,6 +32,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'weekly' as const,
       priority: route === '' ? 1 : 0.8,
+    })),
+    ...ALL_CATALOG_PATHS.filter((p) => !STATIC_ROUTES.includes(p)).map((p) => ({
+      url: `${BASE_URL}${p}`,
+      lastModified: now,
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
     })),
     ...PRODUCTS.map((p) => ({
       url: `${BASE_URL}/product/${p.slug}`,

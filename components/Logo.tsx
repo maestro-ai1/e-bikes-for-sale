@@ -94,7 +94,7 @@ export default function Logo({ variant = 'light', iconOnly = false, className = 
           </div>
           <span
             className={`text-[10px] font-bold tracking-wider uppercase mt-0.5 flex items-center gap-1.5 ${
-              isDark ? 'text-gray-400' : 'text-gray-400'
+              isDark ? 'text-gray-400' : 'text-gray-600'
             }`}
           >
             <span>Australia</span>
