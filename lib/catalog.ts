@@ -2,6 +2,7 @@ import type { Product } from '@/lib/types';
 import { CATALOG_KEYWORDS, type NodeKeywords } from '@/lib/catalog-keywords';
 import { LANDING_NODES } from '@/lib/landing-pages';
 import { KIDS_NODES } from '@/lib/kids-pages';
+import { BRAND_NODES } from '@/lib/brand-pages';
 
 /**
  * Category tree for the /ebikes and /scooters hubs.
@@ -36,6 +37,12 @@ export interface CatalogNode {
   matches: (p: Product) => boolean;
   /** Show at most this many products (landing pages) */
   productLimit?: number;
+  /** Heading above the product grid (defaults to "Shop <name>") */
+  productsHeading?: string;
+  /** Availability-enquiry text shown under the products */
+  enquiry?: string;
+  /** Extra internal links shown under the guides */
+  links?: { label: string; href: string }[];
   keywords: NodeKeywords;
 }
 
@@ -523,7 +530,7 @@ export const SECTION_MATCH: Record<string, (p: Product) => boolean> = {
   'sc-accessories': (p) => p.category === 'scooters' && p.subcategoryId === 'scooters-accessories',
 };
 
-export const CATALOG: CatalogNode[] = [...NODES, ...KIDS_NODES, ...LANDING_NODES].map((n) => ({ ...n, keywords: kw(n.id) }));
+export const CATALOG: CatalogNode[] = [...NODES, ...KIDS_NODES, ...BRAND_NODES, ...LANDING_NODES].map((n) => ({ ...n, keywords: kw(n.id) }));
 export const LANDING_PATHS = LANDING_NODES.map((n) => n.path);
 export const nodeById = (id: string) => CATALOG.find((n) => n.id === id);
 export const nodeByPath = (path: string) => CATALOG.find((n) => n.path === path);

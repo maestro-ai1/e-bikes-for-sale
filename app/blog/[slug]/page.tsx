@@ -19,6 +19,14 @@ export async function generateStaticParams() {
   }));
 }
 
+// Title tag <= 60 characters: add the brand suffix only when it fits, otherwise trim at a word boundary
+function blogTitle(base: string) {
+  const suffix = ' | e bikes for sale';
+  if (base.length + suffix.length <= 60) return base + suffix;
+  if (base.length <= 60) return base;
+  return base.slice(0, 60).replace(/s+S*$/, '');
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const blog = BLOG_POSTS.find((b) => b.slug === slug);
@@ -31,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${blog.seoTitle || blog.title} | e bikes for sale Australia`,
+    title: blogTitle(blog.seoTitle || blog.title),
     description: blog.excerpt,
     alternates: {
       canonical: `https://ebikesforsale.com.au/blog/${blog.slug}`,
@@ -90,10 +98,13 @@ export default async function BlogSlugPage({ params }: Props) {
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-gray-900">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      {/* Structured posts emit their own Article + FAQPage schema in the post body */}
+      {!blog.faqs && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      )}
       <Header />
 
       <main className="flex-1">

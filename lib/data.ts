@@ -1,4 +1,5 @@
 import { Product, BlogPost, FAQItem, AustralianStateRule, BrandInfo, RevolutionarySlide } from './types';
+import { SEGWAY_POSTS } from '@/lib/segway-content';
 
 export const BUSINESS_INFO = {
   name: 'e bikes for sale',
@@ -2191,6 +2192,9 @@ What to Look for in a Youth E-Bike Helmet:
     ]
   }
 ];
+
+// Structured posts (rich layout) are kept in their own file
+BLOG_POSTS.push(...SEGWAY_POSTS);
 
 export const AUSTRALIAN_STATE_RULES: AustralianStateRule[] = [
   {

@@ -6,6 +6,7 @@ import { useApp } from '@/context/AppContext';
 import { BLOG_POSTS, PRODUCTS } from '@/lib/data';
 import { BlogPost } from '@/lib/types';
 import { ChevronRight, Calendar, Clock, User, ArrowLeft, Tag, ShoppingBag } from 'lucide-react';
+import BlogRichBody from '@/components/BlogRichBody';
 
 interface BlogDetailViewProps {
   initialBlog?: BlogPost;
@@ -15,6 +16,9 @@ export default function BlogDetailView({ initialBlog }: BlogDetailViewProps = {}
   const { activeBlog, setActiveBlog, setCurrentView, addToCart, setQuickViewProduct } = useApp();
 
   const blog = initialBlog || activeBlog || BLOG_POSTS[0];
+  // Structured posts (FAQs / sources / related) use the rich layout and the featured product they name
+  const isRich = !!blog.faqs;
+  const featured = (isRich && blog.productSlug ? PRODUCTS.find((p) => p.slug === blog.productSlug) : null) || PRODUCTS[0];
 
   const handleBackToBlog = () => {
     setActiveBlog(null);
@@ -36,7 +40,7 @@ export default function BlogDetailView({ initialBlog }: BlogDetailViewProps = {}
             <span>Back to Knowledge Hub</span>
           </button>
 
-          <span className="text-xs font-semibold uppercase text-gray-400">
+          <span className="text-xs font-semibold uppercase text-gray-600">
             /{blog.slug}
           </span>
         </div>
@@ -82,6 +86,9 @@ export default function BlogDetailView({ initialBlog }: BlogDetailViewProps = {}
         </div>
 
         {/* Content Body */}
+        {isRich ? (
+          <BlogRichBody blog={blog} />
+        ) : (
         <div className="prose prose-emerald max-w-none text-gray-800 text-sm sm:text-base leading-relaxed space-y-5">
           {blog.content.split('\n\n').map((paragraph, idx) => (
             <p key={idx} className="whitespace-pre-line">
@@ -89,8 +96,10 @@ export default function BlogDetailView({ initialBlog }: BlogDetailViewProps = {}
             </p>
           ))}
         </div>
+        )}
 
-        {/* 20 COMMERCIAL & SEO TAGS CLUSTER */}
+        {/* 20 COMMERCIAL & SEO TAGS CLUSTER (legacy posts only) */}
+        {!isRich && (
         <div className="mt-12 pt-8 border-t border-gray-200">
           <div className="flex items-center gap-2 mb-3">
             <Tag className="w-4 h-4 text-[#2E6B4D]" />
@@ -115,14 +124,15 @@ export default function BlogDetailView({ initialBlog }: BlogDetailViewProps = {}
             ))}
           </div>
         </div>
+        )}
 
         {/* RELATED FEATURED E-BIKE CTA */}
         <div className="mt-12 bg-gray-50 border border-gray-200 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
             <div className="w-20 h-20 rounded-2xl relative overflow-hidden bg-white shrink-0 border border-gray-200">
               <Image
-                src={PRODUCTS[0].image}
-                alt={PRODUCTS[0].name}
+                src={featured.image}
+                alt={featured.name}
                 fill
                 className="object-cover"
                 referrerPolicy="no-referrer"
@@ -130,20 +140,20 @@ export default function BlogDetailView({ initialBlog }: BlogDetailViewProps = {}
             </div>
             <div>
               <span className="text-[11px] font-bold text-[#2E6B4D] uppercase">Ready to ride?</span>
-              <h4 className="font-black text-gray-900 text-base">{PRODUCTS[0].name}</h4>
-              <p className="text-xs text-gray-500">${PRODUCTS[0].price} AUD • 250W EN15194 Street Legal</p>
+              <h3 className="font-black text-gray-900 text-base">{featured.name}</h3>
+              <p className="text-xs text-gray-500">${featured.price} AUD • 250W EN15194 Street Legal</p>
             </div>
           </div>
 
           <div className="flex items-center gap-2 w-full sm:w-auto">
             <button
-              onClick={() => setQuickViewProduct(PRODUCTS[0])}
+              onClick={() => setQuickViewProduct(featured)}
               className="cursor-pointer bg-white border border-gray-300 text-gray-700 px-4 py-2.5 rounded-xl text-xs font-bold hover:bg-gray-100 transition-colors"
             >
               View Specs
             </button>
             <button
-              onClick={() => addToCart(PRODUCTS[0], 1)}
+              onClick={() => addToCart(featured, 1)}
               className="cursor-pointer bg-[#2E6B4D] text-white px-5 py-2.5 rounded-xl text-xs font-bold hover:bg-[#1E4733] shadow-xs transition-colors active:scale-95"
             >
               Add to Cart

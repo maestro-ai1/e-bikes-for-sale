@@ -83,6 +83,12 @@ export interface BlogPost {
   image: string;
   altText: string;
   tags: string[];
+  /** Structured posts (rich layout): FAQs, featured product, sources and related links */
+  faqs?: { q: string; a: string }[];
+  productSlug?: string;
+  sources?: { label: string; url: string }[];
+  related?: { label: string; href: string }[];
+  isoDate?: string;
 }
 
 export interface FAQItem {

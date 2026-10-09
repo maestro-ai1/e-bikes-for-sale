@@ -28,6 +28,7 @@ function crumbs(n: CatalogNode): { name: string; path: string }[] {
   if (n.id === 'sc-electric') return [home, { name: 'Scooters', path: '/scooters' }];
   if (n.id === 'sc-adults') return [home, { name: 'Scooters', path: '/scooters' }, { name: n.name, path: n.path }];
   if (n.id === 'hub') return [home, { name: 'E-Bikes', path: '/ebikes' }];
+  if (n.path.startsWith('/brands/')) return [home, { name: 'Brands', path: '/brands' }, { name: n.name, path: n.path }];
   if (n.kind === 'landing') return [home, { name: n.name, path: n.path }];
   const out = [home, { name: 'E-Bikes', path: '/ebikes' }];
   if (n.kind === 'sub' && n.parent) {
@@ -222,7 +223,7 @@ export default function CatalogPage({ node }: { node: CatalogNode }) {
       ) : (
         <section aria-labelledby="products-heading" className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
           <h2 id="products-heading" className="text-2xl font-black tracking-tight text-gray-900">
-            Shop {node.name.toLowerCase()}
+            {node.productsHeading || `Shop ${node.name.toLowerCase()}`}
           </h2>
           <div className="mt-5">
             {ownProducts.length ? (
@@ -234,6 +235,16 @@ export default function CatalogPage({ node }: { node: CatalogNode }) {
                 <Link href="/contact" className="mt-4 inline-flex min-h-11 items-center rounded-xl bg-[#2E6B4D] px-5 text-sm font-black text-white hover:bg-[#1E4733]">Contact us</Link>
               </div>
             )}
+          </div>
+        </section>
+      )}
+
+      {node.enquiry && (
+        <section aria-labelledby="enquiry-heading" className="mx-auto max-w-6xl px-4 pb-6 sm:px-6">
+          <div className="rounded-2xl border border-emerald-200 bg-emerald-50/60 p-5 sm:p-6">
+            <h2 id="enquiry-heading" className="text-xl font-black tracking-tight text-gray-900">Ask about availability</h2>
+            <p className="mt-2 max-w-3xl leading-relaxed text-gray-700">{node.enquiry}</p>
+            <Link href="/contact" className="mt-4 inline-flex min-h-11 items-center rounded-xl bg-[#2E6B4D] px-5 text-sm font-black text-white hover:bg-[#1E4733]">Contact us</Link>
           </div>
         </section>
       )}
@@ -273,6 +284,19 @@ export default function CatalogPage({ node }: { node: CatalogNode }) {
         </div>
       </section>
 
+      {node.links && node.links.length > 0 && (
+        <nav aria-label="Related guides" className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+          <h2 className="text-xl font-black tracking-tight text-gray-900">Related guides and pages</h2>
+          <ul className="mt-4 flex flex-wrap gap-2">
+            {node.links.map((l) => (
+              <li key={l.href}>
+                <Link href={l.href} className="inline-flex min-h-11 items-center rounded-full border border-gray-300 px-4 text-sm font-bold text-gray-800 hover:border-[#2E6B4D] hover:text-[#2E6B4D]">{l.label}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
+
       {/* Related categories (hub & spoke) */}
       {(siblings.length > 0 || node.kind === 'sub') && (
         <nav aria-label="Related categories" className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
@@ -311,6 +335,7 @@ export default function CatalogPage({ node }: { node: CatalogNode }) {
         <ul className="mt-3 flex flex-wrap gap-2">
           {[
             { href: node.path.startsWith('/scooters') ? '/ebikes' : '/scooters', label: node.path.startsWith('/scooters') ? 'Electric bikes' : 'Electric scooters' },
+            ...(node.path.startsWith('/scooters') ? [{ href: '/brands/segway-ninebot', label: 'Segway-Ninebot guide' }] : []),
             { href: '/accessories', label: 'Accessories & locks' },
             { href: '/parts', label: 'Parts & tyres' },
             { href: '/used-electric-bikes', label: 'Used electric bikes' },
