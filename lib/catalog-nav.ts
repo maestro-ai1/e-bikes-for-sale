@@ -10,6 +10,7 @@ const CATEGORY_PATH: Record<string, string> = {
   cargo: '/ebikes/electric-cargo-bikes',
   road: '/ebikes/electric-road-bikes',
   commuter: '/ebikes/electric-commuter-bikes',
+  'kids-ebikes': '/ebikes/kids-electric-bikes',
 };
 
 const EMTB_SUB: Record<string, string> = {
@@ -17,14 +18,14 @@ const EMTB_SUB: Record<string, string> = {
   "dual suspension emtb's": '/ebikes/electric-mountain-bike/dual-suspension',
   "enduro dual suspension emtb's": '/ebikes/electric-mountain-bike/enduro',
   "trial suspension emtb's": '/ebikes/electric-mountain-bike/trial-suspension',
-  "kids and youths 24' emtb's": '/ebikes/electric-mountain-bike#kids-24-emtb',
+  "kids and youths 24' emtb's": '/ebikes/electric-mountain-bike/kids-mountain-bikes',
 };
 
 const SCOOTER_SUB: Record<string, string> = {
   'electric scooters': '/scooters',
   'adults scooters': '/scooters/adults-scooters',
-  'kids scooters': '/scooters#kids-scooters',
-  'scooter accessories': '/scooters#scooter-accessories',
+  'kids scooters': '/scooters/kids-scooters',
+  'scooter accessories': '/scooters/scooter-accessories',
 };
 
 export function catalogUrlFor(view: string, category = 'all', subcategory = 'all'): string | null {

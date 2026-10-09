@@ -170,7 +170,7 @@ export default function CatalogPage({ node }: { node: CatalogNode }) {
         <nav aria-label="More ways to shop" className="mx-auto max-w-6xl px-4 pb-4 sm:px-6">
           <h2 className="text-sm font-black uppercase tracking-wider text-gray-500">More ways to shop</h2>
           <ul className="mt-3 flex flex-wrap gap-2">
-            {CATALOG.filter((c) => LANDING_PATHS.includes(c.path)).map((c) => (
+            {CATALOG.filter((c) => LANDING_PATHS.includes(c.path) || c.id === 'kids-ebikes').map((c) => (
               <li key={c.id}>
                 <Link href={c.path} className="inline-flex min-h-11 items-center rounded-full border border-gray-300 bg-white px-4 text-sm font-bold text-gray-800 hover:border-[#2E6B4D] hover:text-[#2E6B4D]">
                   {c.name}

@@ -1,11 +1,12 @@
 import type { Product } from '@/lib/types';
 import { CATALOG_KEYWORDS, type NodeKeywords } from '@/lib/catalog-keywords';
 import { LANDING_NODES } from '@/lib/landing-pages';
+import { KIDS_NODES } from '@/lib/kids-pages';
 
 /**
  * Category tree for the /ebikes and /scooters hubs.
  * - Every node with its own keyword data gets a real, crawlable URL (hub, 7 categories, 4 eMTB subcategories, 1 scooter subcategory).
- * - Subcategories without keyword data in the Semrush bank (kids 24" eMTB, kids scooters, scooter accessories)
+ * - Subcategories only get their own URL when the Semrush bank supports them (now: all of them)
  *   are rendered as in-page sections on their parent, not as thin standalone pages.
  * - Keywords come from lib/catalog-keywords.ts (generated). Search terms for BOTH electric and non-electric bikes are used on purpose.
  */
@@ -126,10 +127,7 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
       { q: 'Should I buy a hardtail or dual suspension eMTB?', a: 'Choose a hardtail for lighter weight, lower cost and smoother trails. Choose dual suspension for rough, technical trails where rear-wheel traction and comfort matter more.' },
       { q: 'Can kids ride an electric mountain bike?', a: 'Our 24-inch youth eMTB has a lower 378 Wh battery and a 16.8 kg frame. Age rules for e-bikes differ by state and are changing, so check your state requirements and always use a certified helmet.' },
     ],
-    children: ['emtb-hardtail', 'emtb-dual', 'emtb-enduro', 'emtb-trail'],
-    sections: [
-      { id: 'emtb-kids', heading: 'Kids and Youths 24" eMTBs', blurb: 'A 24-inch youth mountain e-bike with progressive torque, a 378 Wh battery and youth-fit geometry.', anchor: 'kids-24-emtb' },
-    ],
+    children: ['emtb-hardtail', 'emtb-dual', 'emtb-enduro', 'emtb-trail', 'emtb-kids'],
     matches: inCat('emtb'),
   },
   {
@@ -483,11 +481,7 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
       { q: 'How long does a scooter battery last?', a: 'Range per charge depends on rider weight, terrain and speed. Battery lifespan depends on charging habits and storage.' },
       { q: 'What accessories do I need for an e-scooter?', a: 'A certified helmet, a strong lock and a bag are the basics. Our lock and bag kit includes an anti-cut steel lock and a waterproof handlebar bag.' },
     ],
-    children: ['sc-adults'],
-    sections: [
-      { id: 'sc-kids', heading: 'Kids Scooters', blurb: 'A lean-to-steer 3-wheel scooter with a 12 km/h speed governor, LED wheels and a rear foot brake.', anchor: 'kids-scooters' },
-      { id: 'sc-accessories', heading: 'Scooter Accessories', blurb: 'Lock, bag and safety gear for everyday e-scooter use.', anchor: 'scooter-accessories' },
-    ],
+    children: ['sc-adults', 'sc-kids', 'sc-accessories'],
     matches: (p) => p.category === 'scooters' && p.subcategoryId === 'scooters-electric',
   },
   {
@@ -529,7 +523,7 @@ export const SECTION_MATCH: Record<string, (p: Product) => boolean> = {
   'sc-accessories': (p) => p.category === 'scooters' && p.subcategoryId === 'scooters-accessories',
 };
 
-export const CATALOG: CatalogNode[] = [...NODES, ...LANDING_NODES].map((n) => ({ ...n, keywords: kw(n.id) }));
+export const CATALOG: CatalogNode[] = [...NODES, ...KIDS_NODES, ...LANDING_NODES].map((n) => ({ ...n, keywords: kw(n.id) }));
 export const LANDING_PATHS = LANDING_NODES.map((n) => n.path);
 export const nodeById = (id: string) => CATALOG.find((n) => n.id === id);
 export const nodeByPath = (path: string) => CATALOG.find((n) => n.path === path);
