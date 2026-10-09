@@ -36,12 +36,12 @@ interface Spec {
   frameMaterial?: string;
   brakes: string;
   gears: string;
-  images: number; // number of photos (1 or 2)
+  images: number; // number of photos (slug.jpg, slug-2.jpg, slug-3.jpg ...)
   tags: string[];
 }
 
 const build = (s: Spec): Product => {
-  const gallery = s.images > 1 ? [IMG(s.slug), IMG(s.slug, 2)] : [IMG(s.slug)];
+  const gallery = Array.from({ length: Math.max(1, s.images) }, (_, i) => IMG(s.slug, i === 0 ? undefined : i + 1));
   return {
     id: `ptn-${s.slug}`,
     name: s.name,
@@ -167,7 +167,7 @@ const SPECS: Spec[] = [
     description: 'The Cube Touring Hybrid ONE Easy Entry 600 is the step-through version of Cube\'s touring e-bike. The low entry makes mounting easy, and it carries the same Bosch drive, 600 Wh battery and full touring equipment.',
     features: ['Easy-entry step-through frame', 'Bosch Performance Line drive, 250 W and 75 Nm', 'Bosch PowerTube 600 Wh battery', 'Rack, mudguards, lights and kickstand included'],
     motor: 'Bosch Performance Line mid-drive, 250 W', motorType: 'Mid-Drive', torqueNm: 75, batteryWh: 600, batterySpec: 'Bosch PowerTube 600 Wh',
-    frameType: 'Step-Through', frameMaterial: 'Aluminium', brakes: 'Shimano hydraulic disc brakes', gears: 'Shimano Cues 9-speed', images: 2,
+    frameType: 'Step-Through', frameMaterial: 'Aluminium', brakes: 'Shimano hydraulic disc brakes', gears: 'Shimano Cues 9-speed', images: 4,
     tags: ['step through ebike', 'electric commuter bikes', 'easy entry electric bike', 'touring ebike', 'cube hybrid bike'],
   },
   {
@@ -237,7 +237,7 @@ const SPECS: Spec[] = [
     description: 'The Pedal Derby is a folding step-through electric bike on 20 inch wheels with a 250 W rear hub motor and a removable 374 Wh battery. It folds down for the boot, the train or the office, and one size fits riders from about 145 to 185 cm.',
     features: ['250 W rear hub motor with 40 Nm of torque', 'Removable 374 Wh battery, up to about 50 km range', 'Shimano Tourney 7-speed and Tektro hydraulic disc brakes', 'Folds to 86 x 46 x 68 cm'],
     motor: '250 W rear hub motor', motorType: 'Hub', torqueNm: 40, batteryWh: 374, batterySpec: 'Removable 374 Wh battery', rangeKm: 50, weightKg: 20.5,
-    frameType: 'Folding', frameMaterial: 'Alloy 6061', brakes: 'Tektro HD-M275 hydraulic disc brakes, 160 mm rotors', gears: 'Shimano Tourney 7-speed', images: 2,
+    frameType: 'Folding', frameMaterial: 'Alloy 6061', brakes: 'Tektro HD-M275 hydraulic disc brakes, 160 mm rotors', gears: 'Shimano Tourney 7-speed', images: 4,
     tags: ['folding e bike', 'electric folding bike', 'foldable electric bike', 'step through folding ebike', 'compact ebike'],
   },
   {
@@ -265,7 +265,7 @@ const SPECS: Spec[] = [
     description: 'The Pedal Bandit 20" is a compact electric fat tyre bike with 20 x 4 inch tyres, a 250 W rear hub motor and a removable battery. Hydraulic disc brakes and a sturdy steel frame make it a fun, stable ride over sand, gravel and city streets.',
     features: ['250 W rear hub motor, 45 Nm of torque', '20 x 4 inch fat tyres for sand and gravel', 'Hydraulic disc brakes', 'Removable battery, up to about 50 km range'],
     motor: '250 W rear hub motor', motorType: 'Hub', torqueNm: 45, batteryWh: 624, batterySpec: 'Removable lithium battery', rangeKm: 50,
-    frameType: 'Crossbar', frameMaterial: 'Steel', brakes: 'Hydraulic disc brakes', gears: 'See spec sheet', images: 1,
+    frameType: 'Crossbar', frameMaterial: 'Steel', brakes: 'Hydraulic disc brakes', gears: 'See spec sheet', images: 2,
     tags: ['fat tyre electric bicycle', 'electric fat bike', 'fat tyre ebike', 'fat bike for sale', 'compact fat bike'],
   },
   {
@@ -281,6 +281,20 @@ const SPECS: Spec[] = [
     motor: '250 W Shengyi geared rear hub motor', motorType: 'Hub', torqueNm: 60, batteryWh: 1040, batterySpec: '52 V lithium battery', rangeKm: 125,
     frameType: 'Crossbar', frameMaterial: 'Alloy', brakes: 'Hydraulic disc brakes', gears: 'See spec sheet', images: 2,
     tags: ['electric fat bike', 'fat tyre electric bicycle', 'dirodi electric bike', 'fat tyre ebike', 'long range ebike'],
+  },
+  {
+    slug: 'cube-compact-sport-hybrid-500',
+    name: 'Cube Compact Sport Hybrid 500 Electric Bike',
+    brand: 'Cube', focusKeyword: 'cube compact sport hybrid 500 electric bike',
+    category: 'commuter', categoryLabel: 'Electric Commuter Bikes',
+    price: 2500,
+    subtitle: 'Compact Bosch-powered Cube e-bike with a 500 Wh battery for city riding',
+    shortDescription: 'A compact Cube electric bike with a Bosch drive and a 500 Wh battery, built for city commuting.',
+    description: 'The Cube Compact Sport Hybrid 500 is a compact electric bike for city commuting and everyday errands. It pairs a Bosch drive with a 500 Wh battery in a smaller, easy-to-handle package that is simple to store.',
+    features: ['Bosch mid-drive motor', '500 Wh battery', 'Compact frame that is easy to handle and store', 'Pedal assist to 25 km/h'],
+    motor: 'Bosch mid-drive motor, 250 W', motorType: 'Mid-Drive', batteryWh: 500, batterySpec: 'Bosch 500 Wh battery',
+    frameType: 'Universal', frameMaterial: 'Aluminium', brakes: 'See spec sheet', gears: 'See spec sheet', images: 1,
+    tags: ['compact electric bike', 'electric commuter bikes', 'cube hybrid bike', 'city ebike', 'bosch ebike'],
   },
 ];
 

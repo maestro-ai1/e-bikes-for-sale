@@ -100,7 +100,7 @@ If you want a foldable commuter with comparable everyday features, compare it ag
     date: 'October 2026',
     isoDate: '2026-10-09',
     author: 'e bikes for sale team',
-    image: SCOOTER_IMAGE,
+    image: '/images/blog/segway-ninebot-e2-plus-ii.jpg',
     altText: 'Electric commuter scooter with price tag concept for Segway Ninebot E2 Pro price guide',
     content: `Searching for the Ninebot E2 Pro price usually means you want to know one thing: what will I actually pay, and is it worth it? This guide explains what drives the price of a Segway scooter in Australia, what else to budget for, and how to compare it against alternatives. We do not quote a price here, because prices change by retailer, model year and promotion. ${NOTE}
 

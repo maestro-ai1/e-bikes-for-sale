@@ -43,7 +43,7 @@ export default function BlogRichBody({ blog }: { blog: BlogPost }) {
         '@id': `${url}#article`,
         headline: blog.title,
         description: blog.excerpt,
-        image: blog.image,
+        image: blog.image.startsWith('/') ? `${SITE}${blog.image}` : blog.image,
         inLanguage: 'en-AU',
         mainEntityOfPage: url,
         author: { '@type': 'Organization', name: 'e bikes for sale' },

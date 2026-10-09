@@ -28,7 +28,7 @@ export const BRAND_NODES_RETAIL: BrandNode[] = [
       "Browse Cube e mountain bikes and electric hybrids: Reaction Hybrid hardtail, Stereo Hybrid enduro, Touring Hybrid and Nuroad gravel. Compare specs and prices.",
     h1: "Cube E Mountain Bikes: Cube E-Bike Range in Australia",
     intro: [
-      "Cube e mountain bikes and electric hybrids are known for Bosch-powered drives, integrated batteries and complete, ready-to-ride equipment. This range covers a hardtail and an enduro eMTB, two touring hybrids and a carbon gravel bike.",
+      "Cube e mountain bikes and electric hybrids are known for Bosch-powered drives, integrated batteries and complete, ready-to-ride equipment. This range covers a hardtail and an enduro eMTB, two touring hybrids, a compact sport hybrid and a carbon gravel bike.",
       "Each model below has its own page with motor, battery and brake details, current pricing and photos. Use the comparison notes to narrow down which Cube suits your riding.",
     ],
     bridge: {
