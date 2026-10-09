@@ -10,6 +10,9 @@ import WhatsAppChatWidget from '@/components/WhatsAppChatWidget';
 import ProductDetailModal from '@/components/ProductDetailModal';
 import Footer from '@/components/Footer';
 
+const SITE_ORIGIN = 'https://ebikesforsale.com.au';
+const absUrl = (u: string) => (u.startsWith('/') ? `${SITE_ORIGIN}${u}` : u);
+
 interface Props {
   params: Promise<{ slug: string }>;
 }
@@ -40,7 +43,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
   const phrase = CATALOG_KEYWORDS[KEY[product.category]]?.primary;
   const titleCase = (s: string) => s.replace(/\b\w/g, (c) => c.toUpperCase());
-  let title = phrase ? `${product.name} | ${titleCase(phrase)} Australia` : `${product.name} | Buy ${product.categoryLabel} Australia`;
+  const focus = product.focusKeyword;
+  let title = focus ? `${titleCase(focus)} | Australia` : phrase ? `${product.name} | ${titleCase(phrase)} Australia` : `${product.name} | Buy ${product.categoryLabel} Australia`;
   if (title.length > 60 && phrase) title = `${product.name} | ${titleCase(phrase)}`;
   if (title.length > 60) title = product.name.length > 60 ? `${product.name.slice(0, 57).trim()}...` : product.name;
   let description = `${phrase ? `Buy a ${phrase} in Australia: ` : ''}${product.name}. ${product.shortDescription} EN15194, 250W, 10% Bitcoin & USDT discount.`;
@@ -59,10 +63,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: 'website',
       images: [
         {
-          url: product.image,
-          width: 800,
+          url: absUrl(product.image),
+          width: 600,
           height: 600,
-          alt: `${product.name} - Australian Street Legal Electric Bike`,
+          alt: product.focusKeyword || `${product.name} - Australian Street Legal Electric Bike`,
         },
       ],
     },
@@ -70,7 +74,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: `${product.name} | e bikes for sale`,
       description: product.shortDescription,
-      images: [product.image],
+      images: [absUrl(product.image)],
     },
   };
 }
@@ -87,7 +91,8 @@ export default async function ProductSlugPage({ params }: Props) {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: product.name,
-    image: product.image,
+    sku: product.id,
+    image: (product.gallery && product.gallery.length ? product.gallery : [product.image]).map(absUrl),
     description: product.description,
     brand: {
       '@type': 'Brand',
@@ -106,11 +111,10 @@ export default async function ProductSlugPage({ params }: Props) {
         name: 'e bikes for sale',
       },
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: product.rating,
-      reviewCount: product.reviewsCount,
-    },
+    // Only emit a rating when there are real reviews
+    ...(product.reviewsCount > 0
+      ? { aggregateRating: { '@type': 'AggregateRating', ratingValue: product.rating, reviewCount: product.reviewsCount } }
+      : {}),
   };
 
   const faqJsonLd = product.faqs && product.faqs.length > 0 ? {

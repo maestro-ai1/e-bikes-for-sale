@@ -165,7 +165,7 @@ export default function ProductDetailModal() {
               <PackageCheck className="w-5 h-5 text-emerald-700 shrink-0" />
               <div className="text-xs">
                 <span className="font-extrabold text-emerald-900 block">
-                  In Stock ({product.stockCount} units available in Australian Dispatch Hub)
+                  {product.stockCount > 0 ? `In Stock (${product.stockCount} units available in Australian Dispatch Hub)` : 'Available to order'}
                 </span>
                 <span className="text-emerald-700">Orders placed before 2:00pm AEST dispatch next business day.</span>
               </div>
@@ -222,8 +222,12 @@ export default function ProductDetailModal() {
                     <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
                   ))}
                 </div>
-                <span className="text-xs font-bold text-gray-800">{product.rating}</span>
-                <span className="text-xs text-gray-400">({product.reviewsCount} verified owner ratings)</span>
+                {product.reviewsCount > 0 && (
+                  <>
+                    <span className="text-xs font-bold text-gray-800">{product.rating}</span>
+                    <span className="text-xs text-gray-400">({product.reviewsCount} verified owner ratings)</span>
+                  </>
+                )}
               </div>
             </div>
 

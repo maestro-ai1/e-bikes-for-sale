@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import ProductImage from '@/components/ProductImage';
 import { ChevronRight, HelpCircle } from 'lucide-react';
 import { CATALOG_IMAGES } from '@/lib/catalog-images';
 import { PRODUCTS } from '@/lib/data';
@@ -106,6 +106,7 @@ export default function CatalogPage({ node }: { node: CatalogNode }) {
   const jsonLd = buildJsonLd(node, listed);
   const startingPrice = fromPrice(listed);
   const banner = CATALOG_IMAGES[node.id];
+  const isBrand = node.path.startsWith('/brands/');
 
   return (
     <article>
@@ -129,7 +130,7 @@ export default function CatalogPage({ node }: { node: CatalogNode }) {
 
       {/* Hero */}
       <header className="mt-4 bg-gradient-to-br from-[#1E4733] via-[#2E6B4D] to-[#1E4733] text-white">
-        <div className={`mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14 ${banner ? 'grid items-center gap-8 md:grid-cols-[1.4fr_1fr]' : ''}`}>
+        <div className={`mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14 ${banner || isBrand ? 'grid items-center gap-8 md:grid-cols-[1.4fr_1fr]' : ''}`}>
           <div>
             <h1 className="max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-4xl lg:text-5xl">{node.h1}</h1>
             <div className="mt-5 max-w-3xl space-y-3 text-base leading-relaxed text-emerald-50/95">
@@ -143,15 +144,14 @@ export default function CatalogPage({ node }: { node: CatalogNode }) {
               </p>
             )}
           </div>
-          {banner && (
-            <div className="relative aspect-[4/3] w-full overflow-hidden md:aspect-square rounded-3xl border border-white/20 shadow-xl">
-              <Image
-                src={banner.src}
-                alt={banner.alt}
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, 420px"
-                className="object-cover"
+          {(banner || isBrand) && (
+            <div className="mx-auto aspect-square w-full max-w-[420px] overflow-hidden rounded-3xl border border-white/20 bg-[#f8fafc] shadow-xl">
+              <ProductImage
+                src={banner?.src}
+                focusKeyword={banner?.alt ?? node.keywords.primary}
+                name={node.name}
+                loading="eager"
+                withContainer={false}
               />
             </div>
           )}

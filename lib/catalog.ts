@@ -4,6 +4,7 @@ import { LANDING_NODES } from '@/lib/landing-pages';
 import { KIDS_NODES } from '@/lib/kids-pages';
 import { BRAND_NODES } from '@/lib/brand-pages';
 import { BRAND_NODES_MORE } from '@/lib/brand-pages-more';
+import { BRAND_NODES_RETAIL, RETAIL_BRAND_KEYWORDS } from '@/lib/brand-pages-retail';
 
 /**
  * Category tree for the /ebikes and /scooters hubs.
@@ -47,7 +48,7 @@ export interface CatalogNode {
   keywords: NodeKeywords;
 }
 
-const kw = (id: string): NodeKeywords => CATALOG_KEYWORDS[id];
+const kw = (id: string): NodeKeywords => CATALOG_KEYWORDS[id] ?? RETAIL_BRAND_KEYWORDS[id];
 const inCat = (cat: string) => (p: Product) => p.category === cat;
 
 export const SITE_URL = 'https://ebikesforsale.com.au';
@@ -531,7 +532,7 @@ export const SECTION_MATCH: Record<string, (p: Product) => boolean> = {
   'sc-accessories': (p) => p.category === 'scooters' && p.subcategoryId === 'scooters-accessories',
 };
 
-export const CATALOG: CatalogNode[] = [...NODES, ...KIDS_NODES, ...BRAND_NODES, ...BRAND_NODES_MORE, ...LANDING_NODES].map((n) => ({ ...n, keywords: kw(n.id) }));
+export const CATALOG: CatalogNode[] = [...NODES, ...KIDS_NODES, ...BRAND_NODES, ...BRAND_NODES_MORE, ...BRAND_NODES_RETAIL, ...LANDING_NODES].map((n) => ({ ...n, keywords: kw(n.id) }));
 export const LANDING_PATHS = LANDING_NODES.map((n) => n.path);
 export const nodeById = (id: string) => CATALOG.find((n) => n.id === id);
 export const nodeByPath = (path: string) => CATALOG.find((n) => n.path === path);

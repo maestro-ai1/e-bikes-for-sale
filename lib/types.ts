@@ -37,6 +37,10 @@ export interface Product {
   image: string;
   hoverImage: string;
   gallery: string[];
+  /** Exact primary focus keyword for this page and its image alt text */
+  focusKeyword?: string;
+  /** Frame material label (defaults to alloy in the specs grid) */
+  frameMaterial?: string;
   inStock: boolean;
   stockCount: number;
   motor: string;

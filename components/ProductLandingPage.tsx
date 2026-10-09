@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import ProductImage from '@/components/ProductImage';
 import { useApp } from '@/context/AppContext';
 import { Product, AddOnItem } from '@/lib/types';
 import { PRODUCTS, BUSINESS_INFO } from '@/lib/data';
@@ -178,14 +179,14 @@ export default function ProductLandingPage({ initialProduct }: ProductLandingPag
           <div className="lg:col-span-7 space-y-4">
             
             {/* Primary Image Viewport (Strict 4:3 Aspect Ratio) */}
-            <div className="relative aspect-4/3 w-full bg-gray-50 rounded-3xl overflow-hidden border border-gray-200/80 shadow-md group">
-              <Image
+            <div className="relative mx-auto aspect-square w-full max-w-[600px] bg-[#f8fafc] rounded-3xl overflow-hidden border border-gray-200/80 shadow-md group">
+              <ProductImage
+                key={product.gallery?.[activeImageIndex] || product.image}
                 src={product.gallery?.[activeImageIndex] || product.image}
-                alt={`${product.name} - Australian Street Legal Electric Bike`}
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 58vw"
-                className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+                focusKeyword={product.focusKeyword || product.name}
+                name={product.name}
+                loading="eager"
+                withContainer={false}
               />
 
               {/* Status Badges */}
@@ -204,7 +205,7 @@ export default function ProductLandingPage({ initialProduct }: ProductLandingPag
               {/* In-Stock Indicator */}
               <div className="absolute top-4 right-4 z-10 bg-white/95 backdrop-blur-xs px-3 py-1.5 rounded-full shadow-xs border border-gray-200 flex items-center gap-1.5 text-xs font-bold text-emerald-800">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span>In Stock ({product.stockCount} units available)</span>
+                <span>{product.stockCount > 0 ? `In Stock (${product.stockCount} units available)` : 'Available to order'}</span>
               </div>
             </div>
 
@@ -221,12 +222,12 @@ export default function ProductLandingPage({ initialProduct }: ProductLandingPag
                         : 'border-gray-200 hover:border-gray-400 opacity-80'
                     }`}
                   >
-                    <Image
+                    <ProductImage
                       src={imgUrl}
-                      alt={`${product.name} view ${idx + 1}`}
-                      fill
-                      sizes="80px"
-                      className="object-contain p-1"
+                      focusKeyword={product.focusKeyword || product.name}
+                      name={`${product.name} view ${idx + 1}`}
+                      loading="lazy"
+                      withContainer={false}
                     />
                   </button>
                 ))}
@@ -244,13 +245,13 @@ export default function ProductLandingPage({ initialProduct }: ProductLandingPag
               <div className="bg-gray-50 p-3.5 rounded-2xl border border-gray-200/80 text-center">
                 <BatteryCharging className="w-5 h-5 text-emerald-600 mx-auto mb-1" />
                 <span className="text-[11px] uppercase font-bold text-gray-500 block">Battery Pack</span>
-                <span className="text-sm font-black text-gray-900">{product.batteryWh ? `${product.batteryWh}Wh Samsung` : 'Lithium Grade A'}</span>
+                <span className="text-sm font-black text-gray-900">{product.batteryWh ? `${product.batteryWh} Wh` : 'See spec sheet'}</span>
               </div>
 
               <div className="bg-gray-50 p-3.5 rounded-2xl border border-gray-200/80 text-center">
                 <Gauge className="w-5 h-5 text-blue-600 mx-auto mb-1" />
                 <span className="text-[11px] uppercase font-bold text-gray-500 block">Max Range</span>
-                <span className="text-sm font-black text-gray-900">{product.rangeKm ? `${product.rangeKm} km` : '85 km'}</span>
+                <span className="text-sm font-black text-gray-900">{product.rangeKm ? `${product.rangeKm} km` : 'See spec sheet'}</span>
               </div>
 
               <div className="bg-gray-50 p-3.5 rounded-2xl border border-gray-200/80 text-center">
@@ -271,11 +272,13 @@ export default function ProductLandingPage({ initialProduct }: ProductLandingPag
                 <span className="text-xs font-extrabold uppercase tracking-widest text-[#2E6B4D]">
                   {product.brand} • {product.categoryLabel}
                 </span>
-                <div className="flex items-center gap-1.5 text-xs text-amber-600 font-bold bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200/60">
-                  <Star className="w-3.5 h-3.5 fill-current" />
-                  <span>{product.rating}</span>
-                  <span className="text-gray-400">({product.reviewsCount} reviews)</span>
-                </div>
+                {product.reviewsCount > 0 && (
+                  <div className="flex items-center gap-1.5 text-xs text-amber-600 font-bold bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200/60">
+                    <Star className="w-3.5 h-3.5 fill-current" />
+                    <span>{product.rating}</span>
+                    <span className="text-gray-400">({product.reviewsCount} reviews)</span>
+                  </div>
+                )}
               </div>
 
               {/* EXACT H1 TAG FOR OPTIMAL ON-PAGE SEO */}
@@ -522,11 +525,11 @@ export default function ProductLandingPage({ initialProduct }: ProductLandingPag
               </div>
               <div className="flex items-center justify-between p-4">
                 <span className="font-bold text-gray-600">Peak Hill-Climb Torque</span>
-                <span className="font-mono font-bold text-gray-900">{product.torqueNm} Nm Dynamic Torque</span>
+                <span className="font-mono font-bold text-gray-900">{product.torqueNm ? `${product.torqueNm} Nm Dynamic Torque` : 'See spec sheet'}</span>
               </div>
               <div className="flex items-center justify-between p-4 bg-gray-50/50">
                 <span className="font-bold text-gray-600">Battery Capacity (Wh)</span>
-                <span className="font-mono font-bold text-gray-900">{product.batteryWh ? `${product.batteryWh} Wh` : '540 Wh High Capacity'}</span>
+                <span className="font-mono font-bold text-gray-900">{product.batteryWh ? `${product.batteryWh} Wh` : 'See spec sheet'}</span>
               </div>
               <div className="flex items-center justify-between p-4">
                 <span className="font-bold text-gray-600">Cell Chemistry & Specification</span>
@@ -538,7 +541,7 @@ export default function ProductLandingPage({ initialProduct }: ProductLandingPag
               </div>
               <div className="flex items-center justify-between p-4">
                 <span className="font-bold text-gray-600">Maximum Range (Eco Mode)</span>
-                <span className="font-mono font-bold text-gray-900">{product.rangeKm ? `${product.rangeKm} km` : '85 km'}</span>
+                <span className="font-mono font-bold text-gray-900">{product.rangeKm ? `${product.rangeKm} km` : 'See spec sheet'}</span>
               </div>
             </div>
 
@@ -546,15 +549,15 @@ export default function ProductLandingPage({ initialProduct }: ProductLandingPag
             <div className="divide-y divide-gray-100">
               <div className="flex items-center justify-between p-4 bg-gray-50/50">
                 <span className="font-bold text-gray-600">Frame Architecture</span>
-                <span className="font-semibold text-gray-900">{product.frameType} Hydroformed Alloy</span>
+                <span className="font-semibold text-gray-900">{product.frameType} {product.frameMaterial || 'Hydroformed Alloy'}</span>
               </div>
               <div className="flex items-center justify-between p-4">
                 <span className="font-bold text-gray-600">Total Net Weight</span>
-                <span className="font-mono font-bold text-gray-900">{product.weightKg ? `${product.weightKg} kg` : '21.5 kg'}</span>
+                <span className="font-mono font-bold text-gray-900">{product.weightKg ? `${product.weightKg} kg` : 'See spec sheet'}</span>
               </div>
               <div className="flex items-center justify-between p-4 bg-gray-50/50">
                 <span className="font-bold text-gray-600">Maximum Payload Capacity</span>
-                <span className="font-mono font-bold text-gray-900">{product.payloadKg} kg (Rider + Gear)</span>
+                <span className="font-mono font-bold text-gray-900">{product.payloadKg ? `${product.payloadKg} kg (Rider + Gear)` : 'See spec sheet'}</span>
               </div>
               <div className="flex items-center justify-between p-4">
                 <span className="font-bold text-gray-600">Braking System</span>

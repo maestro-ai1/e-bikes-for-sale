@@ -219,6 +219,10 @@ export default function BrandPage() {
               ['/brands/pulse', 'Pulse e bikes'],
               ['/brands/reid', 'Reid electric bikes'],
               ['/brands/trek', 'Trek e bikes'],
+              ['/brands/cube', 'Cube e mountain bikes'],
+              ['/brands/merida', 'Merida electric bikes'],
+              ['/brands/pedal', 'Pedal electric bikes'],
+              ['/brands/dirodi', 'Dirodi electric bike'],
               ['/brands/canyon', 'Canyon e bikes'],
               ['/brands/aldi', 'Aldi e-bike alternatives'],
             ].map(([href, label]) => (
