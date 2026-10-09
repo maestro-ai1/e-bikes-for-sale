@@ -62,7 +62,7 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
     navLabel: 'All E-Bikes',
     title: 'Best Electric Bike Australia | Shop E-Bikes by Category',
     description:
-      'Find the best electric bike in Australia: mountain, folding, cruiser, fat tyre, cargo, road and commuter e-bikes. 250W EN15194 models with fast dispatch.',
+      'Compare the best electric bike Australia has to offer: mountain, folding, cruiser, fat tyre, cargo, road and commuter e-bikes. 250W EN15194, fast dispatch.',
     h1: 'Best Electric Bike Australia: Shop E-Bikes by Category',
     intro: [
       'Choosing the best electric bike in Australia starts with how you ride. Every e-bike in this range is a 250W, 25 km/h pedal-assist model built to the EN 15194 standard, so the real decision is the frame and motor that suit your riding: trails, trains, sand, school runs, speed or the daily commute.',
@@ -129,9 +129,9 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
       },
     ],
     faqs: [
-      { q: 'What is the difference between an electric mountain bike and a normal mountain bike?', a: 'An electric mountain bike has a battery and a 250W motor that assists your pedalling up to 25 km/h. The frame, suspension and brakes work like a regular mountain bike, but the weight is higher and climbs are easier.' },
+      { q: 'What is the difference between an electric mountain bike and a normal mountain bike?', a: 'An eMTB has a battery and a 250W motor that assists your pedalling up to 25 km/h. The frame, suspension and brakes work like a regular mountain bike, but the weight is higher and climbs are easier.' },
       { q: 'Are eMTBs allowed on mountain bike trails in Australia?', a: 'Access depends on the land manager and the individual trail. Some trails permit pedal-assist eMTBs, some restrict them. Check local signage and the land manager rules before you ride.' },
-      { q: 'How far does an electric mountain bike go on one charge?', a: 'Our adult eMTBs list 95 to 110 km per charge. Real range falls with steep terrain, heavy riders and high assist levels, and rises with a larger battery and lower assist.' },
+      { q: 'How far does an eMTB go on one charge?', a: 'Our adult eMTBs list 95 to 110 km per charge. Real range falls with steep terrain, heavy riders and high assist levels, and rises with a larger battery and lower assist.' },
       { q: 'Should I buy a hardtail or dual suspension eMTB?', a: 'Choose a hardtail for lighter weight, lower cost and smoother trails. Choose dual suspension for rough, technical trails where rear-wheel traction and comfort matter more.' },
       { q: 'Can kids ride an electric mountain bike?', a: 'Our 24-inch youth eMTB has a lower 378 Wh battery and a 16.8 kg frame. Age rules for e-bikes differ by state and are changing, so check your state requirements and always use a certified helmet.' },
     ],
@@ -162,8 +162,8 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
       { heading: 'Who is a hardtail eMTB best for?', body: 'Riders on fire trails, rail trails and mixed commutes get the most from a hardtail: it climbs efficiently, is easy to maintain and costs less than dual suspension. Rough, technical descents are where full suspension pulls ahead. Shoppers who search hardtail mtb for sale will find the same frame style here, with a motor added.' },
     ],
     faqs: [
-      { q: 'Is an electric hardtail mountain bike good for beginners?', a: 'Yes. It has fewer parts than a full-suspension bike, so it is simpler to maintain, and the motor flattens hills while you build confidence.' },
-      { q: 'How heavy is an electric hardtail mountain bike?', a: 'Our Summit Hardtail weighs 21.2 kg including the motor and battery, lighter than the dual suspension models in the range.' },
+      { q: 'Is a hardtail eMTB good for beginners?', a: 'Yes. It has fewer parts than a full-suspension bike, so it is simpler to maintain, and the motor flattens hills while you build confidence.' },
+      { q: 'How heavy is a hardtail eMTB?', a: 'Our Summit Hardtail weighs 21.2 kg including the motor and battery, lighter than the dual suspension models in the range.' },
       { q: 'Are cheap hardtail mountain bikes with a motor worth it?', a: 'Check battery brand, brake quality and warranty before paying less. Very low prices often mean smaller batteries and weaker components.' },
     ],
     matches: (p) => p.category === 'emtb' && /hardtail/.test(p.slug),
@@ -350,7 +350,7 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
       { heading: 'Where fat tyre e-bikes shine', body: 'Soft sand, loose gravel, wet grass and rough tracks. They are also comfortable on pavement thanks to the cushioning of the large-volume tyres, though they are heavier than a standard e-bike.' },
     ],
     faqs: [
-      { q: 'What is a fat tyre electric bicycle?', a: 'It is an e-bike with extra-wide tyres, typically around 4 inches, designed to ride on sand, snow, gravel and rough terrain.' },
+      { q: 'What is a fat tyre ebike?', a: 'It is an e-bike with extra-wide tyres, typically around 4 inches, designed to ride on sand, snow, gravel and rough terrain.' },
       { q: 'Can a fat tyre ebike ride on the beach?', a: 'Yes on firm wet sand, which is where wide tyres work best. Check local rules, as some beaches restrict bikes.' },
       { q: 'Are fat tyre electric bikes heavy?', a: 'Yes. The Outback Beast weighs 29 kg, so consider how you will store and transport it.' },
       { q: 'How far does a fat tyre electric bike go on one charge?', a: 'The Outback Beast lists up to 110 km on its 840 Wh battery. Soft ground and high assist reduce this.' },
@@ -385,8 +385,8 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
     ],
     faqs: [
       { q: 'What is an electric cargo bike?', a: 'It is an e-bike with a reinforced frame and an extended load area designed to carry kids, shopping or tools, powered by a 250W motor.' },
-      { q: 'How much can an electric cargo bike carry?', a: 'The Hauler Cargo Max carries two kids or up to 190 kg of cargo. Always follow the manufacturer payload rating.' },
-      { q: 'Can an electric cargo bike replace a second car?', a: 'For short local trips such as school runs and shopping, many families find it can. Distance, weather and storage are the main limits.' },
+      { q: 'How much can a cargo e bike carry?', a: 'The Hauler Cargo Max carries two kids or up to 190 kg of cargo. Always follow the manufacturer payload rating.' },
+      { q: 'Can a cargo e bike replace a second car?', a: 'For short local trips such as school runs and shopping, many families find it can. Distance, weather and storage are the main limits.' },
       { q: 'How heavy is a cargo e bike?', a: 'The Hauler weighs 33.5 kg, so you need secure storage and a plan for loading it onto vehicles.' },
       { q: 'How far does a cargo e-bike go on one charge?', a: 'The Hauler lists up to 120 km on its 960 Wh battery. A full load and hills reduce this.' },
     ],
@@ -468,7 +468,7 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
     navLabel: 'Electric Scooters',
     title: 'Push Scooter Electric Australia | Kids & Adult E-Scooters',
     description:
-      'Shop an electric push scooter in Australia: commuter e-scooters, kids 3-wheel scooters, adult scooters and accessories. Foldable models with disc brakes.',
+      'Shop a push scooter electric model in Australia: commuter e-scooters, kids 3-wheel scooters, adult scooters and accessories. Foldable, with disc brakes.',
     h1: 'Electric Scooters: Push Scooter Electric Range for Kids & Adults',
     intro: [
       'An electric scooter is a fast, compact way to cover short trips. Our range includes a foldable commuter e-scooter, an adult dual-brake scooter, a kids 3-wheel scooter with a speed governor, and a lock and bag kit.',
@@ -501,7 +501,7 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
     navLabel: 'Adults Scooters',
     title: 'E Scooter Adults Australia | Foldable Electric Scooters',
     description:
-      'Shop an e scooter for adults in Australia: a foldable 120 kg-payload commuter scooter with dual brakes, 350W motor and 10-inch pneumatic tyres.',
+      'Shop an e scooter adults can commute on: foldable, 120 kg payload, dual brakes, 350W motor and 10-inch pneumatic tyres. Delivered Australia-wide.',
     h1: 'E Scooter Adults: Foldable Adult Electric Scooters',
     intro: [
       'An adult e scooter needs a stronger frame, bigger tyres and reliable brakes than a kids model. The GlideX Pro is a high-payload urban commuter rated to 120 kg, with a 350W front hub motor, dual brakes and 10-inch pneumatic comfort tyres.',

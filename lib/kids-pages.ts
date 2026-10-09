@@ -56,7 +56,7 @@ export const KIDS_NODES: KidsNode[] = [
     navLabel: "Kids and Youths 24\" eMTB's",
     title: "Kids Mountain Bikes Australia | Youth 24-Inch Electric eMTB",
     description:
-      "Shop a kids mountain bike with a motor: a 24-inch youth eMTB with progressive torque, a 378 Wh battery and youth-fit geometry. Kids mtb and electric options.",
+      "Shop kids mountain bikes with a motor: a 24-inch youth eMTB with progressive torque, a 378 Wh battery and youth-fit geometry. Kids mtb options.",
     h1: "Kids Mountain Bikes: Youth 24-Inch Electric eMTB",
     intro: [
       "Kids mountain bikes with a small motor let young riders keep up on trails without exhausting themselves on the climbs. The TrailYouth is a 24-inch junior eMTB with a progressive-torque rear hub motor, a 378 Wh battery and youth safety geometry.",

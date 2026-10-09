@@ -98,18 +98,18 @@ export default function BlogDetailView({ initialBlog }: BlogDetailViewProps = {}
         </div>
         )}
 
-        {/* 20 COMMERCIAL & SEO TAGS CLUSTER (legacy posts only) */}
+        {/* RELATED TOPICS: capped at 5 so the page keeps one clear primary keyword (legacy posts only) */}
         {!isRich && (
         <div className="mt-12 pt-8 border-t border-gray-200">
           <div className="flex items-center gap-2 mb-3">
             <Tag className="w-4 h-4 text-[#2E6B4D]" />
             <span className="font-extrabold text-xs uppercase text-gray-900 tracking-wider">
-              Commercial Keywords & SEO Topics ({blog.tags.length}):
+              Related topics:
             </span>
           </div>
 
           <div className="flex flex-wrap gap-1.5">
-            {blog.tags.map((tag, i) => (
+            {blog.tags.slice(0, 5).map((tag, i) => (
               <span
                 key={i}
                 onClick={() => {

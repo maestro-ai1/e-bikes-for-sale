@@ -20,7 +20,7 @@ export const BRAND_NODES_MORE: BrandNode[] = [
     navLabel: "Specialized E-Bikes",
     title: "Specialized Australia | E-Bike Buyer's Guide",
     description:
-      "Looking for Specialized in Australia? Compare Turbo Vado, Turbo Levo and Turbo Creo e-bikes, what to check before buying, and ask us about availability.",
+      "Specialized Australia buyer's guide: compare Turbo Vado, Turbo Levo and Turbo Creo e-bikes, what to check before buying, and ask us about availability.",
     h1: "Specialized Australia: Turbo Vado, Levo & Creo E-Bikes",
     intro: [
       "Specialized is one of the most searched bike brands in Australia, and its Turbo range covers commuting (Turbo Vado), mountain biking (Turbo Levo) and road and gravel riding (Turbo Creo). If you searched for Specialized Australia, a Specialized ebike or a Specialised e bike, you are comparing a premium-priced range, so it pays to know what you are paying for.",
@@ -108,10 +108,10 @@ export const BRAND_NODES_MORE: BrandNode[] = [
     path: "/brands/reid",
     name: "Reid Electric Bikes",
     navLabel: "Reid Electric Bikes",
-    title: "Reid Electric Bike Australia | Buyer's Guide & Alternatives",
+    title: "Reid Electric Bicycle Australia | Buyer's Guide",
     description:
-      "Comparing a Reid electric bike in Australia? See what to check on budget e-bikes, how Reid compares with alternatives, and shop e-bikes we have now.",
-    h1: "Reid Electric Bike: Buyer's Guide & Alternatives",
+      "Reid electric bicycle buyer's guide for Australia: what to check on budget e-bikes, how Reid compares with alternatives, and e-bikes we have now.",
+    h1: "Reid Electric Bicycle: Buyer's Guide & Alternatives",
     intro: [
       "Reid is a well-known Australian bike brand, and many buyers search for a Reid electric bicycle or Reid ebike when they want an affordable first e-bike. This guide covers what to compare so you choose the right bike, whichever brand you end up with.",
       "This page is independent and we do not claim to sell Reid products. Below you can compare e-bikes we stock at similar budgets, or ask us about a specific need.",
@@ -150,7 +150,7 @@ export const BRAND_NODES_MORE: BrandNode[] = [
     navLabel: "Trek E-Bikes",
     title: "Trek E Bikes Australia | Buyer's Guide & Alternatives",
     description:
-      "Looking at Trek e bikes in Australia? Compare what to check on premium electric bikes, and shop alternatives for commuting, trails and touring.",
+      "Trek e bikes Australia buyer's guide: what to check on premium electric bikes, plus alternatives for commuting, trails and touring.",
     h1: "Trek E Bikes Australia: Buyer's Guide & Alternatives",
     intro: [
       "Trek is a major international bike brand, and its electric range covers commuting, mountain biking and touring. If you searched for Trek e bikes in Australia or Trek electric bikes, you are probably comparing premium models, so check what you actually need first.",
@@ -190,7 +190,7 @@ export const BRAND_NODES_MORE: BrandNode[] = [
     navLabel: "Canyon E-Bikes",
     title: "Canyon E Bikes Australia | Buyer's Guide & Alternatives",
     description:
-      "Searching for Canyon e bikes in Australia? See what to check before buying direct-to-consumer e-bikes, and compare alternatives we stock for trails and roads.",
+      "Canyon e bikes Australia buyer's guide: what to check before buying direct-to-consumer e-bikes, and alternatives we stock for trails and roads.",
     h1: "Canyon E Bikes Australia: Buyer's Guide & Alternatives",
     intro: [
       "Canyon is a German direct-to-consumer bike brand known for performance mountain and road bikes. Buyers searching for Canyon e bikes in Australia often want a high-spec electric mountain or road bike without a dealer mark-up.",
@@ -226,10 +226,10 @@ export const BRAND_NODES_MORE: BrandNode[] = [
     path: "/brands/aldi",
     name: "Aldi E-Bike Alternatives",
     navLabel: "Aldi E-Bike Alternatives",
-    title: "Aldi E Bike Australia | Special Buy Guide & Alternatives",
+    title: "Aldi E Bike 2025 Australia | Special Buy Guide",
     description:
-      "Thinking about the Aldi e bike or Aldi folding electric bike? See what to check on special-buy e-bikes and compare e-bikes available any day of the year.",
-    h1: "Aldi E Bike Australia: Special Buy Guide & Alternatives",
+      "Aldi e bike 2025 guide: what to check on special-buy e-bikes like the Aldi folding electric bike, and compare e-bikes available any day of the year.",
+    h1: "Aldi E Bike 2025: Special Buy Guide & Alternatives",
     intro: [
       "Aldi's special-buy e-bikes, including its folding electric bike, sell out quickly and are only available for a short time. If you searched for an Aldi e bike, an Aldi folding ebike or an Aldi electric bicycle review, this guide covers what to check, and what to buy when the stock has gone.",
       "This page is independent and is not affiliated with Aldi. Compare the folding and commuter e-bikes we stock, which are available whenever you are ready.",
