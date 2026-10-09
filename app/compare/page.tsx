@@ -11,12 +11,12 @@ export const metadata: Metadata = {
   title: 'Compare Electric Bicycles Side-by-Side | Specs, Motor & Range',
   description: 'Interactive e-bike comparison tool for Australian riders. Compare 250W motors, battery Wh capacity, torque Nm, hydraulic brakes, and payload side-by-side.',
   alternates: {
-    canonical: 'https://ebikesforsale.com.au/compare/',
+    canonical: 'https://ebikesforsale.com.au/compare',
   },
   openGraph: {
     title: 'Compare E-Bikes Australia | e bikes for sale',
     description: 'Compare motor power, range, battery, and pricing side-by-side.',
-    url: 'https://ebikesforsale.com.au/compare/',
+    url: 'https://ebikesforsale.com.au/compare',
     type: 'website',
   },
 };

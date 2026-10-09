@@ -121,7 +121,7 @@ export default function AccessoriesLandingPage() {
               <span>Certified Safety Gear & Australian Essentials</span>
             </div>
             <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
-              Bicycle & E-Bike Accessories for Sale Australia
+              Ebike Accessories: Bicycle & E-Bike Accessories for Sale Australia
             </h1>
             <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
               Equip your daily commute and weekend trail adventures. AS/NZS 2063 certified helmets, diamond-rated anti-theft U-locks, USB-C rechargeable lights, waterproof panniers, and workshop tools.

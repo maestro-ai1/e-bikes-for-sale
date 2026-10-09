@@ -2,6 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { PRODUCTS } from '@/lib/data';
+import { CATALOG_KEYWORDS } from '@/lib/catalog-keywords';
 import Header from '@/components/Header';
 import ProductLandingPage from '@/components/ProductLandingPage';
 import CartDrawer from '@/components/CartDrawer';
@@ -30,16 +31,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  // Category keyword from the Semrush bank (one per category) so each product page supports its category page
+  const sub = product.subcategoryId;
+  const KEY: Record<string, string> = {
+    emtb: 'emtb', folding: 'folding', cruiser: 'cruiser', 'fat-tyre': 'fat-tyre', cargo: 'cargo', road: 'road', commuter: 'commuter',
+    scooters: sub === 'scooters-kids' ? 'sc-kids' : sub === 'scooters-accessories' ? 'sc-accessories' : sub === 'scooters-adults' ? 'sc-adults' : 'sc-electric',
+    helmets: 'kids-helmets',
+  };
+  const phrase = CATALOG_KEYWORDS[KEY[product.category]]?.primary;
+  const titleCase = (s: string) => s.replace(/\b\w/g, (c) => c.toUpperCase());
+  let title = phrase ? `${product.name} | ${titleCase(phrase)} Australia` : `${product.name} | Buy ${product.categoryLabel} Australia`;
+  if (title.length > 60 && phrase) title = `${product.name} | ${titleCase(phrase)}`;
+  if (title.length > 60) title = product.name.length > 60 ? `${product.name.slice(0, 57).trim()}...` : product.name;
+  let description = `${phrase ? `Buy a ${phrase} in Australia: ` : ''}${product.name}. ${product.shortDescription} EN15194, 250W, 10% Bitcoin & USDT discount.`;
+  if (description.length > 158) description = `${description.slice(0, 155).replace(/[\s,;:.]+\S*$/, '')}...`;
+
   return {
-    title: `${product.name} | Buy ${product.categoryLabel} Australia`,
-    description: `${product.name} for sale in Australia. ${product.shortDescription} EN15194 certified 250W street legal with 10% Bitcoin & USDT discount.`,
+    title,
+    description,
     alternates: {
-      canonical: `https://ebikesforsale.com.au/product/${product.slug}/`,
+      canonical: `https://ebikesforsale.com.au/product/${product.slug}`,
     },
     openGraph: {
       title: `${product.name} | e bikes for sale Australia`,
       description: product.description,
-      url: `https://ebikesforsale.com.au/product/${product.slug}/`,
+      url: `https://ebikesforsale.com.au/product/${product.slug}`,
       type: 'website',
       images: [
         {
@@ -84,7 +100,7 @@ export default async function ProductSlugPage({ params }: Props) {
       availability: product.inStock
         ? 'https://schema.org/InStock'
         : 'https://schema.org/OutOfStock',
-      url: `https://ebikesforsale.com.au/product/${product.slug}/`,
+      url: `https://ebikesforsale.com.au/product/${product.slug}`,
       seller: {
         '@type': 'Organization',
         name: 'e bikes for sale',

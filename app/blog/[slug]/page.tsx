@@ -34,12 +34,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${blog.seoTitle || blog.title} | e bikes for sale Australia`,
     description: blog.excerpt,
     alternates: {
-      canonical: `https://ebikesforsale.com.au/blog/${blog.slug}/`,
+      canonical: `https://ebikesforsale.com.au/blog/${blog.slug}`,
     },
     openGraph: {
       title: blog.title,
       description: blog.excerpt,
-      url: `https://ebikesforsale.com.au/blog/${blog.slug}/`,
+      url: `https://ebikesforsale.com.au/blog/${blog.slug}`,
       type: 'article',
       publishedTime: blog.date,
       authors: [blog.author],
@@ -85,7 +85,7 @@ export default async function BlogSlugPage({ params }: Props) {
       url: 'https://ebikesforsale.com.au',
     },
     datePublished: blog.date,
-    mainEntityOfPage: `https://ebikesforsale.com.au/blog/${blog.slug}/`,
+    mainEntityOfPage: `https://ebikesforsale.com.au/blog/${blog.slug}`,
   };
 
   return (

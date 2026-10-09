@@ -11,12 +11,12 @@ export const metadata: Metadata = {
   title: 'Wholesale & Commercial Fleet E-Bikes Australia | B2B Portal',
   description: 'B2B commercial electric bicycle supply in Australia. Fleet pricing for food delivery couriers, hotel rentals, corporate campuses, and independent bike shops.',
   alternates: {
-    canonical: 'https://ebikesforsale.com.au/wholesale/',
+    canonical: 'https://ebikesforsale.com.au/wholesale',
   },
   openGraph: {
     title: 'Wholesale E-Bikes Australia | B2B Commercial Fleet Supply',
     description: 'Bulk order discounts, tax invoice invoicing, and tier 3+ container dispatch across Australia.',
-    url: 'https://ebikesforsale.com.au/wholesale/',
+    url: 'https://ebikesforsale.com.au/wholesale',
     type: 'website',
   },
 };

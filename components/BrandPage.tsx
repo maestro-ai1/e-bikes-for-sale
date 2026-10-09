@@ -37,7 +37,7 @@ export default function BrandPage() {
               <span>Australian Authorised Brand Directory</span>
             </div>
             <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-              Leading E-Bike Brands & Certified Australian Manufacturers
+              E Bike Brands: Leading Australian E-Bike Manufacturers
             </h1>
             <p className="text-sm sm:text-base text-emerald-100 leading-relaxed">
               We partner exclusively with vetted electric bicycle manufacturers whose frames, motor controllers, and lithium battery cells strictly comply with Australian Standard EN 15194 and AS/NZS electrical safety codes.

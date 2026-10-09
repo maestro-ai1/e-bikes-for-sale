@@ -11,12 +11,12 @@ export const metadata: Metadata = {
   title: 'Contact Australian E-Bike Support & Showroom | e bikes for sale',
   description: 'Get in touch with our Australian electric bicycle specialists. Direct phone support, WhatsApp live chat, wholesale inquiries, and workshop assistance.',
   alternates: {
-    canonical: 'https://ebikesforsale.com.au/contact/',
+    canonical: 'https://ebikesforsale.com.au/contact',
   },
   openGraph: {
     title: 'Contact e bikes for sale Australia',
     description: 'Direct phone, WhatsApp, and email customer service for Australian e-bike riders.',
-    url: 'https://ebikesforsale.com.au/contact/',
+    url: 'https://ebikesforsale.com.au/contact',
     type: 'website',
   },
 };

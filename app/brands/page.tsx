@@ -8,15 +8,15 @@ import ProductDetailModal from '@/components/ProductDetailModal';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Electric Bike Brands & Manufacturers Australia | e bikes for sale',
-  description: 'Explore leading e-bike brands tested for Australian roads: Apex Urban, Outback Electric, MetroFold, TrailPeak Carbon, Hauler Cargo, GlideCity, and Schwalbe.',
+  title: 'E Bike Brands Australia | Electric Bike Brands Compared',
+  description: 'Compare e bike brands in Australia: the electric bike brands behind our range, from commuter and cargo to mountain and folding e-bikes, with warranty details.',
   alternates: {
-    canonical: 'https://ebikesforsale.com.au/brands/',
+    canonical: 'https://ebikesforsale.com.au/brands',
   },
   openGraph: {
     title: 'Leading E-Bike Brands Australia | e bikes for sale',
     description: 'Explore trusted electric bicycle brands and manufacturer warranties.',
-    url: 'https://ebikesforsale.com.au/brands/',
+    url: 'https://ebikesforsale.com.au/brands',
     type: 'website',
   },
 };

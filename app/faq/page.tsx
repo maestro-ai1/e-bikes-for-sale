@@ -11,12 +11,12 @@ export const metadata: Metadata = {
   title: 'Frequently Asked Questions (FAQs) | e bikes for sale Australia',
   description: 'Everything you need to know about purchasing e-bikes online in Australia: EN15194 laws, 2-5 day shipping, 2-year warranty, PayID, and 10% Crypto discount.',
   alternates: {
-    canonical: 'https://ebikesforsale.com.au/faq/',
+    canonical: 'https://ebikesforsale.com.au/faq',
   },
   openGraph: {
     title: 'Australian E-Bike FAQs | e bikes for sale',
     description: 'Frequently asked questions on Australian street legality, battery maintenance, delivery, and payments.',
-    url: 'https://ebikesforsale.com.au/faq/',
+    url: 'https://ebikesforsale.com.au/faq',
     type: 'website',
   },
 };

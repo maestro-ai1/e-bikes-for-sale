@@ -11,12 +11,12 @@ export const metadata: Metadata = {
   title: 'About Us | Australian Electric Bicycle Pioneers | e bikes for sale',
   description: 'Learn about e bikes for sale Australia. Founded in 2024 to supply certified EN15194 250W e-bikes, lithium battery engineering, and commercial fleets nationwide.',
   alternates: {
-    canonical: 'https://ebikesforsale.com.au/about/',
+    canonical: 'https://ebikesforsale.com.au/about',
   },
   openGraph: {
     title: 'About e bikes for sale Australia',
     description: 'Australian electric bicycle specialists and wholesale fleet providers.',
-    url: 'https://ebikesforsale.com.au/about/',
+    url: 'https://ebikesforsale.com.au/about',
     type: 'website',
   },
 };

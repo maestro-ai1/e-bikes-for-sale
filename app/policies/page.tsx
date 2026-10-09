@@ -11,12 +11,12 @@ export const metadata: Metadata = {
   title: 'Shipping, Warranty & Crypto Discount Policies | e bikes for sale Australia',
   description: 'Official Australian store policies: 2-5 day insured dispatch, 2-Year warranty, 30-day returns, and 10% discount on Bitcoin & USDT payments.',
   alternates: {
-    canonical: 'https://ebikesforsale.com.au/policies/',
+    canonical: 'https://ebikesforsale.com.au/policies',
   },
   openGraph: {
     title: 'Customer Policies & Warranty Terms | e bikes for sale',
     description: 'Australian shipping terms, warranty claim procedures, and crypto discounts.',
-    url: 'https://ebikesforsale.com.au/policies/',
+    url: 'https://ebikesforsale.com.au/policies',
     type: 'website',
   },
 };

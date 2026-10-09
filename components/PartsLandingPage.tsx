@@ -126,7 +126,7 @@ export default function PartsLandingPage() {
               <span>Genuine Workshop Spares & Certified Components</span>
             </div>
             <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
-              Bike Parts & E-Bike Components Australia
+              Electric Bike Parts: Bike Parts & E-Bike Components Australia
             </h1>
             <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
               Keep your electric bicycle and daily commuter in top mechanical running order. Browse genuine puncture-resistant tyres, hydraulic disc pads, heavy-duty chains, pedals, grips, and workshop tools. All backed by Australian warranty and fast dispatch.
