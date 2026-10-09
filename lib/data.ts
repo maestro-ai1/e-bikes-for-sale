@@ -1,5 +1,6 @@
 import { Product, BlogPost, FAQItem, AustralianStateRule, BrandInfo, RevolutionarySlide } from './types';
 import { SEGWAY_POSTS } from '@/lib/segway-content';
+import { GUIDE_POSTS } from '@/lib/blog-guides';
 
 export const BUSINESS_INFO = {
   name: 'e bikes for sale',
@@ -2076,122 +2077,7 @@ export const PARTS_PAGE_CONFIG = {
   ]
 };
 
-export const BLOG_POSTS: BlogPost[] = [
-  {
-    id: 'blog-1',
-    slug: 'how-much-are-electric-bicycles',
-    title: 'How Much Are Electric Bicycles in Australia? (2026 Price Guide)',
-    seoTitle: 'How Much Are Electric Bicycles in Australia? 2026 Buying Guide',
-    excerpt: 'Breakdown of entry-level ($1,200-$1,800), mid-tier ($1,900-$3,500), and premium ($4,000+) e-bikes in Australia, running costs, battery longevity, and ROI vs fuel and public transit.',
-    category: 'Buying Guides',
-    readTime: '6 min read',
-    date: 'March 2026',
-    author: 'Mark Henderson, Lead E-Bike Technician',
-    image: 'https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=800&q=80',
-    altText: 'How much are electric bicycles cost comparison on Australian street with rider',
-    content: `Wondering how much are electric bicycles in Australia today? Electric bicycle pricing in Australia spans three primary tiers:
-
-1. Entry-Level Commuters ($1,200 – $1,800 AUD):
-These feature reliable 250W rear hub motors, 360Wh to 500Wh lithium batteries, and mechanical disc brakes. Ideal for flat urban commutes up to 15km each way.
-
-2. Performance & Cargo Mid-Tier ($1,900 – $3,500 AUD):
-Featuring high-torque Bafang or Bosch motors, hydraulic disc brakes, puncture-resistant tyres, and 600Wh to 840Wh Samsung battery packs. This is our highest-turnover category offering 70km-110km range.
-
-3. Premium Mid-Drive & Carbon eMTBs ($3,800 – $8,000+ AUD):
-Featuring Bosch CX or Brose mid-drives, torque-sensing technology, Fox air suspension, and lightweight carbon frames for demanding mountain trails.
-
-Running Cost Comparison:
-Charging an e-bike battery in Australia costs roughly 15 to 25 cents per full charge, saving the average commuter between $2,400 and $4,200 per year compared to car fuel, parking, and public transit tolls.`,
-    tags: [
-      'how much are electric bicycles', 'e bikes for sale', 'electric bikes for sale', 'low cost electric bike', 'electric bicycle australia',
-      'cheap electric bike', 'ebike price guide', 'buy e bikes online australia', 'online e bike shop', 'pedal ebike',
-      'electric bikes in australia', 'rechargeable bicycle', 'commuter ebike', 'ebike running costs', 'wholesale electric bicycle',
-      'battery cost ebike', 'samsung battery bike', 'electric bicycle', 'ebike savings australia', 'high turnover ebike'
-    ]
-  },
-  {
-    id: 'blog-2',
-    slug: 'how-fast-does-an-electric-bicycle-go',
-    title: 'How Fast Does an Electric Bicycle Go in Australia? (Speed Limits & Laws Explained)',
-    seoTitle: 'How Fast Does an Electric Bicycle Go? Australian Legal Speed Limits',
-    excerpt: 'Understand the mandatory 25 km/h motor assist cutoff under EN15194 Australian laws, off-road private land speeds, and how cadence/torque sensors influence your speed.',
-    category: 'Legal & Tech',
-    readTime: '5 min read',
-    date: 'February 2026',
-    author: 'Sarah Chen, Compliance Specialist',
-    image: 'https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=800&q=80',
-    altText: 'How fast does an electric bicycle go on Australian cycleway',
-    content: `A frequent question from new riders is: "How fast does an electric bicycle go?"
-
-In Australia, the motor on a road-legal electric bicycle must progressively cut out assistance once the bicycle reaches 25 km/h (Australian Standard EN15194 / ADR).
-
-Can you ride faster than 25 km/h?
-Yes! You can pedal as fast as your legs can spin or coast downhill at 40 km/h or more. The 25 km/h limit simply means the electric motor stops adding power above that speed.
-
-Motor Wattage Rules:
-Australian state regulations (NSW, VIC, QLD, WA, SA, TAS) require 250W continuous rated power for pedelecs (pedal-assist). Throttle-only bikes on public roads are capped at 200W without pedals. Choosing a certified pedelec protects you from hefty road compliance fines.`,
-    tags: [
-      'how fast does an electric bicycle go', 'e bikes for sale', 'en15194 compliant', 'electric bikes in australia', '250w pedelec',
-      'australian ebike road laws', 'pedal ebike', 'electric bicycle', 'online e bike shop', 'bicycle speed limit australia',
-      'electric bicycle for sale', 'e bike speed', 'street legal ebike', 'biker enthusiasts', 'electric bike for sale',
-      'brisbane ebike rules', 'sydney ebike rules', 'safe cycling australia', 'high performance ebike', 'tyres for cycles'
-    ]
-  },
-  {
-    id: 'blog-3',
-    slug: 'bike-size-guide-electric-bicycles',
-    title: 'Comprehensive Australian E-Bike Size Guide: Find Your Perfect Fit',
-    seoTitle: 'E-Bike Size Guide Australia | Electric Bicycle Height & Inseam Chart',
-    excerpt: 'Ensure maximum riding comfort and knee alignment with our Australian frame sizing calculator for Step-Through, Crossbar, eMTB, and folding electric bicycles.',
-    category: 'Fit & Sizing',
-    readTime: '4 min read',
-    date: 'January 2026',
-    author: 'Tom Baxter, Master Bike Fitter',
-    image: 'https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?auto=format&fit=crop&w=800&q=80',
-    altText: 'Bike size guide rider measuring electric bicycle standover height',
-    content: `Choosing the right frame size is essential for comfort, power transfer, and joint health. Electric bikes generally carry more weight than traditional bicycles due to the battery and motor, making correct standover clearance even more vital.
-
-Frame Sizing Reference:
-- Small (15" - 16"): Rider height 150cm - 168cm (Inseam: 65cm - 73cm)
-- Medium (17" - 18"): Rider height 168cm - 180cm (Inseam: 74cm - 82cm)
-- Large (19" - 20"): Rider height 180cm - 192cm (Inseam: 83cm - 90cm)
-- Extra Large (21"+): Rider height 192cm - 205cm (Inseam: 91cm+)
-
-Step-Through frames feature a low top tube that offers the most versatile universal fit, making them popular for adult commuters, riders with limited hip mobility, and suburban families with child seats.`,
-    tags: [
-      'bike size guide', 'e bikes for sale', 'electric bicycle fit', 'step through ebike', 'fold away bicycle',
-      'electric bikes for sale', 'childs bicycle', 'online e bike shop', 'electric bicycle australia', 'bicycle mountain bike',
-      'frame sizing chart', 'pedal ebike', 'road bikes', 'e bike folding bike', 'suburban families',
-      'grey nomad ebike', 'comfortable ebike', 'tyres for cycles', 'helmets', 'low cost electric bike'
-    ]
-  },
-  {
-    id: 'blog-4',
-    slug: 'helmet-youth-bike-australian-standards',
-    title: 'Youth & Kids E-Bike Helmet Guide: AS/NZS 2063 Compliance Explained',
-    seoTitle: 'Helmet Youth Bike Guide | AS/NZS 2063 Australian Standards',
-    excerpt: 'Everything parents and riders need to know about certified helmets for youth bikes, e-scooters, and pillion passengers under Australian road transport law.',
-    category: 'Safety & Compliance',
-    readTime: '4 min read',
-    date: 'January 2026',
-    author: 'Sarah Chen, Compliance Specialist',
-    image: 'https://images.unsplash.com/photo-1558611848-73f7eb4001a1?auto=format&fit=crop&w=800&q=80',
-    altText: 'Helmet youth bike certified Australian safety helmet on adolescent cyclist',
-    content: `In Australia, wearing a bicycle helmet that meets the Australian Standard AS/NZS 2063 is mandatory for cyclists of all ages, including children in cargo bikes or youth riding pedal e-bikes and scooters.
-
-What to Look for in a Youth E-Bike Helmet:
-1. Certified Five-Tick Sticker: Ensure the AS/NZS 2063 label is permanently affixed inside the foam liner.
-2. Dial-Fit Retention System: Children's heads grow rapidly; micro-adjusting dials prevent wobbling.
-3. Pinch-Free Magnetic Buckles: Eliminates painful chin pinches and encourages daily compliance.
-4. Integrated LED Beacon: Because electric bicycles maintain higher average speeds, rear LED visibility keeps youth riders safe in dim dawn or dusk conditions.`,
-    tags: [
-      'helmet youth bike', 'helmets', 'childs bicycle', 'as nzs 2063', 'australian bike laws',
-      'kids bicycle safety', 'safe cycling australia', 'e bikes for sale', 'bike accessories', 'youth cycling gear',
-      'teen ebike safety', 'suburban families', 'cargo bike passenger', 'scooter childs', 'electric scooters',
-      'online e bike shop', 'safety gear australia', 'road bikes', 'protective equipment', 'pedal ebike'
-    ]
-  }
-];
+export const BLOG_POSTS: BlogPost[] = [...GUIDE_POSTS];
 
 // Structured posts (rich layout) are kept in their own file
 BLOG_POSTS.push(...SEGWAY_POSTS);
