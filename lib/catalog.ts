@@ -3,6 +3,7 @@ import { CATALOG_KEYWORDS, type NodeKeywords } from '@/lib/catalog-keywords';
 import { LANDING_NODES } from '@/lib/landing-pages';
 import { KIDS_NODES } from '@/lib/kids-pages';
 import { BRAND_NODES } from '@/lib/brand-pages';
+import { BRAND_NODES_MORE } from '@/lib/brand-pages-more';
 
 /**
  * Category tree for the /ebikes and /scooters hubs.
@@ -530,7 +531,7 @@ export const SECTION_MATCH: Record<string, (p: Product) => boolean> = {
   'sc-accessories': (p) => p.category === 'scooters' && p.subcategoryId === 'scooters-accessories',
 };
 
-export const CATALOG: CatalogNode[] = [...NODES, ...KIDS_NODES, ...BRAND_NODES, ...LANDING_NODES].map((n) => ({ ...n, keywords: kw(n.id) }));
+export const CATALOG: CatalogNode[] = [...NODES, ...KIDS_NODES, ...BRAND_NODES, ...BRAND_NODES_MORE, ...LANDING_NODES].map((n) => ({ ...n, keywords: kw(n.id) }));
 export const LANDING_PATHS = LANDING_NODES.map((n) => n.path);
 export const nodeById = (id: string) => CATALOG.find((n) => n.id === id);
 export const nodeByPath = (path: string) => CATALOG.find((n) => n.path === path);

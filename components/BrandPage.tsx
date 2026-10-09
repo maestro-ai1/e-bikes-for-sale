@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useApp } from '@/context/AppContext';
 import { BRANDS_DATA, PRODUCTS } from '@/lib/data';
 import { 
@@ -207,6 +208,24 @@ export default function BrandPage() {
             </div>
           </div>
         </div>
+
+        <nav aria-label="Brand buyer's guides" className="mt-12">
+          <h2 className="text-2xl font-black text-gray-900">E-bike and scooter brand guides</h2>
+          <p className="mt-2 text-gray-600">Independent buyer&apos;s guides for the brands Australians search for most, with alternatives you can order now.</p>
+          <ul className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-3">
+            {[
+              ['/brands/segway-ninebot', 'Segway-Ninebot scooters'],
+              ['/brands/specialized', 'Specialized e-bikes'],
+              ['/brands/pulse', 'Pulse e bikes'],
+              ['/brands/reid', 'Reid electric bikes'],
+              ['/brands/trek', 'Trek e bikes'],
+              ['/brands/canyon', 'Canyon e bikes'],
+              ['/brands/aldi', 'Aldi e-bike alternatives'],
+            ].map(([href, label]) => (
+              <li key={href}><Link href={href} className="flex min-h-11 items-center rounded-xl border border-gray-300 px-4 py-2 text-sm font-bold text-gray-800 hover:border-[#2E6B4D] hover:text-[#2E6B4D]">{label}</Link></li>
+            ))}
+          </ul>
+        </nav>
 
       </div>
     </div>

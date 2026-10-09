@@ -336,6 +336,7 @@ export default function CatalogPage({ node }: { node: CatalogNode }) {
           {[
             { href: node.path.startsWith('/scooters') ? '/ebikes' : '/scooters', label: node.path.startsWith('/scooters') ? 'Electric bikes' : 'Electric scooters' },
             ...(node.path.startsWith('/scooters') ? [{ href: '/brands/segway-ninebot', label: 'Segway-Ninebot guide' }] : []),
+            { href: '/brands', label: 'Brand guides' },
             { href: '/accessories', label: 'Accessories & locks' },
             { href: '/parts', label: 'Parts & tyres' },
             { href: '/used-electric-bikes', label: 'Used electric bikes' },
