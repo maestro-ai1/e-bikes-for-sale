@@ -1,12 +1,18 @@
 import type { Metadata } from 'next';
 import { PRODUCTS } from '@/lib/data';
 import { SITE_URL, type CatalogNode } from '@/lib/catalog';
+import { CATALOG_IMAGES } from '@/lib/catalog-images';
 
 /** Metadata for a catalog node: unique title/description, canonical equal to the served URL, full OG + Twitter. */
 export function metadataFor(node: CatalogNode): Metadata {
   const url = `${SITE_URL}${node.path}`;
   const lead = PRODUCTS.find(node.matches) || PRODUCTS.find((p) => p.category === 'emtb');
-  const images = lead ? [{ url: lead.image, width: 1200, height: 630, alt: `${lead.brand} ${lead.name}` }] : undefined;
+  const banner = CATALOG_IMAGES[node.id];
+  const images = banner
+    ? [{ url: `${SITE_URL}${banner.src}`, width: 900, height: 900, alt: banner.alt }]
+    : lead
+      ? [{ url: lead.image, width: 1200, height: 630, alt: `${lead.brand} ${lead.name}` }]
+      : undefined;
   return {
     title: node.title,
     description: node.description,

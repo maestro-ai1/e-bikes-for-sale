@@ -1229,10 +1229,10 @@ export const PRODUCTS: Product[] = [
     compareAtPrice: 4499,
     rating: 4.94,
     reviewsCount: 51,
-    image: 'https://images.unsplash.com/photo-1502744688674-c619d3f86c9e?auto=format&fit=crop&w=800&q=80',
+    image: '/images/catalog/electric-mountain-bike.jpg',
     hoverImage: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80',
     gallery: [
-      'https://images.unsplash.com/photo-1502744688674-c619d3f86c9e?auto=format&fit=crop&w=800&q=80',
+      '/images/catalog/electric-mountain-bike.jpg',
       'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80'
     ],
     inStock: true,
@@ -1384,10 +1384,10 @@ export const PRODUCTS: Product[] = [
     rating: 4.95,
     reviewsCount: 33,
     image: 'https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?auto=format&fit=crop&w=800&q=80',
-    hoverImage: 'https://images.unsplash.com/photo-1502744688674-c619d3f86c9e?auto=format&fit=crop&w=800&q=80',
+    hoverImage: '/images/catalog/electric-road-bikes.jpg',
     gallery: [
       'https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1502744688674-c619d3f86c9e?auto=format&fit=crop&w=800&q=80'
+      '/images/catalog/electric-road-bikes.jpg'
     ],
     inStock: true,
     stockCount: 6,
@@ -1835,7 +1835,7 @@ export const CATEGORIES_CONFIG = [
     metaDescription: 'Shop performance electric road bikes for sale in Australia. Lightweight drop-bar frames with natural feeling pedal assist for fast endurance road riding.',
     shortDesc: 'Aerodynamic, lightweight drop-bar electric road bicycles for fast endurance riding.',
     subcategories: ['Endurance Electric Road', 'Aero Carbon E-Road', 'Gravel & All-Road eBikes'],
-    image: 'https://images.unsplash.com/photo-1502744688674-c619d3f86c9e?auto=format&fit=crop&w=600&q=80',
+    image: '/images/catalog/electric-road-bikes.jpg',
     itemCount: 6,
     tags: ['electric road bikes', 'e road bike', 'carbon road ebike', 'drop bar electric bike']
   },
@@ -1977,7 +1977,7 @@ export const EBIKES_PAGE_CATEGORIES = [
     h1: 'Electric Road Bikes for Sale Australia',
     shortDesc: 'Lightweight drop-bar frames with natural feeling pedal assist for endurance road riding.',
     subcategories: ['Endurance Electric Road', 'Aero Carbon E-Road', 'Gravel & All-Road eBikes'],
-    image: 'https://images.unsplash.com/photo-1502744688674-c619d3f86c9e?auto=format&fit=crop&w=600&q=80'
+    image: '/images/catalog/electric-road-bikes.jpg'
   },
   {
     id: 'commuter',

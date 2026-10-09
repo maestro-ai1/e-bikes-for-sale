@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronRight, HelpCircle } from 'lucide-react';
+import { CATALOG_IMAGES } from '@/lib/catalog-images';
 import { PRODUCTS } from '@/lib/data';
 import type { Product } from '@/lib/types';
 import {
@@ -103,6 +105,7 @@ export default function CatalogPage({ node }: { node: CatalogNode }) {
   const trail = crumbs(node);
   const jsonLd = buildJsonLd(node, listed);
   const startingPrice = fromPrice(listed);
+  const banner = CATALOG_IMAGES[node.id];
 
   return (
     <article>
@@ -126,17 +129,31 @@ export default function CatalogPage({ node }: { node: CatalogNode }) {
 
       {/* Hero */}
       <header className="mt-4 bg-gradient-to-br from-[#1E4733] via-[#2E6B4D] to-[#1E4733] text-white">
-        <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
-          <h1 className="max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-4xl lg:text-5xl">{node.h1}</h1>
-          <div className="mt-5 max-w-3xl space-y-3 text-base leading-relaxed text-emerald-50/95">
-            {node.intro.map((p) => (
-              <p key={p}>{p}</p>
-            ))}
+        <div className={`mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14 ${banner ? 'grid items-center gap-8 md:grid-cols-[1.4fr_1fr]' : ''}`}>
+          <div>
+            <h1 className="max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-4xl lg:text-5xl">{node.h1}</h1>
+            <div className="mt-5 max-w-3xl space-y-3 text-base leading-relaxed text-emerald-50/95">
+              {node.intro.map((p) => (
+                <p key={p}>{p}</p>
+              ))}
+            </div>
+            {startingPrice !== null && (
+              <p className="mt-5 text-sm font-bold text-emerald-100">
+                {listed.length} {listed.length === 1 ? 'model' : 'models'} · from {money(startingPrice)} · 250W · EN 15194
+              </p>
+            )}
           </div>
-          {startingPrice !== null && (
-            <p className="mt-5 text-sm font-bold text-emerald-100">
-              {listed.length} {listed.length === 1 ? 'model' : 'models'} · from {money(startingPrice)} · 250W · EN 15194
-            </p>
+          {banner && (
+            <div className="relative aspect-[4/3] w-full overflow-hidden md:aspect-square rounded-3xl border border-white/20 shadow-xl">
+              <Image
+                src={banner.src}
+                alt={banner.alt}
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 420px"
+                className="object-cover"
+              />
+            </div>
           )}
         </div>
       </header>
