@@ -1,0 +1,6 @@
+{
+  "name": "e bikes for sale - Australia's Premier Online E-Bike & Wholesale Store",
+  "description": "High performance e-bikes for sale in Australia. Commuter, mountain, folding, fat tyre, cargo e-bikes and wholesale supply. EN15194 compliant with fast Australia-wide dispatch.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
