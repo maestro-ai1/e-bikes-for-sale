@@ -161,6 +161,11 @@ export default function Footer() {
                 </button>
               </li>
               <li>
+                <a href="/used-electric-bikes" className="cursor-pointer hover:text-white transition-colors">
+                  Used Electric Bikes
+                </a>
+              </li>
+              <li>
                 <button onClick={() => handleNav('brands')} className="cursor-pointer hover:text-white transition-colors text-emerald-300 font-semibold">
                   Brands Showcase
                 </button>

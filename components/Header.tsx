@@ -785,6 +785,16 @@ export default function Header() {
               )}
             </li>
 
+            {/* USED E-BIKES (route page) */}
+            <li>
+              <a
+                href="/used-electric-bikes"
+                className="cursor-pointer py-1.5 px-3 rounded-lg transition-colors whitespace-nowrap hover:text-[#2E6B4D] hover:bg-gray-100"
+              >
+                Used E-Bikes
+              </a>
+            </li>
+
             {/* BRANDS PAGE BUTTON */}
             <li>
               <button
@@ -985,6 +995,11 @@ export default function Header() {
                     <span>Parts & Cycle Tyres</span>
                     <span className="text-xs bg-emerald-600 text-white font-bold px-2 py-0.5 rounded-full">99 Bikes Style</span>
                   </button>
+                </li>
+                <li>
+                  <a href="/used-electric-bikes" className="block w-full text-left py-2 px-3 rounded-lg hover:bg-gray-100">
+                    Used E-Bikes
+                  </a>
                 </li>
                 <li>
                   <button onClick={() => navigateTo('brands')} className="w-full text-left py-2 px-3 rounded-lg hover:bg-gray-100 font-bold text-emerald-800">

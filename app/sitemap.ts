@@ -10,6 +10,7 @@ const STATIC_ROUTES = [
   '/scooters',
   '/accessories',
   '/parts',
+  '/used-electric-bikes',
   '/brands',
   '/wholesale',
   '/blog',

@@ -68,7 +68,7 @@ export default function HomepageSeoContent() {
             Safe Packaging, Australia-Wide Freight & Technician Assembly
           </h3>
           <p>
-            Unlike delicate chilled cargo or <span className="text-gray-600 italic">premium beef delivery</span> services that require active refrigeration, electric bicycles require heavy industrial freight care. Every bicycle dispatched from our Australian distribution network is boxed in heavy double-wall corrugated cartons with precision-cut high-density foam blocks. Bikes arrive 85% to 90% assembled. With our included Australian assembly manual and custom toolkit, attaching the handlebars, pedals, and front wheel takes less than 20 minutes. Orders exceeding ${BUSINESS_INFO.freeDeliveryThreshold} qualify for free delivery across metro zones.
+            Electric bicycles are heavy and need careful freight handling. Every bicycle dispatched from our Australian distribution network is boxed in heavy double-wall corrugated cartons with precision-cut high-density foam blocks. Bikes arrive 85% to 90% assembled. With our included Australian assembly manual and custom toolkit, attaching the handlebars, pedals, and front wheel takes less than 20 minutes. Orders exceeding ${BUSINESS_INFO.freeDeliveryThreshold} qualify for free delivery across metro zones.
           </p>
 
           <h3 className="text-xl font-black text-gray-900 tracking-tight pt-2">

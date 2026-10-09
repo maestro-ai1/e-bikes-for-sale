@@ -574,6 +574,22 @@ export default function ProductLandingPage({ initialProduct }: ProductLandingPag
         </div>
       </section>
 
+      {/* PRODUCT TAGS (10 per product, from the keyword bank) */}
+      {product.tags && product.tags.length > 0 && (
+        <section className="border-t border-gray-200 bg-white py-8">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6">
+            <h2 className="text-xs font-black uppercase tracking-wider text-gray-500 mb-3">Related searches</h2>
+            <ul className="flex flex-wrap gap-2">
+              {product.tags.slice(0, 10).map((tag) => (
+                <li key={tag} className="text-xs font-semibold text-gray-700 bg-gray-100 border border-gray-200 rounded-full px-3 py-1">
+                  {tag}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
       {/* 5. MANDATORY 5 FAQS ACCORDION (OPTIMIZED H2) */}
       <section className="bg-gray-50 py-16 border-t border-gray-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">

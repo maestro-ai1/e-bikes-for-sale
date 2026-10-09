@@ -100,10 +100,8 @@ export const PRODUCTS: Product[] = [
       'Rear luggage rack rated to 25kg capacity for panniers and child seats'
     ],
     tags: [
-      'e bikes for sale', 'electric bikes for sale', 'electric bicycle australia', 'commuter ebike', 'step through ebike',
-      'best city electric bike', 'pedal ebike', 'ebikes brisbane', 'ebikes sydney', 'ebikes melbourne',
-      'street legal ebike', '250w pedelec', 'en15194 compliant', 'cheap electric bike', 'online e bike shop',
-      'electric bikes shop online', 'rechargeable bicycle', 'shimano ebike', 'lithium battery ebike', 'urban commuter'
+      'pedal assist bike', 'e bike with pedal assist', 'electric bike for commuters', 'electric commuter bikes', 'commuter e-bike',
+      'e bike women', '250w e bike', 'womens electric bike', 'electric pedal assist bike', 'pedal assist e-bike'
     ],
     sizeVariants: [
       { id: 's-m', label: 'Medium (Rider 155cm - 175cm)', priceDelta: 0 },
@@ -181,10 +179,8 @@ export const PRODUCTS: Product[] = [
       'Payload rating of 160kg - ideal for surf racks and camping gear'
     ],
     tags: [
-      'fat tyre ebike', 'e bikes for sale', 'beach ebike australia', 'fat bike electric', 'all terrain ebike',
-      'electric mountain bike', 'outback ebike', 'dual suspension ebike', 'off road electric bike', 'australian ebike',
-      'buy e bikes online australia', 'electric bicycle australia', 'long range ebike', '48v electric bike', 'samsung battery bike',
-      'biketour australia', 'heavy rider ebike', 'tyres for cycles', 'fold away bicycle', 'pedal ebike'
+      'fat tyre electric bicycle', 'electric fat tire bicycles', 'fat tyre ebike', 'fat tyre electric bike', 'electric fat bike',
+      'electric bicycle fat bike', 'fat electric bicycle', 'fat e bike', 'fat wheel electric bike', 'cruiser e bike'
     ],
     sizeVariants: [
       { id: 'standard', label: 'Universal Fit (Rider 165cm - 195cm)', priceDelta: 0 },
@@ -260,10 +256,8 @@ export const PRODUCTS: Product[] = [
       'Telescopic handlebar stem accommodating riders 140cm to 190cm'
     ],
     tags: [
-      'fold away bicycle', 'folding ebike', 'e bike folding bike', 'caravan ebike', 'compact electric bicycle',
-      'e bikes for sale', 'low cost electric bike', 'grey nomad ebike', 'portable ebike', 'sydney train ebike',
-      'melbourne commuter bike', 'pedal ebike', 'lightweight ebike', 'electric bicycle', 'urban mobility',
-      'foldable bicycle for sale', 'travel ebike', 'online e bike shop', 'budget ebike', 'electric bikes shop online'
+      'fold up electric bicycle', 'folding e bike', 'foldable electric bike', 'foldable electric bicycle', 'folding electric bike',
+      'e bike that folds', 'foldable ebike', 'electric foldable cycle', 'electric folding cycle', 'fold up electric bike'
     ],
     sizeVariants: [
       { id: 'standard', label: 'One Size Fits All (Adjustable)', priceDelta: 0 },
@@ -339,10 +333,8 @@ export const PRODUCTS: Product[] = [
       'Dropper seatpost with internal handlebar cable routing'
     ],
     tags: [
-      'emtb australia', 'electric mountain bike', 'bicycle mountain bike', 'e bikes for sale', 'mid drive ebike',
-      'carbon ebike', 'downhill electric bike', 'trail ebike', 'mtb electric', 'blue derby ebike',
-      'stromlo ebike', 'shimano hydraulic disc', 'sram eagle ebike', 'high performance ebike', 'premium electric bicycle',
-      'racing competitions', 'biker enthusiasts', 'electric bikes in australia', 'tyres for cycles', 'road bikes'
+      'dual suspension ebike', 'mid drive electric bike', 'electric trail bicycle', 'dual suspension electric mountain bike', 'full suspension electric bicycle',
+      'dual suspension electric bike', 'electric full sus mountain bike', 'full sus emtb', 'electric bicycle mid drive motor', 'mid drive ebike motor'
     ],
     sizeVariants: [
       { id: 'm', label: 'Medium (168cm - 178cm)', priceDelta: 0 },
@@ -419,10 +411,8 @@ export const PRODUCTS: Product[] = [
       'Commercial wholesale grade for UberEats, DoorDash, and parcel delivery'
     ],
     tags: [
-      'cargo ebike', 'longtail cargo bike', 'family electric bike', 'childs bicycle', 'e bikes for sale',
-      'wholesale electric bicycle', 'delivery fleet ebike', 'ubereats ebike', 'suburban families', 'gig economy delivery riders',
-      'electric bicycle australia', 'dual battery ebike', 'kids passenger bike', 'en15194 compliant', 'thule child seat bike',
-      'australian cargo bike', 'online e bike shop', 'electric bikes shop online', 'low cost electric bike', 'heavy duty ebike'
+      'cargo bike', 'electric cargo bike', 'electric cargo bicycle', 'cargo e bike', 'cargo bike australia',
+      'electric cargo bike australia', 'cargo ebike australia', 'electric bike with child seat australia', 'electric delivery bicycle', 'longtail cargo bike'
     ],
     sizeVariants: [
       { id: 'family-pack', label: 'Standard Family (Includes Passenger Rails & Pads)', priceDelta: 0 },
@@ -497,10 +487,8 @@ export const PRODUCTS: Product[] = [
       'Bright 3W headlight and braking reactive taillight'
     ],
     tags: [
-      'electric scooters', 'scooter childs', 'e scooters australia', 'commuter scooter', 'foldable scooter',
-      'personal mobility device', 'portable scooter', 'electric bikes shop online', 'low cost electric bike', 'accessories',
-      'helmet youth bike', 'e bikes for sale', 'scooter wholesale', 'brisbane escooter', 'perth escooter',
-      'australian rider', 'battery powered scooter', 'smart e scooter', 'teens scooter', 'micro mobility'
+      'e scooter adults', 'push scooter adults', 'foldable scooters', 'motorized scooter for adults', 'adult escooter',
+      'collapsible electric scooter for adults', 'electric scooter foldable adults', 'escooter for adults', 'foldable electric scooter for adults', 'folding electric scooters'
     ],
     sizeVariants: [
       { id: 'adult-pro', label: 'Standard Adult Edition (14.2kg)', priceDelta: 0 },
@@ -575,10 +563,8 @@ export const PRODUCTS: Product[] = [
       'Removable, washable antibacterial sweat pads'
     ],
     tags: [
-      'helmet youth bike', 'helmets', 'childs bicycle helmet', 'australian standard helmet', 'as nzs 2063',
-      'kids bike helmet', 'safe cycling helmet', 'e bike helmet', 'teen bike helmet', 'electric bicycle safety',
-      'bike accessories', 'e bikes for sale', 'pedal ebike gear', 'road bikes helmet', 'protective cycling equipment',
-      'high vis bike helmet', 'youth bicycle safety', 'wholesale bike accessories', 'australian bike shop', 'cycling gear'
+      'helmet youth bike', 'e bike helmet', 'helmets for cycle', 'childs cycling helmet', 'electric bike helmet',
+      'childrens cycle helmet', 'childrens cycling helmets', 'full face childrens helmet', 'full face childs helmet', 'cheap bike helmets'
     ],
     sizeVariants: [
       { id: 'youth-s', label: 'Small / Youth (48cm - 52cm)', priceDelta: 0 },
@@ -654,10 +640,8 @@ export const PRODUCTS: Product[] = [
       'Supplied as a matched pair (Front & Rear)'
     ],
     tags: [
-      'tyres for cycles', 'parts', 'ebike tyres', 'puncture proof tyres', 'schwalbe tyres',
-      'electric bicycle tyres', 'bike accessories', 'e bikes for sale', 'replacement ebike parts', 'bicycle tyres australia',
-      'commuter bike tyres', 'pedal ebike parts', 'wholesale bicycle parts', 'schwalbe marathon', 'anti puncture tyre',
-      'online e bike shop', 'bicycle maintenance', 'electric bike accessories', 'cycling spares', 'australian bike parts'
+      'electric bike parts', 'ebike parts', 'electric bicycle parts', 'e bike tires', 'electric bicycle tire',
+      'electric bike parts australia', 'e bike parts australia', 'e bicycle parts', 'electric bike spare parts', 'electric cycle parts'
     ],
     sizeVariants: [
       { id: '27-5-x-2', label: '27.5" x 2.00" Commuter Size (Pair)', priceDelta: 0 },
@@ -734,8 +718,8 @@ export const PRODUCTS: Product[] = [
       'Significant reduction in brake squeal during steep descents'
     ],
     tags: [
-      'bike parts', 'brakes', 'hydraulic brake pads', 'disc brake rotor', 'shimano parts',
-      'ebike brakes', 'parts and tyres', '99 bikes parts', 'e bikes for sale'
+      'parts for e bikes', 'e bike brakes', 'electric bike parts', 'ebike parts', 'electric bicycle parts',
+      'electric bike parts australia', 'e bike parts australia', 'e bicycle parts', 'electric bike spare parts', 'electric cycle parts'
     ],
     sizeVariants: [
       { id: '180mm-6bolt', label: '180mm Rotor (6-Bolt Standard) + Resin Pads', priceDelta: 0 },
@@ -811,7 +795,8 @@ export const PRODUCTS: Product[] = [
       'Includes reusable KMC MissingLink master connector'
     ],
     tags: [
-      'bike chain', 'kmc chain', 'ebike chain', 'drivetrain', 'parts', '99 bikes parts'
+      'mid motor ebike', 'mid drive e bike', 'mid drive electric bike australia', 'mid drive electric bike', 'electric bicycle mid drive motor',
+      'mid drive ebike motor', 'parts for e bikes', 'electric bike parts', 'ebike parts', 'electric bicycle parts'
     ],
     sizeVariants: [
       { id: '11-speed-136l', label: '11-Speed Extra Long (136 Links for E-Bikes)', priceDelta: 0 },
@@ -887,7 +872,8 @@ export const PRODUCTS: Product[] = [
       'Fits all standard 22.2mm electric bike handlebars and standard seat posts'
     ],
     tags: [
-      'ergon grips', 'bike saddle', 'pedals grips saddles', 'parts', 'comfort ebike', '99 bikes parts'
+      'ebike accessories', 'electric bicycle accessories', 'seat e bike', 'electric bicycle seats', 'electric bike accessories',
+      'e bike pedals', 'ebike lights', 'e bike accessory', 'electric bike light', 'electric bike seat'
     ],
     sizeVariants: [
       { id: 'grips-saddle-combo', label: 'Complete Grips + Comfort Saddle Combo', priceDelta: 0 },
@@ -963,7 +949,8 @@ export const PRODUCTS: Product[] = [
       'Built-in hydraulic brake pad spreader and Presta core valve tool'
     ],
     tags: [
-      'bike tools', 'park tool', 'ebike maintenance', 'parts', 'chain checker', 'workshop tools', '99 bikes parts'
+      'e bike controller', 'electric bike controller', 'e bicycle accessories', 'controller for e-bike', 'electric bicycle controllers',
+      'ebike accessories', 'electric bicycle accessories', 'electric bike accessories', 'e bike accessory', 'electric bike parts australia'
     ],
     sizeVariants: [
       { id: 'multitool-chain-checker', label: 'Multi-Tool + Chain Wear Checker Bundle', priceDelta: 0 },
@@ -1041,8 +1028,8 @@ export const PRODUCTS: Product[] = [
       'Internal cable routing with stealth dropper post routing ready'
     ],
     tags: [
-      'electric mountain bike', 'electric hardtail mountain bikes', 'hardtail emtb', 'emtb australia',
-      'bafang mid drive', '29er emtb', 'cross country ebike', 'trail ebike australia'
+      'electric mountain bike', 'electric mtb', 'electric mountain bikes australia', 'emtb australia', 'electric bicycle mtb',
+      'electric mountain bike sales', 'electric mtb australia', 'best electric mountain bike australia', 'electric mountain bike with throttle', 'best electric mtb'
     ],
     sizeVariants: [
       { id: 'm', label: 'Medium 17" (Rider 165cm - 178cm)', priceDelta: 0 },
@@ -1118,8 +1105,8 @@ export const PRODUCTS: Product[] = [
       'Factory installed 150mm internal dropper seatpost'
     ],
     tags: [
-      'electric mountain bike', "dual suspension emtb's", 'full suspension ebike', 'emtb australia',
-      'all mountain ebike', 'rockshox ebike', 'brose motor ebike'
+      'electric trail bike australia', 'best emtb 2026', 'dual suspension emtb', 'emtb bike', 'fastest emtb',
+      'dual suspension ebike', 'electric trail bicycle', 'emtb australia', 'dual suspension electric mountain bike', 'full suspension electric bicycle'
     ],
     sizeVariants: [
       { id: 'm', label: 'Medium (Rider 168cm - 180cm)', priceDelta: 0 },
@@ -1195,8 +1182,8 @@ export const PRODUCTS: Product[] = [
       'Suntour XCT-JR 80mm tuned coil-spring suspension fork for lighter rider weights'
     ],
     tags: [
-      'electric mountain bike', "kids and youths 24' emtb's", 'youth emtb', 'junior electric bike',
-      'kids 24 inch ebike', 'family trail ebike', 'youth electric mountain bike'
+      'mountain electric cycle', 'mountain e cycle', 'electric bicycle mountain bike', 'mountain electric bicycle', 'ebikes mountain',
+      'lightweight electric bike', 'lightweight electric bike australia', 'lightweight ebike australia', 'lightweight electric bicycle', 'electric assist mountain bike'
     ],
     sizeVariants: [
       { id: '24-inch', label: '24" Wheel Size (Riders 125cm - 155cm / Ages 8-14)', priceDelta: 0 }
@@ -1271,8 +1258,8 @@ export const PRODUCTS: Product[] = [
       'Integrated cockpit routing with compact Shimano colour display'
     ],
     tags: [
-      'electric mountain bike', "trial suspension emtb's", 'trail suspension ebike', 'shimano ep8 ebike',
-      'emtb australia', 'technical trail ebike', 'fox suspension ebike'
+      'electric mountain bik', 'electric hardtail mountain bike', 'best electric mountain bikes 2026', 'mens electric mountain bike', 'fastest electric mountain bike',
+      'high performance electric mountain bike', 'lightweight electric mountain bike', 'e bike mountain bike', 'electric assist bike', 'electric bikes mountain bike'
     ],
     sizeVariants: [
       { id: 'm', label: 'Medium (Rider 168cm - 180cm)', priceDelta: 0 },
@@ -1348,8 +1335,8 @@ export const PRODUCTS: Product[] = [
       'Front retro bullet LED headlight and rear safety light wired to central battery'
     ],
     tags: [
-      'electric cruiser bikes', 'vintage electric cruiser', 'beach cruiser ebike', 'retro ebike australia',
-      'step through cruiser', 'coastal electric bike', 'comfortable electric bicycle'
+      'cruiser electric bike', 'electric beach bike', 'electric beach cruisers', 'electric cruiser bike australia', 'cruiser e bikes australia',
+      'cruiser e bike', 'fat wheel electric bicycle', 'electric fat tyre bike', 'electric bicycles with fat tires', 'fat wheel e bike'
     ],
     sizeVariants: [
       { id: 'standard', label: 'One Size Fits Most (Rider 155cm - 188cm)', priceDelta: 0 },
@@ -1425,8 +1412,8 @@ export const PRODUCTS: Product[] = [
       'Vittoria Rubino Pro 700x28c tubeless-ready high-speed road tyres'
     ],
     tags: [
-      'electric road bikes', 'e road bike australia', 'carbon electric road bike', 'drop bar ebike',
-      'lightweight ebike', 'mahle ebike', 'endurance road ebike'
+      'electric road bike', 'fast e bicycle', 'electric gravel bike', 'road bicycle electric', 'gravel ebike',
+      'high performance e bike', 'electric road bike australia', 'e bikes fast', 'faster e bike', 'fastest e cycle'
     ],
     sizeVariants: [
       { id: '52', label: 'Small 52cm (Rider 162cm - 172cm)', priceDelta: 0 },
@@ -1503,8 +1490,8 @@ export const PRODUCTS: Product[] = [
       'Height-adjustable T-bar handlebar with 3 locking positions (grows with your child)'
     ],
     tags: [
-      'scooters', 'kids scooters', 'scooter childs', 'junior scooter australia',
-      '3 wheel kids scooter', 'safe kids electric scooter', 'kids mobility'
+      'push scooter electric', 'electric foot scooter', 'cheap good e scooters', 'kick adult scooters', 'e scooter controller',
+      'e scooter brand', 'e scooters for adults', 'recreational e scooters', 'e scooter adults', 'push scooter adults'
     ],
     sizeVariants: [
       { id: 'aqua', label: 'Aqua Marine / Lime', priceDelta: 0 },
@@ -1580,8 +1567,8 @@ export const PRODUCTS: Product[] = [
       'Ultra-fast 3-second fold mechanism with heavy-duty safety latch for train transport'
     ],
     tags: [
-      'scooters', 'adults scooters', 'adult electric scooter', 'commuter scooter australia',
-      'portable scooter', 'e scooter for adults', 'micro mobility australia'
+      'folding electric scooter for adults', 'adults electric scooter', 'best e-scooters', 'motorized scooter for adults', 'adult escooter',
+      'collapsible electric scooter for adults', 'electric scooter foldable adults', 'escooter for adults', 'foldable electric scooter for adults', 'folding electric scooters'
     ],
     sizeVariants: [
       { id: 'standard', label: 'Adult Standard (Rider up to 120kg)', priceDelta: 0 },
@@ -1657,8 +1644,8 @@ export const PRODUCTS: Product[] = [
       'Reflective safety piping on bag exterior increases nighttime rider visibility'
     ],
     tags: [
-      'scooters', 'scooter accessories', 'electric scooter lock', 'scooter handlebar bag',
-      'e scooter accessories australia', 'scooter security'
+      'electric scooters top rated', 'foldable scooters', 'e scooter controller', 'best e-scooters', 'e scooter brand',
+      'recreational e scooters', 'electric scooter foldable adults', 'foldable electric scooter for adults', 'push scooter electric', 'electric foot scooter'
     ],
     sizeVariants: [
       { id: 'standard', label: 'Lock + 3L Hard Shell Bag Bundle', priceDelta: 0 }
@@ -1733,7 +1720,8 @@ export const PRODUCTS: Product[] = [
       'Includes 3 stainless steel keys (one lighted with high intensity LED bulb)'
     ],
     tags: [
-      'accessories', 'bike locks & security', 'kryptonite lock', 'ebike lock', 'u-lock australia', 'bike security'
+      'e bike lighting', 'electric bike with 2 child seats australia', 'e-bike front light', 'electric bike light bar', 'e bike with kids seat',
+      'electric bike pedals', 'e bike headlight', 'seat e bike', 'electric bicycle seats', 'e bike pedals'
     ],
     sizeVariants: [
       { id: 'standard', label: 'Standard (10.2cm x 20.3cm)', priceDelta: 0 }

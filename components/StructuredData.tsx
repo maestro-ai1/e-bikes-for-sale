@@ -1,9 +1,15 @@
 'use client';
 
 import React from 'react';
+import { usePathname } from 'next/navigation';
 import { BUSINESS_INFO, PRODUCTS, HOMEPAGE_FAQS } from '@/lib/data';
 
 export default function StructuredData() {
+  // Organization schema is site-wide. The homepage FAQ and featured-product schemas belong to the homepage only:
+  // rendering them on every route produced duplicate FAQPage/Product markup on inner pages.
+  const pathname = usePathname();
+  const isHome = pathname === '/' || pathname === '';
+
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -71,14 +77,18 @@ export default function StructuredData() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchemas) }}
-      />
+      {isHome && (
+        <>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchemas) }}
+          />
+        </>
+      )}
     </>
   );
 }
