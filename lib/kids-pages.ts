@@ -54,18 +54,18 @@ export const KIDS_NODES: KidsNode[] = [
     path: "/ebikes/electric-mountain-bike/kids-mountain-bikes",
     name: "Kids and Youths 24\" eMTB's",
     navLabel: "Kids and Youths 24\" eMTB's",
-    title: "Kids Mountain Bike Australia | Youth 24-Inch Electric eMTB",
+    title: "Kids Mountain Bikes Australia | Youth 24-Inch Electric eMTB",
     description:
       "Shop a kids mountain bike with a motor: a 24-inch youth eMTB with progressive torque, a 378 Wh battery and youth-fit geometry. Kids mtb and electric options.",
-    h1: "Kids Mountain Bike: Youth 24-Inch Electric eMTB",
+    h1: "Kids Mountain Bikes: Youth 24-Inch Electric eMTB",
     intro: [
-      "A kids mountain bike with a small motor lets young riders keep up on trails without exhausting themselves on the climbs. The TrailYouth is a 24-inch junior eMTB with a progressive-torque rear hub motor, a 378 Wh battery and youth safety geometry.",
+      "Kids mountain bikes with a small motor let young riders keep up on trails without exhausting themselves on the climbs. The TrailYouth is a 24-inch junior eMTB with a progressive-torque rear hub motor, a 378 Wh battery and youth safety geometry.",
       "It lists up to 65 km per charge and weighs 16.8 kg, which is light for an e-bike. It suits taller kids and teens who have outgrown a 20-inch bike, and it cuts assist at 25 km/h like every bike in our range.",
     ],
     bridge: {
       heading: "Kids mountain bikes, childrens mountain bikes or a kids electric mountain bike?",
       body:
-        "Parents searching for kids mountain bikes, childrens mountain bikes or a kids mtb usually want a capable trail bike that fits. The electric version adds assist for hills and longer family rides. Our range does not include a kids 20 inch mountain bike, so this page covers the larger 24-inch size. For mountain bikes for kids on smaller wheels, a bike shop can help with sizing.",
+        "Parents searching for a kids mountain bike, childrens mountain bikes or a kids mtb usually want a capable trail bike that fits. The electric version adds assist for hills and longer family rides. Our range does not include a kids 20 inch mountain bike, so this page covers the larger 24-inch size. For mountain bikes for kids on smaller wheels, a bike shop can help with sizing.",
     },
     guides: [
       {
