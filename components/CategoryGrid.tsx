@@ -3,7 +3,12 @@
 import React from 'react';
 import Image from 'next/image';
 import { useApp } from '@/context/AppContext';
-import { CATEGORIES_CONFIG } from '@/lib/data';
+import { CATEGORIES_CONFIG, PRODUCTS } from '@/lib/data';
+import { catalogUrlFor } from '@/lib/catalog-nav';
+
+// The 8 main categories: 7 e-bike categories + scooters. Each card links to its own landing page.
+const HOME_CATEGORY_IDS = ['emtb', 'folding', 'cruiser', 'fat-tyre', 'cargo', 'road', 'commuter', 'scooters'];
+const HOME_CATEGORIES = HOME_CATEGORY_IDS.map((id) => CATEGORIES_CONFIG.find((c) => c.id === id)!).filter(Boolean);
 import { ArrowRight, Layers } from 'lucide-react';
 
 export default function CategoryGrid() {
@@ -60,15 +65,15 @@ export default function CategoryGrid() {
         </div>
 
         {/* Categories Grid - Consistent card size & image aspect ratio */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {CATEGORIES_CONFIG.map((category) => (
-            <div
+        <div className="grid grid-cols-2 lg:grid-cols-4 auto-rows-fr gap-4 sm:gap-5">
+          {HOME_CATEGORIES.map((category) => (
+            <a
               key={category.id}
-              onClick={() => handleCategoryClick(category.id)}
-              className="group bg-white rounded-2xl overflow-hidden border border-gray-200/80 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col cursor-pointer transform hover:-translate-y-1"
+              href={catalogUrlFor(category.id === 'scooters' ? 'scooters' : 'ebikes', category.id, 'all') || '/ebikes'}
+              className="group bg-white rounded-2xl overflow-hidden border border-gray-200/80 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col cursor-pointer transform hover:-translate-y-1 h-full"
             >
               {/* IMAGE CONTAINER - Strict identical aspect ratio & bright imagery */}
-              <div className="relative aspect-4/3 w-full overflow-hidden bg-gray-100">
+              <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-100">
                 <Image
                   src={category.image}
                   alt={`${category.title} for sale in Australia`}
@@ -81,12 +86,12 @@ export default function CategoryGrid() {
                 
                 {/* Count badge */}
                 <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-xs text-gray-900 font-extrabold text-[11px] px-2.5 py-1 rounded-full shadow-xs">
-                  {category.itemCount} Models
+                  {PRODUCTS.filter((p) => p.category === category.id).length} {PRODUCTS.filter((p) => p.category === category.id).length === 1 ? 'Model' : 'Models'}
                 </div>
               </div>
 
               {/* CARD BODY */}
-              <div className="p-5 flex-1 flex flex-col justify-between">
+              <div className="p-4 flex-1 flex flex-col justify-between">
                 <div>
                   <h3 className="font-extrabold text-gray-900 text-lg group-hover:text-[#2E6B4D] transition-colors">
                     {category.title}
@@ -96,7 +101,7 @@ export default function CategoryGrid() {
                   </p>
 
                   {/* Subcategories tags */}
-                  <div className="flex flex-wrap gap-1.5 mt-3">
+                  <div className="flex flex-wrap gap-1.5 mt-3 min-h-[3.25rem] content-start">
                     {category.subcategories.slice(0, 2).map((sub, i) => (
                       <span
                         key={i}
@@ -119,7 +124,7 @@ export default function CategoryGrid() {
                 </div>
 
               </div>
-            </div>
+            </a>
           ))}
         </div>
 
