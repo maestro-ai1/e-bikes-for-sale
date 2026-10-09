@@ -190,9 +190,9 @@ export default function Footer() {
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('blog')} className="inline-block py-1 cursor-pointer hover:text-white transition-colors">
+                <a href="/blog" className="inline-block py-1 cursor-pointer hover:text-white transition-colors">
                   Buying Guides & Blog
-                </button>
+                </a>
               </li>
               <li>
                 <button onClick={() => handleNav('about')} className="inline-block py-1 cursor-pointer hover:text-white transition-colors">

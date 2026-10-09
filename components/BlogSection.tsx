@@ -39,16 +39,13 @@ export default function BlogSection() {
             </p>
           </div>
 
-          <button
-            onClick={() => {
-              setCurrentView('blog');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
+          <a
+            href="/blog"
             className="inline-flex items-center gap-2 text-sm font-bold text-[#2E6B4D] hover:text-[#1E4733] shrink-0"
           >
             <span>View All Guides</span>
             <ArrowRight className="w-4 h-4" />
-          </button>
+          </a>
         </div>
 
         {/* 4 Informational Blog Cards Grid */}

@@ -30,6 +30,7 @@ const SCOOTER_SUB: Record<string, string> = {
 
 export function catalogUrlFor(view: string, category = 'all', subcategory = 'all'): string | null {
   const sub = subcategory.toLowerCase();
+  if (view === 'blog') return '/blog';
   if (view === 'ebikes') {
     if (category === 'emtb' && EMTB_SUB[sub]) return EMTB_SUB[sub];
     if (CATEGORY_PATH[category]) return CATEGORY_PATH[category];
