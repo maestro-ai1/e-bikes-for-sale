@@ -9,8 +9,6 @@ const STATIC_ROUTES = [
   '/shop',
   '/ebikes',
   '/scooters',
-  '/accessories',
-  '/parts',
   '/used-electric-bikes',
   '/brands',
   '/wholesale',

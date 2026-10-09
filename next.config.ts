@@ -25,6 +25,13 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Legacy gear URLs now live at the keyword-mapped paths (keyword-map.md)
+  async redirects() {
+    return [
+      { source: '/accessories', destination: '/e-bike-accessories', permanent: true },
+      { source: '/parts', destination: '/e-bike-parts', permanent: true },
+    ];
+  },
   transpilePackages: ['motion'],
   webpack: (config, {dev}) => {
     // HMR is disabled in AI Studio via DISABLE_HMR env var.

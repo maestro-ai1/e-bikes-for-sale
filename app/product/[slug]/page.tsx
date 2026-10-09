@@ -61,7 +61,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: product.description,
       url: `https://ebikesforsale.com.au/product/${product.slug}`,
       type: 'website',
-      images: [
+      images: !product.image ? [] : [
         {
           url: absUrl(product.image),
           width: 600,
@@ -74,7 +74,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: `${product.name} | e bikes for sale`,
       description: product.shortDescription,
-      images: [absUrl(product.image)],
+      images: product.image ? [absUrl(product.image)] : [],
     },
   };
 }
@@ -87,12 +87,14 @@ export default async function ProductSlugPage({ params }: Props) {
     notFound();
   }
 
+  const imageUrls = (product.gallery && product.gallery.length ? product.gallery : [product.image]).filter(Boolean).map(absUrl);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: product.name,
     sku: product.id,
-    image: (product.gallery && product.gallery.length ? product.gallery : [product.image]).map(absUrl),
+    ...(imageUrls.length ? { image: imageUrls } : {}),
     description: product.description,
     brand: {
       '@type': 'Brand',

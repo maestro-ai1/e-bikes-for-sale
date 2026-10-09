@@ -2,6 +2,7 @@ import { Product, BlogPost, FAQItem, AustralianStateRule, BrandInfo, Revolutiona
 import { SEGWAY_POSTS } from '@/lib/segway-content';
 import { GUIDE_POSTS } from '@/lib/blog-guides';
 import { PARTNER_PRODUCTS } from '@/lib/partner-products';
+import { RETAIL_GEAR } from '@/lib/retail-gear';
 
 export const BUSINESS_INFO = {
   name: 'e bikes for sale',
@@ -2079,7 +2080,7 @@ export const PARTS_PAGE_CONFIG = {
 };
 
 // Cube, Merida, Pedal and Dirodi models (own file)
-PRODUCTS.push(...PARTNER_PRODUCTS);
+PRODUCTS.push(...PARTNER_PRODUCTS, ...RETAIL_GEAR);
 
 export const BLOG_POSTS: BlogPost[] = [...GUIDE_POSTS];
 

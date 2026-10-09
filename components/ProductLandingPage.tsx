@@ -96,12 +96,21 @@ export default function ProductLandingPage({ initialProduct }: ProductLandingPag
     window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
   };
 
+  // Helmets, accessories, parts and scooters do not get the e-bike spec grid or e-bike FAQs
+  const isGear = ['helmets', 'accessories', 'parts', 'scooters'].includes(product.category);
+
   // Related products in the same or adjacent category
   const relatedProducts = PRODUCTS.filter(p => p.id !== product.id && (p.category === product.category || p.brand === product.brand)).slice(0, 3);
   const fallbackRelated = relatedProducts.length > 0 ? relatedProducts : PRODUCTS.filter(p => p.id !== product.id).slice(0, 3);
 
   // 5 FAQs guarantee
-  const faqs = product.faqs && product.faqs.length >= 5 ? product.faqs : [
+  const gearFaqs = [
+    { question: `Is the ${product.name} suitable for an e-bike?`, answer: `Standard bicycle helmets, gloves, locks and lights suit e-bikes as well as regular bikes. Check size, fit and any rating on the product before you order.` },
+    { question: `How does delivery to Australian postcodes work?`, answer: `Orders are packed and dispatched Australia-wide. Transit time is usually 2-5 business days to metropolitan and regional postcodes.` },
+    { question: `Can I save 10% by paying with cryptocurrency on this product?`, answer: `Yes. We provide an automatic 10% discount when completing checkout with Bitcoin or USDT. Select 'Pay With Crypto' at cart checkout.` },
+    { question: `How do I confirm availability and sizing?`, answer: `Use the enquiry button on this page and we will confirm stock, sizes and colours before you pay.` },
+  ];
+  const faqs = product.faqs && product.faqs.length >= 5 ? product.faqs : isGear ? gearFaqs : [
     {
       question: `Is the ${product.name} street legal across all Australian states and territories?`,
       answer: `Yes. The ${product.name} is fully certified under the Australian and European EN15194 standard for 250W pedelecs. It requires no registration, road tax, or driver's licence to ride in NSW, VIC, QLD, WA, SA, TAS, NT, or ACT.`
@@ -234,6 +243,8 @@ export default function ProductLandingPage({ initialProduct }: ProductLandingPag
               </div>
             )}
 
+            {!isGear && (
+            <>
             {/* Highlight Metric Strip */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
               <div className="bg-gray-50 p-3.5 rounded-2xl border border-gray-200/80 text-center">
@@ -261,6 +272,8 @@ export default function ProductLandingPage({ initialProduct }: ProductLandingPag
               </div>
             </div>
 
+          </>
+            )}
           </div>
 
           {/* RIGHT: CONVERSION PURCHASE SUITE (5 COLS) */}
@@ -465,6 +478,8 @@ export default function ProductLandingPage({ initialProduct }: ProductLandingPag
         </div>
       </section>
 
+      {!isGear && (
+      <>
       {/* 3. OPTIMIZED H2 SECTION: IN-DEPTH PRODUCT OVERVIEW & ROAD-LEGAL ENGINEERING */}
       <section className="bg-gray-50 py-16 border-y border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -576,6 +591,9 @@ export default function ProductLandingPage({ initialProduct }: ProductLandingPag
           </div>
         </div>
       </section>
+
+      </>
+      )}
 
       {/* PRODUCT TAGS (10 per product, from the keyword bank) */}
       {product.tags && product.tags.length > 0 && (

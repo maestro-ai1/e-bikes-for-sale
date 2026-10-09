@@ -5,6 +5,7 @@ import { KIDS_NODES } from '@/lib/kids-pages';
 import { BRAND_NODES } from '@/lib/brand-pages';
 import { BRAND_NODES_MORE } from '@/lib/brand-pages-more';
 import { BRAND_NODES_RETAIL, RETAIL_BRAND_KEYWORDS } from '@/lib/brand-pages-retail';
+import { GEAR_NODES, GEAR_KEYWORDS, STRATEGY_OVERRIDES, STRATEGY_TEXT } from '@/lib/gear-pages';
 
 /**
  * Category tree for the /ebikes and /scooters hubs.
@@ -48,7 +49,7 @@ export interface CatalogNode {
   keywords: NodeKeywords;
 }
 
-const kw = (id: string): NodeKeywords => CATALOG_KEYWORDS[id] ?? RETAIL_BRAND_KEYWORDS[id];
+const kw = (id: string): NodeKeywords => ({ ...(CATALOG_KEYWORDS[id] ?? RETAIL_BRAND_KEYWORDS[id] ?? GEAR_KEYWORDS[id]), ...(STRATEGY_OVERRIDES[id] ?? {}), ...(CATALOG_KEYWORDS[id]?.commerce ? { commerce: CATALOG_KEYWORDS[id].commerce } : {}) });
 const inCat = (cat: string) => (p: Product) => p.category === cat;
 
 export const SITE_URL = 'https://ebikesforsale.com.au';
@@ -491,7 +492,7 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
       { q: 'What accessories do I need for an e-scooter?', a: 'A certified helmet, a strong lock and a bag are the basics. Our lock and bag kit includes an anti-cut steel lock and a waterproof handlebar bag.' },
     ],
     children: ['sc-adults', 'sc-kids', 'sc-accessories'],
-    matches: (p) => p.category === 'scooters' && p.subcategoryId === 'scooters-electric',
+    matches: (p) => p.category === 'scooters',
   },
   {
     id: 'sc-adults',
@@ -532,8 +533,8 @@ export const SECTION_MATCH: Record<string, (p: Product) => boolean> = {
   'sc-accessories': (p) => p.category === 'scooters' && p.subcategoryId === 'scooters-accessories',
 };
 
-export const CATALOG: CatalogNode[] = [...NODES, ...KIDS_NODES, ...BRAND_NODES, ...BRAND_NODES_MORE, ...BRAND_NODES_RETAIL, ...LANDING_NODES].map((n) => ({ ...n, keywords: kw(n.id) }));
-export const LANDING_PATHS = LANDING_NODES.map((n) => n.path);
+export const CATALOG: CatalogNode[] = [...NODES, ...KIDS_NODES, ...BRAND_NODES, ...BRAND_NODES_MORE, ...BRAND_NODES_RETAIL, ...GEAR_NODES, ...LANDING_NODES].map((n) => ({ ...n, ...(STRATEGY_TEXT[n.id] ?? {}), keywords: kw(n.id) }));
+export const LANDING_PATHS = [...LANDING_NODES, ...GEAR_NODES].map((n) => n.path);
 export const nodeById = (id: string) => CATALOG.find((n) => n.id === id);
 export const nodeByPath = (path: string) => CATALOG.find((n) => n.path === path);
 export const childrenOf = (n: CatalogNode) => (n.children || []).map((id) => nodeById(id)!).filter(Boolean);

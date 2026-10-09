@@ -3,6 +3,7 @@ import Link from 'next/link';
 import ProductImage from '@/components/ProductImage';
 import { ChevronRight, HelpCircle } from 'lucide-react';
 import { CATALOG_IMAGES } from '@/lib/catalog-images';
+import { RELATED_SEARCHES } from '@/lib/related-searches';
 import { PRODUCTS } from '@/lib/data';
 import type { Product } from '@/lib/types';
 import {
@@ -354,8 +355,8 @@ export default function CatalogPage({ node }: { node: CatalogNode }) {
             { href: node.path.startsWith('/scooters') ? '/ebikes' : '/scooters', label: node.path.startsWith('/scooters') ? 'Electric bikes' : 'Electric scooters' },
             ...(node.path.startsWith('/scooters') ? [{ href: '/brands/segway-ninebot', label: 'Segway-Ninebot guide' }] : []),
             { href: '/brands', label: 'Brand guides' },
-            { href: '/accessories', label: 'Accessories & locks' },
-            { href: '/parts', label: 'Parts & tyres' },
+            { href: '/e-bike-accessories', label: 'Accessories & locks' },
+            { href: '/e-bike-parts', label: 'Parts & tyres' },
             { href: '/used-electric-bikes', label: 'Used electric bikes' },
             { href: '/contact', label: 'Ask a question' },
           ].map((l) => (
@@ -389,6 +390,20 @@ export default function CatalogPage({ node }: { node: CatalogNode }) {
           ))}
         </div>
       </section>
+
+      {/* Related searches: up to 8 unassigned same-topic terms from the keyword bank */}
+      {(RELATED_SEARCHES[node.id] ?? []).length > 0 && (
+        <section aria-label="Related searches" className="border-t border-gray-200 bg-white py-8">
+          <div className="mx-auto max-w-3xl px-4 sm:px-6">
+            <h2 className="mb-3 text-xs font-black uppercase tracking-wider text-gray-500">Related searches</h2>
+            <ul className="flex flex-wrap gap-2">
+              {(RELATED_SEARCHES[node.id] ?? []).map((t) => (
+                <li key={t} className="rounded-full border border-gray-200 bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-700">{t}</li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
     </article>
   );
 }
