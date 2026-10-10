@@ -238,7 +238,7 @@ export default function CatalogPage({ node, page = 1 }: { node: CatalogNode; pag
       {(
         <section aria-labelledby="products-heading" className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
           <h2 id="products-heading" className="text-2xl font-black tracking-tight text-gray-900">
-            {isEbikeHub ? 'All e-bikes for sale' : node.productsHeading || `Shop ${node.name.toLowerCase()}`}
+            {isEbikeHub ? 'All e-bikes for sale' : node.productsHeading || 'Shop the range'}
           </h2>
           {paged.totalPages > 1 && (
             <p className="mt-1 text-sm text-gray-600">Showing {paged.from} to {paged.to} of {paged.total} products (page {paged.page} of {paged.totalPages})</p>
@@ -283,7 +283,7 @@ export default function CatalogPage({ node, page = 1 }: { node: CatalogNode; pag
       {node.keywords.commerce && node.keywords.commerce.length > 0 && ownProducts.length > 0 && (
         <section aria-labelledby="buy-heading" className="mx-auto max-w-6xl px-4 pb-6 sm:px-6">
           <div className="rounded-2xl border border-emerald-200 bg-emerald-50/60 p-5 sm:p-6">
-            <h2 id="buy-heading" className="text-xl font-black tracking-tight text-gray-900">Buy {node.name.toLowerCase()} online</h2>
+            <h2 id="buy-heading" className="text-xl font-black tracking-tight text-gray-900">Order online with delivery across Australia</h2>
             <p className="mt-2 max-w-3xl leading-relaxed text-gray-700">
               Searching for {node.keywords.commerce.slice(0, 3).join(' or ')}? Every model above can be ordered online with delivery across Australia, so you can compare specs, add to cart and check out in minutes.
             </p>
@@ -379,7 +379,7 @@ export default function CatalogPage({ node, page = 1 }: { node: CatalogNode; pag
           <span className="text-xs font-black uppercase tracking-wider">FAQs</span>
         </div>
         <h2 id="faq-heading" className="mt-1 text-2xl font-black tracking-tight text-gray-900">
-          {node.name}: your questions answered
+          Questions and answers
         </h2>
         <div className="mt-5 divide-y divide-gray-200 rounded-2xl border border-gray-200 bg-white">
           {node.faqs.map((f) => (

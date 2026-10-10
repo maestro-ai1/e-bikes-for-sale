@@ -159,6 +159,11 @@ export const BRAND_NODES_RETAIL: BrandNode[] = [
         body:
           "Compare the battery capacity and voltage, the claimed range (real range is lower and depends on rider weight, terrain and assist level), the weight, and how the throttle is limited under Australian rules.",
       },
+      {
+        heading: "How to compare Dirodi models",
+        body:
+          "Open each model page and compare the same five things: battery capacity in watt-hours, motor torque, tyre width and tread, the weight you will need to lift or store, and the payload rating for rider plus luggage. Every bike we list is a 250 W pedal-assist e-bike that cuts out at 25 km/h under the Australian EN 15194 rules, so the difference between models is comfort, capacity and price. If a colour or frame style is not shown, ask and we will check what is available before you order.",
+      },
     ],
     links: [
       { label: "Fat tyre electric bicycles", href: "/ebikes/fat-tyre-electric-bicycle" },

@@ -415,7 +415,7 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
       'An electric road bike is a lightweight endurance or gravel bike with a compact hub or mid-drive motor and a slim battery, built for longer rides and hills.',
     ],
     bridge: {
-      heading: 'Electric road bike or electric gravel bike?',
+      heading: 'Road or gravel: which e-bike suits you?',
       body:
         'Road bicycle electric models favour speed on sealed roads. An electric gravel bike or gravel ebike uses wider tyres and a more relaxed geometry for mixed surfaces. Pick road for tarmac and group rides, and gravel if your routes include unsealed roads. An e gravel bike suits mixed surfaces, and any electric road bike australia riders buy should still be EN 15194 compliant.',
     },
