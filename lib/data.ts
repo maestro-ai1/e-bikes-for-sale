@@ -2,8 +2,6 @@ import { Product, BlogPost, FAQItem, AustralianStateRule, BrandInfo, Revolutiona
 import { SEGWAY_POSTS } from '@/lib/segway-content';
 import { GUIDE_POSTS } from '@/lib/blog-guides';
 import { PARTNER_PRODUCTS } from '@/lib/partner-products';
-import { RETAIL_GEAR } from '@/lib/retail-gear';
-import { CATALOG_BIKES } from '@/lib/catalog-bikes';
 import { FEED_PRODUCTS } from '@/lib/feed-products';
 import { PRODUCT_IMAGES } from '@/lib/product-images';
 import { ensureFaqs, tagsForProduct } from '@/lib/product-seo';
@@ -2084,16 +2082,16 @@ export const PARTS_PAGE_CONFIG = {
 };
 
 // Cube, Merida, Pedal and Dirodi models (own file)
-PRODUCTS.push(...PARTNER_PRODUCTS, ...CATALOG_BIKES, ...RETAIL_GEAR, ...FEED_PRODUCTS);
+PRODUCTS.push(...PARTNER_PRODUCTS, ...FEED_PRODUCTS);
 
 // Keyword-map rules: new products take their 10 tags from the mapped category keywords, and every
 // product page carries exactly 5 FAQs that each include one mapped keyword.
-[...PARTNER_PRODUCTS, ...CATALOG_BIKES, ...RETAIL_GEAR, ...FEED_PRODUCTS].forEach((p) => { p.tags = tagsForProduct(p); });
+[...PARTNER_PRODUCTS, ...FEED_PRODUCTS].forEach((p) => { p.tags = tagsForProduct(p); });
 
 // Photos matched from the supplier folder (see seo-strategy/preview-site/apply-pics.js)
 PRODUCTS.forEach((p) => {
   const imgs = PRODUCT_IMAGES[p.slug];
-  if (imgs && imgs.length && !p.image.startsWith('/images/')) {
+  if (imgs && imgs.length) {
     p.image = imgs[0];
     p.hoverImage = imgs[1] || imgs[0];
     p.gallery = imgs;

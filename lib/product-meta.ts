@@ -36,7 +36,9 @@ export interface CategoryLink { path: string; label: string; nodeId: string }
 
 export function categoryLinkFor(p: Product): CategoryLink {
   const nodeId = nodeIdForProduct(p);
-  const path = NODE_PATHS[nodeId] || '/ebikes';
+  let path = NODE_PATHS[nodeId] || '/ebikes';
+  // adult e-scooters live on the adult scooters page (the scooters hub lists its children too)
+  if (p.category === 'scooters' && nodeId !== 'sc-kids' && nodeId !== 'sc-accessories' && (p.subcategoryId || '') === 'scooters-adults') path = '/scooters/adults-scooters';
   return { path, label: p.subcategory || p.categoryLabel, nodeId };
 }
 
@@ -73,3 +75,6 @@ export function productDescription(p: Product): string {
 
 /** True when the string carries a transactional modifier. */
 export const hasBuyIntent = (s: string) => /\b(buy|for sale|price|shop|order|online|deal|cheap|sale)\b/i.test(s);
+
+/** Paths of the mapped category pages (they list exactly the products mapped to them, plus their children). */
+export const MAPPED_PATHS = new Set(Object.values(NODE_PATHS).concat(['/scooters/adults-scooters']));

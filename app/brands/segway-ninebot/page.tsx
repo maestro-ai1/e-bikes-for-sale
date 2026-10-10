@@ -3,15 +3,22 @@ import PageShell from '@/components/PageShell';
 import CatalogPage from '@/components/catalog/CatalogPage';
 import { nodeById } from '@/lib/catalog';
 import { metadataFor } from '@/lib/catalog-meta';
+import { parsePage } from '@/lib/pagination';
 
 const node = nodeById('brand-segway')!;
 
-export const metadata: Metadata = metadataFor(node);
+type Props = { searchParams: Promise<{ page?: string }> };
 
-export default function SegwayNinebotPage() {
+export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
+  const { page } = await searchParams;
+  return metadataFor(node, parsePage(page));
+}
+
+export default async function SegwayNinebotPage({ searchParams }: Props) {
+  const { page } = await searchParams;
   return (
     <PageShell>
-      <CatalogPage node={node} />
+      <CatalogPage node={node} page={parsePage(page)} />
     </PageShell>
   );
 }

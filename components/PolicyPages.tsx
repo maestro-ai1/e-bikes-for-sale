@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { BUSINESS_INFO } from '@/lib/data';
 import { ShieldCheck, Truck, RotateCcw, Coins, FileText, Lock, Cookie, Scale } from 'lucide-react';
 
-export default function PolicyPages() {
+export default function PolicyPages({ asSection = false }: { asSection?: boolean } = {}) {
   const [activeTab, setActiveTab] = useState<'delivery' | 'minimum' | 'packaging' | 'returns' | 'crypto' | 'terms' | 'privacy'>('delivery');
 
   return (
@@ -16,9 +16,9 @@ export default function PolicyPages() {
           <span className="text-xs font-bold uppercase tracking-wider text-[#2E6B4D]">
             Customer Care & Australian Compliance
           </span>
-          <h1 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight mt-1">
+          {(() => { const H = asSection ? 'h2' : 'h1'; return <H className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight mt-1">
             Delivery, Returns & Store Policies
-          </h1>
+          </H>; })()}
           <p className="text-xs sm:text-sm text-gray-500 mt-2">
             Transparent consumer terms compliant with Australian Consumer Law (ACL) and road safety standards.
           </p>

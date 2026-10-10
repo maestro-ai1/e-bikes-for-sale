@@ -7,6 +7,7 @@ import { BRAND_NODES_MORE } from '@/lib/brand-pages-more';
 import { BRAND_NODES_RETAIL, RETAIL_BRAND_KEYWORDS } from '@/lib/brand-pages-retail';
 import { GEAR_NODES, GEAR_KEYWORDS, STRATEGY_OVERRIDES, STRATEGY_TEXT } from '@/lib/gear-pages';
 import { STRATEGY_KEYWORDS } from '@/lib/strategy-map';
+import { categoryLinkFor, MAPPED_PATHS } from '@/lib/product-meta';
 
 /**
  * Category tree for the /ebikes and /scooters hubs.
@@ -534,7 +535,19 @@ export const SECTION_MATCH: Record<string, (p: Product) => boolean> = {
   'sc-accessories': (p) => p.category === 'scooters' && p.subcategoryId === 'scooters-accessories',
 };
 
-export const CATALOG: CatalogNode[] = [...NODES, ...KIDS_NODES, ...BRAND_NODES, ...BRAND_NODES_MORE, ...BRAND_NODES_RETAIL, ...GEAR_NODES, ...LANDING_NODES].map((n) => ({ ...n, ...(STRATEGY_TEXT[n.id] ?? {}), keywords: kw(n.id) }));
+export const CATALOG: CatalogNode[] = [...NODES, ...KIDS_NODES, ...BRAND_NODES, ...BRAND_NODES_MORE, ...BRAND_NODES_RETAIL, ...GEAR_NODES, ...LANDING_NODES].map((n) => ({
+  ...n,
+  ...(STRATEGY_TEXT[n.id] ?? {}),
+  // A mapped category page lists exactly the products whose category link points at it (or at one of its children),
+  // so the product -> category link and the category -> product list can never disagree.
+  matches: MAPPED_PATHS.has(n.path)
+    ? (p: Product) => {
+        const mp = categoryLinkFor(p).path;
+        return mp === n.path || mp.startsWith(n.path + '/');
+      }
+    : n.matches,
+  keywords: kw(n.id),
+}));
 export const LANDING_PATHS = [...LANDING_NODES, ...GEAR_NODES].map((n) => n.path);
 export const nodeById = (id: string) => CATALOG.find((n) => n.id === id);
 export const nodeByPath = (path: string) => CATALOG.find((n) => n.path === path);

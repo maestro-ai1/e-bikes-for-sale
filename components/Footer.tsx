@@ -5,6 +5,8 @@ import { useApp } from '@/context/AppContext';
 import { BUSINESS_INFO, CATEGORIES_CONFIG } from '@/lib/data';
 import { catalogUrlFor } from '@/lib/catalog-nav';
 import Logo from '@/components/Logo';
+import Link from 'next/link';
+import { NAV } from '@/lib/site-nav';
 import { 
   Bike, 
   Phone, 
@@ -258,6 +260,20 @@ export default function Footer() {
             </div>
 
           </div>
+
+          {/* SiteDirectory: every category, brand and information page as a plain link */}
+          <nav aria-label="Site directory" className="grid grid-cols-2 gap-6 border-t border-gray-800/80 py-6 text-xs sm:grid-cols-3 lg:grid-cols-6">
+            {NAV.filter((i) => i.groups).flatMap((i) => i.groups!.map((g) => ({ item: i.label, g }))).map(({ item, g }) => (
+              <div key={`${item}-${g.heading}`}>
+                <p className="mb-2 font-bold uppercase tracking-wider text-gray-300">{g.href ? <Link href={g.href} className="hover:text-white">{g.heading}</Link> : g.heading}</p>
+                <ul className="space-y-1.5">
+                  {g.links.map((l) => (
+                    <li key={l.href}><Link href={l.href} className="text-gray-400 hover:text-white">{l.label}</Link></li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </nav>
 
           {/* SECURITY & LEGAL POLICIES */}
           <div className="pt-3 border-t border-gray-800/80 flex flex-col sm:flex-row items-center justify-between gap-2.5 text-[11px] text-gray-400">

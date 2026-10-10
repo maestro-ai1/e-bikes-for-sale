@@ -18,12 +18,13 @@ import {
   type CatalogNode,
 } from '@/lib/catalog';
 import ProductGrid from './ProductGrid';
+import Pagination from './Pagination';
+import { notFound } from 'next/navigation';
+import { paginate, pageHref } from '@/lib/pagination';
 
 const money = (n: number) => `$${n.toLocaleString('en-AU')}`;
-const productsFor = (n: CatalogNode): Product[] => {
-  const ps = PRODUCTS.filter(n.matches);
-  return n.productLimit ? ps.slice(0, n.productLimit) : ps;
-};
+// Every matching product is listed; the 9-per-page pagination replaces the old per-page product cap.
+const productsFor = (n: CatalogNode): Product[] => PRODUCTS.filter(n.matches);
 const fromPrice = (ps: Product[]) => (ps.length ? Math.min(...ps.map((p) => p.price)) : null);
 
 function crumbs(n: CatalogNode): { name: string; path: string }[] {
@@ -42,7 +43,7 @@ function crumbs(n: CatalogNode): { name: string; path: string }[] {
   return out;
 }
 
-function buildJsonLd(n: CatalogNode, listed: Product[]) {
+function buildJsonLd(n: CatalogNode, listed: Product[], offset = 0, total = listed.length, url = `${SITE_URL}${n.path}`) {
   const trail = crumbs(n);
   return {
     '@context': 'https://schema.org',
@@ -62,10 +63,10 @@ function buildJsonLd(n: CatalogNode, listed: Product[]) {
             {
               '@type': 'ItemList',
               '@id': `${SITE_URL}${n.path}#list`,
-              numberOfItems: listed.length,
+              numberOfItems: total,
               itemListElement: listed.map((p, i) => ({
                 '@type': 'ListItem',
-                position: i + 1,
+                position: offset + i + 1,
                 url: `${SITE_URL}/product/${p.slug}`,
                 name: p.name,
               })),
@@ -93,7 +94,7 @@ function buildJsonLd(n: CatalogNode, listed: Product[]) {
   };
 }
 
-export default function CatalogPage({ node }: { node: CatalogNode }) {
+export default function CatalogPage({ node, page = 1 }: { node: CatalogNode; page?: number }) {
   const isEbikeHub = node.id === 'hub';
   const kids = childrenOf(node);
   const siblings = siblingsOf(node);
@@ -103,8 +104,11 @@ export default function CatalogPage({ node }: { node: CatalogNode }) {
   const ownProducts = isEbikeHub ? categories.flatMap((c) => productsFor(c)) : productsFor(node);
   const sections = (node.sections || []).map((s) => ({ ...s, products: PRODUCTS.filter(SECTION_MATCH[s.id]) }));
   const listed = [...ownProducts, ...sections.flatMap((s) => s.products)];
+  // 9 products per page; a page beyond the last one is a real 404
+  const paged = paginate(ownProducts, page);
+  if (ownProducts.length && page > paged.totalPages) notFound();
   const trail = crumbs(node);
-  const jsonLd = buildJsonLd(node, listed);
+  const jsonLd = buildJsonLd(node, paged.items, paged.from ? paged.from - 1 : 0, ownProducts.length);
   const startingPrice = fromPrice(listed);
   const banner = CATALOG_IMAGES[node.id];
   const isBrand = node.path.startsWith('/brands/');
@@ -152,6 +156,7 @@ export default function CatalogPage({ node }: { node: CatalogNode }) {
                 focusKeyword={banner?.alt ?? node.keywords.primary}
                 name={node.name}
                 loading="eager"
+                sizes="(min-width: 768px) 420px, 100vw"
                 withContainer={false}
               />
             </div>
@@ -223,29 +228,20 @@ export default function CatalogPage({ node }: { node: CatalogNode }) {
       )}
 
       {/* Products */}
-      {isEbikeHub ? (
-        categories.map((c) => {
-          const ps = productsFor(c);
-          return (
-            <section key={c.id} aria-labelledby={`cat-${c.id}`} className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
-              <div className="flex flex-wrap items-end justify-between gap-2">
-                <h2 id={`cat-${c.id}`} className="text-2xl font-black tracking-tight text-gray-900">{c.name}</h2>
-                <Link href={c.path} className="text-sm font-black text-[#2E6B4D] hover:underline">
-                  See all {c.name.toLowerCase()} →
-                </Link>
-              </div>
-              <div className="mt-5"><ProductGrid products={ps} /></div>
-            </section>
-          );
-        })
-      ) : (
+      {(
         <section aria-labelledby="products-heading" className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
           <h2 id="products-heading" className="text-2xl font-black tracking-tight text-gray-900">
-            {node.productsHeading || `Shop ${node.name.toLowerCase()}`}
+            {isEbikeHub ? 'All e-bikes for sale' : node.productsHeading || `Shop ${node.name.toLowerCase()}`}
           </h2>
+          {paged.totalPages > 1 && (
+            <p className="mt-1 text-sm text-gray-600">Showing {paged.from} to {paged.to} of {paged.total} products (page {paged.page} of {paged.totalPages})</p>
+          )}
           <div className="mt-5">
             {ownProducts.length ? (
-              <ProductGrid products={ownProducts} />
+              <>
+                <ProductGrid products={paged.items} />
+                <Pagination path={node.path} page={paged.page} totalPages={paged.totalPages} />
+              </>
             ) : (
               <div className="rounded-2xl border border-emerald-200 bg-emerald-50/60 p-6">
                 <h3 className="text-lg font-black text-gray-900">Ask about availability</h3>

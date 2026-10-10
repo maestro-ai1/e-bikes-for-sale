@@ -19,8 +19,9 @@ export const CATALOG_IMAGES: Record<string, CatalogImage> = {
   road: img('electric-road-bikes.jpg', 'Electric road bike for long rides and fast commutes'),
   commuter: img('electric-commuter-bikes.jpg', 'Electric commuter bike for daily city riding'),
   trikes: img('electric-trikes.jpg', 'Three wheel electric bike for stable, easy riding'),
-  'brand-cube': img('../products/cube-reaction-hybrid-performance-500-2.jpg', 'Cube e mountain bikes: Cube Reaction Hybrid Performance 500 electric hardtail'),
-  'brand-pedal': img('../products/pedal-brewer-electric-cruiser-560wh-2.jpg', 'Pedal electric bikes: Pedal Brewer electric cruiser bike'),
-  'brand-dirodi': img('../products/dirodi-rover-pro-250w-electric-fat-bike-2.jpg', 'Dirodi electric bike: Dirodi Rover Pro 250W electric fat bike'),
+  'brand-cube': img('../products/cube-reaction-hybrid-performance-500-2.webp', 'Cube e mountain bikes: Cube Reaction Hybrid Performance 500 electric hardtail'),
+  'brand-merida': img('../products/merida-espresso-cc-500-eq-electric-hybrid-bike-matt-early-moss-grey-green-2.webp', 'Merida electric bike: Merida eSpresso CC 500 EQ electric hybrid bike'),
+  'brand-pedal': img('../products/pedal-brewer-electric-cruiser-560wh-2.webp', 'Pedal electric bikes: Pedal Brewer electric cruiser bike'),
+  'brand-dirodi': img('../products/dirodi-rover-pro-250w-electric-fat-bike-2.webp', 'Dirodi electric bike: Dirodi Rover Pro 250W electric fat bike'),
   'brand-segway': img('../brands/segway-ninebot.jpg', 'Segway scooter: Segway-Ninebot electric kick scooter'),
 };

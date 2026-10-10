@@ -27,6 +27,7 @@ export default function CompareLandingPage() {
       <Header />
 
       <main className="flex-1">
+        <h1 className="sr-only">Compare electric bicycles side by side</h1>
         <CompareTool />
       </main>
 

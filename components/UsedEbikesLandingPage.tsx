@@ -341,8 +341,8 @@ export default function UsedEbikesLandingPage() {
           </div>
           <div className="flex flex-wrap gap-3 text-sm font-bold">
             <Link href="/ebikes" className="bg-white text-[#1E4733] px-4 py-2.5 rounded-xl hover:bg-emerald-50">New e-bikes</Link>
-            <Link href="/parts" className="border border-white/40 px-4 py-2.5 rounded-xl hover:bg-white/10">Parts &amp; tyres</Link>
-            <Link href="/accessories" className="border border-white/40 px-4 py-2.5 rounded-xl hover:bg-white/10">Accessories</Link>
+            <Link href="/e-bike-parts" className="border border-white/40 px-4 py-2.5 rounded-xl hover:bg-white/10">Parts &amp; tyres</Link>
+            <Link href="/e-bike-accessories" className="border border-white/40 px-4 py-2.5 rounded-xl hover:bg-white/10">Accessories</Link>
             <Link href="/contact" className="border border-white/40 px-4 py-2.5 rounded-xl hover:bg-white/10">Contact us</Link>
           </div>
         </div>

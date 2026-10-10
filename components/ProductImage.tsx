@@ -28,6 +28,8 @@ export interface ProductImageProps {
   className?: string;
   /** Pass false when the parent already provides the square container. */
   withContainer?: boolean;
+  /** Rendered width hint so the browser downloads the right size (grid: 3 / 2 / 1 columns). */
+  sizes?: string;
 }
 
 /**
@@ -42,6 +44,7 @@ export default function ProductImage({
   loading = 'lazy',
   className = '',
   withContainer = true,
+  sizes = '(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw',
 }: ProductImageProps) {
   const [failed, setFailed] = useState(false);
   const missing = !src || failed;
@@ -66,7 +69,9 @@ export default function ProductImage({
       width={600}
       height={600}
       loading={loading}
-      sizes="(max-width: 640px) 100vw, 600px"
+      fetchPriority={loading === 'eager' ? 'high' : 'auto'}
+      decoding="async"
+      sizes={sizes}
       onError={() => setFailed(true)}
       className="h-full w-full object-contain"
     />

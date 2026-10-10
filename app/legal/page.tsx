@@ -29,7 +29,7 @@ export default function LegalLandingPage() {
 
       <main className="flex-1">
         <LegalComplianceGuide />
-        <PolicyPages />
+        <PolicyPages asSection />
       </main>
 
       <Footer />
