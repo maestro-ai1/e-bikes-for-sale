@@ -84,8 +84,9 @@ export default function SiteNav({
 
   return (
     <nav aria-label="Main" className="relative border-t border-gray-200 bg-white">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6">
-        <ul className="flex flex-wrap items-center gap-1 py-2 text-sm font-semibold text-gray-700 lg:gap-2">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center px-4 sm:px-6 md:grid-cols-[1fr_auto_1fr]">
+        <span aria-hidden="true" className="hidden md:block" />
+        <ul className="flex flex-wrap items-center justify-center gap-1 py-2 text-sm font-semibold text-gray-700 lg:gap-2">
           {NAV.map((item) => {
             const active = isActive(item.href) && item.href !== '/ebikes' ? true : item.href === '/ebikes' && pathname.startsWith('/ebikes');
             const cls = `inline-flex min-h-10 items-center gap-1 whitespace-nowrap rounded-lg px-3 py-1.5 transition-colors ${
@@ -128,7 +129,7 @@ export default function SiteNav({
         {onQuiz && (
           <button
             onClick={onQuiz}
-            className="hidden items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-xs font-bold text-[#2E6B4D] hover:bg-emerald-100 md:flex"
+            className="hidden items-center gap-1.5 justify-self-end rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-xs font-bold text-[#2E6B4D] hover:bg-emerald-100 md:flex"
           >
             <span>⚡ E-Bike Finder Quiz</span>
           </button>

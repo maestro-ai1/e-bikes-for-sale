@@ -366,6 +366,15 @@ export const COMMON_ADDONS = ADDON_SLUGS.map((slug) => PRODUCTS.find((p) => p.sl
   .filter((p): p is Product => !!p)
   .map((p) => ({ id: p.id, slug: p.slug, name: p.name, price: p.price, description: p.shortDescription || p.subtitle || '', image: p.image }));
 
+// Pedal Breeze "Electric Cruiser Bike" listings are cruisers by name and by the keyword map (cruiser e bike),
+// although the supplier files them under hybrid comfort: list them with the cruiser category.
+PRODUCTS.forEach((p) => {
+  if (p.brand === 'Pedal' && /breeze.*electric cruiser/i.test(p.name)) {
+    p.category = 'cruiser';
+    p.categoryLabel = 'Electric Cruiser Bikes';
+  }
+});
+
 // Keyword-map rules: new products take their 10 tags from the mapped category keywords, and every
 // product page carries exactly 5 FAQs that each include one mapped keyword.
 [...PARTNER_PRODUCTS, ...FEED_PRODUCTS].forEach((p) => { p.tags = tagsForProduct(p); });
