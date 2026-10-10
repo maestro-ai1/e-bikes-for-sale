@@ -4,7 +4,7 @@ export interface CatalogImage {
   alt: string;
 }
 
-const img = (file: string, alt: string): CatalogImage => ({ src: `/images/catalog/${file}`, alt });
+const img = (file: string, alt: string): CatalogImage => ({ src: file.startsWith('../') ? `/images/${file.slice(3)}` : `/images/catalog/${file}`, alt });
 
 export const CATALOG_IMAGES: Record<string, CatalogImage> = {
   hub: img('ebikes-hub.jpg', 'Electric bike range for Australian riders: commuter, hybrid and trail e-bikes'),
@@ -19,11 +19,11 @@ export const CATALOG_IMAGES: Record<string, CatalogImage> = {
   road: img('electric-road-bikes.webp', 'Electric road bike for long rides and fast commutes'),
   commuter: img('electric-commuter-bikes.webp', 'Electric commuter bike for daily city riding'),
   trikes: img('electric-trikes.jpg', 'Three wheel electric bike for stable, easy riding'),
-  'brand-cube': img('../products/cube-reaction-hybrid-performance-500-2.webp', 'Cube e mountain bikes: Cube Reaction Hybrid Performance 500 electric hardtail'),
-  'brand-merida': img('../products/merida-espresso-cc-500-eq-electric-hybrid-bike-matt-early-moss-grey-green-2.webp', 'Merida electric bike: Merida eSpresso CC 500 EQ electric hybrid bike'),
-  'brand-pedal': img('../products/pedal-brewer-electric-cruiser-560wh-2.webp', 'Pedal electric bikes: Pedal Brewer electric cruiser bike'),
-  'brand-dirodi': img('../products/dirodi-rover-pro-250w-electric-fat-bike-2.webp', 'Dirodi electric bike: Dirodi Rover Pro 250W electric fat bike'),
-  'brand-segway': img('../brands/segway-ninebot.jpg', 'Segway scooter: Segway-Ninebot electric kick scooter'),
+  'brand-cube': img('../brands/cube-electric-mountain-bike.webp', 'Cube electric mountain bike for youth riders with Shimano mid-drive and 24 inch wheels'),
+  'brand-merida': img('../brands/merida-electric-trekking-bike.webp', 'Merida electric trekking bike with rear rack and mid-drive motor'),
+  'brand-pedal': img('../brands/pedal-electric-kids-bike.webp', 'Pedal electric kids mountain bike in red with fat tyres'),
+  'brand-dirodi': img('../brands/dirodi-electric-fat-tyre-bike.webp', 'DiroDi electric fat tyre bike with long rear seat and rear rack'),
+  'brand-segway': img('../brands/segway-electric-bike.webp', 'Segway electric bike with step-through frame and rear carrier'),
   'emtb-trail': img('trail-suspension-emtb.webp', 'Trail suspension electric mountain bike with front suspension fork'),
   'emtb-kids': img('kids-electric-bikes.webp', 'Kids electric balance bike for young riders'),
   'kids-ebikes': img('kids-electric-bikes.webp', 'Kids electric balance bike for young riders'),
