@@ -216,7 +216,7 @@ const SPECS: Spec[] = [
     slug: 'pedal-brewer-electric-cruiser-560wh',
     name: 'Pedal Brewer Electric Cruiser Bike 560Wh',
     brand: 'Pedal', focusKeyword: 'pedal brewer electric cruiser bike 560wh',
-    category: 'cruiser', categoryLabel: 'Electric Cruiser Bikes',
+    category: 'fat-tyre', categoryLabel: 'Fat Tyre E-Bikes',
     price: 1899, compareAtPrice: 2599,
     subtitle: 'Step-through fat tyre cruiser with a removable 560 Wh battery',
     shortDescription: 'A step-through fat tyre electric cruiser with a removable 560 Wh battery and hydraulic disc brakes.',
