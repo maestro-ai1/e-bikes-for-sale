@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import ProductImage from '@/components/ProductImage';
+import Link from 'next/link';
+import { categoryLinkFor } from '@/lib/product-meta';
 import { useApp } from '@/context/AppContext';
 import { Product, AddOnItem } from '@/lib/types';
 import { PRODUCTS, BUSINESS_INFO } from '@/lib/data';
@@ -140,27 +142,11 @@ export default function ProductLandingPage({ initialProduct }: ProductLandingPag
       <nav aria-label="Breadcrumb" className="bg-gray-50 border-b border-gray-200 py-3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between text-xs text-gray-500">
           <ol className="flex items-center gap-1.5 overflow-x-auto whitespace-nowrap">
-            <li>
-              <button 
-                onClick={() => { setCurrentView('home'); window.history.pushState(null, '', '/'); }}
-                className="hover:text-[#2E6B4D] font-semibold transition-colors cursor-pointer"
-              >
-                Home
-              </button>
-            </li>
+            <li><Link href="/" className="hover:text-[#2E6B4D] font-semibold transition-colors">Home</Link></li>
             <li><ChevronRight className="w-3.5 h-3.5 text-gray-400" /></li>
-            <li>
-              <button 
-                onClick={() => { setCurrentView('shop'); window.history.pushState(null, '', '/shop'); }}
-                className="hover:text-[#2E6B4D] font-semibold transition-colors cursor-pointer"
-              >
-                E-Bikes Shop
-              </button>
-            </li>
+            <li><Link href="/ebikes" className="hover:text-[#2E6B4D] font-semibold transition-colors">E-Bikes</Link></li>
             <li><ChevronRight className="w-3.5 h-3.5 text-gray-400" /></li>
-            <li>
-              <span className="capitalize">{product.categoryLabel}</span>
-            </li>
+            <li><Link href={categoryLinkFor(product).path} className="hover:text-[#2E6B4D] font-semibold transition-colors capitalize">{product.subcategory || product.categoryLabel}</Link></li>
             <li><ChevronRight className="w-3.5 h-3.5 text-gray-400" /></li>
             <li aria-current="page" className="font-bold text-gray-900 truncate max-w-xs">
               {product.name}
