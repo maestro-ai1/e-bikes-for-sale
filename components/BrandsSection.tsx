@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import ProductImage from '@/components/ProductImage';
+import BrandLogo from '@/components/BrandLogo';
 import { PRODUCTS } from '@/lib/data';
 import { CATALOG_IMAGES } from '@/lib/catalog-images';
 
@@ -34,6 +35,7 @@ export default function BrandsSection() {
                   <ProductImage src={b.hero} focusKeyword={`${b.name} electric bikes`} name={b.name} withContainer={false} />
                 </div>
                 <div className="p-3">
+                  <BrandLogo brand={b.key} height={26} className="mb-1.5" />
                   <h3 className="text-sm font-black text-gray-900">{b.name}</h3>
                   <p className="text-xs text-gray-600">{b.count} {b.count === 1 ? 'model' : 'models'}</p>
                 </div>

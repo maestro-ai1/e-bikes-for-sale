@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import ProductImage from '@/components/ProductImage';
+import BrandLogo from '@/components/BrandLogo';
 import { PRODUCTS } from '@/lib/data';
 import { CATALOG_IMAGES } from '@/lib/catalog-images';
 
@@ -50,6 +51,7 @@ export default function BrandPage() {
                   <ProductImage src={b.hero} focusKeyword={`${b.name} electric bikes`} name={b.name} withContainer={false} />
                 </div>
                 <div className="p-4">
+                  <BrandLogo brand={b.key} height={32} className="mb-2" />
                   <h3 className="text-lg font-black text-gray-900">{b.name}</h3>
                   <p className="mt-1 text-sm text-gray-600">{b.count} {b.count === 1 ? 'model' : 'models'} in our range</p>
                   <span className="mt-3 inline-block text-sm font-black text-[#2E6B4D]">Shop {b.name} →</span>

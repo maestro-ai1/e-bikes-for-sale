@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import ProductImage from '@/components/ProductImage';
+import BrandLogo from '@/components/BrandLogo';
+import { brandLogoFor } from '@/lib/brand-logos';
 import { ChevronRight, HelpCircle } from 'lucide-react';
 import { CATALOG_IMAGES } from '@/lib/catalog-images';
 import { RELATED_SEARCHES } from '@/lib/related-searches';
@@ -137,6 +139,11 @@ export default function CatalogPage({ node, page = 1 }: { node: CatalogNode; pag
       <header className="mt-4 bg-gradient-to-br from-[#1E4733] via-[#2E6B4D] to-[#1E4733] text-white">
         <div className={`mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14 ${banner || isBrand ? 'grid items-center gap-8 md:grid-cols-[1.4fr_1fr]' : ''}`}>
           <div>
+            {isBrand && brandLogoFor(node.id) && (
+              <div className="mb-4 inline-flex rounded-xl bg-white px-4 py-2.5 shadow-sm">
+                <BrandLogo brand={node.id} height={40} priority />
+              </div>
+            )}
             <h1 className="max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-4xl lg:text-5xl">{node.h1}</h1>
             <div className="mt-5 max-w-3xl space-y-3 text-base leading-relaxed text-emerald-50/95">
               {node.intro.map((p) => (
