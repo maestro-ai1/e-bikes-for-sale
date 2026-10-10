@@ -13,8 +13,8 @@ export const TYPE_KEYWORDS: Record<string, string[]> = {
     "helmets for cycle", // 480 / KD 18
     "bike helmets helmets", // 390 / KD 20
     "electric bike helmet", // 260 / KD 11
-    "specialized helmet", // 260 / KD 7
     "bike helmet sale", // 170 / KD 9
+    "bike riding helmets", // 170 / KD 27
   ],
   'helmet-kids': [
     "helmet youth bike", // 4400 / KD 10
@@ -106,8 +106,7 @@ export function productTypeKey(p: Product): string | null {
   }
   if (p.category === 'accessories' || p.category === 'parts') {
     if (/computer|gps|head unit|garmin|wahoo/.test(n)) return 'computer';
-    // "Light Black", "Light Grey" are colours, not lights
-    if (/\blights?\b(?!\s+(black|blue|grey|gray|green|red|pink|silver|white|brown|navy|yellow|orange|purple|tan|camo))|lumen|headlight/.test(n)) return 'light';
+    if (/\blights?\b|lumen|headlight/.test(n)) return 'light';
     if (/saddle|seat/.test(n)) return 'saddle';
     if (/pannier|basket|rack|carrier|bag/.test(n)) return 'bag-rack';
     if (/\btyres?\b|\btires?\b|inner tube|\btube\b/.test(n)) return 'tyres-parts';
