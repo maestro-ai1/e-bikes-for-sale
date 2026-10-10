@@ -285,7 +285,7 @@ export default function CatalogPage({ node, page = 1 }: { node: CatalogNode; pag
           <div className="rounded-2xl border border-emerald-200 bg-emerald-50/60 p-5 sm:p-6">
             <h2 id="buy-heading" className="text-xl font-black tracking-tight text-gray-900">Buy {node.name.toLowerCase()} online</h2>
             <p className="mt-2 max-w-3xl leading-relaxed text-gray-700">
-              Searching for {node.keywords.commerce.join(' or ')}? Every model above can be ordered online with delivery across Australia, so you can compare specs, add to cart and check out in minutes.
+              Searching for {node.keywords.commerce.slice(0, 3).join(' or ')}? Every model above can be ordered online with delivery across Australia, so you can compare specs, add to cart and check out in minutes.
             </p>
           </div>
         </section>

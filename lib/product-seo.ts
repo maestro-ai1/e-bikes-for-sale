@@ -2,6 +2,7 @@ import type { Product } from '@/lib/types';
 import { CATALOG_KEYWORDS, type NodeKeywords } from '@/lib/catalog-keywords';
 import { GEAR_KEYWORDS, STRATEGY_OVERRIDES } from '@/lib/gear-pages';
 import { STRATEGY_KEYWORDS } from '@/lib/strategy-map';
+import { withTransactional } from '@/lib/transactional-keywords';
 
 /**
  * Product SEO rules (seo-strategy/keyword-map.md is the source of truth, never invent keywords):
@@ -46,11 +47,12 @@ export function nodeIdForProduct(p: Product): string {
   }
 }
 
+
 export function keywordsForProduct(p: Product): NodeKeywords | undefined {
   const id = nodeIdForProduct(p);
   const base = CATALOG_KEYWORDS[id] ?? GEAR_KEYWORDS[id];
   const over = STRATEGY_KEYWORDS[id] ?? STRATEGY_OVERRIDES[id];
-  return base || over ? ({ ...(base as NodeKeywords), ...(over ?? {}), commerce: base?.commerce } as NodeKeywords) : undefined;
+  return base || over ? ({ ...(base as NodeKeywords), ...(over ?? {}), commerce: withTransactional(id, base?.commerce) } as NodeKeywords) : undefined;
 }
 
 /** Mapped keywords that make sense for this specific product (accessory sub-types get their own subset). */
@@ -68,7 +70,7 @@ function fitsProduct(p: Product, kw: string): boolean {
 export function tagsForProduct(p: Product): string[] {
   const k = keywordsForProduct(p);
   if (!k) return p.tags || [];
-  const all = [k.primary, ...(k.commerce || []), ...k.secondary, ...(k.supporting || [])];
+  const all = [k.primary, ...(k.commerce || []).slice(0, 4), ...k.secondary, ...(k.supporting || [])];
   return [...new Set(all.map((t) => t.trim()).filter(Boolean))].filter((t) => fitsProduct(p, t)).slice(0, 10);
 }
 
