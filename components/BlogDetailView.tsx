@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
+import SafeImage from '@/components/SafeImage';
 import { useApp } from '@/context/AppContext';
 import { BLOG_POSTS, PRODUCTS } from '@/lib/data';
 import { BlogPost } from '@/lib/types';
@@ -74,7 +74,7 @@ export default function BlogDetailView({ initialBlog }: BlogDetailViewProps = {}
 
         {/* Feature Image */}
         <div className="relative aspect-16/9 w-full rounded-3xl overflow-hidden bg-gray-100 mb-8 border border-gray-200">
-          <Image
+          <SafeImage
             src={blog.image}
             alt={blog.altText}
                 width={600}
@@ -131,7 +131,7 @@ export default function BlogDetailView({ initialBlog }: BlogDetailViewProps = {}
         <div className="mt-12 bg-gray-50 border border-gray-200 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
             <div className="w-20 h-20 rounded-2xl relative overflow-hidden bg-white shrink-0 border border-gray-200">
-              <Image
+              <SafeImage
                 src={featured.image}
                 alt={featured.name}
                 width={600}

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import Image from 'next/image';
+import SafeImage from '@/components/SafeImage';
 import { useApp } from '@/context/AppContext';
 import { PRODUCTS, SCOOTER_PAGE_CONFIG, BUSINESS_INFO } from '@/lib/data';
 import { Product } from '@/lib/types';
@@ -232,7 +232,7 @@ export default function ScootersLandingPage() {
                     className="relative aspect-4/3 w-full bg-white overflow-hidden cursor-pointer"
                     onClick={() => viewProduct(product)}
                   >
-                    <Image
+                    <SafeImage
                       src={product.image}
                       alt={`${product.name} scooter Australia`}
                 width={600}

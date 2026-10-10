@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import Image from 'next/image';
+import SafeImage from '@/components/SafeImage';
 import { useApp } from '@/context/AppContext';
 import { PRODUCTS, EBIKES_PAGE_CATEGORIES, BUSINESS_INFO } from '@/lib/data';
 import { Product } from '@/lib/types';
@@ -241,7 +241,7 @@ export default function EbikesLandingPage() {
                   }`}
                 >
                   <div className="relative aspect-4/3 w-full bg-gray-100 overflow-hidden">
-                    <Image
+                    <SafeImage
                       src={cat.image}
                       alt={`${cat.name} Australia`}
                 width={600}
@@ -469,7 +469,7 @@ export default function EbikesLandingPage() {
                           className="relative aspect-4/3 w-full bg-white overflow-hidden cursor-pointer"
                           onClick={() => viewProduct(product)}
                         >
-                          <Image
+                          <SafeImage
                             src={product.image}
                             alt={`${product.name} electric bicycle for sale Australia`}
                 width={600}

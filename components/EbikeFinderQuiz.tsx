@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
+import SafeImage from '@/components/SafeImage';
 import { useApp } from '@/context/AppContext';
 import { PRODUCTS } from '@/lib/data';
 import { Product } from '@/lib/types';
@@ -242,7 +242,7 @@ export default function EbikeFinderQuiz() {
                 >
                   <div className="flex items-center gap-4 w-full sm:w-auto">
                     <div className="w-20 h-20 rounded-xl relative overflow-hidden bg-white shrink-0 border border-gray-200">
-                      <Image
+                      <SafeImage
                         src={p.image}
                         alt={p.name}
                 width={600}

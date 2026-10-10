@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
+import SafeImage from '@/components/SafeImage';
 import { useApp } from '@/context/AppContext';
 import { CATEGORIES_CONFIG, PRODUCTS } from '@/lib/data';
 import { catalogUrlFor } from '@/lib/catalog-nav';
@@ -100,7 +100,7 @@ export default function CategoryGrid() {
             >
               {/* IMAGE CONTAINER - Strict identical aspect ratio & bright imagery */}
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#f8fafc]">
-                <Image
+                <SafeImage
                   src={CARD_IMAGES[category.id] || CATALOG_IMAGES[category.id === 'scooters' ? 'sc-electric' : category.id]?.src || category.image}
                   alt={CATALOG_IMAGES[category.id === 'scooters' ? 'sc-electric' : category.id]?.alt || `${category.title} for sale in Australia`}
                   width={1200}

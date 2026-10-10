@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+import SafeImage from '@/components/SafeImage';
 import Link from 'next/link';
 import { BookOpen, Calendar, Clock, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { BLOG_POSTS } from '@/lib/data';
@@ -77,7 +77,7 @@ export default function BlogIndex({ page }: { page: number }) {
             <li key={post.id} className="flex">
               <article className="group flex w-full flex-col overflow-hidden rounded-2xl border border-gray-200/90 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-[#2E6B4D] hover:shadow-xl">
                 <Link href={`/blog/${post.slug}`} className="relative block aspect-[4/3] w-full overflow-hidden bg-gray-100">
-                  <Image
+                  <SafeImage
                     src={post.image}
                     alt={post.altText}
                 width={600}

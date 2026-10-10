@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import Image from 'next/image';
+import SafeImage from '@/components/SafeImage';
 import { useApp } from '@/context/AppContext';
 import { PRODUCTS, PARTS_PAGE_CONFIG, BUSINESS_INFO } from '@/lib/data';
 import { Product } from '@/lib/types';
@@ -188,7 +188,7 @@ export default function PartsLandingPage() {
                 }`}
               >
                 <div className="relative aspect-4/3 rounded-xl overflow-hidden mb-3 bg-gray-100">
-                  <Image
+                  <SafeImage
                     src={card.image}
                     alt={card.title}
                 width={600}
@@ -313,7 +313,7 @@ export default function PartsLandingPage() {
                   className="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-lg transition-all flex flex-col group"
                 >
                   <div className="relative aspect-4/3 bg-gray-50 overflow-hidden">
-                    <Image
+                    <SafeImage
                       src={product.image}
                       alt={product.name}
                 width={600}

@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+import SafeImage from '@/components/SafeImage';
 import { brandLogoFor } from '@/lib/brand-logos';
 
 /** Brand logo at a fixed height; picks the artwork that has contrast on the given background. */
@@ -20,7 +20,7 @@ export default function BrandLogo({
   if (!logo) return null;
   const src = onDark && logo.srcWhite ? logo.srcWhite : logo.src;
   return (
-    <Image
+    <SafeImage
       src={src}
       alt={logo.alt}
       width={Math.round((logo.width / logo.height) * height)}

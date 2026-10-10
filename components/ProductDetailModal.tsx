@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
+import SafeImage from '@/components/SafeImage';
 import { useRouter } from 'next/navigation';
 import { useApp } from '@/context/AppContext';
 import { BUSINESS_INFO, COMMON_ADDONS } from '@/lib/data';
@@ -118,7 +118,7 @@ export default function ProductDetailModal() {
             
             {/* Main Stage */}
             <div className="relative aspect-4/3 w-full rounded-2xl overflow-hidden bg-gray-50 border border-gray-200">
-              <Image
+              <SafeImage
                 src={galleryImages[activeImageIndex] || product.image}
                 alt={`${product.name} electric bicycle - Australian stock`}
                 width={600}
@@ -162,7 +162,7 @@ export default function ProductDetailModal() {
                     activeImageIndex === i ? 'border-[#2E6B4D] ring-2 ring-emerald-500/20' : 'border-gray-200 opacity-70 hover:opacity-100'
                   }`}
                 >
-                  <Image src={img} alt="Thumbnail" width={600} height={600} className="h-full w-full object-cover" referrerPolicy="no-referrer" />
+                  <SafeImage src={img} alt="Thumbnail" width={600} height={600} className="h-full w-full object-cover" referrerPolicy="no-referrer" />
                 </button>
               ))}
             </div>

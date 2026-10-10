@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
+import SafeImage from '@/components/SafeImage';
 import { useApp } from '@/context/AppContext';
 import { BUSINESS_INFO } from '@/lib/data';
 import { 
@@ -138,7 +138,7 @@ export default function Hero() {
           {/* RIGHT COLUMN: HERO VISUAL WITH KEY BADGES */}
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-3xl overflow-hidden border-2 border-emerald-900/60 shadow-2xl bg-gray-900 aspect-4/3 sm:aspect-16/11">
-              <Image
+              <SafeImage
                 src="/images/catalog/home-hero.webp"
                 alt="e bikes for sale high performance Australian electric bicycle in action"
                 width={600}

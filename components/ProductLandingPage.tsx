@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
+import SafeImage from '@/components/SafeImage';
 import ProductImage from '@/components/ProductImage';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -667,7 +667,7 @@ export default function ProductLandingPage({ initialProduct }: ProductLandingPag
                 className="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:border-[#2E6B4D] hover:shadow-lg transition-all flex flex-col justify-between"
               >
                 <div className="relative aspect-4/3 w-full bg-gray-50 p-4">
-                  <Image
+                  <SafeImage
                     src={rel.image}
                     alt={rel.name}
                 width={600}

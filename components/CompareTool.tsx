@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
+import SafeImage from '@/components/SafeImage';
 import { useApp } from '@/context/AppContext';
 import { PRODUCTS } from '@/lib/data';
 import { Product } from '@/lib/types';
@@ -100,7 +100,7 @@ export default function CompareTool() {
                         className="cursor-pointer relative aspect-4/3 w-full rounded-2xl overflow-hidden bg-gray-100 mb-3 border border-gray-200"
                         title="Click to view details"
                       >
-                        <Image
+                        <SafeImage
                           src={item.image}
                           alt={item.name}
                 width={600}

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
+import SafeImage from '@/components/SafeImage';
 import { useApp } from '@/context/AppContext';
 import { BLOG_POSTS } from '@/lib/data';
 import { BlogPost } from '@/lib/types';
@@ -61,7 +61,7 @@ export default function BlogSection() {
                 onClick={() => handleReadBlog(post)}
                 className="relative aspect-4/3 w-full bg-gray-100 overflow-hidden cursor-pointer"
               >
-                <Image
+                <SafeImage
                   src={post.image}
                   alt={post.altText}
                 width={600}
