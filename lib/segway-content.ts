@@ -12,7 +12,7 @@ export const SEGWAY_POSTS: BlogPost[] = [
     title: 'Ninebot E3 Pro vs E2 Pro: Which Segway Ninebot Scooter Should You Buy?',
     seoTitle: 'Ninebot E3 Pro vs E2 Pro: Segway Ninebot Scooter Guide',
     excerpt:
-      'Comparing the Ninebot E3 Pro with the E2 Pro and E2 Plus II: what to check on motor, battery, range, payload and brakes, how Australian rules apply, and a local alternative.',
+      'Ninebot E3 Pro vs E2 Pro and E2 Plus II: what to check on motor, battery, range, payload and brakes, plus how Australian rules apply.',
     category: 'Scooter Guides',
     readTime: '7 min read',
     date: 'October 2026',
@@ -94,7 +94,7 @@ If you want a foldable commuter with comparable everyday features, compare the S
     title: 'Ninebot E2 Pro Price in Australia: What a Segway Scooter Really Costs',
     seoTitle: 'Ninebot E2 Pro Price Australia: What a Segway Scooter Costs',
     excerpt:
-      'What drives the Ninebot E2 Pro price in Australia, how the E2 Plus and E2 Plus II differ, hidden costs to budget for, and how to compare a Segway scooter against alternatives.',
+      'What drives the Ninebot E2 Pro price in Australia, how the E2 Plus and E2 Plus II differ, and the extra costs to budget for.',
     category: 'Scooter Guides',
     readTime: '6 min read',
     date: 'October 2026',

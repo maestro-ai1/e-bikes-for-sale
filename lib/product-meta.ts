@@ -81,14 +81,16 @@ export function productDescription(p: Product): string {
   const price = p.compareAtPrice && p.compareAtPrice > p.price ? `${money(p.price)} (RRP ${money(p.compareAtPrice)})` : money(p.price);
   const kind = isBike(p) ? 'Pedal assist, EN15194 compliant.' : p.category === 'scooters' ? 'Check your state e-scooter rules.' : 'Certified, quality gear for riders.';
   const kw = term ? `${term.charAt(0).toUpperCase()}${term.slice(1)} range. ` : '';
-  const tail = `${kw}${kind} Fast Australia-wide dispatch.`;
-  // keep the mapped keyword: shorten the product name (not the keyword) until the whole description fits
-  for (const max of [p.name.length, 70, 60, 50, 42, 34]) {
+  const priceOnly = money(p.price);
+  // keep the mapped keyword and the model's distinguishing words: drop the kind line, then the RRP, then shorten the name
+  for (const max of [p.name.length, 80, 70, 60, 50, 42, 34]) {
     const n = max >= p.name.length ? p.name : shortenName(p.name, max);
-    const d = `Buy the ${n} online in Australia for ${price}. ${tail}`;
-    if (d.length <= 158) return d;
+    for (const [pr, tail] of [[price, `${kw}${kind} Fast Australia-wide dispatch.`], [price, `${kw}Fast Australia-wide dispatch.`], [priceOnly, `${kw}Fast Australia-wide dispatch.`]] as const) {
+      const d = `Buy the ${n} online in Australia for ${pr}. ${tail}`;
+      if (d.length <= 158) return d;
+    }
   }
-  let d = `Buy the ${shortenName(p.name, 34)} online in Australia for ${price}. ${kw}Fast Australia-wide dispatch.`;
+  let d = `Buy the ${shortenName(p.name, 34)} online in Australia for ${priceOnly}. ${kw}Fast Australia-wide dispatch.`;
   if (d.length > 158) d = `${d.slice(0, 155).replace(/[\s,;:.]+\S*$/, '')}...`;
   return d;
 }

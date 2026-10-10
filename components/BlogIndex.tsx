@@ -80,9 +80,10 @@ export default function BlogIndex({ page }: { page: number }) {
                   <Image
                     src={post.image}
                     alt={post.altText}
-                    fill
+                width={600}
+                height={600}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     priority={i < 3}
                   />
                   <span className="absolute left-3 top-3 rounded-md bg-white/95 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-emerald-900 shadow-xs">{post.category}</span>

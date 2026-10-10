@@ -517,8 +517,9 @@ export default function CartDrawer() {
                         <Image
                           src={prod.image}
                           alt={prod.name}
-                          fill
-                          className="object-cover"
+                width={600}
+                height={600}
+                          className="h-full w-full object-cover"
                           referrerPolicy="no-referrer"
                         />
                       </div>
@@ -558,8 +559,9 @@ export default function CartDrawer() {
                         <Image
                           src={item.product.image}
                           alt={item.product.name}
-                          fill
-                          className="object-cover"
+                width={600}
+                height={600}
+                          className="h-full w-full object-cover"
                           referrerPolicy="no-referrer"
                         />
                       </div>
@@ -645,8 +647,9 @@ export default function CartDrawer() {
                           <Image
                             src={addon.image}
                             alt={addon.name}
-                            fill
-                            className="object-cover"
+                width={600}
+                height={600}
+                            className="h-full w-full object-cover"
                             referrerPolicy="no-referrer"
                           />
                         </div>

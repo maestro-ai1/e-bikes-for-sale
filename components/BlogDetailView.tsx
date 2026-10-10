@@ -77,11 +77,12 @@ export default function BlogDetailView({ initialBlog }: BlogDetailViewProps = {}
           <Image
             src={blog.image}
             alt={blog.altText}
-            fill
+                width={600}
+                height={600}
             priority
             sizes="(max-width: 1024px) 100vw, 800px"
             referrerPolicy="no-referrer"
-            className="object-cover"
+            className="h-full w-full object-cover"
           />
         </div>
 
@@ -133,8 +134,9 @@ export default function BlogDetailView({ initialBlog }: BlogDetailViewProps = {}
               <Image
                 src={featured.image}
                 alt={featured.name}
-                fill
-                className="object-cover"
+                width={600}
+                height={600}
+                className="h-full w-full object-cover"
                 referrerPolicy="no-referrer"
               />
             </div>

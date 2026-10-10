@@ -244,10 +244,11 @@ export default function EbikesLandingPage() {
                     <Image
                       src={cat.image}
                       alt={`${cat.name} Australia`}
-                      fill
+                width={600}
+                height={600}
                       sizes="(max-width: 640px) 50vw, 20vw"
                       referrerPolicy="no-referrer"
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                     <span className="absolute top-2 left-2 bg-black/60 backdrop-blur-xs text-white text-[10px] font-bold px-1.5 py-0.5 rounded">
@@ -471,10 +472,11 @@ export default function EbikesLandingPage() {
                           <Image
                             src={product.image}
                             alt={`${product.name} electric bicycle for sale Australia`}
-                            fill
+                width={600}
+                height={600}
                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                             referrerPolicy="no-referrer"
-                            className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
+                            className="h-full w-full object-contain p-2 group-hover:scale-105 transition-transform duration-500"
                           />
                           
                           {/* BADGES */}

@@ -64,10 +64,11 @@ export default function BlogSection() {
                 <Image
                   src={post.image}
                   alt={post.altText}
-                  fill
+                width={600}
+                height={600}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                   referrerPolicy="no-referrer"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-xs text-emerald-900 font-extrabold text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-md shadow-xs">
                   {post.category}

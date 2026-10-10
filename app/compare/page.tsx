@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     canonical: 'https://ebikesforsale.com.au/compare',
   },
   openGraph: {
+    images: [{ url: 'https://ebikesforsale.com.au/images/catalog/og-home.jpg', width: 1200, height: 630, alt: 'e bikes for sale Australia' }],
     title: 'Compare E-Bikes Australia | e bikes for sale',
     description: 'Compare motor power, range, battery, and pricing side-by-side.',
     url: 'https://ebikesforsale.com.au/compare',

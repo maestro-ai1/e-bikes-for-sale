@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import Image from 'next/image';
+import ProductCard from '@/components/ProductCard';
 import { useApp } from '@/context/AppContext';
 import { PRODUCTS, CATEGORIES_CONFIG, BUSINESS_INFO } from '@/lib/data';
 import {
@@ -213,107 +213,10 @@ export default function ShopCatalog() {
                 </button>
               </div>
             ) : (
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                {visible.map((product) => {
-                  const isCompared = compareList.some((p) => p.id === product.id);
-                  const cryptoSavings = Math.round(product.price * (BUSINESS_INFO.cryptoDiscountPercentage / 100));
-
-                  return (
-                    <div
-                      key={product.id}
-                      className="group bg-white rounded-2xl border border-gray-200 hover:border-[#2E6B4D] hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden"
-                    >
-                      {/* Image Stage */}
-                      <div className="relative aspect-4/3 w-full bg-gray-50 overflow-hidden">
-                        {product.badge && (
-                          <span className="absolute top-3 left-3 z-10 bg-[#1E4733] text-white text-[10px] font-extrabold uppercase px-2 py-0.5 rounded shadow-xs">
-                            {product.badge}
-                          </span>
-                        )}
-
-                        <button
-                          onClick={() => toggleCompare(product)}
-                          className={`cursor-pointer absolute top-3 right-3 z-10 p-1.5 rounded-lg backdrop-blur-md transition-all shadow-xs ${
-                            isCompared ? 'bg-[#2E6B4D] text-white' : 'bg-white/80 hover:bg-white text-gray-700'
-                          }`}
-                          title="Compare"
-                        >
-                          <SlidersHorizontal className="w-3.5 h-3.5" />
-                        </button>
-
-                        <div 
-                          onClick={() => viewProduct(product)}
-                          className="w-full h-full cursor-pointer relative"
-                        >
-                          <Image
-                            src={product.image}
-                            alt={product.name}
-                            fill
-                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                            referrerPolicy="no-referrer"
-                            className="object-cover group-hover:scale-105 transition-transform duration-500"
-                          />
-                        </div>
-
-                        {product.rangeKm > 0 && (
-                          <div className="absolute bottom-2 left-2 bg-black/60 backdrop-blur-xs text-white text-[10px] font-bold px-2 py-0.5 rounded">
-                            {product.rangeKm}km Range
-                          </div>
-                        )}
-                      </div>
-
-                      {/* Info & Buy */}
-                      <div className="p-4 flex-1 flex flex-col justify-between space-y-3">
-                        <div>
-                          <div className="flex items-center justify-between text-[11px] text-gray-500">
-                            <span className="font-semibold text-[#2E6B4D]">{product.categoryLabel}</span>
-                            <div className="flex items-center gap-1 text-amber-500 font-bold">
-                              <Star className="w-3 h-3 fill-amber-400" />
-                              <span>{product.rating}</span>
-                            </div>
-                          </div>
-
-                          <h3 
-                            onClick={() => viewProduct(product)}
-                            className="font-extrabold text-gray-900 text-sm leading-tight hover:text-[#2E6B4D] cursor-pointer mt-1"
-                          >
-                            {product.name}
-                          </h3>
-                          <p className="text-xs text-gray-500 mt-1 line-clamp-2">{product.shortDescription}</p>
-                        </div>
-
-                        <div className="space-y-1.5 pt-2 border-t border-gray-100">
-                          <div className="text-lg font-black text-gray-900">
-                            ${product.price.toLocaleString()} AUD
-                          </div>
-                          
-                          <div className="text-[10px] text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded font-semibold flex items-center gap-1">
-                            <Coins className="w-3 h-3 text-amber-600" />
-                            <span>Save ${cryptoSavings} via Bitcoin & USDT (10%)</span>
-                          </div>
-
-                          <div className="flex items-center gap-2 pt-2">
-                            <button
-                              onClick={() => setQuickViewProduct(product)}
-                              className="cursor-pointer p-2 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-100 text-xs font-bold transition-colors"
-                              title="Quick view"
-                            >
-                              <Eye className="w-4 h-4" />
-                            </button>
-                            <button
-                              onClick={() => addToCart(product, 1)}
-                              className="cursor-pointer flex-1 bg-[#2E6B4D] hover:bg-[#1E4733] text-white py-2 px-3 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 shadow-xs transition-all active:scale-95"
-                            >
-                              <ShoppingBag className="w-3.5 h-3.5" />
-                              <span>Add to Cart</span>
-                            </button>
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
-                  );
-                })}
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4">
+                {visible.map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
               </div>
             )}
           {visible.length < filteredProducts.length && (

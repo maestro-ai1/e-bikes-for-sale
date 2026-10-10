@@ -12,22 +12,22 @@ const nextConfig: NextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 60 * 60 * 24 * 30,
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'picsum.photos',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-        port: '',
-        pathname: '/**',
-      },
-    ],
+    remotePatterns: [],
   },
   // Legacy gear URLs now live at the keyword-mapped paths (keyword-map.md)
+  async headers() {
+    const security = [
+      { key: 'X-Content-Type-Options', value: 'nosniff' },
+      { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+      { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+      { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+    ];
+    return [
+      { source: '/:path*', headers: security },
+      // discovery for agents: where the API catalog and llms.txt live (RFC 9727 / llmstxt.org)
+      { source: '/', headers: [{ key: 'Link', value: '</.well-known/api-catalog>; rel="api-catalog", </llms.txt>; rel="describedby"; type="text/plain"' }] },
+    ];
+  },
   async redirects() {
     return [
       { source: '/accessories', destination: '/e-bike-accessories', permanent: true },

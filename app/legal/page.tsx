@@ -9,12 +9,13 @@ import ProductDetailModal from '@/components/ProductDetailModal';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Australian E-Bike Road Legality & EN15194 Laws by State | e bikes for sale',
+  title: 'E-Bike Laws in Australia by State | e bikes for sale',
   description: 'Complete state-by-state guide to electric bicycle laws in NSW, VIC, QLD, WA, SA, TAS, NT and ACT. 250W limits, 25 km/h cutoffs, throttle rules and helmet laws.',
   alternates: {
     canonical: 'https://ebikesforsale.com.au/legal',
   },
   openGraph: {
+    images: [{ url: 'https://ebikesforsale.com.au/images/catalog/og-home.jpg', width: 1200, height: 630, alt: 'e bikes for sale Australia' }],
     title: 'Australian E-Bike Road Legality & State Laws | EN15194 Guide',
     description: 'State-by-state electric bicycle regulations, power limits, and helmet compliance.',
     url: 'https://ebikesforsale.com.au/legal',

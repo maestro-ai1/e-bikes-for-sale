@@ -141,9 +141,10 @@ export default function Hero() {
               <Image
                 src="/images/catalog/home-hero.webp"
                 alt="e bikes for sale high performance Australian electric bicycle in action"
-                fill
+                width={600}
+                height={600}
                 priority
-                className="object-cover object-center transform hover:scale-105 transition-transform duration-700"
+                className="h-full w-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
 

@@ -191,8 +191,9 @@ export default function PartsLandingPage() {
                   <Image
                     src={card.image}
                     alt={card.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                width={600}
+                height={600}
+                    className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
                   />
                 </div>
@@ -315,8 +316,9 @@ export default function PartsLandingPage() {
                     <Image
                       src={product.image}
                       alt={product.name}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                width={600}
+                height={600}
+                      className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     />
                     {product.badge && (

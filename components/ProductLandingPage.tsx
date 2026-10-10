@@ -323,35 +323,7 @@ export default function ProductLandingPage({ initialProduct }: ProductLandingPag
               </div>
             </div>
 
-            {/* Frame Size / Variant Selector */}
-            {product.sizeVariants && product.sizeVariants.length > 0 && (
-              <div className="space-y-2.5">
-                <div className="flex items-center justify-between text-xs">
-                  <span className="font-bold text-gray-900">Select Frame Size & Spec:</span>
-                  <span className="text-gray-500">{selectedSize}</span>
-                </div>
-                <div className="grid grid-cols-1 gap-2">
-                  {product.sizeVariants.map((variant) => (
-                    <button
-                      key={variant.id}
-                      onClick={() => setSelectedSize(variant.label)}
-                      className={`cursor-pointer p-3 rounded-xl border text-xs font-semibold text-left transition-all flex items-center justify-between ${
-                        selectedSize === variant.label
-                          ? 'border-[#2E6B4D] bg-emerald-50/50 text-[#1E4733] ring-1 ring-[#2E6B4D]'
-                          : 'border-gray-200 hover:border-gray-300 text-gray-700 bg-white'
-                      }`}
-                    >
-                      <span>{variant.label}</span>
-                      {variant.priceDelta > 0 && (
-                        <span className="text-gray-500 font-normal">
-                          +${variant.priceDelta} AUD
-                        </span>
-                      )}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
+            {/* Frame size is confirmed with the order (single standard option, no picker) */}
 
             {/* Optional Accessory Bundles */}
             {product.recommendedAddOns && product.recommendedAddOns.length > 0 && (
@@ -686,9 +658,10 @@ export default function ProductLandingPage({ initialProduct }: ProductLandingPag
                   <Image
                     src={rel.image}
                     alt={rel.name}
-                    fill
+                width={600}
+                height={600}
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-contain p-2"
+                    className="h-full w-full object-contain p-2"
                   />
                   {rel.badge && (
                     <span className="absolute top-3 left-3 bg-[#1E4733] text-white text-[10px] font-bold px-2 py-0.5 rounded-full">

@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     canonical: 'https://ebikesforsale.com.au/wholesale',
   },
   openGraph: {
+    images: [{ url: 'https://ebikesforsale.com.au/images/catalog/og-home.jpg', width: 1200, height: 630, alt: 'e bikes for sale Australia' }],
     title: 'Wholesale E-Bikes Australia | B2B Commercial Fleet Supply',
     description: 'Bulk order discounts, tax invoice invoicing, and tier 3+ container dispatch across Australia.',
     url: 'https://ebikesforsale.com.au/wholesale',

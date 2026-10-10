@@ -103,9 +103,10 @@ export default function CompareTool() {
                         <Image
                           src={item.image}
                           alt={item.name}
-                          fill
+                width={600}
+                height={600}
                           referrerPolicy="no-referrer"
-                          className="object-cover group-hover:scale-105 transition-transform"
+                          className="h-full w-full object-cover group-hover:scale-105 transition-transform"
                         />
                       </div>
 

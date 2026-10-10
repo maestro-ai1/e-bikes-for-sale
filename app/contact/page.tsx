@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     canonical: 'https://ebikesforsale.com.au/contact',
   },
   openGraph: {
+    images: [{ url: 'https://ebikesforsale.com.au/images/catalog/og-home.jpg', width: 1200, height: 630, alt: 'e bikes for sale Australia' }],
     title: 'Contact e bikes for sale Australia',
     description: 'Direct phone, WhatsApp, and email customer service for Australian e-bike riders.',
     url: 'https://ebikesforsale.com.au/contact',

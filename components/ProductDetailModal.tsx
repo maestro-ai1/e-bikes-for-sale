@@ -115,7 +115,8 @@ export default function ProductDetailModal() {
               <Image
                 src={galleryImages[activeImageIndex] || product.image}
                 alt={`${product.name} electric bicycle - Australian stock`}
-                fill
+                width={600}
+                height={600}
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 referrerPolicy="no-referrer"
                 className={`object-cover transition-transform duration-500 ${is360Active ? 'rotate-3 scale-105' : ''}`}
@@ -155,7 +156,7 @@ export default function ProductDetailModal() {
                     activeImageIndex === i ? 'border-[#2E6B4D] ring-2 ring-emerald-500/20' : 'border-gray-200 opacity-70 hover:opacity-100'
                   }`}
                 >
-                  <Image src={img} alt="Thumbnail" fill className="object-cover" referrerPolicy="no-referrer" />
+                  <Image src={img} alt="Thumbnail" width={600} height={600} className="h-full w-full object-cover" referrerPolicy="no-referrer" />
                 </button>
               ))}
             </div>
@@ -270,37 +271,6 @@ export default function ProductDetailModal() {
                 <span>Crypto Price: ${cryptoPrice.toLocaleString()} AUD (Save 10% on Bitcoin & USDT)</span>
               </div>
             </div>
-
-            {/* WEIGHT & PACK SIZE SELECTOR */}
-            {product.sizeVariants && product.sizeVariants.length > 0 && (
-              <div className="space-y-1.5 pt-1">
-                <label className="block text-xs font-bold uppercase tracking-wider text-gray-700">
-                  Frame Size & Battery Configuration:
-                </label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {product.sizeVariants.map((v) => {
-                    const isSelected = (selectedSize || product.sizeVariants[0].label) === v.label;
-                    return (
-                      <button
-                        key={v.id}
-                        type="button"
-                        onClick={() => setSelectedSize(v.label)}
-                        className={`p-2 rounded-xl text-left border text-xs transition-all ${
-                          isSelected 
-                            ? 'border-[#2E6B4D] bg-emerald-50 text-[#1E4733] font-bold' 
-                            : 'border-gray-200 hover:border-gray-300 text-gray-700'
-                        }`}
-                      >
-                        <span className="block">{v.label}</span>
-                        {v.priceDelta > 0 && (
-                          <span className="text-[10px] text-emerald-700 font-semibold">+${v.priceDelta} AUD</span>
-                        )}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
 
             {/* ADD-ON CROSS-SELL BUNDLE (HIGH TURNOVER ENGINE) */}
             <div className="bg-gray-50 border border-gray-200 rounded-2xl p-4 space-y-2">

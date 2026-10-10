@@ -193,7 +193,7 @@ export default function Header() {
       </div>
 
       {/* 2. MAIN HEADER BAR */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 lg:flex-nowrap lg:gap-4">
         {/* Mobile menu trigger */}
         <button 
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -209,10 +209,11 @@ export default function Header() {
         </Link>
 
         {/* SEARCH BAR (Desktop & Mobile) */}
-        <div className="flex-1 max-w-xl mx-2 sm:mx-6 relative">
+        <div className="order-last basis-full min-w-0 sm:order-none sm:basis-auto sm:flex-1 max-w-xl sm:mx-6 relative">
           <input
             type="text"
-            placeholder="Search 250W e-bikes, commuter, folding, parts, helmets..."
+            placeholder="Search e-bikes, scooters, helmets, parts"
+            aria-label="Search products"
             value={searchQuery}
             onChange={(e) => {
               setSearchQuery(e.target.value);
@@ -232,7 +233,7 @@ export default function Header() {
         </div>
 
         {/* CART BUTTON */}
-        <div className="flex items-center">
+        <div className="flex shrink-0 items-center">
           <button
             onClick={() => setIsCartOpen(true)}
             className="flex items-center gap-2 bg-[#1E4733] hover:bg-[#2E6B4D] text-white py-2 px-3 sm:px-4 rounded-xl shadow-xs transition-all font-medium text-sm group"

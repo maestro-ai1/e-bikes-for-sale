@@ -235,10 +235,11 @@ export default function ScootersLandingPage() {
                     <Image
                       src={product.image}
                       alt={`${product.name} scooter Australia`}
-                      fill
+                width={600}
+                height={600}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       referrerPolicy="no-referrer"
-                      className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
+                      className="h-full w-full object-contain p-2 group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute top-3 left-3 flex flex-col gap-1 items-start">
                       {product.badge && (

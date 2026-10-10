@@ -245,9 +245,10 @@ export default function EbikeFinderQuiz() {
                       <Image
                         src={p.image}
                         alt={p.name}
-                        fill
+                width={600}
+                height={600}
                         referrerPolicy="no-referrer"
-                        className="object-cover"
+                        className="h-full w-full object-cover"
                       />
                     </div>
                     <div>

@@ -92,10 +92,11 @@ export default function CategoryGrid() {
                 <Image
                   src={CATALOG_IMAGES[category.id === 'scooters' ? 'sc-electric' : category.id]?.src || category.image}
                   alt={CATALOG_IMAGES[category.id === 'scooters' ? 'sc-electric' : category.id]?.alt || `${category.title} for sale in Australia`}
-                  fill
+                width={600}
+                height={600}
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   referrerPolicy="no-referrer"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
                 
