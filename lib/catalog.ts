@@ -124,7 +124,7 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
       {
         heading: 'Hardtail vs dual suspension e-bike',
         body:
-          'A hardtail has front suspension only, which keeps it lighter and simpler: our Summit Hardtail weighs 21.2 kg. Dual suspension adds a rear shock for traction and comfort on rough ground, at a slightly higher weight (the FlowTrail Pro is 23.4 kg) and price.',
+          'A hardtail has front suspension only, which keeps it lighter and simpler: it is simpler to maintain. Dual suspension adds a rear shock for traction and comfort on rough ground, at a slightly higher weight and price.',
       },
       {
         heading: 'Choosing an emtb australia riders can rely on',
@@ -185,7 +185,7 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
     h1: 'Dual Suspension Electric Mountain Bikes',
     intro: [
       'A dual suspension electric mountain bike adds a rear shock to the fork, keeping both wheels planted over roots, rocks and braking bumps. With a 250W motor on top, it is the most capable all-round eMTB for technical trails.',
-      'The FlowTrail Pro runs 150 mm of front and rear air suspension with a Brose S Mag mid-drive (90 Nm) and a 750 Wh battery, listed at up to 110 km per charge.',
+      'A full-suspension trail bike pairs front and rear air suspension with a mid-drive motor and a larger battery for long days on the trail. Compare battery watt-hours and torque (Nm) across models.',
     ],
     bridge: {
       heading: 'Full suspension and dual suspension e-bikes explained',
@@ -198,7 +198,7 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
     faqs: [
       { q: 'What does dual suspension mean on an e-bike?', a: 'It means the bike has a front fork and a rear shock, so both wheels absorb impacts. This improves traction and comfort on rough trails.' },
       { q: 'Is a full suspension electric bicycle harder to maintain?', a: 'It has more pivots, bearings and a shock to service, so budget for periodic maintenance. Regular servicing keeps the rear suspension working well.' },
-      { q: 'How far does a dual suspension ebike go?', a: 'The FlowTrail Pro lists up to 110 km per charge on its 750 Wh battery. Steep terrain and high assist levels reduce this.' },
+      { q: 'How far does a dual suspension ebike go?', a: 'Range depends on battery size, assist level, terrain and rider weight, so compare watt-hours rather than claimed range. Steep terrain and high assist levels reduce it.' },
     ],
     matches: (p) => p.category === 'emtb' && /flowtrail|dual-suspension/.test(p.slug),
   },
@@ -215,7 +215,7 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
     h1: 'Enduro Dual Suspension eMTBs: The Downhill Mountain Bike Alternative',
     intro: [
       'If you are shopping for a downhill mountain bike, an enduro eMTB is the electric alternative: long-travel suspension for steep, rough descents with a motor to get you back to the top without a shuttle.',
-      'The TrailPeak Enduro has a full carbon frame, 150 mm Fox suspension, a Brose / Bafang M510 mid-drive (85 Nm) and a 720 Wh battery in a 22.8 kg package. It is pedal-assist only and cuts out at 25 km/h.',
+      'An enduro eMTB has a long-travel frame, strong brakes and a high-torque mid-drive motor built for steep, technical descents. It is pedal-assist only and cuts out at 25 km/h.',
     ],
     bridge: {
       heading: 'Downhill bike, downhill MTB or enduro eMTB?',
@@ -245,7 +245,7 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
     h1: 'Trial Suspension eMTBs (Electric Trail Bicycles)',
     intro: [
       'An electric trail bicycle is built for varied off-road riding: climbs, rolling singletrack and technical sections. Our trial suspension eMTB has precision suspension tuned for control at lower speeds and on tight trails.',
-      'The Alpine Trial Suspension Pro uses a Shimano EP8 mid-drive (85 Nm), a 630 Wh battery and 29-inch wheels, listed at up to 100 km per charge in a 22.1 kg frame.',
+      'A trail suspension eMTB balances climbing efficiency with descending control: look for a mid-drive motor, a battery of 600 Wh or more and 29-inch or mullet wheels.',
     ],
     bridge: {
       heading: 'Off-road electric bikes for Australian trails',
@@ -275,7 +275,7 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
       'Shop a folding e bike in Australia: a 17.8 kg compact foldable electric bike that folds in 10 seconds for trains, boots and apartments. 250W, EN15194.',
     h1: 'Folding E Bike: Compact Foldable Electric Bikes',
     intro: [
-      'A folding e bike gives you a full-size ride that shrinks for trains, car boots, caravans and small apartments. The MetroFold Ultra Compact has 20-inch wheels, a 250W motor and a 360 Wh battery, and folds in about 10 seconds.',
+      'A folding e bike gives you a full-size ride that shrinks for trains, car boots, caravans and small apartments. Look for 20-inch wheels, a 250W motor and a battery that matches your commute, and check how quickly and compactly it folds.',
       'At 17.8 kg it is one of the lightest bikes in our range, with a listed range of up to 60 km, which suits most daily commutes with a mid-day charge.',
     ],
     bridge: {
@@ -288,11 +288,11 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
       { heading: 'Folding e-bikes and public transport', body: 'Many operators allow folded bikes, but battery and bike rules differ by state and operator. In Victoria, converted e-bikes are not allowed on trains, so choose a factory-built folder and check your operator first.' },
     ],
     faqs: [
-      { q: 'What is the best folding e bike for commuting?', a: 'Choose a light frame (under about 20 kg), a 250W motor, and a battery that matches your daily distance. The MetroFold weighs 17.8 kg and lists up to 60 km per charge.' },
-      { q: 'How long does it take to fold a foldable electric bike?', a: 'The MetroFold folds in around 10 seconds once you are familiar with the latches.' },
+      { q: 'What is the best folding e bike for commuting?', a: 'Choose a light frame (under about 20 kg), a 250W motor, and a battery that matches your daily distance. Check the folded size and weight before you buy.' },
+      { q: 'How long does it take to fold a foldable electric bike?', a: 'Most folding e-bikes fold in around 10 to 20 seconds once you are familiar with the latches.' },
       { q: 'Can I take a collapsible e-bike on a train?', a: 'Often yes when folded, but rules vary by operator and state. Check with your transport operator before travelling.' },
       { q: 'Are small-wheel e-bikes stable?', a: 'Modern 20-inch folders are stable for city riding, though they feel more responsive than larger wheels. Always wear a certified helmet.' },
-      { q: 'How much is a foldable e bicycle?', a: 'The MetroFold in our range is $1,499. Cheaper folders often use smaller batteries and lighter-duty components.' },
+      { q: 'How much is a foldable e bicycle?', a: 'Prices for a foldable e bicycle start under $1,000 and rise with battery size and build quality. Cheaper folders often use smaller batteries and lighter-duty components.' },
     ],
     matches: inCat('folding'),
   },
@@ -310,7 +310,7 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
     h1: 'Electric Cruiser Bikes: Retro Step-Through E-Cruisers',
     intro: [
       'Electric cruiser bikes are built for relaxed riding: a wide sprung saddle, swept-back bars and a low step-through frame that is easy to get on and off. The motor takes the effort out of headwinds and hills without changing the laid-back feel.',
-      'The Byron Bay Classic pairs a 250W Bafang silent hub motor with a 540 Wh battery, listed at up to 85 km per charge, in a vintage-style frame with whitewall tyres.',
+      'An electric cruiser pairs a 250W hub motor with a comfortable step-through frame, a large battery and wide tyres for relaxed beach and city riding.',
     ],
     bridge: {
       heading: 'Cruiser bikes and an e cruiser bike: what is the difference?',
@@ -323,7 +323,7 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
     faqs: [
       { q: 'What is an electric cruiser bike?', a: 'It is a comfort-focused e-bike with an upright riding position, wide saddle and swept handlebars, powered by a 250W motor that assists your pedalling.' },
       { q: 'Are electric cruiser bikes good for beach paths?', a: 'Yes on sealed and firm paths. For soft sand, a fat tyre electric bicycle is a better choice.' },
-      { q: 'How far does an e cruiser bike go?', a: 'The Byron Bay Classic lists up to 85 km per charge. Real range depends on rider weight, wind and assist level.' },
+      { q: 'How far does an e cruiser bike go?', a: 'Range depends on battery size, rider weight, wind and assist level. Compare watt-hours rather than claimed range.' },
       { q: 'Is a step-through frame easier to ride?', a: 'It is easier to mount and dismount, which many riders prefer for short stops and relaxed riding.' },
       { q: 'Can I add a rack or basket?', a: 'Many cruiser frames accept racks and baskets. Check the mounting points and payload rating for your model.' },
     ],
@@ -376,7 +376,7 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
     h1: 'Electric Cargo Bike: Longtail Family & Delivery E-Bikes',
     intro: [
       'An electric cargo bike carries kids, groceries or work gear that would otherwise need a car. The extended rear deck holds the load low and stable, and the 250W motor does the heavy lifting.',
-      'The Hauler Cargo Max is a longtail with a 90 Nm mid-drive, a 960 Wh battery and a listed range of up to 120 km. It carries two kids or up to 190 kg of cargo.',
+      'A longtail cargo e-bike has an extended rear deck, a strong motor and a large battery, and can carry two kids or heavy cargo.',
     ],
     bridge: {
       heading: 'Cargo bike or electric cargo bicycle?',
@@ -389,10 +389,10 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
     ],
     faqs: [
       { q: 'What is an electric cargo bike?', a: 'It is an e-bike with a reinforced frame and an extended load area designed to carry kids, shopping or tools, powered by a 250W motor.' },
-      { q: 'How much can a cargo e bike carry?', a: 'The Hauler Cargo Max carries two kids or up to 190 kg of cargo. Always follow the manufacturer payload rating.' },
+      { q: 'How much can a cargo e bike carry?', a: 'Payload depends on the model, often 150 to 200 kg including the rider. Always follow the manufacturer payload rating.' },
       { q: 'Can a cargo e bike replace a second car?', a: 'For short local trips such as school runs and shopping, many families find it can. Distance, weather and storage are the main limits.' },
-      { q: 'How heavy is a cargo e bike?', a: 'The Hauler weighs 33.5 kg, so you need secure storage and a plan for loading it onto vehicles.' },
-      { q: 'How far does a cargo e-bike go on one charge?', a: 'The Hauler lists up to 120 km on its 960 Wh battery. A full load and hills reduce this.' },
+      { q: 'How heavy is a cargo e bike?', a: 'Cargo e-bikes are heavy, often over 30 kg, so you need secure storage and a plan for loading them onto vehicles.' },
+      { q: 'How far does a cargo e-bike go on one charge?', a: 'Range depends on battery size and load. A full load and hills reduce it, so compare watt-hours.' },
     ],
     matches: inCat('cargo'),
   },
@@ -410,7 +410,7 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
     h1: 'Electric Road Bike: Carbon Endurance E-Road Bikes',
     intro: [
       'An electric road bike looks and rides like a performance road bike, with a small, discreet motor to flatten hills and extend your range. It suits riders who want long rides, group rides at different fitness levels, or an easier return to cycling.',
-      'The AeroVelocity is a 13.5 kg carbon endurance bike with a Mahle X35+ stealth rear hub motor and a 500 Wh battery, listed at up to 115 km per charge.',
+      'An electric road bike is a lightweight endurance or gravel bike with a compact hub or mid-drive motor and a slim battery, built for longer rides and hills.',
     ],
     bridge: {
       heading: 'Electric road bike or electric gravel bike?',
@@ -421,10 +421,10 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
       { heading: 'What makes an e-road bike different?', body: 'Lower motor power and a smaller battery keep the weight close to a normal road bike. The assist cuts out at 25 km/h, so the bike behaves like a regular road bike at speed.' },
     ],
     faqs: [
-      { q: 'Are e-road bikes heavy?', a: 'The AeroVelocity weighs 13.5 kg, close to many non-electric road bikes, thanks to a carbon frame and compact hub motor.' },
+      { q: 'Are e-road bikes heavy?', a: 'Many are light for an e-bike, from around 13 kg for carbon models, close to a non-electric road bike, thanks to a light frame and a compact motor.' },
       { q: 'Can I join group rides on an e-road bike?', a: 'Many groups welcome them, but ask the organiser first. The motor assists only up to 25 km/h.' },
       { q: 'What is the difference between a road e-bike and a gravel e-bike?', a: 'Gravel e-bikes use wider tyres and relaxed geometry for unsealed roads. Road e-bikes favour speed and efficiency on tarmac.' },
-      { q: 'How far does an e-road bike go?', a: 'The AeroVelocity lists up to 115 km on a 500 Wh battery. Terrain and assist level change this.' },
+      { q: 'How far does an e-road bike go?', a: 'Range depends on battery size, terrain and assist level. Compact road e-bike batteries are small, so compare watt-hours.' },
       { q: 'Is an e-road bike worth it?', a: 'If you want longer rides, easier climbs or to ride with faster friends, yes. The assist makes hilly routes more accessible.' },
     ],
     matches: inCat('road'),
@@ -476,7 +476,7 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
     h1: 'Electric Scooters: Push Scooter Electric Range for Kids & Adults',
     intro: [
       'An electric scooter is a fast, compact way to cover short trips. Our range includes a foldable commuter e-scooter, an adult dual-brake scooter, a kids 3-wheel scooter with a speed governor, and a lock and bag kit.',
-      'The GlideCity Pro commuter has a 350W front hub motor with regenerative braking, a 420 Wh battery and a listed range of up to 45 km, at 14.2 kg.',
+      'A commuter e-scooter combines a 350W-class motor, a folding frame and a battery sized for daily trips. Compare watt-hours, brakes and weight.',
     ],
     bridge: {
       heading: 'Push scooter or electric foot scooter?',
@@ -487,7 +487,7 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
       { heading: 'What to check before buying an e-scooter', body: 'Look at motor power, battery capacity, brake type, tyre style (pneumatic for comfort, honeycomb for puncture resistance), weight and the maximum rider load. State rules for e-scooters differ, and some set speed and power limits. Top-rated electric scooters and folding electric scooters share a few traits: reliable brakes, a sealed battery and a clear payload rating. Compare any e scooter price in australia against battery size and warranty.' },
     ],
     faqs: [
-      { q: 'What is the best electric scooter for commuting?', a: 'Choose a foldable model with a motor of around 350W, dual brakes and a battery matching your daily distance. The GlideCity Pro lists up to 45 km per charge.' },
+      { q: 'What is the best electric scooter for commuting?', a: 'Choose a foldable model with a motor of around 350W, dual brakes and a battery matching your daily distance.' },
       { q: 'Are electric scooters legal in Australia?', a: 'Rules vary by state and are changing. Many states allow e-scooters on certain paths and roads with speed and power limits and helmet requirements. Check your state authority before riding.' },
       { q: 'Is a push scooter electric model good for kids?', a: 'Kids should use models designed for them. Our kids scooter has a speed governor at 12 km/h and a rear foot brake. Always supervise and use a helmet.' },
       { q: 'How long does a scooter battery last?', a: 'Range per charge depends on rider weight, terrain and speed. Battery lifespan depends on charging habits and storage.' },
@@ -508,7 +508,7 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
       'Shop an e scooter adults can commute on: foldable, 120 kg payload, dual brakes, 350W motor and 10-inch pneumatic tyres. Delivered Australia-wide.',
     h1: 'E Scooter Adults: Foldable Adult Electric Scooters',
     intro: [
-      'An adult e scooter needs a stronger frame, bigger tyres and reliable brakes than a kids model. The GlideX Pro is a high-payload urban commuter rated to 120 kg, with a 350W front hub motor, dual brakes and 10-inch pneumatic comfort tyres.',
+      'An adult e scooter needs a stronger frame, bigger tyres and reliable brakes than a kids model. Look for a high payload rating, dual brakes and 10-inch pneumatic comfort tyres.',
       'It folds for storage and transport, weighs 14.5 kg and lists up to 45 km per charge on a 468 Wh battery.',
     ],
     bridge: {
@@ -517,10 +517,10 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
         'Searches for an adult escooter, a motorized scooter for adults, a push scooter adults can ride, an escooter for adults or a collapsible electric scooter for adults usually mean the same thing: a rideable commuter, and an electric scooter foldable adults can carry is the easiest to store. Choose by payload, braking and battery rather than by name, and check your state rules for where adults can ride e-scooters.',
     },
     guides: [
-      { heading: 'Pneumatic or solid tyres?', body: 'Pneumatic tyres give a smoother ride and better grip but can puncture. Solid or honeycomb tyres avoid punctures but ride harder. The GlideX uses 10-inch pneumatic tyres for comfort.' },
+      { heading: 'Pneumatic or solid tyres?', body: 'Pneumatic tyres give a smoother ride and better grip but can puncture. Solid or honeycomb tyres avoid punctures but ride harder.' },
     ],
     faqs: [
-      { q: 'What weight can an adult e scooter carry?', a: 'The GlideX Pro is rated to 120 kg. Always check the maximum rider load for any scooter.' },
+      { q: 'What weight can an adult e scooter carry?', a: 'Adult scooters are usually rated between 100 and 120 kg. Always check the maximum rider load for any scooter.' },
       { q: 'Can I carry an adult electric scooter on public transport?', a: 'Folding scooters are easier to carry, but operator rules and battery restrictions vary. Check before travelling.' },
       { q: 'Is a foldable electric scooter for adults stable?', a: 'Larger wheels and a wider deck improve stability. Dual brakes and a sturdy folding latch matter for safety.' },
     ],

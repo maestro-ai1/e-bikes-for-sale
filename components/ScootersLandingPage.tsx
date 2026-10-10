@@ -66,7 +66,7 @@ export default function ScootersLandingPage() {
     },
     {
       q: 'What is the difference between Kids Scooters and Adult Commuter Scooters?',
-      a: 'Kids scooters (such as the GlideMini) feature stable 3-wheel tripod geometry, intuitive lean-to-steer controls, lightweight 6.8kg frames, and a restricted 12 km/h speed cap with kick-start sensors. Adult commuter scooters (like the GlideX Pro) feature 10-inch pneumatic tyres, 120kg weight capacities, dual disc/E-ABS braking, and 45km battery ranges engineered for adult daily transit.'
+      a: 'Kids scooters feature stable 3-wheel tripod geometry, intuitive lean-to-steer controls and a lightweight frame, often with a restricted speed cap. Adult commuter scooters feature larger pneumatic tyres, higher weight capacities, dual braking and bigger batteries engineered for adult daily transit.'
     },
     {
       q: 'Do I need a driver licence or vehicle registration to ride an electric scooter in Australia?',

@@ -32,7 +32,7 @@ export const KIDS_NODES: KidsNode[] = [
       {
         heading: "How to choose a kids electric bike",
         body:
-          "Choose by the child's height and inseam, not by age. Look for a low standover height, light weight, reliable disc brakes and a gentle, progressive motor. A lower-capacity battery keeps the weight down. Our TrailYouth 24-inch weighs 16.8 kg.",
+          "Choose by the child's height and inseam, not by age. Look for a low standover height, light weight, reliable disc brakes and a gentle, progressive motor. A lower-capacity battery keeps the weight down.",
       },
     ],
     faqs: [
@@ -59,7 +59,7 @@ export const KIDS_NODES: KidsNode[] = [
       "Shop kids mountain bikes with a motor: a 24-inch youth eMTB with progressive torque, a 378 Wh battery and youth-fit geometry. Kids mtb options.",
     h1: "Kids Mountain Bikes: Youth 24-Inch Electric eMTB",
     intro: [
-      "Kids mountain bikes with a small motor let young riders keep up on trails without exhausting themselves on the climbs. The TrailYouth is a 24-inch junior eMTB with a progressive-torque rear hub motor, a 378 Wh battery and youth safety geometry.",
+      "Kids mountain bikes with a small motor let young riders keep up on trails without exhausting themselves on the climbs. A 24-inch junior eMTB has a progressive-torque motor, a smaller battery and youth safety geometry.",
       "It lists up to 65 km per charge and weighs 16.8 kg, which is light for an e-bike. It suits taller kids and teens who have outgrown a 20-inch bike, and it cuts assist at 25 km/h like every bike in our range.",
     ],
     bridge: {
@@ -77,7 +77,7 @@ export const KIDS_NODES: KidsNode[] = [
     faqs: [
       { q: "What is the best kids mountain bike for a growing child?", a: "Pick the right frame size for height, with disc brakes and a light frame. A 24-inch bike suits taller kids moving up from 20 inches." },
       { q: "Can kids ride an electric mountain bike?", a: "Age rules differ by state and are changing in 2026. For example, Bicycle Network reports Queensland allows ages 12 to 15 only under adult supervision." },
-      { q: "How heavy is the TrailYouth kids eMTB?", a: "It weighs 16.8 kg, lighter than our adult eMTBs, with a 378 Wh battery listed at up to 65 km per charge." },
+      { q: "How heavy is a kids eMTB?", a: "Kids 24-inch eMTBs are lighter than adult eMTBs and use a smaller battery. Check the listed weight on each product page." },
       { q: "Do kids need a helmet for mountain biking?", a: "Yes. Use a certified helmet that fits well, and consider a full face option for rougher trails if it meets the right standard." },
       { q: "Is a kids mtb or an electric version better?", a: "An electric version helps on hills and longer rides, while a regular kids mtb is lighter and simpler. Choose by the child's riding and fitness." },
     ],
@@ -97,7 +97,7 @@ export const KIDS_NODES: KidsNode[] = [
       "Shop a kids e scooter in Australia: a lean-to-steer 3-wheel childrens electric scooter with a 12 km/h speed governor, LED wheels and a rear foot brake.",
     h1: "Kids E Scooter: Childrens Electric Scooters",
     intro: [
-      "A kids e scooter is a fun way for children to get around the neighbourhood, but the speed and the build matter. Our GlideMini is a lean-to-steer 3-wheel scooter with a 150W motor and a speed governor that limits it to 12 km/h.",
+      "A kids e scooter is a fun way for children to get around the neighbourhood, but the speed and the build matter. Look for a lean-to-steer 3-wheel scooter with a speed governor and a rear brake.",
       "It has LED wheels, a rear foot brake, a 180 Wh battery, a listed range of up to 20 km and weighs 6.8 kg, light enough for a parent to carry.",
     ],
     bridge: {
@@ -113,9 +113,9 @@ export const KIDS_NODES: KidsNode[] = [
       },
     ],
     faqs: [
-      { q: "What is the best childrens electric scooter?", a: "Choose a speed-limited model with a stable 3-wheel design and a rear brake. The GlideMini is governed to 12 km/h." },
+      { q: "What is the best childrens electric scooter?", a: "Choose a speed-limited model with a stable 3-wheel design and a rear brake." },
       { q: "What age is a kids e scooter suitable for?", a: "It depends on the child's size and the scooter's rating, and state age rules for e-scooters vary. Check the manufacturer's guidance and your state authority." },
-      { q: "How fast is the GlideMini?", a: "It is limited to 12 km/h by a speed governor, with a 150W motor." },
+      { q: "How fast is a kids electric scooter?", a: "Speed varies by model, and kids models are usually limited by a speed governor. Check the listed top speed and your state rules." },
       { q: "Do kids need a helmet on an electric scooter?", a: "Yes. Use a certified helmet that fits well and supervise young riders." },
       { q: "Are electric scooters for 10 year olds legal on the road?", a: "E-scooter rules differ by state and are changing, and many restrict where scooters can be used. Check your state authority before riding on public paths or roads." },
     ],
@@ -136,7 +136,7 @@ export const KIDS_NODES: KidsNode[] = [
     h1: "Electric Scooter Accessories: Locks, Bags and Safety Gear",
     intro: [
       "The right electric scooter accessories keep your scooter secure and your ride comfortable. The most useful are a strong lock, a bag you can fit to the handlebar and a certified helmet.",
-      "Our GlideShield kit combines a hardened anti-cut steel lock with a waterproof EVA hard-shell handlebar storage bag in one pack that weighs 1.4 kg.",
+      "A scooter lock and bag kit combines a hardened anti-cut steel lock with a waterproof handlebar storage bag in one pack.",
     ],
     bridge: {
       heading: "Scooter accessories and scooters and accessories bundles",
@@ -153,7 +153,7 @@ export const KIDS_NODES: KidsNode[] = [
     faqs: [
       { q: "What electric scooter accessories do I need?", a: "A certified helmet, a strong lock and lights are the essentials, with a handlebar bag as a useful extra." },
       { q: "Is a scooter lock really necessary?", a: "Yes. Scooters are easy to carry off, and a hardened lock is the best deterrent when you park in public." },
-      { q: "What is in the GlideShield kit?", a: "A hardened anti-cut steel lock and a waterproof EVA hard-shell handlebar bag, weighing 1.4 kg together." },
+      { q: "What is in a scooter lock and bag kit?", a: "A hardened anti-cut steel lock and a waterproof handlebar storage bag in one pack." },
       { q: "Can I use any bag on a scooter handlebar?", a: "Check the handlebar fit and the weight rating. Heavy loads on the handlebar can affect steering." },
       { q: "Do you sell helmets for scooter riders?", a: "Yes, see our kids bike helmet guide and range. Always wear a certified helmet." },
     ],

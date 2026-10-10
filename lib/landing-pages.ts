@@ -67,7 +67,7 @@ export const LANDING_NODES: LandingNode[] = [
       },
     ],
     faqs: [
-      { q: "What is the cheapest electric bike in your range?", a: "The MetroFold Ultra Compact folding e-bike is the lowest priced at $1,499, followed by the TrailYouth 24-inch junior eMTB at $1,699 and the Apex Commuter at $1,899." },
+      { q: "What is the cheapest electric bike in your range?", a: "Prices start under $1,000 for entry-level folding and hybrid e-bikes and rise with battery size and build quality. Compare the models listed below." },
       { q: "Are low cost electric bikes any good?", a: "They can be, if the battery, brakes and warranty are solid. CHOICE found a $599 folding e-bike average, so be cautious below about $1,000." },
       { q: "How much is an e bicycle price on average in Australia?", a: "CHOICE puts a typical well-equipped e-bike at $2,000 to $3,500, with prices from under $800 to more than $12,000." },
       { q: "Can I find cheap electric bikes for sale with a warranty?", a: "Yes. Ask for warranty terms in writing before buying, and check what is covered, such as the battery and motor." },
@@ -233,14 +233,14 @@ export const LANDING_NODES: LandingNode[] = [
       {
         heading: "Cargo e-bike as a stable alternative",
         body:
-          "If a trike is not available, a longtail electric cargo bike is a stable way to carry loads. Our Hauler Cargo Max carries two kids or up to 190 kg and has a step-through frame, with a 90 Nm mid-drive motor.",
+          "If a trike is not available, a longtail electric cargo bike is a stable way to carry loads. A longtail carries two kids or heavy cargo and has a step-through frame with a mid-drive motor.",
       },
     ],
     faqs: [
       { q: "What is a 3 wheel electric bike?", a: "It is a three-wheeled bicycle (a trike) with a motor that assists your pedalling, offering stability without needing to balance." },
       { q: "Are electric trikes legal in Australia?", a: "Rules depend on your state and on whether the trike meets EN 15194 power and speed limits. Check your state authority." },
       { q: "Are electric tricycles good for adults?", a: "Yes. They suit adults who want a stable, comfortable ride or need to carry loads." },
-      { q: "Do you sell an electric trike for adults?", a: "Contact us for current availability. The closest stable option in our range today is the Hauler Cargo Max longtail cargo bike." },
+      { q: "Do you sell an electric trike for adults?", a: "Contact us for current availability. The closest stable option in our range today is a longtail cargo e-bike." },
       { q: "Is a trike harder to ride than a bike?", a: "It is easier to start and stop, but wider and heavier, so it needs more space and careful cornering." },
     ],
     productLimit: 3,

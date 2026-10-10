@@ -23,7 +23,7 @@ export const GUIDE_POSTS: BlogPost[] = [
     author: 'e bikes for sale team',
     image: 'https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=800&q=80',
     altText: 'Electric bicycle price comparison: commuter e-bike on an Australian street',
-    productSlug: 'apex-commuter-urban-pro-250w',
+    productSlug: 'pedal-comet-3-disc-electric-hybrid-bike-charcoal',
     tags: ['electric bicycle price', 'electric bicycle cost', 'ebikes cost', 'price e bike', 'cheap electric bikes'],
     content: [
       'How much are electric bicycles in Australia? Most new e-bikes sit between about $1,200 and $8,000, and the right figure for you depends on how far you ride, how hilly your route is and how much weight you carry. This guide explains the electric bicycle price tiers, what you get at each level, and the running costs most buyers forget to budget for.',
@@ -73,7 +73,7 @@ export const GUIDE_POSTS: BlogPost[] = [
     author: 'e bikes for sale team',
     image: 'https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?auto=format&fit=crop&w=800&q=80',
     altText: 'Electric bicycle speed: rider on a commuter e-bike on an Australian bike path',
-    productSlug: 'apex-commuter-urban-pro-250w',
+    productSlug: 'pedal-comet-3-disc-electric-hybrid-bike-charcoal',
     tags: ['electric bicycle speed', 'e bike speed limit australia', 'en 15194', '250w ebike', 'e bike laws'],
     content: [
       'How fast does an electric bicycle go? A road-legal e-bike in Australia gives you motor assistance up to 25 km/h. Above that speed the motor cuts out, and you ride on your own legs like any other bicycle. This guide explains the rules behind that number, what you will actually feel on the road, and how local speed limits apply.',
@@ -122,7 +122,7 @@ export const GUIDE_POSTS: BlogPost[] = [
     author: 'e bikes for sale team',
     image: 'https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=800&q=80',
     altText: 'E-bike size guide: rider checking frame size on an electric bicycle',
-    productSlug: 'metrofold-ultra-compact-folding-ebike',
+    productSlug: 'pedal-derby-electric-folding-bike',
     tags: ['e bike size guide', 'electric bicycle frame size', 'bike size chart', 'step through ebike', 'ebike fit'],
     content: [
       'Choosing the right e-bike size matters more on an electric bicycle than on a normal bike: the extra weight makes a bad fit harder to ignore, and the wrong frame size affects comfort, control and safety. This e-bike size guide gives you a height-based frame chart, shows how to check fit in person, and explains how step-through, folding and mountain e-bikes differ.',
@@ -170,14 +170,14 @@ export const GUIDE_POSTS: BlogPost[] = [
     author: 'e bikes for sale team',
     image: 'https://images.unsplash.com/photo-1558611848-73f7eb4001a1?auto=format&fit=crop&w=800&q=80',
     altText: 'Helmet youth bike: certified Australian safety helmet on a young cyclist',
-    productSlug: 'aussieguard-youth-junior-bike-helmet',
+    productSlug: 'met-crackerjack-kids-helmet-mint-matt',
     tags: ['helmet youth bike', 'e bike helmet', 'kids bike helmet', 'as nzs 2063', 'childrens cycling helmets'],
     content: [
       'A helmet is the most important piece of kit you will buy for a youth bike or e-bike, and in Australia it is also the law. This guide explains what to look for in a helmet youth bike riders can trust: the AS/NZS 2063 certification, how to size and fit it, which features are worth paying for and when to replace it.',
       '## Are helmets compulsory in Australia?',
       'Yes. Wearing an approved bicycle helmet is required for all bicycle riders in every state and territory, and that includes children, passengers and e-bike riders. Rules cover riders on roads and paths, so a helmet is a must for any youth bike, scooter or e-bike ride in a public place. Check your state road authority for the exact rules and penalties.',
       '## What does AS/NZS 2063 mean?',
-      'AS/NZS 2063 is the Australian and New Zealand standard for bicycle helmets. A helmet that meets it has been tested for impact absorption, strap strength and retention. Look for the standard marked on the helmet and its packaging before you buy, and treat any helmet without it as unsuitable. Our youth helmet is certified to AS/NZS 2063 so you can check the label yourself.',
+      'AS/NZS 2063 is the Australian and New Zealand standard for bicycle helmets. A helmet that meets it has been tested for impact absorption, strap strength and retention. Look for the standard marked on the helmet and its packaging before you buy, and treat any helmet without it as unsuitable. Check for the AS/NZS 2063 label yourself before you buy.',
       '## How to size and fit a youth helmet',
       'A good fit matters more than any feature. Measure the head circumference just above the eyebrows, then match it to the sizing on the box. Then check:',
       '1. Level: the helmet sits flat and low on the forehead, about two fingers above the eyebrows.\n2. Side straps: they form a "V" just below each ear.\n3. Chin strap: snug enough that you can fit only one or two fingers between the strap and chin.\n4. Wobble test: with the strap done up, the helmet should not rock forward, back or sideways when the child shakes their head.',

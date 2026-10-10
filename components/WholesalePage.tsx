@@ -231,11 +231,11 @@ export default function WholesalePage() {
                     onChange={(e) => setFormData({ ...formData, productsRequired: e.target.value })}
                     className="w-full text-xs border border-gray-300 rounded-lg p-2.5 bg-white"
                   >
-                    <option value="Commuter & Cargo Fleets">Hauler Cargo Max & Apex Urban Commuter</option>
-                    <option value="Fat Tyre & All Terrain">Outback Beast Fat Tyre Series</option>
-                    <option value="Folding E-Bikes">MetroFold Compact Folders</option>
-                    <option value="Scooters & Micro-Mobility">GlideCity E-Scooters & Youth Models</option>
-                    <option value="Helmets & Spare Batteries">Helmets AS/NZS 2063 & Samsung Battery Packs</option>
+                    <option value="Commuter & Cargo Fleets">Cargo and commuter fleets</option>
+                    <option value="Fat Tyre & All Terrain">Fat tyre e-bikes</option>
+                    <option value="Folding E-Bikes">Folding e-bikes</option>
+                    <option value="Scooters & Micro-Mobility">Electric scooters and youth models</option>
+                    <option value="Helmets & Spare Batteries">Helmets (AS/NZS 2063) and spare batteries</option>
                   </select>
                 </div>
 

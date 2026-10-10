@@ -1,236 +1,79 @@
-'use client';
-
-import React, { useState } from 'react';
-import Image from 'next/image';
+import React from 'react';
 import Link from 'next/link';
-import { useApp } from '@/context/AppContext';
-import { BRANDS_DATA, PRODUCTS } from '@/lib/data';
-import { 
-  Award, 
-  ShieldCheck, 
-  Star, 
-  CheckCircle2, 
-  ArrowRight, 
-  Wrench, 
-  Truck, 
-  Coins, 
-  ShoppingBag,
-  ExternalLink
-} from 'lucide-react';
+import ProductImage from '@/components/ProductImage';
+import { PRODUCTS } from '@/lib/data';
+import { CATALOG_IMAGES } from '@/lib/catalog-images';
+
+/**
+ * Brand directory. Everything shown is derived from the live catalog (product counts, photos, links),
+ * so it can never describe a brand or a model that is not on the site.
+ */
+const BRANDS: { key: string; name: string; href: string; node: string; guide?: boolean }[] = [
+  { key: 'cube', name: 'Cube', href: '/brands/cube', node: 'brand-cube' },
+  { key: 'merida', name: 'Merida', href: '/brands/merida', node: 'brand-merida' },
+  { key: 'pedal', name: 'Pedal', href: '/brands/pedal', node: 'brand-pedal' },
+  { key: 'dirodi', name: 'DiroDi', href: '/brands/dirodi', node: 'brand-dirodi' },
+  { key: 'segway', name: 'Segway-Ninebot', href: '/brands/segway-ninebot', node: 'brand-segway' },
+  { key: 'specialized', name: 'Specialized', href: '/brands/specialized', node: 'brand-specialized', guide: true },
+  { key: 'trek', name: 'Trek', href: '/brands/trek', node: 'brand-trek', guide: true },
+  { key: 'canyon', name: 'Canyon', href: '/brands/canyon', node: 'brand-canyon', guide: true },
+  { key: 'pulse', name: 'Pulse', href: '/brands/pulse', node: 'brand-pulse', guide: true },
+  { key: 'reid', name: 'Reid', href: '/brands/reid', node: 'brand-reid', guide: true },
+  { key: 'aldi', name: 'Aldi', href: '/brands/aldi', node: 'brand-aldi', guide: true },
+];
 
 export default function BrandPage() {
-  const { setCurrentView, setCategoryFilter, setQuickViewProduct, addToCart } = useApp();
-  const [selectedBrandId, setSelectedBrandId] = useState<string>('all');
-
-  const filteredBrands = selectedBrandId === 'all' 
-    ? BRANDS_DATA 
-    : BRANDS_DATA.filter(b => b.id === selectedBrandId);
+  const cards = BRANDS.map((b) => {
+    const list = PRODUCTS.filter((p) => p.brand.toLowerCase().includes(b.key));
+    const hero = CATALOG_IMAGES[b.node]?.src || list.find((p) => p.image)?.image || '';
+    return { ...b, count: list.length, hero };
+  });
+  const stocked = cards.filter((c) => !c.guide && c.count > 0);
+  const guides = cards.filter((c) => c.guide || c.count === 0);
 
   return (
-    <div className="bg-white min-h-screen py-12 sm:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        
-        {/* HERO SEO BANNER */}
-        <div className="bg-gradient-to-r from-gray-900 via-[#1E4733] to-[#2E6B4D] text-white rounded-3xl p-8 sm:p-14 mb-12 shadow-2xl">
-          <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 bg-emerald-400/20 text-emerald-300 px-3.5 py-1.5 rounded-full text-xs font-bold">
-              <Award className="w-4 h-4" />
-              <span>Australian Authorised Brand Directory</span>
-            </div>
-            <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-              E Bike Brands: Leading Australian E-Bike Manufacturers
-            </h1>
-            <p className="text-sm sm:text-base text-emerald-100 leading-relaxed">
-              We partner exclusively with vetted electric bicycle manufacturers whose frames, motor controllers, and lithium battery cells strictly comply with Australian Standard EN 15194 and AS/NZS electrical safety codes.
-            </p>
-          </div>
-        </div>
+    <div className="min-h-screen bg-white py-12 sm:py-16">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <p className="text-xs font-black uppercase tracking-wider text-[#2E6B4D]">Brands</p>
+        <h1 className="mt-1 text-3xl font-black tracking-tight text-gray-900 sm:text-5xl">E Bike Brands</h1>
+        <p className="mt-4 max-w-3xl text-lg leading-relaxed text-gray-600">
+          Compare electric bike brands in Australia. Each brand page lists the models in our range with current prices, and our independent
+          buyer&apos;s guides cover the brands Australians search for most.
+        </p>
 
-        {/* BRAND FILTER TABS */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 border-b border-gray-200 no-scrollbar">
-          <button
-            onClick={() => setSelectedBrandId('all')}
-            className={`py-2 px-4 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
-              selectedBrandId === 'all'
-                ? 'bg-[#2E6B4D] text-white shadow-xs'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-            }`}
-          >
-            All Verified Brands ({BRANDS_DATA.length})
-          </button>
-          {BRANDS_DATA.map((brand) => (
-            <button
-              key={brand.id}
-              onClick={() => setSelectedBrandId(brand.id)}
-              className={`py-2 px-4 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
-                selectedBrandId === brand.id
-                  ? 'bg-[#2E6B4D] text-white shadow-xs'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-            >
-              {brand.name}
-            </button>
+        <h2 className="mt-10 text-2xl font-black text-gray-900">Brands in our range</h2>
+        <ul className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {stocked.map((b) => (
+            <li key={b.key} className="overflow-hidden rounded-2xl border border-gray-200 bg-white">
+              <Link href={b.href} className="block">
+                <div className="aspect-square w-full bg-[#f8fafc]">
+                  <ProductImage src={b.hero} focusKeyword={`${b.name} electric bikes`} name={b.name} withContainer={false} />
+                </div>
+                <div className="p-4">
+                  <h3 className="text-lg font-black text-gray-900">{b.name}</h3>
+                  <p className="mt-1 text-sm text-gray-600">{b.count} {b.count === 1 ? 'model' : 'models'} in our range</p>
+                  <span className="mt-3 inline-block text-sm font-black text-[#2E6B4D]">Shop {b.name} →</span>
+                </div>
+              </Link>
+            </li>
           ))}
-        </div>
-
-        {/* BRANDS DETAILED LIST */}
-        <div className="space-y-12">
-          {filteredBrands.map((brand) => (
-            <div
-              key={brand.id}
-              className="bg-gray-50 border border-gray-200 rounded-3xl p-6 sm:p-10 shadow-xs grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
-            >
-              {/* Brand Visual and Badges */}
-              <div className="lg:col-span-5 space-y-3">
-                <div className="relative aspect-4/3 w-full rounded-2xl overflow-hidden bg-white border border-gray-200">
-                  <Image
-                    src={brand.image}
-                    alt={`${brand.name} e-bike manufacturer`}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    referrerPolicy="no-referrer"
-                    className="object-cover"
-                  />
-                  <div className="absolute top-3 left-3 bg-[#1E4733] text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-md">
-                    {brand.country}
-                  </div>
-                </div>
-
-                <div className="flex items-center justify-between text-xs text-gray-500 bg-white p-3 rounded-xl border border-gray-200">
-                  <span>Founded: <strong>{brand.founded}</strong></span>
-                  <div className="flex items-center gap-1 text-amber-500 font-bold">
-                    <Star className="w-3.5 h-3.5 fill-amber-400" />
-                    <span>{brand.rating} ({brand.reviewsCount} owner reviews)</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Brand Content and Strengths */}
-              <div className="lg:col-span-7 space-y-4">
-                <div>
-                  <span className="text-xs font-extrabold uppercase text-[#2E6B4D] tracking-wider block">
-                    Certified Brand Profile
-                  </span>
-                  <h2 className="text-2xl sm:text-3xl font-black text-gray-900 mt-0.5">
-                    {brand.name}
-                  </h2>
-                  <p className="text-xs sm:text-sm font-semibold text-gray-500 mt-1 italic">
-                    {brand.tagline}
-                  </p>
-                </div>
-
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                  {brand.description}
-                </p>
-
-                {/* Key Strengths list */}
-                <div className="space-y-2 pt-2 border-t border-gray-200">
-                  <span className="text-xs font-extrabold text-gray-900 block">
-                    Manufacturer Strengths & Safety Compliance:
-                  </span>
-                  {brand.keyStrengths.map((str, idx) => (
-                    <div key={idx} className="flex items-center gap-2 text-xs text-gray-700">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                      <span>{str}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Signature Models Bar */}
-                <div className="bg-white p-3.5 rounded-2xl border border-gray-200 flex flex-wrap items-center justify-between gap-3 text-xs">
-                  <div>
-                    <span className="text-[10px] font-bold uppercase text-gray-400 block">Signature Models:</span>
-                    <span className="font-extrabold text-gray-900">{brand.signatureModels.join(' • ')}</span>
-                  </div>
-                  <div className="text-right">
-                    <span className="text-[10px] font-bold uppercase text-gray-400 block">Australian Warranty:</span>
-                    <span className="font-bold text-emerald-800">{brand.warranty}</span>
-                  </div>
-                </div>
-
-                {/* Action Buttons */}
-                <div className="flex flex-wrap gap-3 pt-2">
-                  <button
-                    onClick={() => {
-                      setCurrentView('shop');
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
-                    className="cursor-pointer bg-[#2E6B4D] hover:bg-[#1E4733] text-white px-5 py-3 rounded-xl font-bold text-xs flex items-center gap-2 shadow-xs transition-colors"
-                  >
-                    <span>View {brand.name} E-Bikes</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-
-                  <button
-                    onClick={() => {
-                      setCurrentView('legal');
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
-                    className="cursor-pointer bg-white border border-gray-300 hover:bg-gray-100 text-gray-700 px-4 py-3 rounded-xl font-semibold text-xs flex items-center gap-1.5 transition-colors"
-                  >
-                    <ShieldCheck className="w-4 h-4 text-[#2E6B4D]" />
-                    <span>View Compliance Certificate</span>
-                  </button>
-                </div>
-
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* MANUFACTURER CERTIFICATION CHECKLIST */}
-        <div className="mt-16 bg-emerald-950 text-white rounded-3xl p-8 sm:p-12 space-y-6">
-          <div className="max-w-2xl">
-            <span className="text-xs font-bold uppercase tracking-wider text-amber-400">
-              Our 4-Point Manufacturer Quality Vetting Protocol
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-black text-white mt-1">
-              How We Screen E-Bike Brands for Australian Riders
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs text-emerald-100">
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-5 space-y-2">
-              <span className="font-black text-white text-sm block">1. Cell Origin Testing</span>
-              <p>We mandate Grade-A Samsung, Panasonic, or LG 21700/18650 cells with integrated hardware thermal BMS.</p>
-            </div>
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-5 space-y-2">
-              <span className="font-black text-white text-sm block">2. ADR & EN15194 Audit</span>
-              <p>Certified 250W continuous rated power assist with progressive cut-off at 25 km/h for public road legality.</p>
-            </div>
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-5 space-y-2">
-              <span className="font-black text-white text-sm block">3. Local Parts Availability</span>
-              <p>Guaranteed Brisbane and Sydney stock of replacement controllers, display monitors, and brake pads.</p>
-            </div>
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-5 space-y-2">
-              <span className="font-black text-white text-sm block">4. Australian Warranty</span>
-              <p>Every brand provides an unconditional 2-year frame guarantee backed by our local service network.</p>
-            </div>
-          </div>
-        </div>
+        </ul>
 
         <nav aria-label="Brand buyer's guides" className="mt-12">
-          <h2 className="text-2xl font-black text-gray-900">E-bike and scooter brand guides</h2>
-          <p className="mt-2 text-gray-600">Independent buyer&apos;s guides for the brands Australians search for most, with alternatives you can order now.</p>
+          <h2 className="text-2xl font-black text-gray-900">Independent buyer&apos;s guides</h2>
+          <p className="mt-2 text-gray-600">
+            Brand guides for models we do not list directly, with alternatives you can order now.
+          </p>
           <ul className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-3">
-            {[
-              ['/brands/segway-ninebot', 'Segway-Ninebot scooters'],
-              ['/brands/specialized', 'Specialized e-bikes'],
-              ['/brands/pulse', 'Pulse e bikes'],
-              ['/brands/reid', 'Reid electric bikes'],
-              ['/brands/trek', 'Trek e bikes'],
-              ['/brands/cube', 'Cube e mountain bikes'],
-              ['/brands/merida', 'Merida electric bikes'],
-              ['/brands/pedal', 'Pedal electric bikes'],
-              ['/brands/dirodi', 'Dirodi electric bike'],
-              ['/brands/canyon', 'Canyon e bikes'],
-              ['/brands/aldi', 'Aldi e-bike alternatives'],
-            ].map(([href, label]) => (
-              <li key={href}><Link href={href} className="flex min-h-11 items-center rounded-xl border border-gray-300 px-4 py-2 text-sm font-bold text-gray-800 hover:border-[#2E6B4D] hover:text-[#2E6B4D]">{label}</Link></li>
+            {guides.map((b) => (
+              <li key={b.key}>
+                <Link href={b.href} className="flex min-h-11 items-center rounded-xl border border-gray-300 px-4 py-2 text-sm font-bold text-gray-800 hover:border-[#2E6B4D] hover:text-[#2E6B4D]">
+                  {b.name} guide
+                </Link>
+              </li>
             ))}
           </ul>
         </nav>
-
       </div>
     </div>
   );

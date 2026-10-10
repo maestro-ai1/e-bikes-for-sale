@@ -54,13 +54,13 @@ Short city hops of a few kilometres suit almost any commuter scooter in this cla
 A little routine care keeps any e-scooter reliable. Check tyre pressure weekly on pneumatic tyres, and look at the brake pads or disc for wear. Test the folding latch before every ride, because a worn latch is a safety issue. Wipe the scooter down after wet rides instead of hosing it, as water can reach connectors and the deck. Store it indoors, and keep the battery between roughly 20 and 80 percent charge if you will not ride for a few weeks.
 
 ## Accessories worth buying
-Start with a certified helmet, then add a strong lock, front and rear lights and a bag that fits the stem or handlebar without upsetting the steering. Our GlideShield kit pairs an anti-cut steel lock with a waterproof handlebar bag, and you can read more on our scooter accessories page.
+Start with a certified helmet, then add a strong lock, front and rear lights and a bag that fits the stem or handlebar without upsetting the steering. A lock and bag kit pairs an anti-cut steel lock with a waterproof handlebar bag, and you can read more on our scooter accessories page.
 
 ## How to avoid a bad purchase
 Buy from a retailer that gives you written warranty terms for Australia, and be cautious of grey imports that may not carry a local warranty or the correct charger. Check that the listing names the exact model and year, and keep the receipt and serial number.
 
 ## A local alternative to compare
-If you want a foldable commuter with comparable everyday features, compare it against the GlideX Pro in our range: a 350W front hub motor, a 468 Wh battery, 10-inch pneumatic tyres, dual brakes, a 120 kg payload and a listed range of up to 45 km. It folds, weighs 14.5 kg and is $899. It is a different brand, so compare the specification sheets side by side before you decide.
+If you want a foldable commuter with comparable everyday features, compare the Segway-Ninebot range against other adult commuter scooters on motor power, battery watt-hours, tyres, brakes, payload and weight. Check the specification sheets side by side before you decide.
 
 ## Quick buyer checklist
 1. Confirm the exact model and year on the manufacturer's Australian page.
@@ -74,9 +74,9 @@ If you want a foldable commuter with comparable everyday features, compare it ag
       { q: 'Is the Segway Ninebot E2 Plus II a good commuter scooter?', a: 'It is a popular commuter model, but suitability depends on your distance, weight and hills. Compare battery Wh, payload and brakes against your daily route.' },
       { q: 'Are Segway Ninebot scooters legal in Australia?', a: 'E-scooter rules vary by state and are changing in 2026. Check where you can ride, speed limits, helmet rules and age limits with your state authority.' },
       { q: 'How far can a Ninebot scooter go on one charge?', a: 'Published ranges are measured under ideal conditions with a light rider, so expect less in real riding. Compare battery capacity in Wh as a fairer guide.' },
-      { q: 'Do you sell Segway Ninebot scooters?', a: 'Contact us for current availability. If you want a stock option today, see the GlideX Pro and GlideCity Pro in our scooter range.' },
+      { q: 'Do you sell Segway Ninebot scooters?', a: 'Contact us for current availability. If you want a stock option today, see our adult scooter range.' },
     ],
-    productSlug: 'glidex-pro-urban-adults-dual-brake-scooter',
+    productSlug: 'segway-ninebot-e3-pro-electric-scooter',
     sources: [
       { label: 'Bicycle Network: Rules for rideables', url: 'https://bicyclenetwork.com.au/newsroom/2026/09/23/rules-for-rideables' },
       { label: 'Product Safety Australia: Lithium-ion batteries guide', url: 'https://www.productsafety.gov.au/consumers/be-safe-around-the-home/safely-use-batteries-and-technology/lithium-ion-batteries-guide' },
@@ -146,7 +146,7 @@ Charging an e-scooter costs very little compared with its purchase price, so the
 A second-hand scooter can save money, but check the battery condition, the charger, the brakes and the frame. Ask for proof of ownership and the serial number, and avoid any seller who cannot show you the scooter charging and riding. Our used e-bike inspection checklist uses the same principles and applies to scooters too.
 
 ## A stocked alternative to compare on price
-If your goal is a solid adult commuter at a clear price, compare it with the GlideCity Pro in our range: a 350W front hub motor with regenerative braking, a 420 Wh battery, puncture-proof honeycomb tyres, a listed range of up to 45 km and a weight of 14.2 kg, for $899. It is a different brand, so check the specifications against the Segway model you are considering.
+If your goal is a solid adult commuter at a clear price, compare it with other adult commuter scooters on motor power, battery watt-hours, tyres, range and weight. Check the specifications against the Segway model you are considering.
 
 ## What to ask a seller before paying
 Ask for the exact model and year, the warranty terms in writing, what is included in the box, and where service is handled in Australia. Ask how the scooter has been stored and charged if it is not new. A confident seller will answer every one of these clearly.
@@ -159,9 +159,9 @@ For many riders, a well-known brand brings app features, accessories and wider s
       { q: 'Is the Segway Ninebot E2 Plus cheaper than the E2 Pro?', a: 'In the same family, the price generally reflects motor, battery and comfort. Compare the current specification sheets and prices rather than assuming.' },
       { q: 'What extras should I budget for with a Segway scooter?', a: 'A certified helmet, a strong lock, lights and possible future tyre or battery costs.' },
       { q: 'Is a cheap grey-import Segway scooter safe to buy?', a: 'Be cautious. It may not carry an Australian warranty or the correct charger, and very low prices can indicate counterfeits.' },
-      { q: 'What is a good alternative to a Segway scooter?', a: 'Compare adult commuter scooters on battery Wh, payload, brakes and warranty. Our GlideCity Pro and GlideX Pro are stocked options.' },
+      { q: 'What is a good alternative to a Segway scooter?', a: 'Compare adult commuter scooters on battery Wh, payload, brakes and warranty. See our adult scooter range for options.' },
     ],
-    productSlug: 'glidecity-pro-australian-commuter-scooter',
+    productSlug: 'segway-ninebot-kickscooter-e2-plus-ii-electric-scooter',
     sources: [
       { label: 'Bicycle Network: Rules for rideables', url: 'https://bicyclenetwork.com.au/newsroom/2026/09/23/rules-for-rideables' },
       { label: 'Product Safety Australia: E-bikes, e-scooters and e-micromobility devices', url: 'https://www.productsafety.gov.au/business/e-bikes-e-scooters-and-other-e-micromobility-devices' },
