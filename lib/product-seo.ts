@@ -2,7 +2,8 @@ import type { Product } from '@/lib/types';
 import { CATALOG_KEYWORDS, type NodeKeywords } from '@/lib/catalog-keywords';
 import { GEAR_KEYWORDS, STRATEGY_OVERRIDES } from '@/lib/gear-pages';
 import { STRATEGY_KEYWORDS } from '@/lib/strategy-map';
-import { withTransactional } from '@/lib/transactional-keywords';
+import { withTransactional, withSupporting } from '@/lib/transactional-keywords';
+import { typeKeywordsFor } from '@/lib/product-keywords';
 
 /**
  * Product SEO rules (seo-strategy/keyword-map.md is the source of truth, never invent keywords):
@@ -52,17 +53,32 @@ export function keywordsForProduct(p: Product): NodeKeywords | undefined {
   const id = nodeIdForProduct(p);
   const base = CATALOG_KEYWORDS[id] ?? GEAR_KEYWORDS[id];
   const over = STRATEGY_KEYWORDS[id] ?? STRATEGY_OVERRIDES[id];
-  return base || over ? ({ ...(base as NodeKeywords), ...(over ?? {}), commerce: withTransactional(id, base?.commerce) } as NodeKeywords) : undefined;
+  return base || over ? ({ ...(base as NodeKeywords), ...(over ?? {}), commerce: withTransactional(id, base?.commerce), supporting: withSupporting(id, ({ ...(base as NodeKeywords), ...(over ?? {}) } as NodeKeywords).supporting) } as NodeKeywords) : undefined;
 }
 
 /** Mapped keywords that make sense for this specific product (accessory sub-types get their own subset). */
 function fitsProduct(p: Product, kw: string): boolean {
-  if (p.category !== 'accessories') return true;
+  if (p.category !== 'accessories' && p.category !== 'parts') return true;
   const name = `${p.name} ${p.subcategory || ''}`.toLowerCase();
   const k = kw.toLowerCase();
-  if (/\b(seat|saddle)\b/.test(k)) return /\b(seat|saddle)\b/.test(name);
-  if (/\bpedal/.test(k)) return /\bpedal/.test(name);
-  if (/\blight|lighting|headlight/.test(k)) return /\blight|lumen/.test(name);
+  // a keyword about a specific kind of product only goes on a product of that kind
+  const KINDS: [RegExp, RegExp][] = [
+    [/\b(seats?|saddles?)\b/, /\b(seats?|saddles?)\b/],
+    [/\bpedals?\b/, /\bpedals?\b/],
+    [/\blights?\b|lighting|headlight|lamp/, /\blights?\b(?!\s+(black|blue|grey|gray|green|red|pink|silver|white|brown|navy|yellow|orange|purple|tan|camo))|lumen|lamp/],
+    [/\bbaskets?\b/, /\bbaskets?\b/],
+    [/\bpannier|\bracks?\b|\bcarrier/, /\bpannier|\bracks?\b|\bcarrier|\bbag/],
+    [/\bhelmets?\b/, /\bhelmets?\b/],
+    [/\bscooters?\b|\bescooter/, /\bscooters?\b|kickscooter/],
+    [/\bbatter(y|ies)\b|\bcharger/, /\bbatter(y|ies)\b|\bcharger/],
+    [/\blocks?\b/, /\blocks?\b/],
+    [/\btyres?\b|\btires?\b|\btubes?\b/, /\btyres?\b|\btires?\b|\btubes?\b/],
+    [/\bgloves?\b/, /\bgloves?\b/],
+    [/\bcomputers?\b|\bgps\b/, /\bcomputers?\b|\bgps\b|garmin|wahoo/],
+  ];
+  for (const [kwRe, nameRe] of KINDS) if (kwRe.test(k) && !nameRe.test(name)) return false;
+  // keywords describing a whole bike ("bikes with basket") do not belong on a component
+  if (/\b(bikes?|bicycles?) (with|for)\b|\bwomens\b/.test(k) && /\bwith\b/.test(k)) return false;
   return true;
 }
 
@@ -70,8 +86,24 @@ function fitsProduct(p: Product, kw: string): boolean {
 export function tagsForProduct(p: Product): string[] {
   const k = keywordsForProduct(p);
   if (!k) return p.tags || [];
-  const all = [k.primary, ...(k.commerce || []).slice(0, 4), ...k.secondary, ...(k.supporting || [])];
-  return [...new Set(all.map((t) => t.trim()).filter(Boolean))].filter((t) => fitsProduct(p, t)).slice(0, 10);
+  // product-type keywords first (a helmet, a light and a scooter carry different terms), then the category keywords
+  const typed = typeKeywordsFor(p).slice(0, 4);
+  const all = [...typed, k.primary, ...(k.commerce || []).slice(0, 3), ...k.secondary, ...(k.supporting || [])];
+  // one tag per concept: "ebike accessories", "e bike accessories" and "e-bike accessory" count as the same tag
+  const concept = (t: string) => t.toLowerCase().replace(/e[- ]?bikes?/g, 'ebike').replace(/electric (bikes?|bicycles?)/g, 'ebike').replace(/[^a-z0-9 ]+/g, ' ').replace(/\b(\w+?)(ies|es|s|y)\b/g, '$1').split(/\s+/).filter((w) => w && !['and', 'for', 'an', 'a', 'the', 'with', 'of', 'in'].includes(w)).sort().join(' ');
+  // brand-name and off-topic variants from the bank never make a good product tag
+  const BLOCK = /\b(eco|echo|electra|dirt|motorbike|moto|moped|a2b|bagus|2025|2026)\b/i;
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const t of all.map((x) => x.trim()).filter(Boolean)) {
+    if (BLOCK.test(t) || !(typed.includes(t) || fitsProduct(p, t))) continue;
+    const c = concept(t);
+    if (seen.has(c)) continue;
+    seen.add(c);
+    out.push(t);
+    if (out.length === 10) break;
+  }
+  return out;
 }
 
 const money = (n: number) => `$${n.toLocaleString('en-AU')}`;

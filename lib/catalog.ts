@@ -7,7 +7,7 @@ import { BRAND_NODES_MORE } from '@/lib/brand-pages-more';
 import { BRAND_NODES_RETAIL, RETAIL_BRAND_KEYWORDS } from '@/lib/brand-pages-retail';
 import { GEAR_NODES, GEAR_KEYWORDS, STRATEGY_OVERRIDES, STRATEGY_TEXT } from '@/lib/gear-pages';
 import { STRATEGY_KEYWORDS } from '@/lib/strategy-map';
-import { withTransactional } from '@/lib/transactional-keywords';
+import { withTransactional, withSupporting } from '@/lib/transactional-keywords';
 import { categoryLinkFor, MAPPED_PATHS } from '@/lib/product-meta';
 
 /**
@@ -52,7 +52,8 @@ export interface CatalogNode {
   keywords: NodeKeywords;
 }
 
-const kw = (id: string): NodeKeywords => ({ ...(CATALOG_KEYWORDS[id] ?? RETAIL_BRAND_KEYWORDS[id] ?? GEAR_KEYWORDS[id]), ...(STRATEGY_KEYWORDS[id] ?? STRATEGY_OVERRIDES[id] ?? {}), ...(withTransactional(id, (CATALOG_KEYWORDS[id] ?? RETAIL_BRAND_KEYWORDS[id] ?? GEAR_KEYWORDS[id])?.commerce) ? { commerce: withTransactional(id, (CATALOG_KEYWORDS[id] ?? RETAIL_BRAND_KEYWORDS[id] ?? GEAR_KEYWORDS[id])?.commerce) } : {}) });
+const kwBase = (id: string): NodeKeywords => ({ ...(CATALOG_KEYWORDS[id] ?? RETAIL_BRAND_KEYWORDS[id] ?? GEAR_KEYWORDS[id]), ...(STRATEGY_KEYWORDS[id] ?? STRATEGY_OVERRIDES[id] ?? {}), ...(withTransactional(id, (CATALOG_KEYWORDS[id] ?? RETAIL_BRAND_KEYWORDS[id] ?? GEAR_KEYWORDS[id])?.commerce) ? { commerce: withTransactional(id, (CATALOG_KEYWORDS[id] ?? RETAIL_BRAND_KEYWORDS[id] ?? GEAR_KEYWORDS[id])?.commerce) } : {}) });
+const kw = (id: string): NodeKeywords => { const k = kwBase(id); return { ...k, supporting: withSupporting(id, k.supporting) }; };
 const inCat = (cat: string) => (p: Product) => p.category === cat;
 
 export const SITE_URL = 'https://ebikesforsale.com.au';

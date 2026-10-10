@@ -46,16 +46,32 @@ const money = (n: number) => `$${n.toLocaleString('en-AU')}`;
 const isBike = (p: Product) => ['emtb', 'folding', 'cruiser', 'fat-tyre', 'cargo', 'road', 'commuter'].includes(p.category);
 
 /** <= 60 characters, always with a buy-intent modifier when it fits. */
+/**
+ * Shorten a product name to fit `max` characters without losing the brand or the distinguishing end of the name
+ * (model number or colourway), so colourways keep different titles. Generic words go first, then middle words.
+ */
+export function shortenName(name: string, max: number): string {
+  let words = name.replace(/\s+/g, ' ').trim().split(' ');
+  const len = () => words.join(' ').length;
+  const droppable = ['Electric', 'Bike', 'Bikes', 'Hybrid', 'Performance', 'Mountain', 'with', 'for', 'and', '&'];
+  for (const d of droppable) {
+    if (len() <= max) break;
+    const i = words.findIndex((w, idx) => idx > 0 && idx < words.length - 1 && w.toLowerCase() === d.toLowerCase());
+    if (i > 0) words.splice(i, 1);
+  }
+  // still long: remove words just after the brand, keeping the brand and the last two words
+  while (len() > max && words.length > 4) words.splice(1, 1);
+  return words.join(' ');
+}
+
 export function productTitle(p: Product): string {
   const name = p.name.replace(/\s+/g, ' ').trim();
-  const options = [`${name} | Buy Online Australia`, `${name} | Buy Online`, `${name} | Buy`, name];
-  const buyFit = options.slice(0, 3).find((t) => t.length <= 60);
-  if (buyFit) return buyFit;
-  // long names: drop generic words, then cut at a word boundary, but always keep the buy modifier
-  const short = name.replace(/\s+Electric(?=\s)/i, '').replace(/\s+Bike$/i, '').replace(/\s+/g, ' ').trim();
-  for (const t of [`${short} | Buy Online`, `${short} | Buy`]) if (t.length <= 60) return t;
-  const cut = short.slice(0, 46).replace(/\s+\S*$/, '');
-  return `${cut} | Buy Online`;
+  for (const suffix of [' | Buy Online Australia', ' | Buy Online']) {
+    const room = 60 - suffix.length;
+    if (name.length <= room) return name + suffix;
+  }
+  const suffix = ' | Buy Online';
+  return shortenName(name, 60 - suffix.length) + suffix;
 }
 
 /** 110-158 characters, buy intent + price + one mapped keyword + a fast-dispatch close. */
@@ -64,11 +80,15 @@ export function productDescription(p: Product): string {
   const term = (k?.commerce && k.commerce[0]) || (p.tags && p.tags[0]) || k?.primary || '';
   const price = p.compareAtPrice && p.compareAtPrice > p.price ? `${money(p.price)} (RRP ${money(p.compareAtPrice)})` : money(p.price);
   const kind = isBike(p) ? 'Pedal assist, EN15194 compliant.' : p.category === 'scooters' ? 'Check your state e-scooter rules.' : 'Certified, quality gear for riders.';
-  const base = `Buy the ${p.name} online in Australia for ${price}.`;
-  const tail = `${term ? `${term.charAt(0).toUpperCase()}${term.slice(1)} range. ` : ''}${kind} Fast Australia-wide dispatch.`;
-  let d = `${base} ${tail}`;
-  if (d.length > 158) d = `${base} ${kind} Fast Australia-wide dispatch.`;
-  if (d.length > 158) d = `Buy the ${p.name} online in Australia for ${price}. Fast Australia-wide dispatch.`;
+  const kw = term ? `${term.charAt(0).toUpperCase()}${term.slice(1)} range. ` : '';
+  const tail = `${kw}${kind} Fast Australia-wide dispatch.`;
+  // keep the mapped keyword: shorten the product name (not the keyword) until the whole description fits
+  for (const max of [p.name.length, 70, 60, 50, 42, 34]) {
+    const n = max >= p.name.length ? p.name : shortenName(p.name, max);
+    const d = `Buy the ${n} online in Australia for ${price}. ${tail}`;
+    if (d.length <= 158) return d;
+  }
+  let d = `Buy the ${shortenName(p.name, 34)} online in Australia for ${price}. ${kw}Fast Australia-wide dispatch.`;
   if (d.length > 158) d = `${d.slice(0, 155).replace(/[\s,;:.]+\S*$/, '')}...`;
   return d;
 }
