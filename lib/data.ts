@@ -3,6 +3,7 @@ import { SEGWAY_POSTS } from '@/lib/segway-content';
 import { GUIDE_POSTS } from '@/lib/blog-guides';
 import { PARTNER_PRODUCTS } from '@/lib/partner-products';
 import { RETAIL_GEAR } from '@/lib/retail-gear';
+import { ensureFaqs, tagsForProduct } from '@/lib/product-seo';
 
 export const BUSINESS_INFO = {
   name: 'e bikes for sale',
@@ -2081,6 +2082,13 @@ export const PARTS_PAGE_CONFIG = {
 
 // Cube, Merida, Pedal and Dirodi models (own file)
 PRODUCTS.push(...PARTNER_PRODUCTS, ...RETAIL_GEAR);
+
+// Keyword-map rules: new products take their 10 tags from the mapped category keywords, and every
+// product page carries exactly 5 FAQs that each include one mapped keyword.
+[...PARTNER_PRODUCTS, ...RETAIL_GEAR].forEach((p) => { p.tags = tagsForProduct(p); });
+PRODUCTS.forEach((p) => {
+  p.faqs = ensureFaqs(p);
+});
 
 export const BLOG_POSTS: BlogPost[] = [...GUIDE_POSTS];
 

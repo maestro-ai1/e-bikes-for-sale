@@ -6,6 +6,7 @@ import { BRAND_NODES } from '@/lib/brand-pages';
 import { BRAND_NODES_MORE } from '@/lib/brand-pages-more';
 import { BRAND_NODES_RETAIL, RETAIL_BRAND_KEYWORDS } from '@/lib/brand-pages-retail';
 import { GEAR_NODES, GEAR_KEYWORDS, STRATEGY_OVERRIDES, STRATEGY_TEXT } from '@/lib/gear-pages';
+import { STRATEGY_KEYWORDS } from '@/lib/strategy-map';
 
 /**
  * Category tree for the /ebikes and /scooters hubs.
@@ -49,7 +50,7 @@ export interface CatalogNode {
   keywords: NodeKeywords;
 }
 
-const kw = (id: string): NodeKeywords => ({ ...(CATALOG_KEYWORDS[id] ?? RETAIL_BRAND_KEYWORDS[id] ?? GEAR_KEYWORDS[id]), ...(STRATEGY_OVERRIDES[id] ?? {}), ...(CATALOG_KEYWORDS[id]?.commerce ? { commerce: CATALOG_KEYWORDS[id].commerce } : {}) });
+const kw = (id: string): NodeKeywords => ({ ...(CATALOG_KEYWORDS[id] ?? RETAIL_BRAND_KEYWORDS[id] ?? GEAR_KEYWORDS[id]), ...(STRATEGY_KEYWORDS[id] ?? STRATEGY_OVERRIDES[id] ?? {}), ...(CATALOG_KEYWORDS[id]?.commerce ? { commerce: CATALOG_KEYWORDS[id].commerce } : {}) });
 const inCat = (cat: string) => (p: Product) => p.category === cat;
 
 export const SITE_URL = 'https://ebikesforsale.com.au';

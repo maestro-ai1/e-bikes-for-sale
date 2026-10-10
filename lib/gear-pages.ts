@@ -52,11 +52,11 @@ export const STRATEGY_OVERRIDES: Record<string, Omit<NodeKeywords, "commerce">> 
   "sc-electric": {
     primary: "e scooter adults", primaryVolume: 320, primaryKd: 16,
     secondary: ["electric scooters top rated", "recreational e scooters", "push scooter electric", "push scooter adults", "e scooter price in australia"],
-    supporting: ["foldable scooters", "electric foot scooter", "motorized scooter for adults", "adult escooter", "collapsible electric scooter for adults"],
+    supporting: ["foldable scooters", "electric foot scooter"],
   },
   "sc-adults": {
-    primary: "foldable electric scooter for adults", primaryVolume: 90, primaryKd: 10,
-    secondary: ["electric scooter foldable adults", "escooter for adults", "adult e scooters", "adult electric motor scooter", "e scooter for adults for sale"],
+    primary: "collapsible electric scooter for adults", primaryVolume: 90, primaryKd: 6,
+    secondary: ["adult escooter", "motorized scooter for adults"],
     supporting: [],
   },
 };
@@ -84,9 +84,9 @@ export const STRATEGY_TEXT: Record<string, { title: string; h1: string; descript
     description: "Shop an e scooter adults can commute on: push scooter electric models, foldable adult scooters and accessories. Disc brakes, Australia-wide delivery.",
   },
   "sc-adults": {
-    title: "Foldable Electric Scooter for Adults | Adult E-Scooters",
-    h1: "Foldable Electric Scooter for Adults: Commuter E-Scooters",
-    description: "Shop a foldable electric scooter for adults in Australia: dual brakes, pneumatic tyres and a compact fold for trains and offices. Fast dispatch.",
+    title: "Collapsible Electric Scooter for Adults | Adult E-Scooters",
+    h1: "Collapsible Electric Scooter for Adults: Commuter E-Scooters",
+    description: "Shop a collapsible electric scooter for adults in Australia: adult escooter and motorized scooter models with dual brakes and a compact fold. Fast dispatch.",
   },
 };
 
