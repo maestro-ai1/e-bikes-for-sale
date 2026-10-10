@@ -7,7 +7,7 @@ const AI_CRAWLERS = [
   'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Applebot-Extended', 'Bingbot', 'DuckAssistBot', 'MistralAI-User', 'CCBot',
 ];
 
-const BLOCKED = ['/admin/', '/order/', '/api/admin/', '/api/order/', '/api/contact', '/thank-you-order', '/thank-you-contact', '/thank-you-wholesale'];
+const BLOCKED = ['/admin/', '/order/', '/checkout', '/api/admin/', '/api/order/', '/api/contact', '/thank-you-order', '/thank-you-contact', '/thank-you-wholesale'];
 
 export function GET() {
   const disallow = BLOCKED.map((p) => `Disallow: ${p}`).join('\n');

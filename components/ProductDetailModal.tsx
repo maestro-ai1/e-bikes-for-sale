@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useApp } from '@/context/AppContext';
 import { BUSINESS_INFO, COMMON_ADDONS } from '@/lib/data';
 import { Product, AddOnItem } from '@/lib/types';
@@ -73,6 +74,11 @@ export default function ProductDetailModal() {
     }
   };
 
+  const router = useRouter();
+  const handleBuyNow = () => {
+    addToCart(product, quantity, currentSizeVariant?.label, selectedAddOns);
+    router.push('/checkout');
+  };
   const handleAddToCart = () => {
     addToCart(product, quantity, currentSizeVariant?.label, selectedAddOns);
     setQuickViewProduct(null);
@@ -330,11 +336,18 @@ export default function ProductDetailModal() {
 
               <button
                 type="button"
-                onClick={handleAddToCart}
+                onClick={handleBuyNow}
                 className="cursor-pointer flex-1 bg-[#2E6B4D] hover:bg-[#1E4733] text-white py-3.5 px-6 rounded-xl font-black text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-950/20 transition-all active:scale-95"
               >
                 <ShoppingBag className="w-5 h-5" />
-                <span>Add to Cart • ${totalPrice.toLocaleString()} AUD</span>
+                <span>Buy now · ${totalPrice.toLocaleString()} AUD</span>
+              </button>
+              <button
+                type="button"
+                onClick={handleAddToCart}
+                className="cursor-pointer border border-[#2E6B4D] bg-white text-[#1E4733] hover:bg-emerald-50 py-3.5 px-4 rounded-xl font-black text-sm transition-all"
+              >
+                Add to cart
               </button>
             </div>
 

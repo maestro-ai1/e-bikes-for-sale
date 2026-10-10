@@ -355,17 +355,6 @@ export const PARTS_PAGE_CONFIG = {
 // Cube, Merida, Pedal and Dirodi models (own file)
 PRODUCTS.push(...PARTNER_PRODUCTS, ...FEED_PRODUCTS);
 
-/** One-click cart add-ons: real catalog products (price, photo and name come from the product itself). */
-const ADDON_SLUGS = [
-  'magnum-x2p-u-lock-cable',
-  'cinettica-velocita-road-helmet-silver',
-  'azur-leo-50-lumen-rear-light',
-  'topeak-basket-front-with-fixer-3e-black',
-];
-export const COMMON_ADDONS = ADDON_SLUGS.map((slug) => PRODUCTS.find((p) => p.slug === slug))
-  .filter((p): p is Product => !!p)
-  .map((p) => ({ id: p.id, slug: p.slug, name: p.name, price: p.price, description: p.shortDescription || p.subtitle || '', image: p.image }));
-
 // Pedal Breeze "Electric Cruiser Bike" listings are cruisers by name and by the keyword map (cruiser e bike),
 // although the supplier files them under hybrid comfort: list them with the cruiser category.
 PRODUCTS.forEach((p) => {
@@ -391,6 +380,17 @@ PRODUCTS.forEach((p) => {
 PRODUCTS.forEach((p) => {
   p.faqs = ensureFaqs(p);
 });
+
+/** One-click cart add-ons: real catalog products (price, photo and name come from the product itself). */
+const ADDON_SLUGS = [
+  'magnum-x2p-u-lock-cable',
+  'cinettica-velocita-road-helmet-silver',
+  'azur-leo-50-lumen-rear-light',
+  'topeak-basket-front-with-fixer-3e-black',
+];
+export const COMMON_ADDONS = ADDON_SLUGS.map((slug) => PRODUCTS.find((p) => p.slug === slug))
+  .filter((p): p is Product => !!p)
+  .map((p) => ({ id: p.id, slug: p.slug, name: p.name, price: p.price, description: p.shortDescription || p.subtitle || '', image: p.image }));
 
 export const BLOG_POSTS: BlogPost[] = [...GUIDE_POSTS];
 

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import ProductImage from '@/components/ProductImage';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { categoryLinkFor } from '@/lib/product-meta';
 import { useApp } from '@/context/AppContext';
 import { Product, AddOnItem } from '@/lib/types';
@@ -79,8 +80,13 @@ export default function ProductLandingPage({ initialProduct }: ProductLandingPag
     }
   };
 
+  const router = useRouter();
   const handleAddToCart = () => {
     addToCart(product, quantity, selectedSize, selectedAddOns);
+  };
+  const handleBuyNow = () => {
+    addToCart(product, quantity, selectedSize, selectedAddOns);
+    router.push('/checkout');
   };
 
   const handleShare = () => {
@@ -392,11 +398,17 @@ export default function ProductLandingPage({ initialProduct }: ProductLandingPag
 
                 {/* Primary Add to Cart */}
                 <button
-                  onClick={handleAddToCart}
+                  onClick={handleBuyNow}
                   className="cursor-pointer flex-1 bg-[#2E6B4D] hover:bg-[#1E4733] text-white py-3.5 px-6 rounded-xl font-black text-sm transition-all shadow-lg hover:shadow-xl active:scale-98 flex items-center justify-center gap-2"
                 >
                   <ShoppingBag className="w-4 h-4" />
-                  <span>Add to Cart — ${totalPrice.toLocaleString()} AUD</span>
+                  <span>Buy now · ${totalPrice.toLocaleString()} AUD</span>
+                </button>
+                <button
+                  onClick={handleAddToCart}
+                  className="cursor-pointer border border-[#2E6B4D] bg-white text-[#1E4733] hover:bg-emerald-50 py-3.5 px-4 rounded-xl font-black text-sm transition-all"
+                >
+                  Add to cart
                 </button>
               </div>
 

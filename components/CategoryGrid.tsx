@@ -10,6 +10,17 @@ import { nodeById, childrenOf } from '@/lib/catalog';
 
 // The 8 main categories: 7 e-bike categories + scooters. Each card links to its own landing page.
 const HOME_CATEGORY_IDS = ['emtb', 'folding', 'cruiser', 'fat-tyre', 'cargo', 'road', 'commuter', 'scooters'];
+// One 4:3 card photo per category (1200x900), so every card image has exactly the same shape and nothing is cropped off.
+const CARD_IMAGES: Record<string, string> = {
+  emtb: '/images/catalog/electric-mountain-bike-card.webp',
+  folding: '/images/catalog/folding-e-bike-card.webp',
+  cruiser: '/images/catalog/electric-cruiser-bikes-card.webp',
+  'fat-tyre': '/images/catalog/fat-tyre-electric-bicycle-card.webp',
+  cargo: '/images/catalog/electric-cargo-bikes-card.webp',
+  road: '/images/catalog/electric-road-bikes-card.webp',
+  commuter: '/images/catalog/electric-commuter-bikes-card.webp',
+  scooters: '/images/catalog/electric-scooters-card.webp',
+};
 const HOME_CATEGORIES = HOME_CATEGORY_IDS.map((id) => CATEGORIES_CONFIG.find((c) => c.id === id)!).filter(Boolean);
 import { ArrowRight, Layers } from 'lucide-react';
 
@@ -88,17 +99,16 @@ export default function CategoryGrid() {
               className="group bg-white rounded-2xl overflow-hidden border border-gray-200/80 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col cursor-pointer transform hover:-translate-y-1 h-full"
             >
               {/* IMAGE CONTAINER - Strict identical aspect ratio & bright imagery */}
-              <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-100">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#f8fafc]">
                 <Image
-                  src={CATALOG_IMAGES[category.id === 'scooters' ? 'sc-electric' : category.id]?.src || category.image}
+                  src={CARD_IMAGES[category.id] || CATALOG_IMAGES[category.id === 'scooters' ? 'sc-electric' : category.id]?.src || category.image}
                   alt={CATALOG_IMAGES[category.id === 'scooters' ? 'sc-electric' : category.id]?.alt || `${category.title} for sale in Australia`}
-                width={600}
-                height={600}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  width={1200}
+                  height={900}
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
                   referrerPolicy="no-referrer"
-                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
                 
                 {/* Count badge */}
                 <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-xs text-gray-900 font-extrabold text-[11px] px-2.5 py-1 rounded-full shadow-xs">

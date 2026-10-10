@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { Product, CartItem, AddOnItem, BlogPost } from '@/lib/types';
 import { PRODUCTS, BLOG_POSTS, BUSINESS_INFO } from '@/lib/data';
 
@@ -78,7 +79,10 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     }
     return [];
   });
-  const [isCartOpen, setIsCartOpen] = useState(false);
+  const router = useRouter();
+  // the slide-out drawer is gone: "opening the cart" takes the shopper to the full checkout page
+  const isCartOpen = false;
+  const setIsCartOpen = (open: boolean) => { if (open) router.push('/checkout'); };
   const [isCryptoPayment, setIsCryptoPayment] = useState(false);
   const [currentLocation, setCurrentLocation] = useState<LocationState>(DEFAULT_LOCATION);
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
@@ -261,8 +265,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         },
       ];
     });
-    setNotification(`Added "${product.name}" to your cart!`);
-    setIsCartOpen(true);
+    setNotification(`Added "${product.name}" to your cart.`);
   };
 
   const updateQuantity = (cartId: string, quantity: number) => {

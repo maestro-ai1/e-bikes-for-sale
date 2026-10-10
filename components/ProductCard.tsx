@@ -45,14 +45,9 @@ export default function ProductCard({ product: p, priority = false }: { product:
           <span className="text-lg font-black text-gray-900">{money(p.price)}</span>
           {saving > 0 && <span className="text-xs text-gray-600 line-through">{money(p.compareAtPrice as number)}</span>}
         </p>
-        <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-[1fr_auto]">
+        <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2">
+          <AddToCartButton product={p} buyNow />
           <AddToCartButton product={p} />
-          <Link
-            href={href}
-            className="inline-flex min-h-10 items-center justify-center rounded-xl border border-gray-300 px-3 text-sm font-bold text-gray-800 hover:border-[#2E6B4D] hover:text-[#2E6B4D]"
-          >
-            Details
-          </Link>
         </div>
       </div>
     </article>
