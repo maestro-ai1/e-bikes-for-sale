@@ -8,7 +8,7 @@ const img = (file: string, alt: string): CatalogImage => ({ src: file.startsWith
 
 export const CATALOG_IMAGES: Record<string, CatalogImage> = {
   hub: img('ebikes-hub.jpg', 'Electric bike range for Australian riders: commuter, hybrid and trail e-bikes'),
-  emtb: img('electric-mountain-bike.webp', 'Electric mountain bike for sale in Australia: full suspension carbon eMTB with mid-drive motor and 29 inch wheels'),
+  emtb: img('electric-mountain-bike.webp', 'Electric mountain bike for sale in Australia: full suspension eMTB with mid-drive motor and DT Swiss wheels'),
   'emtb-hardtail': img('emtb-hardtail.jpg', 'Electric hardtail mountain bike with front suspension'),
   'emtb-dual': img('emtb-dual-suspension.jpg', 'Dual suspension electric mountain bike for rough trails'),
   'emtb-enduro': img('emtb-enduro.jpg', 'Enduro electric mountain bike built for steep descents'),
