@@ -27,6 +27,11 @@ export const BRAND_LOGOS: Record<string, BrandLogo> = {
   pedal: L('Pedal', 'pedal', 420, 95),
   dirodi: L('DiroDi', 'dirodi', 161, 160),
   segway: L('Segway-Ninebot', 'segway', 263, 160),
+  aldi: L('Aldi', 'aldi', 137, 160, false),
+  canyon: L('Canyon', 'canyon', 309, 160),
+  pulse: L('Pulse', 'pulse', 420, 141, false),
+  reid: L('Reid', 'reid', 140, 160),
+  trek: L('Trek', 'trek', 253, 160),
 };
 
 /** Look up by catalog node id ("brand-cube") or plain key ("cube"). */

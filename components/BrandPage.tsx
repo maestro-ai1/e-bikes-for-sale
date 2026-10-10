@@ -70,6 +70,7 @@ export default function BrandPage() {
             {guides.map((b) => (
               <li key={b.key}>
                 <Link href={b.href} className="flex min-h-11 items-center rounded-xl border border-gray-300 px-4 py-2 text-sm font-bold text-gray-800 hover:border-[#2E6B4D] hover:text-[#2E6B4D]">
+                  <BrandLogo brand={b.key} height={24} className="mr-3" />
                   {b.name} guide
                 </Link>
               </li>
