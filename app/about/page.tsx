@@ -8,14 +8,14 @@ import ProductDetailModal from '@/components/ProductDetailModal';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'About Us | Australian Electric Bicycle Pioneers | e bikes for sale',
-  description: 'Learn about e bikes for sale Australia. Founded in 2024 to supply certified EN15194 250W e-bikes, lithium battery engineering, and commercial fleets nationwide.',
+  title: 'About Us | e bikes for sale Australia',
+  description: 'About e bikes for sale: an Australian online store for electric bikes, scooters, helmets, accessories and parts, with business details and what we sell.',
   alternates: {
     canonical: 'https://ebikesforsale.com.au/about',
   },
   openGraph: {
     title: 'About e bikes for sale Australia',
-    description: 'Australian electric bicycle specialists and wholesale fleet providers.',
+    description: 'Australian online store for electric bikes, scooters, helmets and parts.',
     url: 'https://ebikesforsale.com.au/about',
     type: 'website',
   },

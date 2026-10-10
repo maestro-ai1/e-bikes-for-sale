@@ -111,22 +111,22 @@ export const NAV: NavItem[] = [
     }],
   },
   { label: 'Blog', href: '/blog' },
-  {
-    label: 'About', href: '/about',
-    groups: [{
-      heading: 'About us', href: '/about',
-      links: [
-        { label: 'Shop all products', href: '/shop' },
-        { label: 'Compare e-bikes', href: '/compare' },
-        { label: 'FAQ', href: '/faq' },
-        { label: 'Wholesale', href: '/wholesale' },
-        { label: 'Contact', href: '/contact' },
-        { label: 'Policies', href: '/policies' },
-        { label: 'Legal and road rules', href: '/legal' },
-      ],
-    }],
-  },
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 /** Flat list of every URL in the menu (used by the footer directory and the crawl check). */
 export const NAV_URLS: string[] = [...new Set(NAV.flatMap((i) => [i.href, ...(i.groups || []).flatMap((g) => [g.href || '', ...g.links.map((l) => l.href)])]).filter(Boolean))];
+
+/**
+ * Footer links: only pages that are NOT already in the main menu, so nothing is repeated between the two.
+ * (Shop, compare, FAQ, wholesale, legal and policy pages are reached from here.)
+ */
+export const FOOTER_LINKS: NavLeaf[] = [
+  { label: 'Shop all products', href: '/shop' },
+  { label: 'Compare e-bikes', href: '/compare' },
+  { label: 'FAQ', href: '/faq' },
+  { label: 'Wholesale', href: '/wholesale' },
+  { label: 'Legal and road rules', href: '/legal' },
+  { label: 'Policies', href: '/policies' },
+];

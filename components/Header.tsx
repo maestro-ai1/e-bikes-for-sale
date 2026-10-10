@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useApp } from '@/context/AppContext';
 import { BUSINESS_INFO, CATEGORIES_CONFIG } from '@/lib/data';
 import { catalogUrlFor } from '@/lib/catalog-nav';
+import Link from 'next/link';
 import Logo from '@/components/Logo';
 import SiteNav from '@/components/SiteNav';
 import { 
@@ -203,12 +204,9 @@ export default function Header() {
         </button>
 
         {/* LOGO: Brand logo icon + title in signature green maintaining exact same 40x40 size */}
-        <div 
-          onClick={() => navigateTo('home')}
-          className="cursor-pointer group shrink-0"
-        >
+        <Link href="/" onClick={() => navigateTo('home')} aria-label="e bikes for sale - home page" className="group shrink-0">
           <Logo />
-        </div>
+        </Link>
 
         {/* SEARCH BAR (Desktop & Mobile) */}
         <div className="flex-1 max-w-xl mx-2 sm:mx-6 relative">
@@ -326,12 +324,9 @@ export default function Header() {
           <div className="bg-white w-4/5 max-w-sm h-full overflow-y-auto p-6 flex flex-col justify-between shadow-2xl">
             <div>
               <div className="flex items-center justify-between pb-4 border-b border-gray-100 mb-4">
-                <div 
-                  onClick={() => { navigateTo('home'); setIsMobileMenuOpen(false); }}
-                  className="cursor-pointer"
-                >
+                <Link href="/" onClick={() => { navigateTo('home'); setIsMobileMenuOpen(false); }} aria-label="e bikes for sale - home page">
                   <Logo />
-                </div>
+                </Link>
                 <button onClick={() => setIsMobileMenuOpen(false)} className="text-gray-400 p-1" aria-label="Close menu">
                   <X className="w-6 h-6" />
                 </button>

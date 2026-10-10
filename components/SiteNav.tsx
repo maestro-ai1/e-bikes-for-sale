@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ChevronDown } from 'lucide-react';
 import { NAV } from '@/lib/site-nav';
+import { useApp } from '@/context/AppContext';
 
 /**
  * Crawlable main menu. All dropdown panels are in the HTML (shown with CSS hover/focus), every item is a link.
@@ -20,6 +21,14 @@ export default function SiteNav({
   onQuiz?: () => void;
 }) {
   const pathname = usePathname() || '/';
+  const { setCurrentView, setCategoryFilter, setSubcategoryFilter } = useApp();
+  // The Home link must always land on the real home view, even if the page was showing another in-app view.
+  const goHome = (href: string) => {
+    if (href !== '/') return;
+    setCurrentView('home');
+    setCategoryFilter('all');
+    setSubcategoryFilter('all');
+  };
   const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(href + '/'));
 
   if (mobile) {
@@ -55,7 +64,7 @@ export default function SiteNav({
                   </div>
                 </details>
               ) : (
-                <Link href={item.href} onClick={onNavigate} className="block min-h-11 rounded-lg px-3 py-2.5 hover:bg-gray-100">
+                <Link href={item.href} onClick={() => { goHome(item.href); onNavigate?.(); }} className="block min-h-11 rounded-lg px-3 py-2.5 hover:bg-gray-100">
                   {item.label}
                 </Link>
               )}
@@ -84,7 +93,7 @@ export default function SiteNav({
             }`;
             return (
               <li key={item.label} className="group relative">
-                <Link href={item.href} className={cls} aria-current={active && item.href === pathname ? 'page' : undefined}>
+                <Link href={item.href} onClick={() => goHome(item.href)} className={cls} aria-current={active && item.href === pathname ? 'page' : undefined}>
                   {item.label}
                   {item.groups && <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />}
                 </Link>
