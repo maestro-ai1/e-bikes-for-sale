@@ -178,7 +178,7 @@ export const STRATEGY_KEYWORDS: Record<string, Omit<NodeKeywords, 'commerce'>> =
       "road bicycle electric",
       "gravel ebike",
       "electric road bike australia",
-      "off road electric bike australia"
+      "e gravel bike"
     ],
     "supporting": []
   },
