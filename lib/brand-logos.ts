@@ -32,6 +32,7 @@ export const BRAND_LOGOS: Record<string, BrandLogo> = {
   pulse: L('Pulse', 'pulse', 420, 141, false),
   reid: L('Reid', 'reid', 140, 160),
   trek: L('Trek', 'trek', 253, 160),
+  specialized: L('Specialized', 'specialized', 124, 160, false),
 };
 
 /** Look up by catalog node id ("brand-cube") or plain key ("cube"). */
