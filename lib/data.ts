@@ -26,36 +26,6 @@ export const BUSINESS_INFO = {
   warranty: '2-Year Comprehensive Australian Warranty & 1-Year Battery Guarantee',
 };
 
-export const COMMON_ADDONS = [
-  {
-    id: 'kryptonite-lock',
-    name: 'Kryptonite New York Diamond Standard U-Lock',
-    price: 89,
-    description: '16mm hardened steel shackle with anti-theft key registration',
-    image: 'https://images.unsplash.com/photo-1584483766114-2cea6facdf57?auto=format&fit=crop&w=600&q=80',
-  },
-  {
-    id: 'heavy-cargo-basket',
-    name: 'Heavy Duty Front Alloy Basket & Quick-Mount',
-    price: 75,
-    description: 'Aircraft aluminium rack rated to 25kg payload with weather seal',
-    image: 'https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?auto=format&fit=crop&w=600&q=80',
-  },
-  {
-    id: 'smart-led-helmet',
-    name: 'Aero Commuter Smart Helmet with Rear Turn Signal',
-    price: 65,
-    description: 'AS/NZS 2063:2008 certified with integrated rechargeable LED blinkers',
-    image: 'https://images.unsplash.com/photo-1558611848-73f7eb4001a1?auto=format&fit=crop&w=600&q=80',
-  },
-  {
-    id: 'dual-battery-extender',
-    name: 'Samsung 48V 14Ah Range Extender Battery Pack',
-    price: 499,
-    description: 'Increases riding range by up to +70km. Dual connection splitter harness included.',
-    image: 'https://images.unsplash.com/photo-1511994298241-608e28f14fde?auto=format&fit=crop&w=600&q=80',
-  },
-];
 
 export const PRODUCTS: Product[] = [];
 
@@ -75,7 +45,7 @@ export const CATEGORIES_CONFIG = [
       'Enduro Dual Suspension eMTB\'s',
       'Trial Suspension eMTB\'s'
     ],
-    image: 'https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=600&q=80',
+    image: '/images/catalog/electric-mountain-bike.webp',
     itemCount: 18,
     tags: ['electric mountain bike', 'emtb australia', 'hardtail emtb', 'dual suspension emtb', 'kids emtb']
   },
@@ -88,7 +58,7 @@ export const CATEGORIES_CONFIG = [
     metaDescription: 'Buy folding e bikes for sale in Australia. Ultra-light, space-saving designs for train commuting, caravans, motorhomes & apartment storage.',
     shortDesc: 'Compact 10-second folding electric bikes for train commutes, caravans & apartments.',
     subcategories: ['Compact 20" Folders', 'Caravan & Grey Nomad Edition', 'Lightweight Alloy Folders'],
-    image: 'https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?auto=format&fit=crop&w=600&q=80',
+    image: '/images/catalog/folding-e-bike.webp',
     itemCount: 8,
     tags: ['folding e bike', 'portable ebike', 'fold away bicycle', 'caravan ebike']
   },
@@ -101,7 +71,7 @@ export const CATEGORIES_CONFIG = [
     metaDescription: 'Explore electric cruiser bikes for sale in Australia. Wide sprung saddles, relaxed upright handlebars, and smooth pedal assist for beachside cruising.',
     shortDesc: 'Relaxed upright geometry, plush comfort saddles, and beachside cruising style.',
     subcategories: ['Vintage Step-Through Cruisers', 'Beach Cruiser Electric', 'Comfort City Cruisers'],
-    image: 'https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=600&q=80',
+    image: '/images/catalog/electric-cruiser-bikes.webp',
     itemCount: 10,
     tags: ['electric cruiser bikes', 'vintage ebike', 'beach cruiser electric', 'step through cruiser']
   },
@@ -114,7 +84,7 @@ export const CATEGORIES_CONFIG = [
     metaDescription: 'Explore 4.0-inch fat tyre electric bicycles for sale in Australia. Float effortlessly across beach sand, gravel paths, mud, and rugged bush tracks.',
     shortDesc: 'Conquer sand dunes, bush tracks, and rough gravel with 4.0" puncture-resistant tyres.',
     subcategories: ['All-Terrain 4.0 Fat Cruisers', 'Dual Suspension Fat Bikes', 'Beach & Bush Explorers'],
-    image: 'https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?auto=format&fit=crop&w=600&q=80',
+    image: '/images/catalog/fat-tyre-electric-bicycle.webp',
     itemCount: 9,
     tags: ['fat tyre electric bicycle', 'all terrain ebike', 'beach ebike', 'sand ebike']
   },
@@ -127,7 +97,7 @@ export const CATEGORIES_CONFIG = [
     metaDescription: 'Replace the car with heavy-duty electric cargo bikes for sale in Australia. Carry up to 210kg with dual child seats, groceries, and commercial payloads.',
     shortDesc: 'Heavy-payload longtail family carriers for school runs, groceries, and fleet delivery.',
     subcategories: ['Longtail Family Carriers', 'Front Loader Box Bikes', 'Commercial Delivery Fleets'],
-    image: 'https://images.unsplash.com/photo-1558611848-73f7eb4001a1?auto=format&fit=crop&w=600&q=80',
+    image: '/images/catalog/electric-cargo-bikes.webp',
     itemCount: 7,
     tags: ['electric cargo bikes', 'family ebike', 'longtail cargo ebike', 'delivery ebike']
   },
@@ -153,7 +123,7 @@ export const CATEGORIES_CONFIG = [
     metaDescription: 'Browse street-legal 250W electric commuter bikes for sale in Australia. Integrated lights, mudguards, rear pannier racks, and puncture-resistant tyres.',
     shortDesc: 'Effortless city transit, step-through frames, mudguards & integrated safety lights.',
     subcategories: ['Step-Through Urban Commuter', 'Crossbar Sport Commuter', 'Belt-Drive Low-Maintenance'],
-    image: 'https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=600&q=80',
+    image: '/images/catalog/electric-commuter-bikes.webp',
     itemCount: 14,
     tags: ['electric commuter bikes', 'city electric bike', 'commuter ebike', 'step through ebike']
   },
@@ -173,7 +143,7 @@ export const CATEGORIES_CONFIG = [
       'Phone Mounts & Tech',
       'Pumps & Workshop Tools'
     ],
-    image: 'https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?auto=format&fit=crop&w=600&q=80',
+    image: '/images/catalog/e-bike-accessories.webp',
     itemCount: 28,
     tags: ['bike accessories', 'kryptonite lock', 'pannier bags', 'cycling gear', 'helmets']
   },
@@ -186,7 +156,7 @@ export const CATEGORIES_CONFIG = [
     metaDescription: 'Shop AS/NZS 2063:2008 certified bike helmets for adults, youth, and children. Mandatory legal compliance with smart LED turn signal options.',
     shortDesc: 'Legally certified AS/NZS 2063 helmets for adults, youth, and children.',
     subcategories: ['Kids & Youth Certified Helmets', 'Adult Commuter Smart LED', 'Full Face Downhill MTB'],
-    image: 'https://images.unsplash.com/photo-1558611848-73f7eb4001a1?auto=format&fit=crop&w=600&q=80',
+    image: '/images/catalog/e-bike-helmets.webp',
     itemCount: 16,
     tags: ['helmets', 'as nzs 2063', 'safe cycling gear', 'youth helmet']
   },
@@ -204,7 +174,7 @@ export const CATEGORIES_CONFIG = [
       'Adults Scooters',
       'Scooter Accessories'
     ],
-    image: 'https://images.unsplash.com/photo-1511994298241-608e28f14fde?auto=format&fit=crop&w=600&q=80',
+    image: '/images/catalog/electric-scooters.webp',
     itemCount: 12,
     tags: ['electric scooters', 'kids scooters', 'adults scooters', 'scooter accessories']
   },
@@ -217,7 +187,7 @@ export const CATEGORIES_CONFIG = [
     metaDescription: 'Genuine replacement tyres for cycles, disc brakes, chains, and components for electric bicycles. Fast Australian dispatch.',
     shortDesc: 'Puncture-resistant Schwalbe tyres, hydraulic brake pads, chains & accessories.',
     subcategories: ['Tyres & Tubes', 'Brakes & Rotors', 'Chains & E-Bike Drivetrains', 'Pedals, Grips & Saddles', 'Workshop & Tools'],
-    image: 'https://images.unsplash.com/photo-1584483766114-2cea6facdf57?auto=format&fit=crop&w=600&q=80',
+    image: '/images/catalog/e-bike-parts.webp',
     itemCount: 22,
     tags: ['tyres for cycles', 'parts', 'schwalbe tyres', 'e bike parts']
   }
@@ -237,7 +207,7 @@ export const EBIKES_PAGE_CATEGORIES = [
       'Enduro Dual Suspension eMTB\'s',
       'Trial Suspension eMTB\'s'
     ],
-    image: 'https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=600&q=80'
+    image: '/images/catalog/electric-mountain-bike.webp'
   },
   {
     id: 'folding',
@@ -246,7 +216,7 @@ export const EBIKES_PAGE_CATEGORIES = [
     h1: 'Folding E-Bikes for Sale Australia',
     shortDesc: 'Ultra-compact folding designs for train commuting, caravans & apartments.',
     subcategories: ['Compact 20" Folders', 'Caravan & Grey Nomad Edition', 'Lightweight Alloy Folders'],
-    image: 'https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?auto=format&fit=crop&w=600&q=80'
+    image: '/images/catalog/folding-e-bike.webp'
   },
   {
     id: 'cruiser',
@@ -255,7 +225,7 @@ export const EBIKES_PAGE_CATEGORIES = [
     h1: 'Electric Cruiser Bikes for Sale Australia',
     shortDesc: 'Relaxed upright geometry, plush comfort saddles, and beachside cruising.',
     subcategories: ['Vintage Step-Through Cruisers', 'Beach Cruiser Electric', 'Comfort City Cruisers'],
-    image: 'https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=600&q=80'
+    image: '/images/catalog/electric-cruiser-bikes.webp'
   },
   {
     id: 'fat-tyre',
@@ -264,7 +234,7 @@ export const EBIKES_PAGE_CATEGORIES = [
     h1: 'Fat Tyre Electric Bicycles for Sale Australia',
     shortDesc: 'Float over soft Australian beach sand, mud, snow, and rugged gravel.',
     subcategories: ['All-Terrain 4.0 Fat Cruisers', 'Dual Suspension Fat Bikes', 'Beach & Bush Explorers'],
-    image: 'https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?auto=format&fit=crop&w=600&q=80'
+    image: '/images/catalog/fat-tyre-electric-bicycle.webp'
   },
   {
     id: 'cargo',
@@ -273,7 +243,7 @@ export const EBIKES_PAGE_CATEGORIES = [
     h1: 'Electric Cargo Bikes for Sale Australia',
     shortDesc: 'Heavy-payload carriers built to carry two children or heavy deliveries.',
     subcategories: ['Longtail Family Carriers', 'Front Loader Box Bikes', 'Commercial Delivery Fleets'],
-    image: 'https://images.unsplash.com/photo-1558611848-73f7eb4001a1?auto=format&fit=crop&w=600&q=80'
+    image: '/images/catalog/electric-cargo-bikes.webp'
   },
   {
     id: 'road',
@@ -291,7 +261,7 @@ export const EBIKES_PAGE_CATEGORIES = [
     h1: 'Electric Commuter Bikes for Sale Australia',
     shortDesc: 'Reliable, efficient daily transportation with mudguards, racks & integrated lights.',
     subcategories: ['Step-Through Urban Commuter', 'Crossbar Sport Commuter', 'Belt-Drive Low-Maintenance'],
-    image: 'https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=600&q=80'
+    image: '/images/catalog/electric-commuter-bikes.webp'
   }
 ];
 
@@ -344,7 +314,7 @@ export const PARTS_PAGE_CONFIG = {
       title: 'Tyres & Tubes',
       subtitle: 'Puncture-Resistant & ECE-R75 E-Bike Rated',
       desc: 'Schwalbe Marathon Plus, anti-flat liners & thorn-resistant Presta/Schrader tubes.',
-      image: 'https://images.unsplash.com/photo-1584483766114-2cea6facdf57?auto=format&fit=crop&w=600&q=80',
+      image: '/images/catalog/e-bike-parts.webp',
       itemCount: 14
     },
     {
@@ -352,7 +322,7 @@ export const PARTS_PAGE_CONFIG = {
       title: 'Brakes & Rotors',
       subtitle: 'Hydraulic Disc Pads & Heat Dissipating Discs',
       desc: 'Shimano, Tektro, and Zoom resin/metallic pads, 180mm & 203mm rotors & mineral bleed kits.',
-      image: 'https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?auto=format&fit=crop&w=600&q=80',
+      image: '/images/catalog/e-bike-parts.webp',
       itemCount: 12
     },
     {
@@ -360,7 +330,7 @@ export const PARTS_PAGE_CONFIG = {
       title: 'Chains & Drivetrains',
       subtitle: 'High Torque Reinforced E-Bike Chains',
       desc: 'KMC e-Series 9/10/11-speed reinforced chains, MissingLink connectors & wide-range cassettes.',
-      image: 'https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=600&q=80',
+      image: '/images/catalog/e-bike-parts.webp',
       itemCount: 10
     },
     {
@@ -368,7 +338,7 @@ export const PARTS_PAGE_CONFIG = {
       title: 'Pedals, Grips & Saddles',
       subtitle: 'Ergonomic Cockpit & Pedalling Efficiency',
       desc: 'Ergon GP1 winged grips, high-grip flat alloy pedals & anatomical relief gel saddles.',
-      image: 'https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=600&q=80',
+      image: '/images/catalog/e-bike-parts.webp',
       itemCount: 16
     },
     {
@@ -376,7 +346,7 @@ export const PARTS_PAGE_CONFIG = {
       title: 'Workshop & Maintenance',
       subtitle: 'Chain Wear Gauges, Multi-Tools & Lubes',
       desc: 'Park Tool torque gauges, hydraulic pad spreaders, e-bike synthetic lube & cleaners.',
-      image: 'https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?auto=format&fit=crop&w=600&q=80',
+      image: '/images/catalog/e-bike-parts.webp',
       itemCount: 18
     }
   ]
@@ -384,6 +354,17 @@ export const PARTS_PAGE_CONFIG = {
 
 // Cube, Merida, Pedal and Dirodi models (own file)
 PRODUCTS.push(...PARTNER_PRODUCTS, ...FEED_PRODUCTS);
+
+/** One-click cart add-ons: real catalog products (price, photo and name come from the product itself). */
+const ADDON_SLUGS = [
+  'magnum-x2p-u-lock-cable',
+  'cinettica-velocita-road-helmet-silver',
+  'azur-leo-50-lumen-rear-light',
+  'topeak-basket-front-with-fixer-3e-black',
+];
+export const COMMON_ADDONS = ADDON_SLUGS.map((slug) => PRODUCTS.find((p) => p.slug === slug))
+  .filter((p): p is Product => !!p)
+  .map((p) => ({ id: p.id, slug: p.slug, name: p.name, price: p.price, description: p.shortDescription || p.subtitle || '', image: p.image }));
 
 // Keyword-map rules: new products take their 10 tags from the mapped category keywords, and every
 // product page carries exactly 5 FAQs that each include one mapped keyword.

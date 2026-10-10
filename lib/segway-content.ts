@@ -1,6 +1,6 @@
 import type { BlogPost } from '@/lib/types';
 
-const SCOOTER_IMAGE = 'https://images.unsplash.com/photo-1511994298241-608e28f14fde?auto=format&fit=crop&w=800&q=80';
+const SCOOTER_IMAGE = '/images/blog/segway-ninebot-e2-plus-ii.jpg';
 
 const NOTE =
   'Segway and Ninebot are trademarks of their respective owner. This guide is independent and is not affiliated with or endorsed by Segway-Ninebot. Always check the manufacturer for current specifications.';

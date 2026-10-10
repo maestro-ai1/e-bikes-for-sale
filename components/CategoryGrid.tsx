@@ -5,11 +5,26 @@ import Image from 'next/image';
 import { useApp } from '@/context/AppContext';
 import { CATEGORIES_CONFIG, PRODUCTS } from '@/lib/data';
 import { catalogUrlFor } from '@/lib/catalog-nav';
+import { CATALOG_IMAGES } from '@/lib/catalog-images';
+import { nodeById, childrenOf } from '@/lib/catalog';
 
 // The 8 main categories: 7 e-bike categories + scooters. Each card links to its own landing page.
 const HOME_CATEGORY_IDS = ['emtb', 'folding', 'cruiser', 'fat-tyre', 'cargo', 'road', 'commuter', 'scooters'];
 const HOME_CATEGORIES = HOME_CATEGORY_IDS.map((id) => CATEGORIES_CONFIG.find((c) => c.id === id)!).filter(Boolean);
 import { ArrowRight, Layers } from 'lucide-react';
+
+/** Same product set the category page lists, so the badge always matches the page it links to. */
+const nodeFor = (id: string) => nodeById(id === 'scooters' ? 'sc-electric' : id);
+const countFor = (id: string) => {
+  const node = nodeFor(id);
+  return node ? PRODUCTS.filter((p) => node.matches(p)).length : PRODUCTS.filter((p) => p.category === id).length;
+};
+/** Chips name real child pages of the category (no invented sub-ranges). */
+const subLabels = (id: string) => {
+  const node = nodeFor(id);
+  const kids = node ? childrenOf(node).map((c) => c.navLabel || c.name) : [];
+  return kids;
+};
 
 export default function CategoryGrid() {
   const { setCurrentView, setCategoryFilter } = useApp();
@@ -75,8 +90,8 @@ export default function CategoryGrid() {
               {/* IMAGE CONTAINER - Strict identical aspect ratio & bright imagery */}
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-100">
                 <Image
-                  src={category.image}
-                  alt={`${category.title} for sale in Australia`}
+                  src={CATALOG_IMAGES[category.id === 'scooters' ? 'sc-electric' : category.id]?.src || category.image}
+                  alt={CATALOG_IMAGES[category.id === 'scooters' ? 'sc-electric' : category.id]?.alt || `${category.title} for sale in Australia`}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   referrerPolicy="no-referrer"
@@ -86,7 +101,7 @@ export default function CategoryGrid() {
                 
                 {/* Count badge */}
                 <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-xs text-gray-900 font-extrabold text-[11px] px-2.5 py-1 rounded-full shadow-xs">
-                  {PRODUCTS.filter((p) => p.category === category.id).length} {PRODUCTS.filter((p) => p.category === category.id).length === 1 ? 'Model' : 'Models'}
+                  {countFor(category.id)} {countFor(category.id) === 1 ? 'Model' : 'Models'}
                 </div>
               </div>
 
@@ -102,7 +117,7 @@ export default function CategoryGrid() {
 
                   {/* Subcategories tags */}
                   <div className="flex flex-wrap gap-1.5 mt-3 min-h-[3.25rem] content-start">
-                    {category.subcategories.slice(0, 2).map((sub, i) => (
+                    {subLabels(category.id).slice(0, 2).map((sub, i) => (
                       <span
                         key={i}
                         className="text-[10px] font-medium bg-gray-100 text-gray-600 px-2 py-0.5 rounded-md"

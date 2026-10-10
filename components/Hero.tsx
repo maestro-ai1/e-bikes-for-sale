@@ -139,11 +139,10 @@ export default function Hero() {
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-3xl overflow-hidden border-2 border-emerald-900/60 shadow-2xl bg-gray-900 aspect-4/3 sm:aspect-16/11">
               <Image
-                src="https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=1200&q=80"
+                src="/images/catalog/home-hero.webp"
                 alt="e bikes for sale high performance Australian electric bicycle in action"
                 fill
                 priority
-                referrerPolicy="no-referrer"
                 className="object-cover object-center transform hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />

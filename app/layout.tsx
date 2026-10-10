@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     locale: 'en_AU',
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=1200&q=80',
+        url: 'https://ebikesforsale.com.au/images/catalog/og-home.jpg',
         width: 1200,
         height: 630,
         alt: 'e bikes for sale high performance Australian electric bicycle'
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'E Bikes for Sale Australia | Buy Electric Bikes Online',
     description: 'Buy e bikes for sale in Australia. Commuter, mountain, folding, cargo & fat tyre electric bikes, EN15194 compliant.',
-    images: ['https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=1200&q=80']
+    images: ['https://ebikesforsale.com.au/images/catalog/og-home.jpg']
   },
   robots: {
     index: true,
