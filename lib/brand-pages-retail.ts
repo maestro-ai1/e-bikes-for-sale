@@ -10,7 +10,7 @@ type BrandNode = Omit<CatalogNode, "keywords">;
  * "missing keywords" request. They carry volume 0 until Semrush data is supplied.
  */
 export const RETAIL_BRAND_KEYWORDS: Record<string, NodeKeywords> = {
-  "brand-cube": { primary: "cube e mountain bikes", primaryVolume: 50, primaryKd: 7, secondary: ["cube e bike accessories"], supporting: [] },
+  "brand-cube": { primary: "cube e mountain bikes", primaryVolume: 50, primaryKd: 7, secondary: ["cube cargo bike"], supporting: [] },
   "brand-merida": { primary: "merida electric bike", primaryVolume: 0, primaryKd: 0, secondary: [], supporting: [] },
   "brand-pedal": { primary: "pedal electric bikes", primaryVolume: 0, primaryKd: 0, secondary: [], supporting: [] },
   "brand-dirodi": { primary: "dirodi electric bike", primaryVolume: 0, primaryKd: 0, secondary: [], supporting: [] },

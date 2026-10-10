@@ -231,11 +231,11 @@ export const BRAND_NODES_MORE: BrandNode[] = [
       "Aldi e bike 2025 guide: what to check on special-buy e-bikes like the Aldi folding electric bike, and compare e-bikes available any day of the year.",
     h1: "Aldi E Bike 2025: Special Buy Guide & Alternatives",
     intro: [
-      "Aldi's special-buy e-bikes, including its folding electric bike, sell out quickly and are only available for a short time. If you searched for an Aldi e bike or the Aldi e bike price Australia shoppers see in the catalogue, this guide covers what to check, and what to buy when the stock has gone.",
+      "Aldi's special-buy e-bikes, including its folding electric bike, sell out quickly and are only available for a short time. If you searched for an Aldi e bike, an Aldi folding ebike or an Aldi electric bicycle review, this guide covers what to check, and what to buy when the stock has gone.",
       "This page is independent and is not affiliated with Aldi. Compare the folding and commuter e-bikes we stock, which are available whenever you are ready.",
     ],
     bridge: {
-      heading: "Aldi e bike price Australia, Aldi ebike or Aldi e bike 2025?",
+      heading: "Aldi foldable electric bike, Aldi ebike or Aldi e bike 2025?",
       body:
         "These all refer to Aldi's seasonal special-buy e-bikes. Stock, models and prices change by promotion, so check the current Aldi catalogue for exactly what is on offer. Meanwhile, if you want a folding e-bike you can order today, compare the options below.",
     },

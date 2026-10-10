@@ -140,7 +140,7 @@ const SPECS: Spec[] = [
     features: ['Ananda M81 mid-drive motor', 'Removable 468 Wh battery for easy charging', '29 inch wheels with front suspension fork', 'Hardtail frame, simple to maintain'],
     motor: 'Ananda M81 mid-drive motor, 250 W', motorType: 'Mid-Drive', batteryWh: 468, batterySpec: 'Removable 468 Wh lithium battery',
     frameType: 'Hardtail', frameMaterial: 'Alloy', brakes: 'Hydraulic disc brakes', gears: 'See spec sheet', images: 1,
-    tags: ['electric hardtail mountain bike', 'cheap hardtail mountain bikes', 'mid drive ebike', 'pedal electric mountain bike', 'hardtail mountain bikes'],
+    tags: ['electric hardtail mountain bike', 'cheap hardtail mountain bikes', 'mid drive ebike', 'pedal electric mountain bike', 'hardtail e mountain bike'],
   },
   {
     slug: 'cube-touring-hybrid-one-600',
