@@ -163,7 +163,7 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
         'If you are comparing hardtail mountain bikes for sale, the electric version keeps the same frame layout and adds pedal assist for the climbs. Hardtail MTB riders often find the motor lets them ride longer and steeper without fatigue.',
     },
     guides: [
-      { heading: 'Who is a hardtail eMTB best for?', body: 'Riders on fire trails, rail trails and mixed commutes get the most from a hardtail: it climbs efficiently, is easy to maintain and costs less than dual suspension. Rough, technical descents are where full suspension pulls ahead. Shoppers who search hardtail mtb for sale will find the same frame style here, with a motor added.' },
+      { heading: 'Who is a hardtail eMTB best for?', body: 'Riders on fire trails, rail trails and mixed commutes get the most from a hardtail: it climbs efficiently, is easy to maintain and costs less than dual suspension. Rough, technical descents are where full suspension pulls ahead. Shoppers looking for cheap hardtail mountain bikes will find the same frame style here, with a motor added.' },
     ],
     faqs: [
       { q: 'Is a hardtail eMTB good for beginners?', a: 'Yes. It has fewer parts than a full-suspension bike, so it is simpler to maintain, and the motor flattens hills while you build confidence.' },
@@ -190,7 +190,7 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
     bridge: {
       heading: 'Full suspension and dual suspension e-bikes explained',
       body:
-        'Full suspension, full sus and dual suspension all mean the same thing: suspension at both ends. If you are searching dual suspension mtb for sale, the electric version gives you the same grip with motor help on the way back up. An electric full sus mountain bike and a full suspension e mtb are simply other names for the same machine.',
+        'Full suspension, full sus and dual suspension all mean the same thing: suspension at both ends. If you are searching dual suspension mtb for sale, the electric version gives you the same grip with motor help on the way back up. If you are comparing a cheap dual suspension bike with the best budget dual suspension mountain bike, the electric version here adds motor help, and a full suspension e mtb is simply another name for the same machine.',
     },
     guides: [
       { heading: 'Dual suspension or hardtail?', body: 'Pick dual suspension for rough descents, long days and rider comfort. Pick a hardtail if you ride smoother trails and prefer lower weight, lower cost and less maintenance.' },
@@ -220,7 +220,7 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
     bridge: {
       heading: 'Downhill bike, downhill MTB or enduro eMTB?',
       body:
-        'A dedicated downhill bike is built for lift-served runs and is not designed to pedal uphill. An enduro eMTB trades some travel for pedalling efficiency and motor help, so you can ride the climb and the descent on one bike. Riders searching downhill mtb or downhill cycle options, or comparing mtb downhill bikes with an affordable downhill mtb, often find enduro is the more versatile choice.',
+        'A dedicated downhill bike is built for lift-served runs and is not designed to pedal uphill. An enduro eMTB trades some travel for pedalling efficiency and motor help, so you can ride the climb and the descent on one bike. Riders searching downhill mtb or downhill cycle options, or comparing mtb downhill bikes with downhill bikes Australia riders can ride both ways, often find enduro is the more versatile choice.',
     },
     guides: [
       { heading: 'What is enduro riding?', body: 'Enduro combines timed descents with untimed climbs. Bikes need strong suspension, a stable geometry and enough pedalling efficiency to climb, which is exactly where a mid-drive motor helps.' },
@@ -250,7 +250,7 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
     bridge: {
       heading: 'Off-road electric bikes for Australian trails',
       body:
-        'If you searched for an off road electric bike australia riders can rely on, or an off roading electric bike for fire trails and gravel, a trail-focused eMTB is the right starting point. It is the electric version of all mountain mtb bikes, with pedal assist to keep climbs manageable. Check local trail access rules before riding.',
+        'If you searched for an off road electric bike australia riders can rely on, or a Bosch emtb for fire trails and gravel, a trail-focused eMTB is the right starting point. It is the electric version of all mountain mtb bikes, with pedal assist to keep climbs manageable. Check local trail access rules before riding.',
     },
     guides: [
       { heading: 'Trail suspension, trial suspension: what is the difference?', body: 'Trail bikes balance climbing and descending for general off-road riding. Trial-style tuning favours control and precision at low speed. Our Alpine model is tuned for both trail and technical riding. An electric trail bike australia riders choose for mixed terrain should balance climbing power with control.' },

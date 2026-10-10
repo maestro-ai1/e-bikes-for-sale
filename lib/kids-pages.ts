@@ -63,7 +63,7 @@ export const KIDS_NODES: KidsNode[] = [
       "It lists up to 65 km per charge and weighs 16.8 kg, which is light for an e-bike. It suits taller kids and teens who have outgrown a 20-inch bike, and it cuts assist at 25 km/h like every bike in our range.",
     ],
     bridge: {
-      heading: "Kids mountain bikes, childrens mountain bikes or a kids electric mountain bike?",
+      heading: "Kids mountain bikes, childrens mountain bikes or a childrens electric mountain bike?",
       body:
         "Parents searching for a kids mountain bike, childrens mountain bikes or a kids mtb usually want a capable trail bike that fits. The electric version adds assist for hills and longer family rides. Our range does not include a kids 20 inch mountain bike, so this page covers the larger 24-inch size. For mountain bikes for kids on smaller wheels, a bike shop can help with sizing.",
     },
@@ -103,7 +103,7 @@ export const KIDS_NODES: KidsNode[] = [
     bridge: {
       heading: "Childrens electric scooters, childrens e scooter and teen scooters",
       body:
-        "Searches for childrens electric scooters, a childrens e scooter, a best childrens electric scooter or electric scooters for 10 year olds all lead to the same question: how fast and how safe. A speed-limited 3-wheel design suits younger children, while older kids and teens may prefer a larger scooter. Check your state's age limit for e-scooters before you buy.",
+        "Searches for childrens electric scooters, a childrens e scooter, a best childrens electric scooter, a ninebot kids e scooter or an escooter kids search all lead to the same question: how fast and how safe. A speed-limited 3-wheel design suits younger children, while older kids and teens may prefer a larger scooter. Check your state's age limit for e-scooters before you buy.",
     },
     guides: [
       {
@@ -117,7 +117,7 @@ export const KIDS_NODES: KidsNode[] = [
       { q: "What age is a kids e scooter suitable for?", a: "It depends on the child's size and the scooter's rating, and state age rules for e-scooters vary. Check the manufacturer's guidance and your state authority." },
       { q: "How fast is a kids electric scooter?", a: "Speed varies by model, and kids models are usually limited by a speed governor. Check the listed top speed and your state rules." },
       { q: "Do kids need a helmet on an electric scooter?", a: "Yes. Use a certified helmet that fits well and supervise young riders." },
-      { q: "Are electric scooters for 10 year olds legal on the road?", a: "E-scooter rules differ by state and are changing, and many restrict where scooters can be used. Check your state authority before riding on public paths or roads." },
+      { q: "Are electric scooters for kids aged 8 12 legal on the road?", a: "E-scooter rules differ by state and are changing, and many restrict where scooters can be used. Check your state authority before riding on public paths or roads." },
     ],
     matches: (p) => p.category === "scooters" && p.subcategoryId === "scooters-kids",
   },
