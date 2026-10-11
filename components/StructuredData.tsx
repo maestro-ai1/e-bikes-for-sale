@@ -2,11 +2,11 @@
 
 import React from 'react';
 import { usePathname } from 'next/navigation';
-import { BUSINESS_INFO, PRODUCTS, HOMEPAGE_FAQS } from '@/lib/data';
+import { BUSINESS_INFO, HOMEPAGE_FAQS } from '@/lib/data';
 
 export default function StructuredData() {
-  // Organization schema is site-wide. The homepage FAQ and featured-product schemas belong to the homepage only:
-  // rendering them on every route produced duplicate FAQPage/Product markup on inner pages.
+  // Organization schema is site-wide. The homepage FAQ schema belongs to the homepage only. Product markup lives on product pages only:
+  // featured-product markup on the homepage carried a rating of 0 from 0 reviews, which Search Console flags as invalid review snippets.
   const pathname = usePathname();
   const isHome = pathname === '/' || pathname === '';
 
@@ -43,34 +43,6 @@ export default function StructuredData() {
     })),
   };
 
-  const productSchemas = PRODUCTS.slice(0, 5).map((p) => ({
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: p.name,
-    image: p.image,
-    description: p.shortDescription,
-    brand: {
-      '@type': 'Brand',
-      name: p.brand,
-    },
-    offers: {
-      '@type': 'Offer',
-      priceCurrency: 'AUD',
-      price: p.price,
-      availability: p.inStock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
-      itemCondition: 'https://schema.org/NewCondition',
-      seller: {
-        '@type': 'Organization',
-        name: BUSINESS_INFO.name,
-      },
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: p.rating,
-      reviewCount: p.reviewsCount,
-    },
-  }));
-
   return (
     <>
       <script
@@ -82,10 +54,6 @@ export default function StructuredData() {
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-          />
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchemas) }}
           />
         </>
       )}
