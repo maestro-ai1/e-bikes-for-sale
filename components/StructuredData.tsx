@@ -2,11 +2,12 @@
 
 import React from 'react';
 import { usePathname } from 'next/navigation';
-import { BUSINESS_INFO, HOMEPAGE_FAQS } from '@/lib/data';
+import { BUSINESS_INFO, PRODUCTS, HOMEPAGE_FAQS } from '@/lib/data';
+import { TRUSTPILOT_REVIEWS } from '@/components/ReviewsSection';
 
 export default function StructuredData() {
-  // Organization schema is site-wide. The homepage FAQ schema belongs to the homepage only. Product markup lives on product pages only:
-  // featured-product markup on the homepage carried a rating of 0 from 0 reviews, which Search Console flags as invalid review snippets.
+  // Organization schema is site-wide. The homepage FAQ and featured-product schemas belong to the homepage only:
+  // rendering them on every route produced duplicate FAQPage/Product markup on inner pages.
   const pathname = usePathname();
   const isHome = pathname === '/' || pathname === '';
 
@@ -28,6 +29,23 @@ export default function StructuredData() {
       postalCode: '4000',
       addressCountry: 'AU',
     },
+    // The Trustpilot figures and the reviews shown in the homepage reviews section (4.9 out of 5, 1,500+ reviews)
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: 4.9,
+      bestRating: 5,
+      worstRating: 1,
+      ratingCount: 1500,
+      reviewCount: 1500,
+    },
+    review: TRUSTPILOT_REVIEWS.map((rev) => ({
+      '@type': 'Review',
+      author: { '@type': 'Person', name: rev.author },
+      datePublished: new Date(rev.date + ' UTC').toISOString().slice(0, 10),
+      name: rev.title,
+      reviewBody: rev.comment,
+      reviewRating: { '@type': 'Rating', ratingValue: rev.rating, bestRating: 5, worstRating: 1 },
+    })),
   };
 
   const faqSchema = {
@@ -43,6 +61,33 @@ export default function StructuredData() {
     })),
   };
 
+  const productSchemas = PRODUCTS.slice(0, 5).map((p) => ({
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: p.name,
+    image: p.image,
+    description: p.shortDescription,
+    brand: {
+      '@type': 'Brand',
+      name: p.brand,
+    },
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'AUD',
+      price: p.price,
+      availability: p.inStock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
+      itemCondition: 'https://schema.org/NewCondition',
+      seller: {
+        '@type': 'Organization',
+        name: BUSINESS_INFO.name,
+      },
+    },
+    // A rating is only emitted when a product has real reviews (a rating of 0 from 0 reviews is invalid markup)
+    ...(p.reviewsCount > 0
+      ? { aggregateRating: { '@type': 'AggregateRating', ratingValue: p.rating, reviewCount: p.reviewsCount } }
+      : {}),
+  }));
+
   return (
     <>
       <script
@@ -54,6 +99,10 @@ export default function StructuredData() {
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchemas) }}
           />
         </>
       )}

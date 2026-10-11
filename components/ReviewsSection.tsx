@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, CheckCircle2, ShieldCheck, Star, ExternalLink } from 'lucide-react';
 
-interface TrustpilotReview {
+export interface TrustpilotReview {
   id: string;
   author: string;
   location: string;
@@ -15,7 +15,7 @@ interface TrustpilotReview {
   verified: boolean;
 }
 
-const TRUSTPILOT_REVIEWS: TrustpilotReview[] = [
+export const TRUSTPILOT_REVIEWS: TrustpilotReview[] = [
   {
     id: 'tp-1',
     author: 'Liam M.',
