@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import SafeImage from '@/components/SafeImage';
 import { useApp } from '@/context/AppContext';
 import { BLOG_POSTS, PRODUCTS } from '@/lib/data';
@@ -13,18 +14,12 @@ interface BlogDetailViewProps {
 }
 
 export default function BlogDetailView({ initialBlog }: BlogDetailViewProps = {}) {
-  const { activeBlog, setActiveBlog, setCurrentView, addToCart, setQuickViewProduct } = useApp();
+  const { activeBlog, addToCart, setQuickViewProduct } = useApp();
 
   const blog = initialBlog || activeBlog || BLOG_POSTS[0];
   // Structured posts (FAQs / sources / related) use the rich layout and the featured product they name
   const isRich = !!blog.faqs;
   const featured = (isRich && blog.productSlug ? PRODUCTS.find((p) => p.slug === blog.productSlug) : null) || PRODUCTS[0];
-
-  const handleBackToBlog = () => {
-    setActiveBlog(null);
-    setCurrentView('blog');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   return (
     <article className="bg-white min-h-screen py-10 sm:py-16">
@@ -32,13 +27,13 @@ export default function BlogDetailView({ initialBlog }: BlogDetailViewProps = {}
         
         {/* Breadcrumbs & Back */}
         <div className="flex items-center justify-between mb-6">
-          <button
-            onClick={handleBackToBlog}
-            className="cursor-pointer inline-flex items-center gap-1.5 text-xs font-bold text-[#2E6B4D] hover:text-[#1E4733] transition-colors"
+          <Link
+            href="/blog"
+            className="inline-flex min-h-11 items-center gap-1.5 text-xs font-bold text-[#2E6B4D] hover:text-[#1E4733] transition-colors"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="w-4 h-4" aria-hidden="true" />
             <span>Back to Knowledge Hub</span>
-          </button>
+          </Link>
 
           <span className="text-xs font-semibold uppercase text-gray-600">
             /{blog.slug}
@@ -111,17 +106,13 @@ export default function BlogDetailView({ initialBlog }: BlogDetailViewProps = {}
 
           <div className="flex flex-wrap gap-1.5">
             {blog.tags.slice(0, 5).map((tag, i) => (
-              <span
+              <Link
                 key={i}
-                onClick={() => {
-                  setCurrentView('shop');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                className="cursor-pointer text-xs bg-gray-100 hover:bg-emerald-50 text-gray-700 hover:text-[#2E6B4D] px-2.5 py-1 rounded-lg border border-gray-200 transition-colors"
-                title={`Search products tagged with #${tag}`}
+                href="/shop"
+                className="inline-flex min-h-11 items-center text-xs bg-gray-100 hover:bg-emerald-50 text-gray-700 hover:text-[#2E6B4D] px-2.5 py-1 rounded-lg border border-gray-200 transition-colors"
               >
                 #{tag}
-              </span>
+              </Link>
             ))}
           </div>
         </div>

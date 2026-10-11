@@ -650,12 +650,12 @@ export default function ProductLandingPage({ initialProduct }: ProductLandingPag
               Related Electric Bicycles & Recommended Gear
             </h2>
           </div>
-          <button
-            onClick={() => { setCurrentView('shop'); window.history.pushState(null, '', '/shop'); }}
-            className="cursor-pointer text-xs font-bold text-[#2E6B4D] hover:underline"
+          <Link
+            href="/shop"
+            className="inline-flex min-h-11 items-center text-xs font-bold text-[#2E6B4D] hover:underline"
           >
             View Full Catalogue →
-          </button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

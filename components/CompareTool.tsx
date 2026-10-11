@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import SafeImage from '@/components/SafeImage';
 import { useApp } from '@/context/AppContext';
 import { PRODUCTS } from '@/lib/data';
@@ -24,9 +25,7 @@ export default function CompareTool() {
     removeFromCompare, 
     toggleCompare, 
     clearCompare, 
-    addToCart, 
-    setCurrentView,
-    setQuickViewProduct
+    addToCart,     setQuickViewProduct
   } = useApp();
 
   // If user hasn't selected items, pre-populate with 3 popular models
@@ -60,15 +59,12 @@ export default function CompareTool() {
                 Clear Selected ({compareList.length})
               </button>
             )}
-            <button
-              onClick={() => {
-                setCurrentView('shop');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              className="cursor-pointer bg-[#2E6B4D] hover:bg-[#1E4733] text-white font-bold text-xs px-4 py-2 rounded-xl transition-colors active:scale-95 shadow-xs"
+            <Link
+              href="/shop"
+              className="inline-flex min-h-11 items-center bg-[#2E6B4D] hover:bg-[#1E4733] text-white font-bold text-xs px-4 py-2 rounded-xl transition-colors active:scale-95 shadow-xs"
             >
               Add More From Shop
-            </button>
+            </Link>
           </div>
         </div>
 

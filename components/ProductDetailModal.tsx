@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import SafeImage from '@/components/SafeImage';
 import { useRouter } from 'next/navigation';
 import { useApp } from '@/context/AppContext';
@@ -33,9 +34,7 @@ export default function ProductDetailModal() {
     setQuickViewProduct, 
     addToCart, 
     currentLocation, 
-    setCurrentLocation,
-    setCurrentView,
-    viewProduct
+    setCurrentLocation,    viewProduct
   } = useApp();
 
   const product = quickViewProduct;
@@ -101,9 +100,9 @@ export default function ProductDetailModal() {
 
         {/* Breadcrumbs */}
         <nav className="flex items-center gap-1.5 text-xs text-gray-400 mb-4 font-medium flex-wrap">
-          <span className="hover:text-gray-700 cursor-pointer" onClick={() => { setQuickViewProduct(null); setCurrentView('home'); }}>Home</span>
+          <Link href="/" className="hover:text-gray-700" onClick={() => setQuickViewProduct(null)}>Home</Link>
           <ChevronRight className="w-3.5 h-3.5" />
-          <span className="hover:text-gray-700 cursor-pointer" onClick={() => { setQuickViewProduct(null); setCurrentView('shop'); }}>Shop</span>
+          <Link href="/shop" className="hover:text-gray-700" onClick={() => setQuickViewProduct(null)}>Shop</Link>
           <ChevronRight className="w-3.5 h-3.5" />
           <span className="hover:text-gray-700 cursor-pointer capitalize">{product.categoryLabel}</span>
           <ChevronRight className="w-3.5 h-3.5" />

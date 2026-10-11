@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
+import Link from 'next/link';
 import SafeImage from '@/components/SafeImage';
 import { useApp } from '@/context/AppContext';
 import { PRODUCTS, BUSINESS_INFO } from '@/lib/data';
@@ -101,12 +102,12 @@ export default function AccessoriesLandingPage() {
       {/* 1. BREADCRUMB */}
       <div className="bg-gray-50 border-b border-gray-200 text-xs py-3 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto flex items-center gap-2 text-gray-500">
-          <button 
-            onClick={() => { setCurrentView('home'); window.history.pushState(null, '', '/'); }}
+          <Link 
+            href="/"
             className="hover:text-emerald-800 transition-colors cursor-pointer"
           >
             Home
-          </button>
+          </Link>
           <ChevronRight className="w-3 h-3 text-gray-400" />
           <span className="font-semibold text-gray-900">Accessories</span>
         </div>

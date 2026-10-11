@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
+import Link from 'next/link';
 import SafeImage from '@/components/SafeImage';
 import { useApp } from '@/context/AppContext';
 import { PRODUCTS, EBIKES_PAGE_CATEGORIES, BUSINESS_INFO } from '@/lib/data';
@@ -135,12 +136,12 @@ export default function EbikesLandingPage() {
       {/* 1. BREADCRUMBS BAR */}
       <div className="bg-gray-50 border-b border-gray-200 py-3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center gap-2 text-xs text-gray-500">
-          <button 
-            onClick={() => { setCurrentView('home'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+          <Link 
+            href="/"
             className="hover:text-[#2E6B4D] cursor-pointer"
           >
             Home
-          </button>
+          </Link>
           <ChevronRight className="w-3.5 h-3.5 text-gray-400" />
           <span className="font-semibold text-gray-800">Electric Bikes (e-bikes)</span>
           {activeCategory !== 'all' && (

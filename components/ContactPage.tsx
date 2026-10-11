@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useApp } from '@/context/AppContext';
+import Link from 'next/link';
 import { BUSINESS_INFO } from '@/lib/data';
 import { 
   Phone, 
@@ -16,7 +16,6 @@ import {
 } from 'lucide-react';
 
 export default function ContactPage() {
-  const { setCurrentView } = useApp();
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [sendError, setSendError] = useState('');
@@ -275,15 +274,12 @@ export default function ContactPage() {
                 Check our Frequently Asked Questions section covering Australian legal power limits, battery maintenance, and returns.
               </p>
               <div className="flex gap-3 pt-2">
-                <button
-                  onClick={() => {
-                    setCurrentView('shop');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
-                  className="cursor-pointer bg-[#2E6B4D] hover:bg-[#1E4733] text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-colors active:scale-95"
+                <Link
+                  href="/shop"
+                  className="inline-flex min-h-11 items-center bg-[#2E6B4D] hover:bg-[#1E4733] text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-colors active:scale-95"
                 >
                   Shop Now
-                </button>
+                </Link>
               </div>
             </div>
           </div>
