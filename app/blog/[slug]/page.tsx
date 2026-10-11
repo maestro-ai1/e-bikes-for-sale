@@ -24,7 +24,7 @@ function blogTitle(base: string) {
   const suffix = ' | e bikes for sale';
   if (base.length + suffix.length <= 60) return base + suffix;
   if (base.length <= 60) return base;
-  return base.slice(0, 60).replace(/s+S*$/, '');
+  return base.slice(0, 60).replace(/\s+\S*$/, '');
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

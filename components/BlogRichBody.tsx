@@ -1,15 +1,54 @@
 import React from 'react';
 import Link from 'next/link';
 import { ExternalLink, HelpCircle, ListOrdered } from 'lucide-react';
+import SafeImage from '@/components/SafeImage';
 import type { BlogPost } from '@/lib/types';
 
 const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 const SITE = 'https://ebikesforsale.com.au';
 
-type Block = { type: 'h2' | 'p' | 'ul' | 'ol'; text?: string; items?: string[]; id?: string };
+type Block = {
+  type: 'h2' | 'p' | 'ul' | 'ol' | 'table' | 'img';
+  text?: string;
+  items?: string[];
+  id?: string;
+  rows?: string[][];
+  src?: string;
+  alt?: string;
+  w?: number;
+  h?: number;
+};
+
+/** Inline [text](url) links: site paths use next/link, other URLs open in a new tab. */
+function Inline({ text }: { text: string }) {
+  const parts: React.ReactNode[] = [];
+  const re = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+  let last = 0;
+  let m: RegExpExecArray | null;
+  let k = 0;
+  while ((m = re.exec(text))) {
+    if (m.index > last) parts.push(text.slice(last, m.index));
+    const label = m[1];
+    const href = m[2];
+    parts.push(
+      href.startsWith('/') ? (
+        <Link key={k++} href={href} className="font-semibold text-[#2E6B4D] underline">{label}</Link>
+      ) : (
+        <a key={k++} href={href} target="_blank" rel="noopener noreferrer" className="font-semibold text-[#2E6B4D] underline">{label}</a>
+      ),
+    );
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) parts.push(text.slice(last));
+  return <>{parts}</>;
+}
 
 function textBlock(t: string): Block {
   const lines = t.split('\n');
+  const img = /^!\[([^\]]*)\]\(([^)#\s]+)#(\d+)x(\d+)\)$/.exec(t);
+  if (img) return { type: 'img', alt: img[1], src: img[2], w: Number(img[3]), h: Number(img[4]) };
+  if (lines.every((l) => l.startsWith('|')))
+    return { type: 'table', rows: lines.map((l) => l.replace(/^\||\|$/g, '').split('|').map((c) => c.trim())) };
   if (lines.every((l) => l.startsWith('- '))) return { type: 'ul', items: lines.map((l) => l.slice(2)) };
   if (lines.every((l) => /^\d+\.\s/.test(l))) return { type: 'ol', items: lines.map((l) => l.replace(/^\d+\.\s/, '')) };
   return { type: 'p', text: t.replace(/\n/g, ' ') };
@@ -86,9 +125,32 @@ export default function BlogRichBody({ blog }: { blog: BlogPost }) {
         {blocks.map((b, i) => {
           if (b.type === 'h2')
             return <h2 key={i} id={b.id} className="scroll-mt-24 pt-4 text-2xl font-black tracking-tight text-gray-900">{b.text}</h2>;
-          if (b.type === 'ul') return <ul key={i} className="list-disc space-y-1.5 pl-5">{b.items!.map((it) => <li key={it}>{it}</li>)}</ul>;
-          if (b.type === 'ol') return <ol key={i} className="list-decimal space-y-1.5 pl-5">{b.items!.map((it) => <li key={it}>{it}</li>)}</ol>;
-          return <p key={i}>{b.text}</p>;
+          if (b.type === 'ul') return <ul key={i} className="list-disc space-y-1.5 pl-5">{b.items!.map((it) => <li key={it}><Inline text={it} /></li>)}</ul>;
+          if (b.type === 'ol') return <ol key={i} className="list-decimal space-y-1.5 pl-5">{b.items!.map((it) => <li key={it}><Inline text={it} /></li>)}</ol>;
+          if (b.type === 'img')
+            return (
+              <figure key={i} className="overflow-hidden rounded-2xl border border-gray-200 bg-white">
+                <SafeImage src={b.src!} alt={b.alt!} width={b.w!} height={b.h!} sizes="(max-width: 768px) 100vw, 768px" className="h-64 w-full object-contain sm:h-80" />
+              </figure>
+            );
+          if (b.type === 'table') {
+            const [head, ...body] = b.rows!;
+            return (
+              <div key={i} className="overflow-x-auto rounded-2xl border border-gray-200">
+                <table className="w-full min-w-[30rem] text-left text-sm">
+                  <thead className="bg-gray-50 text-xs font-black uppercase tracking-wider text-gray-600">
+                    <tr>{head.map((c) => <th key={c} scope="col" className="px-4 py-3">{c}</th>)}</tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-200">
+                    {body.map((r, ri) => (
+                      <tr key={ri}>{r.map((c, ci) => <td key={ci} className="px-4 py-3 align-top"><Inline text={c} /></td>)}</tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            );
+          }
+          return <p key={i}><Inline text={b.text!} /></p>;
         })}
       </div>
 

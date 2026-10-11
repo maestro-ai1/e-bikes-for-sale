@@ -77,8 +77,8 @@ export default function BlogDetailView({ initialBlog }: BlogDetailViewProps = {}
           <SafeImage
             src={blog.image}
             alt={blog.altText}
-                width={600}
-                height={600}
+            width={1200}
+            height={675}
             priority
             sizes="(max-width: 1024px) 100vw, 800px"
             referrerPolicy="no-referrer"

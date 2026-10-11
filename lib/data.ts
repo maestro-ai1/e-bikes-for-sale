@@ -1,6 +1,7 @@
 import { Product, BlogPost, FAQItem, AustralianStateRule, BrandInfo, RevolutionarySlide } from './types';
 import { SEGWAY_POSTS } from '@/lib/segway-content';
 import { GUIDE_POSTS } from '@/lib/blog-guides';
+import { EBIKE_GUIDE_POSTS } from '@/lib/blog-ebike-guides';
 import { PARTNER_PRODUCTS } from '@/lib/partner-products';
 import { FEED_PRODUCTS } from '@/lib/feed-products';
 import { PRODUCT_IMAGES } from '@/lib/product-images';
@@ -392,7 +393,9 @@ export const COMMON_ADDONS = ADDON_SLUGS.map((slug) => PRODUCTS.find((p) => p.sl
   .filter((p): p is Product => !!p)
   .map((p) => ({ id: p.id, slug: p.slug, name: p.name, price: p.price, description: p.shortDescription || p.subtitle || '', image: p.image }));
 
-export const BLOG_POSTS: BlogPost[] = [...GUIDE_POSTS];
+// The keyword-mapped guides replace an older post with the same slug, so its URL is unchanged
+const MAPPED_SLUGS = new Set(EBIKE_GUIDE_POSTS.map((p) => p.slug));
+export const BLOG_POSTS: BlogPost[] = [...EBIKE_GUIDE_POSTS, ...GUIDE_POSTS.filter((p) => !MAPPED_SLUGS.has(p.slug))];
 
 // Structured posts (rich layout) are kept in their own file
 BLOG_POSTS.push(...SEGWAY_POSTS);
