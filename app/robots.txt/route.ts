@@ -5,6 +5,7 @@ export const dynamic = 'force-static';
 const AI_CRAWLERS = [
   'GPTBot', 'ChatGPT-User', 'OAI-SearchBot', 'ClaudeBot', 'Claude-User', 'Claude-SearchBot', 'anthropic-ai',
   'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Applebot-Extended', 'Bingbot', 'DuckAssistBot', 'MistralAI-User', 'CCBot',
+  'cohere-ai', 'Bytespider', 'Amazonbot', 'Meta-ExternalAgent',
 ];
 
 const BLOCKED = ['/admin/', '/order/', '/checkout', '/api/admin/', '/api/order/', '/api/contact', '/thank-you-order', '/thank-you-contact', '/thank-you-wholesale'];

@@ -21,8 +21,11 @@ const STATIC_ROUTES = [
   '/policies',
 ];
 
+// Fixed content date, not the build time, so lastmod only moves when the catalogue or pages really change.
+const CONTENT_UPDATED = new Date('2026-10-11T00:00:00+10:00');
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+  const now = CONTENT_UPDATED;
 
   return [
     ...STATIC_ROUTES.map((route) => ({
@@ -45,7 +48,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...BLOG_POSTS.map((post) => ({
       url: `${BASE_URL}/blog/${post.slug}`,
-      lastModified: now,
+      lastModified: post.isoDate ? new Date(post.isoDate) : now,
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     })),

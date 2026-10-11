@@ -35,9 +35,9 @@ const CARE_LINKS: NavLeaf[] = [
 function FooterColumn({ heading, headingHref, links, className = '' }: { heading: string; headingHref?: string; links: NavLeaf[]; className?: string }) {
   return (
     <div className={`space-y-2.5 ${className}`}>
-      <h4 className="text-xs font-black uppercase tracking-wider text-emerald-400">
+      <h2 className="text-xs font-black uppercase tracking-wider text-emerald-400">
         {headingHref ? <Link href={headingHref} className="hover:text-emerald-300">{heading}</Link> : heading}
-      </h4>
+      </h2>
       <ul className="space-y-1 text-xs text-gray-400">
         {links.map((l) => (
           <li key={l.href}>

@@ -217,7 +217,7 @@ export default function ReviewsSection() {
           <div className="flex items-center gap-3">
             <button
               onClick={() => setShowModal(true)}
-              className="bg-[#00B67A] hover:bg-[#009e6a] text-white font-extrabold text-xs px-4 py-2.5 rounded-xl transition-all shadow-xs flex items-center gap-1.5 active:scale-95"
+              className="bg-[#007A52] hover:bg-[#006443] text-white font-extrabold text-xs px-4 py-2.5 rounded-xl transition-all shadow-xs flex items-center gap-1.5 active:scale-95"
             >
               <span>Read Verified Reviews</span>
               <ExternalLink className="w-3.5 h-3.5" />
@@ -236,11 +236,15 @@ export default function ReviewsSection() {
                   <button
                     key={i}
                     onClick={() => setSlideIndex(i)}
-                    className={`h-1.5 rounded-full transition-all ${
-                      slideIndex === i ? 'w-5 bg-[#00B67A]' : 'w-1.5 bg-gray-200'
-                    }`}
+                    className="inline-flex h-6 min-w-6 items-center justify-center"
                     aria-label={`Slide ${i + 1}`}
-                  />
+                  >
+                    <span
+                      className={`block h-1.5 rounded-full transition-all ${
+                        slideIndex === i ? 'w-5 bg-[#00B67A]' : 'w-1.5 bg-gray-300'
+                      }`}
+                    />
+                  </button>
                 ))}
               </div>
               <button
@@ -275,7 +279,7 @@ export default function ReviewsSection() {
                     ))}
                   </div>
 
-                  <span className="text-[11px] font-semibold text-gray-400 font-mono">
+                  <span className="text-[11px] font-semibold text-gray-600 font-mono">
                     {rev.date}
                   </span>
                 </div>

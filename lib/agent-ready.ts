@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { BUSINESS_INFO, PRODUCTS } from '@/lib/data';
+import { BUSINESS_INFO, PRODUCTS, BLOG_POSTS } from '@/lib/data';
 import type { Product } from '@/lib/types';
 
 /** Every URL here points at something the site really serves. Nothing is advertised that does not resolve. */
@@ -71,6 +71,9 @@ export function llmsTxt(): string {
     `- [Wholesale](${SITE}/wholesale): fleet and bulk supply`,
     `- [Contact](${SITE}/contact): questions and order support`,
     '',
+    '## Buying guides',
+    ...BLOG_POSTS.map((b) => `- [${b.title}](${SITE}/blog/${b.slug}): ${b.excerpt}`),
+    '',
     '## Machine-readable',
     `- [Product catalog API](${SITE}/api/products): JSON, filter with category, brand, q, maxPrice, page, limit`,
     `- [Full product list](${SITE}/llms-full.txt): every product with price and link`,
@@ -95,7 +98,41 @@ export function llmsFullTxt(): string {
     list.forEach((p) => out.push(`- [${p.name}](${productUrl(p)}): ${p.brand}, ${money(p.price)}${p.inStock ? '' : ', out of stock'}`));
     out.push('');
   }
+  out.push('## Buying guides', '');
+  BLOG_POSTS.forEach((b) => out.push(`- [${b.title}](${SITE}/blog/${b.slug}): ${b.excerpt}`));
+  out.push('');
   return out.join('\n');
+}
+
+/** ARD manifest (/.well-known/ai-catalog.json): only resources the site really serves. */
+export function aiCatalog() {
+  return {
+    specVersion: '1.0',
+    host: { displayName: SITE_NAME, url: SITE, description: `${TAGLINE}. Prices in AUD, delivery Australia-wide.` },
+    entries: [
+      {
+        id: 'urn:air:ebikesforsale.com.au:api:products',
+        displayName: 'Product catalog API',
+        type: 'application/json',
+        url: `${SITE}/api/products`,
+        representativeQueries: ['electric commuter bikes under $2000 in Australia', 'folding e-bikes for sale', 'AS/NZS 2063 e-bike helmets', 'electric mountain bikes hardtail'],
+      },
+      {
+        id: 'urn:air:ebikesforsale.com.au:api:openapi',
+        displayName: 'Product catalog OpenAPI description',
+        type: 'application/json',
+        url: `${SITE}/api/openapi.json`,
+        representativeQueries: ['how do I filter e-bikes by price and category', 'e-bike store product API schema'],
+      },
+      {
+        id: 'urn:air:ebikesforsale.com.au:docs:llms',
+        displayName: 'Site guide for language models (llms.txt)',
+        type: 'text/plain',
+        url: `${SITE}/llms.txt`,
+        representativeQueries: ['e-bike buying guides Australia', 'e-bike laws 250W 25 km/h Australia', 'how far does an electric bike go'],
+      },
+    ],
+  };
 }
 
 export interface AgentSkill { name: string; type: string; description: string; body: string }
