@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import dynamic from 'next/dynamic';
 import { useApp } from '@/context/AppContext';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
@@ -8,30 +9,33 @@ import CategoryGrid from '@/components/CategoryGrid';
 import BestSellers from '@/components/BestSellers';
 import ValueProposition from '@/components/ValueProposition';
 import BrandsSection from '@/components/BrandsSection';
-import BrandPage from '@/components/BrandPage';
-import CompareTool from '@/components/CompareTool';
 import ReviewsSection from '@/components/ReviewsSection';
 import BlogSection, { type BlogCard } from '@/components/BlogSection';
 import HomepageSeoContent from '@/components/HomepageSeoContent';
 import HomepageFaq from '@/components/HomepageFaq';
-import ShopCatalog from '@/components/ShopCatalog';
-import WholesalePage from '@/components/WholesalePage';
-import LegalComplianceGuide from '@/components/LegalComplianceGuide';
-import AboutPage from '@/components/AboutPage';
-import ContactPage from '@/components/ContactPage';
-import BlogDetailView from '@/components/BlogDetailView';
-import ProductLandingPage from '@/components/ProductLandingPage';
-import EbikesLandingPage from '@/components/EbikesLandingPage';
-import ScootersLandingPage from '@/components/ScootersLandingPage';
-import AccessoriesLandingPage from '@/components/AccessoriesLandingPage';
-import PartsLandingPage from '@/components/PartsLandingPage';
-import PolicyPages from '@/components/PolicyPages';
-import ProductDetailModal from '@/components/ProductDetailModal';
-import EbikeFinderQuiz from '@/components/EbikeFinderQuiz';
-import CartDrawer from '@/components/CartDrawer';
 import WhatsAppChatWidget from '@/components/WhatsAppChatWidget';
 import Footer from '@/components/Footer';
 import { CheckCircle2 } from 'lucide-react';
+
+// Views other than the home page and the closed overlays render nothing on first load, so their code loads on demand.
+// This keeps the first script small and the hydration work short; the home page HTML is unchanged.
+const BrandPage = dynamic(() => import('@/components/BrandPage'));
+const CompareTool = dynamic(() => import('@/components/CompareTool'));
+const ShopCatalog = dynamic(() => import('@/components/ShopCatalog'));
+const WholesalePage = dynamic(() => import('@/components/WholesalePage'));
+const LegalComplianceGuide = dynamic(() => import('@/components/LegalComplianceGuide'));
+const AboutPage = dynamic(() => import('@/components/AboutPage'));
+const ContactPage = dynamic(() => import('@/components/ContactPage'));
+const BlogDetailView = dynamic(() => import('@/components/BlogDetailView'));
+const ProductLandingPage = dynamic(() => import('@/components/ProductLandingPage'));
+const EbikesLandingPage = dynamic(() => import('@/components/EbikesLandingPage'));
+const ScootersLandingPage = dynamic(() => import('@/components/ScootersLandingPage'));
+const AccessoriesLandingPage = dynamic(() => import('@/components/AccessoriesLandingPage'));
+const PartsLandingPage = dynamic(() => import('@/components/PartsLandingPage'));
+const PolicyPages = dynamic(() => import('@/components/PolicyPages'));
+const ProductDetailModal = dynamic(() => import('@/components/ProductDetailModal'), { ssr: false });
+const EbikeFinderQuiz = dynamic(() => import('@/components/EbikeFinderQuiz'), { ssr: false });
+const CartDrawer = dynamic(() => import('@/components/CartDrawer'), { ssr: false });
 
 export default function HomeView({ blogCards }: { blogCards: BlogCard[] }) {
   const { currentView, notification } = useApp();
