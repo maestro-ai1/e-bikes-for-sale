@@ -22,8 +22,20 @@ import {
 import ProductGrid from './ProductGrid';
 import Pagination from './Pagination';
 import { notFound } from 'next/navigation';
-import { paginate, pageHref } from '@/lib/pagination';
+import { paginate, pageHref, PAGE_SIZE } from '@/lib/pagination';
 
+const W = 'https://en.wikipedia.org/wiki/';
+// High-authority outbound references per e-bike category (key = category id; sub-styles inherit their parent's).
+const FURTHER_READING: Record<string, { href: string; label: string }[]> = {
+  hub: [{ href: `${W}Electric_bicycle`, label: 'Electric bicycle (Wikipedia)' }, { href: `${W}Pedelec`, label: 'Pedelec pedal assist explained (Wikipedia)' }],
+  emtb: [{ href: `${W}Mountain_bike`, label: 'Mountain biking (Wikipedia)' }, { href: `${W}Electric_bicycle`, label: 'Electric bicycle (Wikipedia)' }],
+  'fat-tyre': [{ href: `${W}Fatbike`, label: 'Fat bike (Wikipedia)' }, { href: `${W}Electric_bicycle`, label: 'Electric bicycle (Wikipedia)' }],
+  folding: [{ href: `${W}Folding_bicycle`, label: 'Folding bicycle (Wikipedia)' }, { href: `${W}Electric_bicycle`, label: 'Electric bicycle (Wikipedia)' }],
+  cargo: [{ href: `${W}Cargo_bike`, label: 'Cargo bike (Wikipedia)' }, { href: `${W}Electric_bicycle`, label: 'Electric bicycle (Wikipedia)' }],
+  cruiser: [{ href: `${W}Electric_bicycle`, label: 'Electric bicycle (Wikipedia)' }, { href: `${W}Pedelec`, label: 'Pedelec (Wikipedia)' }],
+  road: [{ href: `${W}Electric_bicycle`, label: 'Electric bicycle (Wikipedia)' }, { href: `${W}Pedelec`, label: 'Pedelec (Wikipedia)' }],
+  commuter: [{ href: `${W}Electric_bicycle`, label: 'Electric bicycle (Wikipedia)' }, { href: `${W}Pedelec`, label: 'Pedelec (Wikipedia)' }],
+};
 const money = (n: number) => `$${n.toLocaleString('en-AU')}`;
 // Every matching product is listed; the 9-per-page pagination replaces the old per-page product cap.
 const productsFor = (n: CatalogNode): Product[] => PRODUCTS.filter(n.matches);
@@ -114,6 +126,7 @@ export default function CatalogPage({ node, page = 1 }: { node: CatalogNode; pag
   const startingPrice = fromPrice(listed);
   const banner = CATALOG_IMAGES[node.id];
   const isBrand = node.path.startsWith('/brands/');
+  const reading = FURTHER_READING[node.id] ?? (node.parent ? FURTHER_READING[node.parent] : undefined);
 
   return (
     <article>
@@ -190,6 +203,11 @@ export default function CatalogPage({ node, page = 1 }: { node: CatalogNode; pag
                       {ps.length} {ps.length === 1 ? 'model' : 'models'}{fp !== null ? ` · from ${money(fp)}` : ''}
                     </span>
                   </Link>
+                  {ps.length > PAGE_SIZE && (
+                    <Link href={pageHref(c.path, 2)} className="mt-1 inline-block px-1 text-xs font-bold text-[#2E6B4D] hover:underline">
+                      More {c.name.toLowerCase()} models (page 2)
+                    </Link>
+                  )}
                 </li>
               );
             })}
@@ -220,6 +238,13 @@ export default function CatalogPage({ node, page = 1 }: { node: CatalogNode; pag
               <li key={k.id}>
                 <Link href={k.path} className="inline-flex min-h-11 items-center rounded-full border border-gray-300 bg-white px-4 text-sm font-bold text-gray-800 hover:border-[#2E6B4D] hover:text-[#2E6B4D]">
                   {k.name}
+                </Link>
+              </li>
+            ))}
+            {kids.filter((k) => productsFor(k).length > PAGE_SIZE).map((k) => (
+              <li key={`more-${k.id}`}>
+                <Link href={pageHref(k.path, 2)} className="inline-flex min-h-11 items-center rounded-full border border-emerald-300 bg-emerald-50 px-4 text-sm font-bold text-[#2E6B4D] hover:bg-emerald-100">
+                  More {k.name.toLowerCase()} models
                 </Link>
               </li>
             ))}
@@ -312,6 +337,19 @@ export default function CatalogPage({ node, page = 1 }: { node: CatalogNode; pag
             {node.links.map((l) => (
               <li key={l.href}>
                 <Link href={l.href} className="inline-flex min-h-11 items-center rounded-full border border-gray-300 px-4 text-sm font-bold text-gray-800 hover:border-[#2E6B4D] hover:text-[#2E6B4D]">{l.label}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
+
+      {reading && (
+        <nav aria-label="Further reading" className="mx-auto max-w-6xl px-4 pb-4 sm:px-6">
+          <h2 className="text-sm font-black uppercase tracking-wider text-gray-500">Further reading</h2>
+          <ul className="mt-3 flex flex-wrap gap-2">
+            {reading.map((l) => (
+              <li key={l.href}>
+                <a href={l.href} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center rounded-full border border-gray-300 px-4 text-sm font-bold text-gray-800 hover:border-[#2E6B4D] hover:text-[#2E6B4D]">{l.label}</a>
               </li>
             ))}
           </ul>

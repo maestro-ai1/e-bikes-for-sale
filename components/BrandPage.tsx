@@ -4,6 +4,7 @@ import ProductImage from '@/components/ProductImage';
 import BrandLogo from '@/components/BrandLogo';
 import { PRODUCTS } from '@/lib/data';
 import { CATALOG_IMAGES } from '@/lib/catalog-images';
+import { PAGE_SIZE, pageHref } from '@/lib/pagination';
 
 /**
  * Brand directory. Everything shown is derived from the live catalog (product counts, photos, links),
@@ -57,6 +58,11 @@ export default function BrandPage() {
                   <span className="mt-3 inline-block text-sm font-black text-[#2E6B4D]">Shop {b.name} →</span>
                 </div>
               </Link>
+              {b.count > PAGE_SIZE && (
+                <Link href={pageHref(b.href, 2)} className="block border-t border-gray-100 px-4 py-3 text-sm font-bold text-[#2E6B4D] hover:underline">
+                  More {b.name} e-bike models (page 2)
+                </Link>
+              )}
             </li>
           ))}
         </ul>
