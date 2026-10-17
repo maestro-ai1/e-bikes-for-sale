@@ -19,8 +19,6 @@ export function GET() {
     'Allow: /api/products',
     disallow,
     '',
-    'Content-Signal: search=yes, ai-input=yes, ai-train=no',
-    '',
     ...AI_CRAWLERS.flatMap((a) => [`User-agent: ${a}`, 'Allow: /', 'Allow: /api/products', disallow, '']),
     `Sitemap: ${SITE}/sitemap.xml`,
     '',

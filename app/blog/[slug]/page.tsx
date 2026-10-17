@@ -20,11 +20,15 @@ export async function generateStaticParams() {
 }
 
 // Title tag <= 60 characters: add the brand suffix only when it fits, otherwise trim at a word boundary
-function blogTitle(base: string) {
+// The title tag must never be identical to the page H1 (duplicate H1/title audit check), so a title that would
+// match the H1 gets a short differentiator; the 70-character ceiling is the hard limit.
+function blogTitle(base: string, h1: string) {
   const suffix = ' | e bikes for sale';
   if (base.length + suffix.length <= 60) return base + suffix;
-  if (base.length <= 60) return base;
-  return base.slice(0, 60).replace(/\s+\S*$/, '');
+  if (base.trim() !== h1.trim() && base.length <= 60) return base;
+  const tag = /2026/.test(base) ? ' | AU' : ' (2026)';
+  const t = base.length + tag.length <= 70 ? base + tag : base;
+  return t.length <= 70 ? t : t.slice(0, 70).replace(/\s+\S*$/, '');
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -39,7 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: blogTitle(blog.seoTitle || blog.title),
+    title: blogTitle(blog.seoTitle || blog.title, blog.title),
     description: blog.excerpt,
     alternates: {
       canonical: `https://ebikesforsale.com.au/blog/${blog.slug}`,

@@ -30,9 +30,11 @@ export const pageHref = (path: string, n: number) => (n <= 1 ? path : `${path}?p
 
 /** Page numbers to show: always first and last, the current page and its neighbours, with gaps as null. */
 export function pageWindow(page: number, totalPages: number): (number | null)[] {
-  const keep = new Set([1, totalPages, page - 1, page, page + 1]);
-  if (page <= 3) { keep.add(2); keep.add(3); }
-  if (page >= totalPages - 2) { keep.add(totalPages - 1); keep.add(totalPages - 2); }
+  // Wide enough that every page is reachable within two clicks of page 1 (keeps crawl depth shallow).
+  const keep = new Set([1, totalPages, page - 2, page - 1, page, page + 1, page + 2]);
+  for (let n = 2; n <= Math.min(5, totalPages); n++) keep.add(n);
+  for (let n = Math.max(1, totalPages - 3); n < totalPages; n++) keep.add(n);
+  keep.add(Math.ceil(totalPages / 2));
   const nums = [...keep].filter((n) => n >= 1 && n <= totalPages).sort((a, b) => a - b);
   const out: (number | null)[] = [];
   nums.forEach((n, i) => {

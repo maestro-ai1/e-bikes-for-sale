@@ -29,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...STATIC_ROUTES.map((route) => ({
-      url: `${BASE_URL}${route}`,
+      url: `${BASE_URL}${route || '/'}`,
       lastModified: now,
       changeFrequency: 'weekly' as const,
       priority: route === '' ? 1 : 0.8,
