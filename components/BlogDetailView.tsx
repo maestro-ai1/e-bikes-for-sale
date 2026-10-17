@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import SafeImage from '@/components/SafeImage';
 import { useApp } from '@/context/AppContext';
-import { BLOG_POSTS, PRODUCTS } from '@/lib/data';
+import { PRODUCTS } from '@/lib/data';
 import { BlogPost } from '@/lib/types';
 import { ChevronRight, Calendar, Clock, User, ArrowLeft, Tag, ShoppingBag } from 'lucide-react';
 import BlogRichBody from '@/components/BlogRichBody';
@@ -16,7 +16,8 @@ interface BlogDetailViewProps {
 export default function BlogDetailView({ initialBlog }: BlogDetailViewProps = {}) {
   const { activeBlog, addToCart, setQuickViewProduct } = useApp();
 
-  const blog = initialBlog || activeBlog || BLOG_POSTS[0];
+  const blog = initialBlog || activeBlog;
+  if (!blog) return null;
   // Structured posts (FAQs / sources / related) use the rich layout and the featured product they name
   const isRich = !!blog.faqs;
   const featured = (isRich && blog.productSlug ? PRODUCTS.find((p) => p.slug === blog.productSlug) : null) || PRODUCTS[0];

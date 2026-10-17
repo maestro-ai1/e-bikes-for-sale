@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { BUSINESS_INFO } from '@/lib/data';
+import { BUSINESS_INFO } from '@/lib/site-config';
 import { 
   Phone, 
   Mail, 

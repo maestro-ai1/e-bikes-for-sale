@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { BUSINESS_INFO } from '@/lib/data';
+import { BUSINESS_INFO } from '@/lib/site-config';
 
 /** About page: who we are and what we sell. Contact, policies and FAQs have their own pages. */
 export default function AboutPage() {

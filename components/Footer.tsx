@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useApp } from '@/context/AppContext';
-import { BUSINESS_INFO } from '@/lib/data';
+import { BUSINESS_INFO } from '@/lib/site-config';
 import { NAV, FOOTER_LINKS } from '@/lib/site-nav';
 import type { NavLeaf } from '@/lib/site-nav';
 import Logo from '@/components/Logo';

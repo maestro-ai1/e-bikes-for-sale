@@ -31,6 +31,8 @@ export const pageHref = (path: string, n: number) => (n <= 1 ? path : `${path}?p
 /** Page numbers to show: always first and last, the current page and its neighbours, with gaps as null. */
 export function pageWindow(page: number, totalPages: number): (number | null)[] {
   // Wide enough that every page is reachable within two clicks of page 1 (keeps crawl depth shallow).
+  // Up to 10 pages: list every page so each is one click from any other (no page sits at depth 3+).
+  if (totalPages <= 10) return Array.from({ length: totalPages }, (_, i) => i + 1);
   const keep = new Set([1, totalPages, page - 2, page - 1, page, page + 1, page + 2]);
   for (let n = 2; n <= Math.min(5, totalPages); n++) keep.add(n);
   for (let n = Math.max(1, totalPages - 3); n < totalPages; n++) keep.add(n);

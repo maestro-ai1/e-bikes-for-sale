@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
-import { BLOG_POSTS, PRODUCTS } from '@/lib/data';
+import { PRODUCTS } from '@/lib/data';
+import { BLOG_POSTS } from '@/lib/blog-data';
 import { ALL_CATALOG_PATHS } from '@/lib/catalog';
 
 const BASE_URL = 'https://ebikesforsale.com.au';

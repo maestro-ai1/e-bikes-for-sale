@@ -3,7 +3,7 @@
 import React from 'react';
 import SafeImage from '@/components/SafeImage';
 import { useApp } from '@/context/AppContext';
-import { BUSINESS_INFO } from '@/lib/data';
+import { BUSINESS_INFO } from '@/lib/site-config';
 import { 
   ShieldCheck, 
   Truck, 

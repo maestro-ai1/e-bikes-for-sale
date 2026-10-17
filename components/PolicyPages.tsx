@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { BUSINESS_INFO } from '@/lib/data';
+import { BUSINESS_INFO } from '@/lib/site-config';
 import { ShieldCheck, Truck, RotateCcw, Coins, FileText, Lock, Cookie, Scale } from 'lucide-react';
 
 export default function PolicyPages({ asSection = false }: { asSection?: boolean } = {}) {

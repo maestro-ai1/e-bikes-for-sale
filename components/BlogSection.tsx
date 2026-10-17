@@ -3,22 +3,16 @@
 import React from 'react';
 import SafeImage from '@/components/SafeImage';
 import { useApp } from '@/context/AppContext';
-import { BLOG_POSTS } from '@/lib/data';
 import { BlogPost } from '@/lib/types';
+
+/** Card data only: the article text is loaded on the post page, not shipped with the home page. */
+export type BlogCard = Omit<BlogPost, 'content'>;
 import { BookOpen, Calendar, Clock, ArrowRight, Tag } from 'lucide-react';
 
-export default function BlogSection() {
-  const { setActiveBlog, setCurrentView, viewBlog } = useApp();
+export default function BlogSection({ posts }: { posts: BlogCard[] }) {
+  const { viewBlog } = useApp();
 
-  const handleReadBlog = (post: BlogPost) => {
-    if (viewBlog) {
-      viewBlog(post);
-    } else {
-      setActiveBlog(post);
-      setCurrentView('blog-detail');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
+  const handleReadBlog = (post: BlogCard) => viewBlog(post.slug);
 
   return (
     <section className="py-14 sm:py-20 bg-gray-50 border-b border-gray-200">
@@ -50,7 +44,7 @@ export default function BlogSection() {
 
         {/* 4 Informational Blog Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {BLOG_POSTS.slice(0, 4).map((post) => (
+          {posts.map((post) => (
             <article
               key={post.id}
               onClick={() => handleReadBlog(post)}
@@ -94,7 +88,7 @@ export default function BlogSection() {
                     onClick={() => handleReadBlog(post)}
                     className="font-bold text-gray-900 text-base leading-snug group-hover:text-[#2E6B4D] transition-colors cursor-pointer"
                   >
-                    {post.title}
+                    <a href={`/blog/${post.slug}`} onClick={(e) => e.stopPropagation()}>{post.title}</a>
                   </h3>
 
                   <p className="text-xs text-gray-500 mt-2 line-clamp-3 leading-relaxed">

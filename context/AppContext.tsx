@@ -3,7 +3,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Product, CartItem, AddOnItem, BlogPost } from '@/lib/types';
-import { PRODUCTS, BLOG_POSTS, BUSINESS_INFO } from '@/lib/data';
+import { PRODUCTS, BUSINESS_INFO } from '@/lib/data';
 
 export interface LocationState {
   state: string;
@@ -114,15 +114,8 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const [subcategoryFilter, setSubcategoryFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const [activeBlog, setActiveBlog] = useState<BlogPost | null>(() => {
-    if (typeof window === 'undefined') return null;
-    const path = window.location.pathname;
-    if (path.startsWith('/blog/')) {
-      const slug = path.replace('/blog/', '').replace(/\/$/, '');
-      return BLOG_POSTS.find((b) => b.slug === slug || b.id === slug) || null;
-    }
-    return null;
-  });
+  // Article text is not in the client bundle: /blog/[slug] receives its post from the server page.
+  const [activeBlog, setActiveBlog] = useState<BlogPost | null>(null);
 
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(() => {
     if (typeof window === 'undefined') return null;
@@ -150,11 +143,13 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         }
       } else if (path.startsWith('/blog/')) {
         const slug = path.replace('/blog/', '').replace(/\/$/, '');
-        const found = BLOG_POSTS.find((b) => b.slug === slug);
-        if (found) {
-          setActiveBlog(found);
-          setCurrentView('blog-detail');
-        }
+        import('@/lib/blog-data').then(({ BLOG_POSTS }) => {
+          const found = BLOG_POSTS.find((b) => b.slug === slug);
+          if (found) {
+            setActiveBlog(found);
+            setCurrentView('blog-detail');
+          }
+        });
       } else if (path === '/' || path === '') {
         setCurrentView('home');
       } else if (path.startsWith('/ebikes') || path.startsWith('/e-bikes')) {
@@ -207,19 +202,19 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   };
 
   const viewBlog = (blogOrSlug: BlogPost | string) => {
-    let post: BlogPost | undefined;
-    if (typeof blogOrSlug === 'string') {
-      post = BLOG_POSTS.find((b) => b.slug === blogOrSlug || b.id === blogOrSlug);
-    } else {
-      post = blogOrSlug;
-    }
-    if (post) {
+    const show = (post: BlogPost | undefined) => {
+      if (!post) return;
       setActiveBlog(post);
       setCurrentView('blog-detail');
       if (typeof window !== 'undefined') {
         window.history.pushState(null, '', `/blog/${post.slug}`);
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
+    };
+    if (typeof blogOrSlug === 'string') {
+      import('@/lib/blog-data').then(({ BLOG_POSTS }) => show(BLOG_POSTS.find((b) => b.slug === blogOrSlug || b.id === blogOrSlug)));
+    } else {
+      show(blogOrSlug);
     }
   };
 

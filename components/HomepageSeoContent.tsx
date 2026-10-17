@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useApp } from '@/context/AppContext';
-import { BUSINESS_INFO } from '@/lib/data';
+import { BUSINESS_INFO } from '@/lib/site-config';
 import { ArrowRight, BookOpen, ShieldCheck, Truck, Phone } from 'lucide-react';
 
 export default function HomepageSeoContent() {

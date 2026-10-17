@@ -2,7 +2,7 @@ import React from 'react';
 import SafeImage from '@/components/SafeImage';
 import Link from 'next/link';
 import { BookOpen, Calendar, Clock, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
-import { BLOG_POSTS } from '@/lib/data';
+import { BLOG_POSTS } from '@/lib/blog-data';
 import { BLOG_URL, POSTS_PER_PAGE, pagePath, postsForPage, totalBlogPages } from '@/lib/blog-pagination';
 
 /** Server-rendered, crawlable blog index: 9 posts per page, real links for every post and page number. */

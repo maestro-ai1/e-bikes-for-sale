@@ -43,7 +43,6 @@ interface ProductLandingPageProps {
 export default function ProductLandingPage({ initialProduct }: ProductLandingPageProps) {
   const { 
     selectedProduct, 
-    viewProduct, 
     setCurrentView, 
     addToCart, 
     currentLocation,
@@ -108,7 +107,11 @@ export default function ProductLandingPage({ initialProduct }: ProductLandingPag
   const isGear = ['helmets', 'accessories', 'parts', 'scooters'].includes(product.category);
 
   // Related products in the same or adjacent category
-  const relatedProducts = PRODUCTS.filter(p => p.id !== product.id && (p.category === product.category || p.brand === product.brand)).slice(0, 3);
+  // Rotate through the category so every product is linked from several others (crawlable, shallow click depth)
+  const relatedPool = PRODUCTS.filter(p => p.category === product.category);
+  const relatedAt = relatedPool.findIndex(p => p.id === product.id);
+  const relatedHops = relatedPool.length >= 7 ? [1, 2, Math.floor(relatedPool.length / 2)] : [1, 2, 3];
+  const relatedProducts = relatedAt < 0 ? [] : [...new Set(relatedHops.map(h => relatedPool[(relatedAt + h) % relatedPool.length]))].filter(p => p.id !== product.id);
   const fallbackRelated = relatedProducts.length > 0 ? relatedProducts : PRODUCTS.filter(p => p.id !== product.id).slice(0, 3);
 
   // 5 FAQs guarantee
@@ -687,9 +690,8 @@ export default function ProductLandingPage({ initialProduct }: ProductLandingPag
                     <span className="text-[11px] font-bold uppercase text-[#2E6B4D] block">
                       {rel.categoryLabel}
                     </span>
-                    <h3 className="font-extrabold text-base text-gray-900 leading-snug mt-1 hover:text-[#2E6B4D] transition-colors cursor-pointer"
-                        onClick={() => viewProduct(rel)}>
-                      {rel.name}
+                    <h3 className="font-extrabold text-base text-gray-900 leading-snug mt-1 hover:text-[#2E6B4D] transition-colors">
+                      <Link href={`/product/${rel.slug}`}>{rel.name}</Link>
                     </h3>
                     <p className="text-xs text-gray-500 line-clamp-2 mt-1">
                       {rel.shortDescription}
@@ -706,12 +708,13 @@ export default function ProductLandingPage({ initialProduct }: ProductLandingPag
                       </span>
                     </div>
 
-                    <button
-                      onClick={() => viewProduct(rel)}
-                      className="cursor-pointer bg-[#2E6B4D] hover:bg-[#1E4733] text-white text-xs font-bold px-4 py-2 rounded-xl transition-colors"
+                    <Link
+                      href={`/product/${rel.slug}`}
+                      aria-label={`View details for ${rel.name}`}
+                      className="inline-flex min-h-11 items-center bg-[#2E6B4D] hover:bg-[#1E4733] text-white text-xs font-bold px-4 py-2 rounded-xl transition-colors"
                     >
                       View Details
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>

@@ -11,7 +11,7 @@ import BrandsSection from '@/components/BrandsSection';
 import BrandPage from '@/components/BrandPage';
 import CompareTool from '@/components/CompareTool';
 import ReviewsSection from '@/components/ReviewsSection';
-import BlogSection from '@/components/BlogSection';
+import BlogSection, { type BlogCard } from '@/components/BlogSection';
 import HomepageSeoContent from '@/components/HomepageSeoContent';
 import HomepageFaq from '@/components/HomepageFaq';
 import ShopCatalog from '@/components/ShopCatalog';
@@ -33,7 +33,7 @@ import WhatsAppChatWidget from '@/components/WhatsAppChatWidget';
 import Footer from '@/components/Footer';
 import { CheckCircle2 } from 'lucide-react';
 
-export default function HomeView() {
+export default function HomeView({ blogCards }: { blogCards: BlogCard[] }) {
   const { currentView, notification } = useApp();
 
   return (
@@ -60,7 +60,7 @@ export default function HomeView() {
             <ValueProposition />
             <BrandsSection />
             <ReviewsSection />
-            <BlogSection />
+            <BlogSection posts={blogCards} />
             <HomepageSeoContent />
             <HomepageFaq />
           </>
@@ -82,7 +82,7 @@ export default function HomeView() {
         )}
         {currentView === 'about' && <AboutPage />}
         {currentView === 'contact' && <ContactPage />}
-        {currentView === 'blog' && <BlogSection />}
+        {currentView === 'blog' && <BlogSection posts={blogCards} />}
         {currentView === 'blog-detail' && <BlogDetailView />}
         {currentView === 'product' && <ProductLandingPage />}
         {currentView === 'faq' && (

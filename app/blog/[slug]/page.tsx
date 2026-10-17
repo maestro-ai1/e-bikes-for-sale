@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { BLOG_POSTS } from '@/lib/data';
+import { BLOG_POSTS } from '@/lib/blog-data';
 import Header from '@/components/Header';
 import BlogDetailView from '@/components/BlogDetailView';
 import CartDrawer from '@/components/CartDrawer';

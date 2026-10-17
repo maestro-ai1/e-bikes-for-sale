@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useApp } from '@/context/AppContext';
-import { BUSINESS_INFO, CATEGORIES_CONFIG } from '@/lib/data';
+import { BUSINESS_INFO, CATEGORIES_CONFIG } from '@/lib/site-config';
 import { catalogUrlFor } from '@/lib/catalog-nav';
 import Link from 'next/link';
 import Logo from '@/components/Logo';

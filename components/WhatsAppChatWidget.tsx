@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { MessageCircle, X, Send, Sparkles, ShieldCheck, CheckCircle2 } from 'lucide-react';
-import { BUSINESS_INFO } from '@/lib/data';
+import { BUSINESS_INFO } from '@/lib/site-config';
 
 export default function WhatsAppChatWidget() {
   const [isOpen, setIsOpen] = useState(false);

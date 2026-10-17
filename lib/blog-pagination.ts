@@ -1,4 +1,4 @@
-import { BLOG_POSTS } from '@/lib/data';
+import { BLOG_POSTS } from '@/lib/blog-data';
 import type { BlogPost } from '@/lib/types';
 
 export const POSTS_PER_PAGE = 9;

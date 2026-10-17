@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
-import { BUSINESS_INFO, PRODUCTS, BLOG_POSTS } from '@/lib/data';
+import { BUSINESS_INFO, PRODUCTS } from '@/lib/data';
+import { BLOG_POSTS } from '@/lib/blog-data';
 import type { Product } from '@/lib/types';
 
 /** Every URL here points at something the site really serves. Nothing is advertised that does not resolve. */
