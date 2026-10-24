@@ -4,6 +4,7 @@ import React from 'react';
 import { usePathname } from 'next/navigation';
 import { BUSINESS_INFO, PRODUCTS, HOMEPAGE_FAQS } from '@/lib/data';
 import { TRUSTPILOT_REVIEWS } from '@/components/ReviewsSection';
+import { offerShippingDetails, OFFER_RETURN_POLICY } from '@/lib/offer-policy';
 
 export default function StructuredData() {
   // Organization schema is site-wide. The homepage FAQ and featured-product schemas belong to the homepage only:
@@ -77,6 +78,8 @@ export default function StructuredData() {
       price: p.price,
       availability: p.inStock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
       itemCondition: 'https://schema.org/NewCondition',
+      shippingDetails: offerShippingDetails(p.price),
+      hasMerchantReturnPolicy: OFFER_RETURN_POLICY,
       seller: {
         '@type': 'Organization',
         name: BUSINESS_INFO.name,

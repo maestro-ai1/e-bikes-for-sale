@@ -85,7 +85,7 @@ export default function PolicyPages({ asSection = false }: { asSection?: boolean
                 To maintain comprehensive freight insurance, technician pre-dispatch quality audits, and protective double-box packaging, our store enforces the following policy:
               </p>
               <div className="bg-white p-4 rounded-2xl border border-gray-200 space-y-2 text-xs">
-                <p><strong>Minimum Order Amount:</strong> ${BUSINESS_INFO.minOrder} AUD <span className="font-mono text-gray-400">[MINIMUM ORDER: $350]</span></p>
+                <p><strong>Minimum Order Amount:</strong> ${BUSINESS_INFO.minOrder} AUD</p>
                 <p><strong>Free Delivery Threshold:</strong> Orders of ${BUSINESS_INFO.freeDeliveryThreshold} AUD or more receive 100% Free Standard Metropolitan Delivery across Australian capital cities.</p>
                 <p><strong>Orders Under Threshold:</strong> Flat-rate heavy-freight fee of $75 AUD for regional or sub-threshold orders.</p>
               </div>
@@ -123,7 +123,6 @@ export default function PolicyPages({ asSection = false }: { asSection?: boolean
               <div className="bg-white p-4 rounded-2xl border border-gray-200 space-y-2 text-xs">
                 <p>• <strong>Change of Mind:</strong> 14-day return period provided the bicycle has zero odometer mileage, is in original unblemished packaging, and freight is arranged by the customer.</p>
                 <p>• <strong>Warranty Claim:</strong> 2-Year Australian frame warranty and 1-Year battery cell replacement warranty.</p>
-                <p>• <strong>Returns Policy Placeholder:</strong> <span className="font-mono text-emerald-800">[INSERT VERIFIED RETURNS & REFUND POLICY DETAILS]</span></p>
               </div>
             </div>
           )}

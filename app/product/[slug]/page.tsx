@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { PRODUCTS } from '@/lib/data';
 import { productTitle, productDescription } from '@/lib/product-meta';
+import { offerShippingDetails, OFFER_RETURN_POLICY, shortSku } from '@/lib/offer-policy';
 import Header from '@/components/Header';
 import ProductLandingPage from '@/components/ProductLandingPage';
 import CartDrawer from '@/components/CartDrawer';
@@ -81,7 +82,7 @@ export default async function ProductSlugPage({ params }: Props) {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: product.name,
-    sku: product.id,
+    sku: shortSku(product.id),
     ...(imageUrls.length ? { image: imageUrls } : {}),
     description: product.description,
     brand: {
@@ -96,6 +97,8 @@ export default async function ProductSlugPage({ params }: Props) {
         ? 'https://schema.org/InStock'
         : 'https://schema.org/OutOfStock',
       url: `https://ebikesforsale.com.au/product/${product.slug}`,
+      shippingDetails: offerShippingDetails(product.price),
+      hasMerchantReturnPolicy: OFFER_RETURN_POLICY,
       seller: {
         '@type': 'Organization',
         name: 'e bikes for sale',
