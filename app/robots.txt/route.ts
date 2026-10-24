@@ -8,7 +8,7 @@ const AI_CRAWLERS = [
   'cohere-ai', 'Bytespider', 'Amazonbot', 'Meta-ExternalAgent',
 ];
 
-const BLOCKED = ['/admin/', '/order/', '/checkout', '/api/admin/', '/api/order/', '/api/contact', '/thank-you-order', '/thank-you-contact', '/thank-you-wholesale'];
+const BLOCKED = ['/admin/', '/order/', '/checkout', '/api/admin/', '/api/order/', '/api/contact', '/thank-you-order', '/thank-you-contact', '/thank-you-wholesale', '/*?_rsc='];
 
 export function GET() {
   const disallow = BLOCKED.map((p) => `Disallow: ${p}`).join('\n');

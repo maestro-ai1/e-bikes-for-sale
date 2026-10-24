@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import SafeImage from '@/components/SafeImage';
 import { useApp } from '@/context/AppContext';
 import { BUSINESS_INFO } from '@/lib/site-config';
@@ -17,24 +18,7 @@ import {
 } from 'lucide-react';
 
 export default function Hero() {
-  const { setCurrentView, setCategoryFilter, setIsFinderOpen } = useApp();
-
-  const handleEbikesClick = () => {
-    setCurrentView('shop');
-    setCategoryFilter('commuter');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleAllProductsClick = () => {
-    setCurrentView('shop');
-    setCategoryFilter('all');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleWholesaleClick = () => {
-    setCurrentView('wholesale');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const { setIsFinderOpen } = useApp();
 
   return (
     <section className="relative bg-[#111827] text-white overflow-hidden border-b border-gray-800">
@@ -71,27 +55,27 @@ export default function Hero() {
 
             {/* CALL TO ACTION BUTTONS */}
             <div className="flex flex-wrap gap-3 sm:gap-4 pt-2">
-              <button
-                onClick={handleEbikesClick}
+              <Link
+                href="/ebikes"
                 className="cursor-pointer bg-[#2E6B4D] hover:bg-[#24543C] text-white font-extrabold text-sm sm:text-base px-7 py-3.5 rounded-xl shadow-lg shadow-emerald-950/50 flex items-center gap-2 transition-all transform active:scale-95"
               >
                 <span>e bikes</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </Link>
 
-              <button
-                onClick={handleAllProductsClick}
+              <Link
+                href="/shop"
                 className="cursor-pointer bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-sm sm:text-base px-6 py-3.5 rounded-xl backdrop-blur-xs transition-all active:scale-95"
               >
                 View All Products
-              </button>
+              </Link>
 
-              <button
-                onClick={handleWholesaleClick}
+              <Link
+                href="/wholesale"
                 className="cursor-pointer bg-amber-500 hover:bg-amber-600 text-black font-extrabold text-sm sm:text-base px-6 py-3.5 rounded-xl shadow-md transition-all active:scale-95"
               >
                 Wholesale Enquiries
-              </button>
+              </Link>
             </div>
 
             {/* QUICK INTERACTIVE QUIZ BANNER */}

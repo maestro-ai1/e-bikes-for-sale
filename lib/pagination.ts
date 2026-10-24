@@ -1,5 +1,7 @@
 /** Collection pagination: 9 products per page, URL state in the query string (?page=2), never in a hash. */
 export const PAGE_SIZE = 9;
+/** The /shop product list shows more per page than a category page (a catalogue of everything). */
+export const SHOP_PAGE_SIZE = 24;
 
 /** Reads ?page=N. Anything that is not a positive whole number is page 1. */
 export function parsePage(v: string | string[] | undefined): number {

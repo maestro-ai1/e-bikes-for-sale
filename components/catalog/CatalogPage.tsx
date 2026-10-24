@@ -23,6 +23,7 @@ import ProductGrid from './ProductGrid';
 import Pagination from './Pagination';
 import { notFound } from 'next/navigation';
 import { paginate, pageHref, PAGE_SIZE } from '@/lib/pagination';
+import { guideLinksFor } from '@/lib/guide-links';
 
 const W = 'https://en.wikipedia.org/wiki/';
 // High-authority outbound references per e-bike category (key = category id; sub-styles inherit their parent's).
@@ -127,6 +128,7 @@ export default function CatalogPage({ node, page = 1 }: { node: CatalogNode; pag
   const banner = CATALOG_IMAGES[node.id];
   const isBrand = node.path.startsWith('/brands/');
   const reading = FURTHER_READING[node.id] ?? (node.parent ? FURTHER_READING[node.parent] : undefined);
+  const relatedLinks = [...(node.links ?? []), ...guideLinksFor(node.path).filter((g) => !(node.links ?? []).some((l) => l.href === g.href))];
 
   return (
     <article>
@@ -330,11 +332,11 @@ export default function CatalogPage({ node, page = 1 }: { node: CatalogNode; pag
         </div>
       </section>
 
-      {node.links && node.links.length > 0 && (
+      {relatedLinks.length > 0 && (
         <nav aria-label="Related guides" className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
           <h2 className="text-xl font-black tracking-tight text-gray-900">Related guides and pages</h2>
           <ul className="mt-4 flex flex-wrap gap-2">
-            {node.links.map((l) => (
+            {relatedLinks.map((l) => (
               <li key={l.href}>
                 <Link href={l.href} className="inline-flex min-h-11 items-center rounded-full border border-gray-300 px-4 text-sm font-bold text-gray-800 hover:border-[#2E6B4D] hover:text-[#2E6B4D]">{l.label}</Link>
               </li>

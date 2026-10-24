@@ -4,6 +4,8 @@ import React, { useState, useMemo } from 'react';
 import ProductCard from '@/components/ProductCard';
 import { useApp } from '@/context/AppContext';
 import { PRODUCTS, CATEGORIES_CONFIG, BUSINESS_INFO } from '@/lib/data';
+import Pagination from '@/components/catalog/Pagination';
+import { paginate, SHOP_PAGE_SIZE } from '@/lib/pagination';
 import {
   Search,
   SlidersHorizontal,
@@ -26,7 +28,7 @@ const PRICE_BANDS: { id: string; label: string; min: number; max: number }[] = [
 ];
 
 /** Simple shop filter: category, brand, price band, availability, sort. Every control is a plain select or checkbox. */
-export default function ShopCatalog() {
+export default function ShopCatalog({ page }: { page?: number } = {}) {
   const {
     categoryFilter,
     setCategoryFilter,
@@ -78,7 +80,11 @@ export default function ShopCatalog() {
     });
   }, [categoryFilter, brandFilter, priceBand, inStockOnly, sortBy, searchQuery]);
 
-  const visible = filteredProducts.slice(0, shown);
+  // On /shop the unfiltered list is paginated by URL (?page=N) with plain links so crawlers can reach every product.
+  // Once a filter is used the list is client state, so it keeps the "Show more" button.
+  const isDefaultView = categoryFilter === 'all' && brandFilter === 'all' && priceBand === 'all' && !inStockOnly && sortBy === 'featured' && !searchQuery.trim();
+  const paged = page !== undefined && isDefaultView ? paginate(filteredProducts, page, SHOP_PAGE_SIZE) : null;
+  const visible = paged ? paged.items : filteredProducts.slice(0, shown);
 
   const resetFilters = () => {
     setBrandFilter('all');
@@ -188,7 +194,7 @@ export default function ShopCatalog() {
             </label>
             <div className="flex items-center gap-4 text-xs text-gray-600">
               <span>
-                Showing <strong className="font-extrabold text-gray-900">{Math.min(visible.length, filteredProducts.length)}</strong> of{' '}
+                Showing <strong className="font-extrabold text-gray-900">{paged ? `${paged.from}-${paged.to}` : Math.min(visible.length, filteredProducts.length)}</strong> of{' '}
                 <strong className="font-extrabold text-gray-900">{filteredProducts.length}</strong> products
               </span>
               <button type="button" onClick={resetFilters} className="flex items-center gap-1 font-semibold text-gray-500 hover:text-red-600">
@@ -219,7 +225,8 @@ export default function ShopCatalog() {
                 ))}
               </div>
             )}
-          {visible.length < filteredProducts.length && (
+          {paged && <Pagination path="/shop" page={paged.page} totalPages={paged.totalPages} />}
+          {!paged && visible.length < filteredProducts.length && (
             <div className="text-center">
               <button
                 type="button"
