@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
 import { destinations } from '@/lib/reply-config';
-import { getOrder, markPaymentConfirmed } from '@/lib/stores';
-import { ORDER_NUMBER_RE } from '@/lib/order';
+import { getOrder, markPaymentConfirmed, markScreenshotReceived } from '@/lib/stores';
+import { isCryptoOrder, ORDER_NUMBER_RE } from '@/lib/order';
 import { sendMail } from '@/lib/mailer';
-import { paymentConfirmedEmail } from '@/lib/emailTemplates';
+import { cryptoScreenshotReceivedEmail, paymentConfirmedEmail } from '@/lib/emailTemplates';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -36,6 +36,13 @@ export async function POST(request: Request) {
     attachments: [{ filename: `payment-${order.orderNumber}.${ext}`, content: buf, contentType: file.type }],
   });
   if (!r.sent) return NextResponse.json({ ok: false, error: 'email-failed' }, { status: 502 });
+  if (isCryptoOrder(order)) {
+    // Crypto: nothing is verified on-chain, so the order is NOT confirmed yet. The owner checks the wallet and presses
+    // "Payment received" in the dashboard, which emails the customer the final confirmation.
+    await markScreenshotReceived(order.orderNumber);
+    if (order.status !== 'payment-confirmed') await sendMail({ to: order.customerEmail, replyTo: destinations.order(), ...cryptoScreenshotReceivedEmail(order) });
+    return NextResponse.json({ ok: true });
+  }
   await markPaymentConfirmed(order.orderNumber);
   return NextResponse.json({ ok: true });
 }

@@ -9,11 +9,12 @@ export const when = (iso: string) => new Date(iso).toLocaleString('en-AU', { dat
 const STYLES: Record<string, string> = {
   pending: 'bg-amber-500/15 text-amber-300',
   'payment-sent': 'bg-sky-500/15 text-sky-300',
+  'screenshot-received': 'bg-violet-500/15 text-violet-300',
   'payment-confirmed': 'bg-emerald-500/15 text-emerald-300',
   new: 'bg-amber-500/15 text-amber-300',
   replied: 'bg-emerald-500/15 text-emerald-300',
 };
-const LABELS: Record<string, string> = { pending: 'Pending', 'payment-sent': 'Payment sent', 'payment-confirmed': 'Payment confirmed', new: 'New', replied: 'Replied' };
+const LABELS: Record<string, string> = { pending: 'Pending', 'payment-sent': 'Payment sent', 'screenshot-received': 'Screenshot received', 'payment-confirmed': 'Payment confirmed', new: 'New', replied: 'Replied' };
 
 export function StatusBadge({ status }: { status: string }) {
   return <span className={`inline-block rounded-full px-2.5 py-1 text-xs font-bold ${STYLES[status] || 'bg-white/10 text-gray-300'}`}>{LABELS[status] || status}</span>;

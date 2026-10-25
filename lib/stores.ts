@@ -7,7 +7,7 @@ export { isStoreConfigured };
 const ORDERS = `${REPLY.orderPrefix.toLowerCase()}:orders`;
 const ENQUIRIES = `${REPLY.orderPrefix.toLowerCase()}:enquiries`;
 
-export type OrderStatus = 'pending' | 'payment-sent' | 'payment-confirmed';
+export type OrderStatus = 'pending' | 'payment-sent' | 'screenshot-received' | 'payment-confirmed';
 export interface StoredOrder {
   orderNumber: string;
   customerName: string;
@@ -26,6 +26,8 @@ export interface StoredOrder {
   createdAt: string;
   paymentDetails?: { methodId: string; fields: { label: string; value: string }[]; opening: string; closing: string; sentAt: string };
   paymentConfirmedAt?: string;
+  /** Crypto orders: when the customer uploaded their screenshot (the owner confirms after checking the wallet). */
+  screenshotReceivedAt?: string;
 }
 
 export interface StoredEnquiry {
@@ -53,6 +55,14 @@ export async function markOrderSent(n: string, paymentDetails: StoredOrder['paym
   if (!o) return false;
   o.status = 'payment-sent';
   if (paymentDetails) o.paymentDetails = paymentDetails;
+  await saveOrder(o);
+  return true;
+}
+export async function markScreenshotReceived(n: string) {
+  const o = await getOrder(n);
+  if (!o) return false;
+  if (o.status !== 'payment-confirmed') o.status = 'screenshot-received'; // never step a confirmed order backwards
+  o.screenshotReceivedAt = new Date().toISOString();
   await saveOrder(o);
   return true;
 }

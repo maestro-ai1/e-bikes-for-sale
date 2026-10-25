@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useAdmin } from '@/components/admin/AdminProvider';
 import { Card, Notice, StatusBadge, money, when } from '@/components/admin/bits';
+import { isCryptoOrder } from '@/lib/order';
 import type { StoredOrder } from '@/lib/stores';
 
 export default function OrderDetail() {
@@ -12,11 +13,28 @@ export default function OrderDetail() {
   const { api } = useAdmin();
   const [order, setOrder] = useState<StoredOrder | null>(null);
   const [missing, setMissing] = useState(false);
+  const [cryptoBusy, setCryptoBusy] = useState(false);
+  const [cryptoMsg, setCryptoMsg] = useState<{ tone: 'ok' | 'err'; text: string } | null>(null);
 
   useEffect(() => {
     api<{ order: StoredOrder }>(`/api/admin/orders/${id}`).then((r) => (r.status === 404 ? setMissing(true) : setOrder(r.data.order)));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
+
+  const confirmCrypto = async () => {
+    if (!order) return;
+    if (!window.confirm(`Confirm you have received ${money(order.amountDue)} in your crypto wallet for ${order.orderNumber}? The customer will be emailed.`)) return;
+    setCryptoBusy(true);
+    setCryptoMsg(null);
+    const r = await api(`/api/admin/orders/${encodeURIComponent(order.orderNumber)}/confirm-crypto`, { method: 'POST' });
+    if (r.status === 200) {
+      setOrder({ ...order, status: 'payment-confirmed', paymentConfirmedAt: new Date().toISOString() });
+      setCryptoMsg({ tone: 'ok', text: 'Customer emailed: payment confirmed.' });
+    } else {
+      setCryptoMsg({ tone: 'err', text: 'Could not email the customer, so the order was NOT marked confirmed. Please try again.' });
+    }
+    setCryptoBusy(false);
+  };
 
   if (missing) return <Notice tone="err">Order not found. <Link href="/admin/orders" className="underline">Back to orders</Link></Notice>;
   if (!order) return <p className="text-gray-400">Loading…</p>;
@@ -29,7 +47,16 @@ export default function OrderDetail() {
         <StatusBadge status={order.status} />
         <span className="text-sm text-gray-400">via {order.channel} · {when(order.createdAt)}</span>
       </div>
-      {order.status === 'payment-confirmed' && <Notice tone="ok">The customer uploaded a payment confirmation{order.paymentConfirmedAt ? ` on ${when(order.paymentConfirmedAt)}` : ''}. Check the receipt in your email, then dispatch.</Notice>}
+      {order.status === 'payment-confirmed' && isCryptoOrder(order) && <Notice tone="ok">Crypto payment confirmed{order.paymentConfirmedAt ? ` on ${when(order.paymentConfirmedAt)}` : ''} and the customer has been emailed. You can dispatch.</Notice>}
+      {order.status === 'payment-confirmed' && !isCryptoOrder(order) && <Notice tone="ok">The customer uploaded a payment confirmation{order.paymentConfirmedAt ? ` on ${when(order.paymentConfirmedAt)}` : ''}. Check the receipt in your email, then dispatch.</Notice>}
+      {isCryptoOrder(order) && order.status !== 'payment-confirmed' && (
+        <Notice tone={order.status === 'screenshot-received' ? 'ok' : 'warn'}>
+          {order.status === 'screenshot-received'
+            ? `The customer uploaded a crypto payment screenshot${order.screenshotReceivedAt ? ` on ${when(order.screenshotReceivedAt)}` : ''} (attached to the email we sent you). Check your Bitcoin or USDT wallet, then press "Payment received" below.`
+            : 'Crypto order: the customer pays on the crypto page and uploads a screenshot. Nothing to send; you will get the screenshot by email.'}
+        </Notice>
+      )}
+      {cryptoMsg && <Notice tone={cryptoMsg.tone}>{cryptoMsg.text}</Notice>}
       <div className="grid gap-4 lg:grid-cols-2">
         <Card title="Customer">
           <p className="font-bold">{order.customerName}</p>
@@ -42,9 +69,21 @@ export default function OrderDetail() {
           <p>Method: <strong>{order.paymentMethod}</strong></p>
           <p className="text-3xl font-black text-emerald-300">{money(order.amountDue)}</p>
           {order.paymentDetails && <p className="text-sm text-gray-400">Details sent {when(order.paymentDetails.sentAt)}</p>}
-          <Link href={`/admin/send-payment-email?id=${encodeURIComponent(order.orderNumber)}`} className="mt-3 inline-flex min-h-11 items-center rounded-xl bg-[#2E6B4D] px-5 font-black text-white hover:bg-[#256041]">
-            {order.paymentDetails ? 'Resend payment details' : 'Send payment details'}
-          </Link>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <Link href={`/admin/send-payment-email?id=${encodeURIComponent(order.orderNumber)}`} className="inline-flex min-h-11 items-center rounded-xl bg-[#2E6B4D] px-5 font-black text-white hover:bg-[#256041]">
+              {order.paymentDetails ? 'Resend payment details' : 'Send payment details'}
+            </Link>
+            {isCryptoOrder(order) && order.status !== 'payment-confirmed' && (
+              <button
+                type="button"
+                disabled={cryptoBusy}
+                onClick={confirmCrypto}
+                className="inline-flex min-h-11 items-center rounded-xl border border-emerald-400 px-5 font-black text-emerald-300 hover:bg-emerald-500/10 disabled:opacity-50"
+              >
+                {cryptoBusy ? 'Emailing…' : 'Payment received: email customer'}
+              </button>
+            )}
+          </div>
         </Card>
       </div>
       <Card title="Items">

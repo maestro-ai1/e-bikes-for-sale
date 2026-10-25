@@ -105,3 +105,6 @@ export function priceOrder(items: OrderItemInput[], paymentMethod: string) {
 
 export const paymentDetailsUrl = (ref: string) => `${SITE.url}/order/payment-details?id=${encodeURIComponent(ref)}`;
 export const confirmPaymentUrl = (ref: string) => `${SITE.url}/order/confirm-payment?id=${encodeURIComponent(ref)}`;
+export const cryptoPayUrl = (ref: string) => `${SITE.url}/order/crypto?id=${encodeURIComponent(ref)}`;
+/** Stored orders keep the payment method's label ("Crypto (Bitcoin / USDT, ...)"). */
+export const isCryptoOrder = (o: { paymentMethod: string }) => /^crypto/i.test(o.paymentMethod);

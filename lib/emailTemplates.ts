@@ -1,5 +1,5 @@
 import { REPLY, SITE } from '@/lib/reply-config';
-import { confirmPaymentUrl, money, paymentDetailsUrl, paymentMethodParts, paymentTermsLines, type DetailField } from '@/lib/order';
+import { confirmPaymentUrl, cryptoPayUrl, isCryptoOrder, money, paymentDetailsUrl, paymentMethodParts, paymentTermsLines, type DetailField } from '@/lib/order';
 import type { StoredEnquiry, StoredOrder } from '@/lib/stores';
 
 // LIGHT-theme emails only: white card, dark brand header band, near-black text, brand colour as accent.
@@ -43,15 +43,19 @@ const textItems = (o: StoredOrder) => o.items.map((i) => `- ${i.name} x${i.quant
 
 /** To the CUSTOMER on any checkout (email or WhatsApp). Never contains payment details. */
 export function orderConfirmationEmail(o: StoredOrder) {
+  const crypto = isCryptoOrder(o);
+  const next = crypto
+    ? `<strong>Pay with crypto</strong><br>Your 10% crypto discount is already in the total. Open the secure payment page to choose Bitcoin or USDT, scan the QR code or copy the wallet address, then upload a screenshot of your payment. We confirm it by email as soon as we have checked it.<div style="height:12px"></div>${button(cryptoPayUrl(o.orderNumber), 'Pay with crypto')}`
+    : `<strong>What happens next</strong><br>Watch for a follow-up email from us with the payment details for this order. Your order is confirmed once payment is received.`;
   const body = `<p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:${INK}">Hi ${esc(o.customerName.split(' ')[0] || 'there')}, thanks for your order. We have received it and our team is preparing it now.</p>
 ${field('Order number', `<strong style="font-size:16px">${esc(o.orderNumber)}</strong>`)}
 ${itemsTable(o.items)}${totals(o)}
-<div style="height:16px"></div>${callout(`<strong>What happens next</strong><br>Watch for a follow-up email from us with the payment details for this order. Your order is confirmed once payment is received.`)}
+<div style="height:16px"></div>${callout(next)}
 <div style="height:14px"></div>${field('Delivery address', esc(o.address || '') || '&mdash;')}
 <p style="margin:0 0 18px;font-size:13px;color:${SOFT}">Questions? Just reply to this email or message us on WhatsApp ${esc(REPLY.channels.whatsapp)}.</p>`;
   return {
     subject: `We've received your order ${o.orderNumber}`,
-    text: `Hi ${o.customerName}, thanks for your order ${o.orderNumber}.\n\n${textItems(o)}\n${textTotals(o)}\n\nWatch for a follow-up email with payment details. Your order is confirmed once payment is received.\n\n${SITE.name}`,
+    text: `Hi ${o.customerName}, thanks for your order ${o.orderNumber}.\n\n${textItems(o)}\n${textTotals(o)}\n\n${crypto ? `Pay with crypto (Bitcoin or USDT): ${cryptoPayUrl(o.orderNumber)}\nScan the QR code or copy the wallet address, then upload a screenshot of your payment.` : 'Watch for a follow-up email with payment details. Your order is confirmed once payment is received.'}\n\n${SITE.name}`,
     html: shell({ eyebrow: 'Order received', title: `Thanks, ${o.customerName.split(' ')[0] || 'there'}`, meta: `Order ${o.orderNumber}`, body }),
   };
 }
@@ -114,10 +118,37 @@ export function enquiryReplyEmail(e: StoredEnquiry, reply: string) {
 /** To the SHOP when a customer uploads proof of payment. */
 export function paymentConfirmedEmail(o: StoredOrder, note?: string) {
   const adminUrl = `${SITE.url}/admin/orders/${encodeURIComponent(o.orderNumber)}`;
-  const body = `${field('Order', `<strong>${esc(o.orderNumber)}</strong> &middot; ${money(o.amountDue)}`)}${field('Customer', `${esc(o.customerName)}<br>${esc(o.customerEmail)}`)}${note ? field('Customer note', esc(note)) : ''}<p style="font-size:13px;color:${SOFT}">The receipt is attached. Check your account, then dispatch the order.</p>${button(adminUrl, 'Open order')}`;
+  const crypto = isCryptoOrder(o);
+  const body = `${field('Order', `<strong>${esc(o.orderNumber)}</strong> &middot; ${money(o.amountDue)}`)}${crypto ? field('Payment method', esc(o.paymentMethod)) : ''}${field('Customer', `${esc(o.customerName)}<br>${esc(o.customerEmail)}`)}${note ? field('Customer note', esc(note)) : ''}<p style="font-size:13px;color:${SOFT}">${crypto ? 'The payment screenshot is attached. Check the amount against your Bitcoin or USDT wallet, then open the order and press "Payment received: email customer".' : 'The receipt is attached. Check your account, then dispatch the order.'}</p>${button(adminUrl, 'Open order')}`;
   return {
-    subject: `Payment confirmation uploaded for ${o.orderNumber}`,
-    text: `${o.customerName} uploaded a payment confirmation for ${o.orderNumber} (${money(o.amountDue)}). ${note ? 'Note: ' + note : ''}\n${adminUrl}`,
-    html: shell({ eyebrow: 'Payment confirmation', title: o.orderNumber, meta: o.customerName, body }),
+    subject: crypto ? `Payment screenshot for order ${o.orderNumber} (crypto)` : `Payment confirmation uploaded for ${o.orderNumber}`,
+    text: `${o.customerName} uploaded a payment ${crypto ? 'screenshot (crypto)' : 'confirmation'} for ${o.orderNumber} (${money(o.amountDue)}). ${note ? 'Note: ' + note : ''}\n${adminUrl}`,
+    html: shell({ eyebrow: crypto ? 'Crypto payment screenshot' : 'Payment confirmation', title: o.orderNumber, meta: o.customerName, body }),
+  };
+}
+
+/** To the CUSTOMER straight after they upload a crypto payment screenshot (we have not checked it yet). */
+export function cryptoScreenshotReceivedEmail(o: StoredOrder) {
+  const body = `<p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:${INK}">Hi ${esc(o.customerName.split(' ')[0] || 'there')}, thank you. We have received your payment screenshot for order <strong>${esc(o.orderNumber)}</strong> (${money(o.amountDue)}).</p>
+${callout(`<strong>What happens next</strong><br>We check the payment against our wallet and email you as soon as it is confirmed. Your order is released for dispatch once confirmed.`)}
+<p style="margin:16px 0 18px;font-size:13px;color:${SOFT}">Questions? Just reply to this email or message us on WhatsApp ${esc(REPLY.channels.whatsapp)}.</p>`;
+  return {
+    subject: `We received your payment screenshot for order ${o.orderNumber}`,
+    text: `Hi ${o.customerName}, we received your payment screenshot for order ${o.orderNumber} (${money(o.amountDue)}). We will check it against our wallet and email you once it is confirmed.\n\n${SITE.name}`,
+    html: shell({ eyebrow: 'Screenshot received', title: `Order ${o.orderNumber}`, meta: money(o.amountDue), body }),
+  };
+}
+
+/** To the CUSTOMER when the owner has checked the wallet and pressed "Payment received". */
+export function cryptoPaymentReceivedEmail(o: StoredOrder) {
+  const body = `<p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:${INK}">Hi ${esc(o.customerName.split(' ')[0] || 'there')}, your crypto payment for order <strong>${esc(o.orderNumber)}</strong> (${money(o.amountDue)}) has been confirmed. Thank you!</p>
+${itemsTable(o.items)}${totals(o)}
+<div style="height:16px"></div>${callout(`<strong>What happens next</strong><br>${esc(REPLY.dispatchLine)} We will email you the tracking details once your order is on its way.`)}
+<div style="height:14px"></div>${field('Delivery address', esc(o.address || '') || '&mdash;')}
+<p style="margin:0 0 18px;font-size:13px;color:${SOFT}">Questions? Just reply to this email or message us on WhatsApp ${esc(REPLY.channels.whatsapp)}.</p>`;
+  return {
+    subject: `Payment confirmed for order ${o.orderNumber}`,
+    text: `Hi ${o.customerName}, your crypto payment for order ${o.orderNumber} (${money(o.amountDue)}) is confirmed. ${REPLY.dispatchLine}\n\n${textItems(o)}\n${textTotals(o)}\n\n${SITE.name}`,
+    html: shell({ eyebrow: 'Payment confirmed', title: `Thanks, ${o.customerName.split(' ')[0] || 'there'}`, meta: `Order ${o.orderNumber}`, body }),
   };
 }

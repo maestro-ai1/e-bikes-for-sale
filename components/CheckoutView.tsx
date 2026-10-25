@@ -2,6 +2,7 @@
 
 import React, { useRef, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Coins, Minus, Plus, Trash2, ShieldCheck, Truck, CheckCircle2, AlertCircle } from 'lucide-react';
 import ProductImage from '@/components/ProductImage';
 import { useApp } from '@/context/AppContext';
@@ -36,6 +37,7 @@ export default function CheckoutView() {
   const [error, setError] = useState('');
   const [placed, setPlaced] = useState<{ orderNumber: string; amountDue: number } | null>(null);
   const orderRef = useRef<string | null>(null);
+  const router = useRouter();
 
   const belowMin = cartSubtotal > 0 && cartSubtotal < BUSINESS_INFO.minOrder;
   const toFree = Math.max(0, BUSINESS_INFO.freeDeliveryThreshold - cartSubtotal);
@@ -89,9 +91,14 @@ export default function CheckoutView() {
       });
       const data = await res.json().catch(() => ({}));
       if (res.ok && data.ok) {
-        setPlaced({ orderNumber, amountDue: data.amountDue ?? cartTotal });
         clearCart();
         orderRef.current = null;
+        if (payment === 'crypto') {
+          // crypto customers pay straight away: wallet address, QR code and screenshot upload on one page
+          router.push(`/order/crypto?id=${encodeURIComponent(orderNumber)}`);
+          return;
+        }
+        setPlaced({ orderNumber, amountDue: data.amountDue ?? cartTotal });
       } else {
         setError(ERROR_TEXT[data.error] || 'Something went wrong placing your order. Please check your details and try again, or message us on WhatsApp.');
       }
@@ -190,7 +197,7 @@ export default function CheckoutView() {
 
           <section aria-labelledby="co-pay" className="rounded-2xl border border-gray-200 bg-white p-4 sm:p-5">
             <h2 id="co-pay" className="text-base font-black text-gray-900">Payment method</h2>
-            <p className="mt-1 text-xs text-gray-600">We email the payment details after you place the order.</p>
+            <p className="mt-1 text-xs text-gray-600">{payment === 'crypto' ? 'After you place the order you go straight to our secure crypto payment page to pay with Bitcoin or USDT.' : 'We email the payment details after you place the order.'}</p>
             <div role="radiogroup" aria-labelledby="co-pay" className="mt-3 space-y-2">
               {([
                 ['payid', 'PayID', 'Instant transfer to our PayID'],
@@ -219,7 +226,7 @@ export default function CheckoutView() {
               disabled={!!submitting || belowMin}
               className="min-h-12 rounded-xl bg-[#1E4733] px-4 text-sm font-black uppercase tracking-wide text-white hover:bg-[#2E6B4D] disabled:cursor-not-allowed disabled:opacity-60"
             >
-              {submitting === 'email' ? 'Placing your order…' : `Place order · $${cartTotal.toLocaleString()} AUD`}
+              {submitting === 'email' ? 'Placing your order…' : payment === 'crypto' ? `Continue to crypto payment · $${cartTotal.toLocaleString()} AUD` : `Place order · $${cartTotal.toLocaleString()} AUD`}
             </button>
             <button
               type="button"
