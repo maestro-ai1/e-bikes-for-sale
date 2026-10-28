@@ -1,0 +1,368 @@
+# Google Search Console indexing queue - ebikesforsale.com.au
+
+Property: `sc-domain:ebikesforsale.com.au` (Google account proppsptyltd@gmail.com). Last updated 2026-10-28.
+
+## Rules for every session
+1. Fix errors first, push to `main`, wait for the Vercel deploy, then request indexing.
+2. Request indexing for the top of this list in order. Google allows about 10 requests a day; stop at "Quota Exceeded".
+3. Inspect each URL first (URL inspection). If it says "URL is on Google", tick it off and skip it.
+4. Tick off each URL as it is requested or confirmed. Anything left over is the next session's work.
+
+## State on 2026-10-28
+- Indexed 89, not indexed 348 (338 Discovered - currently not indexed, 9 Crawled - currently not indexed, 1 Page with redirect). The Pages report lags: several URLs it lists were already "on Google" when inspected.
+- Live sitemap: 432 URLs, all HTTP 200, no noindex, canonicals match, no structured-data problems (checked by crawl).
+- Daily quota was already used up after 1 request, so everything below is queued.
+
+## Done
+- [x] https://ebikesforsale.com.au/blog/e-bike-motor-guide-hub-vs-mid-drive - indexing requested 2026-10-28
+- [x] https://ebikesforsale.com.au/electric-trikes - already on Google
+- [x] https://ebikesforsale.com.au/scooters/adults-scooters - already on Google
+- [x] https://ebikesforsale.com.au/scooters/kids-scooters - already on Google
+- [x] https://ebikesforsale.com.au/product/cube-cargo-sport-dual-hybrid-1000-electric-cargo-bike-flashwhite-n-black - already on Google
+
+## Next session - do these first (confirmed NOT on Google)
+- [ ] https://ebikesforsale.com.au/blog/electric-bike-with-child-seat-australia - quota hit before this could be requested
+
+## Tier 1 - blog guides (informational, link to products) (2)
+- [ ] https://ebikesforsale.com.au/blog/bike-size-guide-electric-bicycles
+- [ ] https://ebikesforsale.com.au/blog/electric-bike-kids-guide
+
+## Tier 2 - cargo bike (1)
+- [ ] https://ebikesforsale.com.au/product/pedal-nomad-cargo-electric-cargo-bike-blue-metal-grey
+
+## Tier 3 - e-bike product pages (Cube, Merida, Pedal, DiroDi) (70)
+- [ ] https://ebikesforsale.com.au/product/cube-ams-hybrid-one44-c-68x-tm-400x-electric-trail-bike-reedgreen-n-matrix
+- [ ] https://ebikesforsale.com.au/product/cube-ams-hybrid-one77-c-62-at-electric-enduro-bike-carbonngold
+- [ ] https://ebikesforsale.com.au/product/cube-editor-hybrid-pro-400x-electric-hybrid-bike-black-n-spectral
+- [ ] https://ebikesforsale.com.au/product/cube-editor-hybrid-pro-400x-electric-hybrid-bike-coal-n-prism
+- [ ] https://ebikesforsale.com.au/product/cube-kathmandu-hybrid-one-easy-entry-800-electric-hybrid-bike-metallicgrey-n
+- [ ] https://ebikesforsale.com.au/product/cube-kathmandu-hybrid-one-ee-800-electric-hybrid-bike-cedar-n-chrome
+- [ ] https://ebikesforsale.com.au/product/cube-nuride-hybrid-performance-easy-entry-600-electric-hybrid-bike-slabgrey-n
+- [ ] https://ebikesforsale.com.au/product/cube-nuride-hybrid-pro-easy-entry-600-electric-hybrid-bike-flashstone-n-chrome
+- [ ] https://ebikesforsale.com.au/product/cube-reaction-hybrid-performance-600-electric-hardtail-mountain-bike
+- [ ] https://ebikesforsale.com.au/product/cube-reaction-hybrid-performance-600-electric-hardtail-mountain-bike-indigoblue
+- [ ] https://ebikesforsale.com.au/product/cube-reaction-hybrid-performance-600-fe-easy-entry-electric-hardtail-mountain
+- [ ] https://ebikesforsale.com.au/product/cube-reaction-hybrid-performance-600-fe-electric-hardtail-mountain-bike
+- [ ] https://ebikesforsale.com.au/product/cube-reaction-hybrid-pro-800-electric-hardtail-mountain-bike-blackline
+- [ ] https://ebikesforsale.com.au/product/cube-stereo-hybrid-one22-pro-600-electric-trail-bike-night-n-chrome
+- [ ] https://ebikesforsale.com.au/product/cube-stereo-hybrid-one22-pro-800-electric-trail-bike-slab-grey-n-chrome
+- [ ] https://ebikesforsale.com.au/product/cube-stereo-hybrid-one44-hpc-race-800-electric-trail-bike-blackline
+- [ ] https://ebikesforsale.com.au/product/cube-stereo-hybrid-one44-pro-800-electric-trail-bike-dustyolive-n-gold
+- [ ] https://ebikesforsale.com.au/product/cube-stereo-hybrid-one44-pro-800-electric-trail-bike-shiftblush-n-raisin
+- [ ] https://ebikesforsale.com.au/product/cube-stereo-hybrid-one77-hpc-slx-800-electric-enduro-bike-glintsand-n-black
+- [ ] https://ebikesforsale.com.au/product/cube-stereo-hybrid-one77-hpc-tm-800-electric-enduro-bike-reedgreen-n-matrix
+- [ ] https://ebikesforsale.com.au/product/cube-supreme-hybrid-one-500-electric-hybrid-bike-desertstone-n-black
+- [ ] https://ebikesforsale.com.au/product/cube-touring-hybrid-one-500-electric-hybrid-bike-deepsea-n-chrome
+- [ ] https://ebikesforsale.com.au/product/cube-touring-hybrid-one-easy-entry-600
+- [ ] https://ebikesforsale.com.au/product/cube-touring-hybrid-one-ee-600-electric-hybrid-bike-metallic-white-n-chrome
+- [ ] https://ebikesforsale.com.au/product/cube-touring-hybrid-pro-625-easy-entry-electric-hybrid-bike-metallicgrey-n
+- [ ] https://ebikesforsale.com.au/product/cube-touring-hybrid-pro-800-electric-hybrid-bike-pearlgrey-n-grey
+- [ ] https://ebikesforsale.com.au/product/cube-touring-hybrid-pro-easy-entry-800-electric-hybrid-bike-pearlgrey-n-grey
+- [ ] https://ebikesforsale.com.au/product/cube-touring-hybrid-pro-ee-800-electric-hybrid-bike-electric-blue-n-prism
+- [ ] https://ebikesforsale.com.au/product/dirodi-rover-gen-6-250w-electric-fat-bike-matte-black-2027
+- [ ] https://ebikesforsale.com.au/product/dirodi-rover-gen-6-st-250w-electric-fat-bike-matte-black
+- [ ] https://ebikesforsale.com.au/product/dirodi-rover-gen-6-st-250w-electric-fat-bike-matte-blue
+- [ ] https://ebikesforsale.com.au/product/dirodi-rover-pro-st-250w-electric-fat-bike-jet-black
+- [ ] https://ebikesforsale.com.au/product/dirodi-rover-pro-st-250w-electric-fat-bike-pearl-white
+- [ ] https://ebikesforsale.com.au/product/merida-eone-eighty-500-electric-enduro-bike-gunmetal-grey-black
+- [ ] https://ebikesforsale.com.au/product/merida-eone-eighty-700-electric-enduro-bike-heritage-red-brown
+- [ ] https://ebikesforsale.com.au/product/merida-eone-forty-400-electric-trail-bike-gunmetal-grey-black
+- [ ] https://ebikesforsale.com.au/product/merida-eone-sixty-400
+- [ ] https://ebikesforsale.com.au/product/merida-eone-sixty-400-electric-enduro-bike-deep-forest-green-light-earth
+- [ ] https://ebikesforsale.com.au/product/merida-eone-sixty-675-electric-enduro-bike-silk-fog-green-white
+- [ ] https://ebikesforsale.com.au/product/merida-eone-sixty-875-electric-enduro-bike-guarded-gold-grey
+- [ ] https://ebikesforsale.com.au/product/merida-esilex-400
+- [ ] https://ebikesforsale.com.au/product/merida-espresso-cc-300-eq-se-electric-hybrid-bike-metallic-black-gunmetal-grey
+- [ ] https://ebikesforsale.com.au/product/merida-espresso-cc-400-eq-electric-hybrid-bike-metallic-black-gunmetal-grey
+- [ ] https://ebikesforsale.com.au/product/merida-espresso-cc-500-eq-electric-hybrid-bike-matt-early-moss-grey-green
+- [ ] https://ebikesforsale.com.au/product/merida-espresso-city-300-eq-se-electric-hybrid-bike-silk-early-moss-green
+- [ ] https://ebikesforsale.com.au/product/merida-espresso-city-400-eq-electric-hybrid-bike-504wh-battery-burgundy-red
+- [ ] https://ebikesforsale.com.au/product/pedal-bandit-mini-14-electric-fat-tyre-bike-black
+- [ ] https://ebikesforsale.com.au/product/pedal-breeze-e4-electric-cruiser-bike-gloss-cosmic-blue
+- [ ] https://ebikesforsale.com.au/product/pedal-breeze-e4-electric-cruiser-bike-gloss-metal-lilac
+- [ ] https://ebikesforsale.com.au/product/pedal-breeze-e4-electric-cruiser-bike-satin-flare-black
+- [ ] https://ebikesforsale.com.au/product/pedal-breeze-st-e4-electric-cruiser-bike-gloss-pearl-white
+- [ ] https://ebikesforsale.com.au/product/pedal-brewer-electric-cruiser-560wh
+- [ ] https://ebikesforsale.com.au/product/pedal-brewer-electric-cruiser-bike-black-560wh
+- [ ] https://ebikesforsale.com.au/product/pedal-brewer-electric-cruiser-bike-reef-blue-468wh
+- [ ] https://ebikesforsale.com.au/product/pedal-brewer-electric-cruiser-bike-white-560wh
+- [ ] https://ebikesforsale.com.au/product/pedal-clipper-2-electric-hybrid-bike-grey
+- [ ] https://ebikesforsale.com.au/product/pedal-comet-3-disc-electric-hybrid-bike-charcoal
+- [ ] https://ebikesforsale.com.au/product/pedal-comet-3-disc-electric-hybrid-bike-pearl-white
+- [ ] https://ebikesforsale.com.au/product/pedal-coyote-3-electric-hardtail-mountain-bike-satin-anthracite
+- [ ] https://ebikesforsale.com.au/product/pedal-coyote-3-so-electric-hardtail-mountain-bike-sand
+- [ ] https://ebikesforsale.com.au/product/pedal-coyote-3-st-tour-electric-hardtail-mountain-bike-satin-black
+- [ ] https://ebikesforsale.com.au/product/pedal-coyote-3-st-tour-electric-hardtail-mountain-bike-slate-grey
+- [ ] https://ebikesforsale.com.au/product/pedal-derby-electric-folding-bike
+- [ ] https://ebikesforsale.com.au/product/pedal-eagle-st-electric-hybrid-bike-metallic-teal
+- [ ] https://ebikesforsale.com.au/product/pedal-falcon-3c-electric-hybrid-bike-satin-blue
+- [ ] https://ebikesforsale.com.au/product/pedal-falcon-3c-st-electric-hybrid-bike-satin-midnight-blue
+- [ ] https://ebikesforsale.com.au/product/pedal-seahawk-sl-electric-cruiser-bike-satin-black
+- [ ] https://ebikesforsale.com.au/product/pedal-uptown-sl-electric-vintage-cruiser-bike-7-speed-black
+- [ ] https://ebikesforsale.com.au/product/pedal-uptown-sl-electric-vintage-cruiser-bike-7-speed-mint-green
+- [ ] https://ebikesforsale.com.au/product/pedal-uptown-sl-electric-vintage-cruiser-bike-7-speed-pearl-white
+
+## Tier 4 - scooters (Segway-Ninebot) (6)
+- [ ] https://ebikesforsale.com.au/product/segway-ninebot-c2-lite-ekickscooter-blue-grey
+- [ ] https://ebikesforsale.com.au/product/segway-ninebot-e3-pro-electric-scooter
+- [ ] https://ebikesforsale.com.au/product/segway-ninebot-kickscooter-e2-plus-ii-electric-scooter
+- [ ] https://ebikesforsale.com.au/product/segway-ninebot-kickscooter-e2-pro-electric-scooter
+- [ ] https://ebikesforsale.com.au/product/segway-ninebot-kickscooter-f3-pro-electric-scooter
+- [ ] https://ebikesforsale.com.au/product/segway-ninebot-kickscooter-max-g3-electric-scooter
+
+## Tier 5 - helmets, child seats, racks, bags, GPS (93)
+- [ ] https://ebikesforsale.com.au/product/bluegrass-superbold-bmx-helmet-black-matt
+- [ ] https://ebikesforsale.com.au/product/bluegrass-superbold-bmx-helmet-matte-orange
+- [ ] https://ebikesforsale.com.au/product/bluegrass-superbold-bmx-helmet-solar-grey-matt
+- [ ] https://ebikesforsale.com.au/product/buzzrack-buzzybee-2-2-bike-tow-ball-platform-rack
+- [ ] https://ebikesforsale.com.au/product/buzzrack-buzzybee-h2-2-bike-hitch-mount-rack
+- [ ] https://ebikesforsale.com.au/product/buzzrack-buzzybee-h4-4-bike-hitch-mount-rack
+- [ ] https://ebikesforsale.com.au/product/garmin-edge-1050-computer-and-sensors-bundle
+- [ ] https://ebikesforsale.com.au/product/garmin-hrm-200-heart-rate-monitor-black
+- [ ] https://ebikesforsale.com.au/product/garmin-varia-rtl515-radar-with-tail-light
+- [ ] https://ebikesforsale.com.au/product/giro-agilis-mips-road-helmet-matt-white
+- [ ] https://ebikesforsale.com.au/product/giro-bravo-ii-gel-road-gloves-black-2025
+- [ ] https://ebikesforsale.com.au/product/giro-fixture-ii-mips-kids-helmet-blue-jewel-fade-uni-50-57cm
+- [ ] https://ebikesforsale.com.au/product/giro-fixture-ii-mips-kids-helmet-matte-black-uni-50-57cm
+- [ ] https://ebikesforsale.com.au/product/giro-fixture-ii-mips-mtb-helmet-uni-matte-black-2025
+- [ ] https://ebikesforsale.com.au/product/giro-fixture-ii-youth-mips-mtb-helmet-uni-50-57cm-green-rush
+- [ ] https://ebikesforsale.com.au/product/giro-fixture-ii-youth-mips-mtb-helmet-uni-matte-black-2025
+- [ ] https://ebikesforsale.com.au/product/giro-fixture-ii-youth-mips-mtb-helmet-uni-pink-purple-fade-2025
+- [ ] https://ebikesforsale.com.au/product/giro-isode-ii-mips-road-helmet-matte-stone-uni-2025
+- [ ] https://ebikesforsale.com.au/product/giro-isode-ii-mips-road-helmet-matte-white-uni-2025
+- [ ] https://ebikesforsale.com.au/product/giro-jag-non-gel-road-gloves-black-2025
+- [ ] https://ebikesforsale.com.au/product/giro-radix-mips-mtb-helmet-matte-black-2026
+- [ ] https://ebikesforsale.com.au/product/giro-scamp-ii-mips-kids-helmet-blue-rainbows
+- [ ] https://ebikesforsale.com.au/product/giro-scamp-ii-mips-kids-helmet-matte-blue-jewel
+- [ ] https://ebikesforsale.com.au/product/giro-scamp-ii-mips-kids-helmet-matte-purple-lava
+- [ ] https://ebikesforsale.com.au/product/giro-strade-dure-supergel-road-gloves-black-white-2025
+- [ ] https://ebikesforsale.com.au/product/giro-strade-dure-supergel-road-gloves-dark-sage-2025
+- [ ] https://ebikesforsale.com.au/product/giro-tremor-mips-kids-helmet-pink-green-fade-uni-47-54cm
+- [ ] https://ebikesforsale.com.au/product/giro-tremor-mips-kids-helmet-pink-green-uni-47-54cm
+- [ ] https://ebikesforsale.com.au/product/giro-trixter-youth-mtb-gloves-black-2025
+- [ ] https://ebikesforsale.com.au/product/giro-trixter-youth-mtb-gloves-purple-2025
+- [ ] https://ebikesforsale.com.au/product/giro-trixter-youth-mtb-gloves-red-2025
+- [ ] https://ebikesforsale.com.au/product/hamax-kiss-baby-seat-with-bow-bracket
+- [ ] https://ebikesforsale.com.au/product/lazer-compact-helmet-racing-green-uni-54-61cm
+- [ ] https://ebikesforsale.com.au/product/lazer-compact-kineticore-helmet-matte-dark-blue-uni-54-61cm
+- [ ] https://ebikesforsale.com.au/product/lazer-compact-kineticore-helmet-titanium-uni-54-61cm
+- [ ] https://ebikesforsale.com.au/product/lazer-compact-kineticore-helmet-white-uni-54-61cm
+- [ ] https://ebikesforsale.com.au/product/lazer-finch-kineticore-mtb-helmet-bright-pink
+- [ ] https://ebikesforsale.com.au/product/lazer-finch-kineticore-mtb-helmet-fluoro-green
+- [ ] https://ebikesforsale.com.au/product/lazer-finch-kineticore-mtb-helmet-matte-black-uni-50-56cm
+- [ ] https://ebikesforsale.com.au/product/lazer-finch-kineticore-mtb-helmet-navy-black
+- [ ] https://ebikesforsale.com.au/product/lazer-finch-kineticore-mtb-helmet-ocean-blue
+- [ ] https://ebikesforsale.com.au/product/lazer-finch-kineticore-mtb-helmet-sedona-red
+- [ ] https://ebikesforsale.com.au/product/lazer-lupo-kineticore-mtb-helmet-dusk-blue-uni-55-61cm
+- [ ] https://ebikesforsale.com.au/product/lazer-lupo-kineticore-mtb-helmet-matte-black-uni-55-61cm
+- [ ] https://ebikesforsale.com.au/product/lazer-lupo-kineticore-mtb-helmet-matte-flash-orange-uni-55-61cm
+- [ ] https://ebikesforsale.com.au/product/lazer-lupo-kineticore-mtb-helmet-stone-white-uni-55-61cm
+- [ ] https://ebikesforsale.com.au/product/met-codatronca-triathlon-helmet-glossy-black-silver
+- [ ] https://ebikesforsale.com.au/product/met-codatronca-triathlon-helmet-glossy-white-silver
+- [ ] https://ebikesforsale.com.au/product/met-crackerjack-kids-helmet-52-57-cm-green-matt
+- [ ] https://ebikesforsale.com.au/product/met-crackerjack-kids-helmet-cyan-uni-52-57cm
+- [ ] https://ebikesforsale.com.au/product/met-crackerjack-kids-helmet-lime-matt
+- [ ] https://ebikesforsale.com.au/product/met-crackerjack-kids-helmet-orange-uni-52-57cm
+- [ ] https://ebikesforsale.com.au/product/met-crackerjack-kids-helmet-petrol-uni-52-57cm
+- [ ] https://ebikesforsale.com.au/product/met-crackerjack-kids-helmet-pink-uni-52-57cm
+- [ ] https://ebikesforsale.com.au/product/met-crackerjack-kids-helmet-purple-uni-52-57cm
+- [ ] https://ebikesforsale.com.au/product/met-crackerjack-mips-kids-helmet-cyan-uni-52-57cm
+- [ ] https://ebikesforsale.com.au/product/met-crackerjack-mips-kids-helmet-pink-uni-52-57cm
+- [ ] https://ebikesforsale.com.au/product/met-crossover-helmet-burgundy-matte-with-light
+- [ ] https://ebikesforsale.com.au/product/met-echo-helmet-black
+- [ ] https://ebikesforsale.com.au/product/met-echo-helmet-olive
+- [ ] https://ebikesforsale.com.au/product/met-echo-helmet-white-bronze
+- [ ] https://ebikesforsale.com.au/product/met-hooray-kids-helmet-blue-dino
+- [ ] https://ebikesforsale.com.au/product/met-hooray-mips-kids-helmet-blue-dino
+- [ ] https://ebikesforsale.com.au/product/met-hooray-mips-kids-helmet-pink-hearts
+- [ ] https://ebikesforsale.com.au/product/met-hooray-mips-youth-helmet-green-forest
+- [ ] https://ebikesforsale.com.au/product/met-rivale-mips-road-helmet-absolute-white
+- [ ] https://ebikesforsale.com.au/product/met-trenta-3k-carbon-mips-road-helmet-blue
+- [ ] https://ebikesforsale.com.au/product/met-trenta-3k-carbon-mips-road-helmet-rainbow-ltd-edition
+- [ ] https://ebikesforsale.com.au/product/met-trenta-3k-carbon-mips-road-helmet-uae-team-adq-edition
+- [ ] https://ebikesforsale.com.au/product/met-trenta-3k-carbon-mips-road-helmet-uae-team-emirates-xrg-edition
+- [ ] https://ebikesforsale.com.au/product/met-trenta-mips-road-helmet-white-black-matt-glossy
+- [ ] https://ebikesforsale.com.au/product/met-trenta-pace-ii-mips-road-helmet-matte-antler
+- [ ] https://ebikesforsale.com.au/product/met-trenta-pace-ii-mips-road-helmet-matte-orchid
+- [ ] https://ebikesforsale.com.au/product/met-trenta-pace-ii-mips-road-helmet-matte-yellow
+- [ ] https://ebikesforsale.com.au/product/ortlieb-back-roller-classic-pair-pannier-bags-black
+- [ ] https://ebikesforsale.com.au/product/ortlieb-back-roller-classic-pair-pannier-bags-sun-yellow-black
+- [ ] https://ebikesforsale.com.au/product/polisport-bubbly-mini-footrests
+- [ ] https://ebikesforsale.com.au/product/shimano-altus-mt200-rear-disc-brake-with-left-lever
+- [ ] https://ebikesforsale.com.au/product/shimano-br-mt400-b05s-resin-disc-brake-pads-spring
+- [ ] https://ebikesforsale.com.au/product/shimano-rs500-road-pedals
+- [ ] https://ebikesforsale.com.au/product/shimano-sm-sh11-spd-sl-cleats-yellow
+- [ ] https://ebikesforsale.com.au/product/shimano-tiagra-deore-hg500-10-speed-cassette
+- [ ] https://ebikesforsale.com.au/product/shimano-tourney-rear-derailleu-6-7speed-rd-ty300
+- [ ] https://ebikesforsale.com.au/product/shimano-ultegra-r8000-carbon-pedals
+- [ ] https://ebikesforsale.com.au/product/thule-euroway-g2-3-bike-tow-ball-rack
+- [ ] https://ebikesforsale.com.au/product/topeak-basket-front-with-fixer-3e-black
+- [ ] https://ebikesforsale.com.au/product/wahoo-elemnt-roam-v3-gps-bike-computer
+- [ ] https://ebikesforsale.com.au/product/wahoo-kickr-core-2-smart-trainer-with-zwift-click-v2-cog
+- [ ] https://ebikesforsale.com.au/product/yakima-foldclick-evo-2-2-bike-towball-platform-rack-black
+- [ ] https://ebikesforsale.com.au/product/yakima-foldclick-evo-3-3-bike-towball-platform-rack
+- [ ] https://ebikesforsale.com.au/product/yakima-frontloader-1-bike-wheel-mount-roof-rack-with-locks
+- [ ] https://ebikesforsale.com.au/product/yakima-holdup-evo-2-2-bike-hitch-platform-rack
+- [ ] https://ebikesforsale.com.au/product/yakima-lightmate-anz-rear-light-and-number-plate-holder
+
+## Tier 6 - everything else (kids scooters, clothing, nutrition, parts) (157)
+- [ ] https://ebikesforsale.com.au/product/applied-nutrition-endurance-isotonic-energy-gel-60ml-tropical
+- [ ] https://ebikesforsale.com.au/product/atlantic-anti-rattle-hitch-pin-bolt
+- [ ] https://ebikesforsale.com.au/product/azur-leo-50-lumen-rear-light
+- [ ] https://ebikesforsale.com.au/product/bbb-controlzone-touch-screen-winter-gloves-red
+- [ ] https://ebikesforsale.com.au/product/bbb-race-ribbon-bar-tape-black
+- [ ] https://ebikesforsale.com.au/product/bbb-raceshield-full-finger-winter-gloves-grey
+- [ ] https://ebikesforsale.com.au/product/bc-heavy-duty-12-20-inch-training-wheels
+- [ ] https://ebikesforsale.com.au/product/black-mountain-shadow-trail-mtb-gloves-forest-green
+- [ ] https://ebikesforsale.com.au/product/black-mountain-shadow-trail-mtb-gloves-red
+- [ ] https://ebikesforsale.com.au/product/black-mountain-shadow-trail-youth-mtb-gloves-black
+- [ ] https://ebikesforsale.com.au/product/black-mountain-shadow-trail-youth-mtb-gloves-blue
+- [ ] https://ebikesforsale.com.au/product/bone-collection-bike-tie-5-handlebar-phone-holder-black
+- [ ] https://ebikesforsale.com.au/product/camelbak-mini-m-u-l-e-hydration-bag-1-5l-black
+- [ ] https://ebikesforsale.com.au/product/castelli-espresso-road-gloves-light-black
+- [ ] https://ebikesforsale.com.au/product/castelli-espresso-road-gloves-vivid-orange
+- [ ] https://ebikesforsale.com.au/product/castelli-espresso-womens-road-gloves-pool-blue
+- [ ] https://ebikesforsale.com.au/product/castelli-lightness-3-full-finger-road-gloves-black
+- [ ] https://ebikesforsale.com.au/product/chamois-buttr-eurostyle-anti-chafe-cream-10-x-9ml-sachets
+- [ ] https://ebikesforsale.com.au/product/cinettica-coda-gel-ii-road-gloves-black
+- [ ] https://ebikesforsale.com.au/product/cinettica-coda-gel-ii-road-gloves-black-stripe
+- [ ] https://ebikesforsale.com.au/product/cinettica-coda-gel-ii-road-gloves-blue
+- [ ] https://ebikesforsale.com.au/product/cinettica-coda-gel-ii-road-gloves-blue-stripe
+- [ ] https://ebikesforsale.com.au/product/cinettica-ollo-fleece-gloves-black
+- [ ] https://ebikesforsale.com.au/product/cinettica-roar-cat-kids-helmet-pink
+- [ ] https://ebikesforsale.com.au/product/cinettica-roar-dinosaur-kids-helmet-green
+- [ ] https://ebikesforsale.com.au/product/cinettica-roar-shark-kids-helmet-turquoise
+- [ ] https://ebikesforsale.com.au/product/cinettica-velocita-road-helmet-silver
+- [ ] https://ebikesforsale.com.au/product/cinnetica-thermal-gloves-black
+- [ ] https://ebikesforsale.com.au/product/continental-gp5000-folding-road-tyre
+- [ ] https://ebikesforsale.com.au/product/cube-litening-aero-basebar-stem-combo-400x110mm
+- [ ] https://ebikesforsale.com.au/product/cube-nuroad-hybrid-c62-race-400x
+- [ ] https://ebikesforsale.com.au/product/dr-hydrate-hydration-mix-jar-270g-strawberry-kiwi-30-serves
+- [ ] https://ebikesforsale.com.au/product/envy-2-bolt-z-clamp-oversize-chrome
+- [ ] https://ebikesforsale.com.au/product/envy-colt-s6-complete-scooter-black
+- [ ] https://ebikesforsale.com.au/product/envy-colt-s6-complete-scooter-bronze
+- [ ] https://ebikesforsale.com.au/product/envy-colt-s6-complete-scooter-silver
+- [ ] https://ebikesforsale.com.au/product/envy-delux-scooter-wheel-1pc-120x26mm-green
+- [ ] https://ebikesforsale.com.au/product/envy-gap-core-scooter-wheel-1pc-120x24mm-black-teal
+- [ ] https://ebikesforsale.com.au/product/envy-hardware-pack-general
+- [ ] https://ebikesforsale.com.au/product/envy-jon-reyes-scooter-wheel-1pc-120mm-green-teal
+- [ ] https://ebikesforsale.com.au/product/envy-omen-scs-4-bolt-scooter-clamp-chrome
+- [ ] https://ebikesforsale.com.au/product/envy-omen-scs-4-bolt-scooter-clamp-splatter
+- [ ] https://ebikesforsale.com.au/product/envy-one-s3-scooter-pink-teal
+- [ ] https://ebikesforsale.com.au/product/envy-one-s3-scooter-purple-teal
+- [ ] https://ebikesforsale.com.au/product/envy-one-s3-scooter-teal-black
+- [ ] https://ebikesforsale.com.au/product/envy-prodigy-x-one-complete-scooter-black-oil-slick
+- [ ] https://ebikesforsale.com.au/product/envy-prodigy-x-one-complete-scooter-blue
+- [ ] https://ebikesforsale.com.au/product/envy-prodigy-x-one-complete-scooter-oil-slick
+- [ ] https://ebikesforsale.com.au/product/envy-prodigy-x-one-complete-scooter-orange
+- [ ] https://ebikesforsale.com.au/product/envy-prodigy-x-one-complete-scooter-silver
+- [ ] https://ebikesforsale.com.au/product/envy-prodigy-x-one-street-complete-scooter-black
+- [ ] https://ebikesforsale.com.au/product/envy-prodigy-x-one-street-complete-scooter-ivory
+- [ ] https://ebikesforsale.com.au/product/envy-prodigy-x-one-street-complete-scooter-olive
+- [ ] https://ebikesforsale.com.au/product/envy-scooter-hand-grips-v3-160mm-black
+- [ ] https://ebikesforsale.com.au/product/envy-scooter-hand-grips-v3-160mm-black-teal
+- [ ] https://ebikesforsale.com.au/product/envy-scooter-hand-grips-v3-160mm-green-black
+- [ ] https://ebikesforsale.com.au/product/envy-scooter-hand-grips-v3-160mm-grey-black
+- [ ] https://ebikesforsale.com.au/product/envy-scooter-hand-grips-v3-160mm-light-blue-red
+- [ ] https://ebikesforsale.com.au/product/envy-scooter-hand-grips-v3-160mm-orange-red
+- [ ] https://ebikesforsale.com.au/product/envy-scooter-hand-grips-v3-160mm-teal
+- [ ] https://ebikesforsale.com.au/product/envy-sector-scooter-wheel-1pc-120mm-copper-black
+- [ ] https://ebikesforsale.com.au/product/envy-v2-scooter-stand
+- [ ] https://ebikesforsale.com.au/product/envy-will-scott-signature-scooter-grips-green-teal
+- [ ] https://ebikesforsale.com.au/product/envy-will-scott-signature-scooter-grips-purple-teal
+- [ ] https://ebikesforsale.com.au/product/ezigrip-enduro-2-2-bike-tow-ball-rack
+- [ ] https://ebikesforsale.com.au/product/favero-assioma-pro-rs-2-power-pedals-dual-sided-spd-sl
+- [ ] https://ebikesforsale.com.au/product/fist-caroline-buchanan-mini-sprinkles-full-finger-youth-mtb-gloves
+- [ ] https://ebikesforsale.com.au/product/fist-ch24-stocker-mtb-gloves-fluoro-blue
+- [ ] https://ebikesforsale.com.au/product/fist-ch24-stocker-mtb-gloves-fluoro-green-black
+- [ ] https://ebikesforsale.com.au/product/fist-ch24-stocker-mtb-gloves-fluoro-pink-black
+- [ ] https://ebikesforsale.com.au/product/fist-ch24-stocker-mtb-gloves-fluoro-yellow-black
+- [ ] https://ebikesforsale.com.au/product/fist-ch27-strapped-gloves-build
+- [ ] https://ebikesforsale.com.au/product/fist-ch27-strapped-gloves-fruit-punch
+- [ ] https://ebikesforsale.com.au/product/fist-ch28-mtb-gloves-100-nuts
+- [ ] https://ebikesforsale.com.au/product/fist-ch28-mtb-gloves-corey-creed-to-the-moon
+- [ ] https://ebikesforsale.com.au/product/fist-ch28-mtb-gloves-r-willy-ace
+- [ ] https://ebikesforsale.com.au/product/fist-ch28-mtb-gloves-speedway
+- [ ] https://ebikesforsale.com.au/product/fist-full-finger-youth-mtb-gloves-camo-stocker
+- [ ] https://ebikesforsale.com.au/product/fist-stocker-glove-black
+- [ ] https://ebikesforsale.com.au/product/fist-stocker-youth-gloves-camo-green
+- [ ] https://ebikesforsale.com.au/product/fox-defend-full-finger-gloves-black
+- [ ] https://ebikesforsale.com.au/product/fox-mainframe-mips-mtb-helmet-fluro-red-2025
+- [ ] https://ebikesforsale.com.au/product/fox-proframe-mips-full-face-helmet-matte-black
+- [ ] https://ebikesforsale.com.au/product/fox-rampage-comp-mips-fullface-helmet-matte-black
+- [ ] https://ebikesforsale.com.au/product/fox-rampage-full-face-mips-helmet-matte-black-2025
+- [ ] https://ebikesforsale.com.au/product/fox-ranger-full-finger-gloves-black-2023
+- [ ] https://ebikesforsale.com.au/product/fox-ranger-full-finger-gloves-black-2024
+- [ ] https://ebikesforsale.com.au/product/fox-speedframe-charge-youth-mtb-helmet-uni-51-55cm
+- [ ] https://ebikesforsale.com.au/product/fox-speedframe-mips-helmet-twilight-blue
+- [ ] https://ebikesforsale.com.au/product/fox-speedframe-mips-mtb-helmet-solid-white
+- [ ] https://ebikesforsale.com.au/product/fox-speedframe-pro-mips-mtb-helmet-black-green-50-years-edition
+- [ ] https://ebikesforsale.com.au/product/fox-speedframe-solid-mips-mtb-helmet-matte-black-2025
+- [ ] https://ebikesforsale.com.au/product/globber-explorer-4in1-kids-trike-w-folding-canopy-black
+- [ ] https://ebikesforsale.com.au/product/globber-explorer-4in1-kids-trike-w-folding-canopy-sand
+- [ ] https://ebikesforsale.com.au/product/globber-explorer-4in1-kids-trike-w-folding-canopy-teal
+- [ ] https://ebikesforsale.com.au/product/globber-flow-125-kids-scooter-with-light-up-wheels-navy
+- [ ] https://ebikesforsale.com.au/product/globber-flow-125-kids-scooter-with-light-up-wheels-ruby
+- [ ] https://ebikesforsale.com.au/product/globber-flow-125-kids-scooter-with-light-up-wheels-teal
+- [ ] https://ebikesforsale.com.au/product/globber-flow-element-lights-kick-scooter-neochrome-w-black-deck
+- [ ] https://ebikesforsale.com.au/product/globber-flow-foldable-junior-w-llights-2-wheel-kids-scooter-pastel-pink-fuschia
+- [ ] https://ebikesforsale.com.au/product/globber-go-up-active-lights-360-3-wheel-kids-scooter-mint-dark-mint
+- [ ] https://ebikesforsale.com.au/product/globber-go-up-foldable-plus-lights-3-wheel-kids-scooter-blue
+- [ ] https://ebikesforsale.com.au/product/globber-learning-inline-kids-skates-2in1-ash-blue
+- [ ] https://ebikesforsale.com.au/product/globber-learning-trike-2-in-1-plus-ecologic-trike-balance-bike-pistachio
+- [ ] https://ebikesforsale.com.au/product/globber-nl-230-205-duo-kick-scooter-black-pink
+- [ ] https://ebikesforsale.com.au/product/globber-nl-230-205-duo-kick-scooter-black-teal
+- [ ] https://ebikesforsale.com.au/product/globber-primo-3-wheel-foldable-kids-scooter-with-lights-neochrome
+- [ ] https://ebikesforsale.com.au/product/globber-primo-foldable-lights-kids-scooter-fuschia-fuschia
+- [ ] https://ebikesforsale.com.au/product/globber-primo-foldable-lights-kids-scooter-navy-blue-dark-navy-blue
+- [ ] https://ebikesforsale.com.au/product/globber-primo-foldable-lights-scooter-sky-blue-navy-blue
+- [ ] https://ebikesforsale.com.au/product/globber-primo-kids-foldable-lights-scooter-neon-pink
+- [ ] https://ebikesforsale.com.au/product/globber-scooter-combo-cable-lock-pink
+- [ ] https://ebikesforsale.com.au/product/grit-elite-5-stunt-scooter-blackened
+- [ ] https://ebikesforsale.com.au/product/grit-elite-6-stunt-scooter-greyed
+- [ ] https://ebikesforsale.com.au/product/grit-extremist-4-8-stunt-scooter-blackened
+- [ ] https://ebikesforsale.com.au/product/grit-fluxx-4-8-stunt-scooter-neochrome
+- [ ] https://ebikesforsale.com.au/product/grit-invader-6-5-stunt-scooter-raw-silver
+- [ ] https://ebikesforsale.com.au/product/hornit-airo-kids-helmet-turquoise
+- [ ] https://ebikesforsale.com.au/product/jetblack-comp-2-0-fullface-helmet-white
+- [ ] https://ebikesforsale.com.au/product/jetblack-good-fella-2-0-top-mounted-gauge-steel-floor-pump-w-smart-head
+- [ ] https://ebikesforsale.com.au/product/jetblack-lightweight-bottle-cage
+- [ ] https://ebikesforsale.com.au/product/jetblack-little-fella-2-0-floor-pump-120psi
+- [ ] https://ebikesforsale.com.au/product/jetblack-reversible-sidepull-comp-bottle-cage-black
+- [ ] https://ebikesforsale.com.au/product/jetblack-universal-rear-mount-adjustable-kickstand-24-29
+- [ ] https://ebikesforsale.com.au/product/jetblack-victory-smart-trainer-with-zwift-cog-click
+- [ ] https://ebikesforsale.com.au/product/jetblack-workmate-workstand-black
+- [ ] https://ebikesforsale.com.au/product/kids-ride-shotgun-shotgun-2-0-kids-seat-and-handlebar-combo-black
+- [ ] https://ebikesforsale.com.au/product/klip-nova-flex-smart-tag-black
+- [ ] https://ebikesforsale.com.au/product/klip-nova-flex-smart-tags-4-pack-black
+- [ ] https://ebikesforsale.com.au/product/magene-teo-p515-power-meter-crankset-172-5mm
+- [ ] https://ebikesforsale.com.au/product/magnum-combo-coil-cable-lock-180-x-8
+- [ ] https://ebikesforsale.com.au/product/magnum-x2p-u-lock-cable
+- [ ] https://ebikesforsale.com.au/product/maurten-gel-100-energy-gel-40g-sachet
+- [ ] https://ebikesforsale.com.au/product/my-scooter-parts-6-bolt-e-scooter-brake-disc-rotor-120mm-dragon-kaabo-mercane
+- [ ] https://ebikesforsale.com.au/product/pedal-roar-steel-24-kids-bike-turquoise-blue
+- [ ] https://ebikesforsale.com.au/product/pirelli-cinturato-gravel-performance-h-gravel-tyre-700-x-40c-black
+- [ ] https://ebikesforsale.com.au/product/pirelli-sportube-presta-valve-tube-700-x-23-30-48mm
+- [ ] https://ebikesforsale.com.au/product/polar-pro-chest-strap-for-polar-hrms-xs-s-60-68cm-black
+- [ ] https://ebikesforsale.com.au/product/qbp-rear-mount-adjustable-kickstand-24-29-disc-brake-compatible
+- [ ] https://ebikesforsale.com.au/product/quad-lock-out-front-mount-v3
+- [ ] https://ebikesforsale.com.au/product/raven-bmx-helmet-satin-black
+- [ ] https://ebikesforsale.com.au/product/raven-bmx-helmet-satin-white
+- [ ] https://ebikesforsale.com.au/product/raven-corvus-mtb-helmet-with-magnetic-clip-satin-blue
+- [ ] https://ebikesforsale.com.au/product/raven-corvus-mtb-helmet-with-magnetic-clip-satin-grey
+- [ ] https://ebikesforsale.com.au/product/raven-rv1-scooter-blackout-sunrise
+- [ ] https://ebikesforsale.com.au/product/raven-rv1-scooter-oil-slick
+- [ ] https://ebikesforsale.com.au/product/raven-rv1-scooter-oil-slick-series-2
+- [ ] https://ebikesforsale.com.au/product/raven-rv2-scooter-gold
+- [ ] https://ebikesforsale.com.au/product/selle-royal-look-in-moderate-saddle
+- [ ] https://ebikesforsale.com.au/product/shokz-openrun-pro-2-bluetooth-open-ear-headphones-black
+- [ ] https://ebikesforsale.com.au/product/shokz-openswim-pro-waterproof-headphones-bluetooth-mp3-32gb-grey
+- [ ] https://ebikesforsale.com.au/product/sram-quarq-dzero-power-meter-dub-crankset-172-5mm-52-36t-110-bcd
+- [ ] https://ebikesforsale.com.au/product/vital-tyke-3-wheel-scooter-with-removable-seat-pink
+- [ ] https://ebikesforsale.com.au/product/vital-tyke-3-wheel-scooter-with-removable-seat-purple
+- [ ] https://ebikesforsale.com.au/product/vital-tyke-3-wheel-scooter-with-removable-seat-red
+- [ ] https://ebikesforsale.com.au/product/vital-tyke-3-wheel-scooter-with-removable-seat-teal
+- [ ] https://ebikesforsale.com.au/product/zwift-ride-with-kickr-core-2-smart-trainer
+
+## Skipped on purpose
+- /sitemap.xml, /legal, /policies, /brands/pulse (no search value)
