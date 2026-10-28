@@ -63,8 +63,8 @@ export default function PolicyPages({ asSection = false }: { asSection?: boolean
                 We dispatch e-bikes Australia-wide from strategically located distribution centers in Brisbane, Sydney, and Melbourne. 
               </p>
               <div className="bg-white p-4 rounded-2xl border border-gray-200 space-y-2 text-xs">
-                <p><strong>Standard Metropolitan Transit:</strong> 2–4 Business Days</p>
-                <p><strong>Regional & Remote Transit:</strong> 4–7 Business Days</p>
+                <p><strong>Standard Metropolitan Transit:</strong> 2–5 Business Days</p>
+                <p><strong>Regional & Remote Transit:</strong> 2–5 Business Days</p>
                 <p><strong>Delivery Dispatch Timeframe:</strong> 2–5 Business Days Metro (Australia-Wide Fast Courier Dispatch)</p>
                 <p><strong>Delivery Carrier Partners:</strong> Direct freight specialist couriers equipped with tail-lift trucks for heavy e-bike cartons.</p>
               </div>

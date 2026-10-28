@@ -62,14 +62,14 @@ const ANNOUNCEMENT_SLIDES = [
 ];
 
 const AUSTRALIAN_LOCATIONS = [
-  { state: 'QLD', postcode: '4000', city: 'Brisbane Metro', deliveryDays: '2-3 Business Days', shippingFee: 0 },
-  { state: 'NSW', postcode: '2000', city: 'Sydney Metro', deliveryDays: '2-4 Business Days', shippingFee: 0 },
-  { state: 'VIC', postcode: '3000', city: 'Melbourne Metro', deliveryDays: '2-4 Business Days', shippingFee: 0 },
-  { state: 'WA', postcode: '6000', city: 'Perth Metro', deliveryDays: '4-6 Business Days', shippingFee: 0 },
-  { state: 'SA', postcode: '5000', city: 'Adelaide Metro', deliveryDays: '3-5 Business Days', shippingFee: 0 },
-  { state: 'TAS', postcode: '7000', city: 'Hobart Metro', deliveryDays: '4-6 Business Days', shippingFee: 0 },
-  { state: 'ACT', postcode: '2600', city: 'Canberra Region', deliveryDays: '2-3 Business Days', shippingFee: 0 },
-  { state: 'NT', postcode: '0800', city: 'Darwin Regional', deliveryDays: '5-8 Business Days', shippingFee: 0 },
+  { state: 'QLD', postcode: '4000', city: 'Brisbane Metro', deliveryDays: '2-5 Business Days', shippingFee: 0 },
+  { state: 'NSW', postcode: '2000', city: 'Sydney Metro', deliveryDays: '2-5 Business Days', shippingFee: 0 },
+  { state: 'VIC', postcode: '3000', city: 'Melbourne Metro', deliveryDays: '2-5 Business Days', shippingFee: 0 },
+  { state: 'WA', postcode: '6000', city: 'Perth Metro', deliveryDays: '2-5 Business Days', shippingFee: 0 },
+  { state: 'SA', postcode: '5000', city: 'Adelaide Metro', deliveryDays: '2-5 Business Days', shippingFee: 0 },
+  { state: 'TAS', postcode: '7000', city: 'Hobart Metro', deliveryDays: '2-5 Business Days', shippingFee: 0 },
+  { state: 'ACT', postcode: '2600', city: 'Canberra Region', deliveryDays: '2-5 Business Days', shippingFee: 0 },
+  { state: 'NT', postcode: '0800', city: 'Darwin Regional', deliveryDays: '2-5 Business Days', shippingFee: 0 },
 ];
 
 export default function Header() {

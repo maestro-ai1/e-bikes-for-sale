@@ -341,7 +341,7 @@ export const WHOLESALE_BENEFITS = [
   },
   {
     title: 'Direct Australian Parts Inventory',
-    description: 'Guaranteed local stock of replacement batteries, motors, controllers, brake pads, and tyres with expedited 24-48hr courier dispatch.',
+    description: 'Guaranteed local stock of replacement batteries, motors, controllers, brake pads, and tyres with courier delivery in 2-5 business days.',
     icon: 'PackageCheck'
   },
   {

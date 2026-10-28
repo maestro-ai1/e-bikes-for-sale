@@ -432,7 +432,7 @@ export default function ProductLandingPage({ initialProduct }: ProductLandingPag
                 <span>Fast Nationwide Delivery to {currentLocation.city} ({currentLocation.postcode})</span>
               </div>
               <p className="text-gray-500 pl-6 leading-relaxed">
-                Dispatches within 24-48 hours. Fully insured courier transit with pre-delivery technician safety inspection.
+                Delivery in 2-5 business days. Fully insured courier transit with pre-delivery technician safety inspection.
               </p>
               <div className="flex items-center gap-4 pl-6 text-[11px] text-gray-500 pt-1">
                 <span className="flex items-center gap-1">

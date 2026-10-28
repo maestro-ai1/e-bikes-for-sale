@@ -59,7 +59,7 @@ const DEFAULT_LOCATION: LocationState = {
   state: 'QLD',
   postcode: '4000',
   city: 'Brisbane Metro',
-  deliveryDays: '2-3 Business Days',
+  deliveryDays: '2-5 Business Days',
   shippingFee: 0,
 };
 

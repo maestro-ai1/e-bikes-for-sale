@@ -69,7 +69,7 @@ export default function ProductDetailModal() {
   const handlePostcodeCheck = (e: React.FormEvent) => {
     e.preventDefault();
     if (postcodeCheck.length >= 4) {
-      setPostcodeStatus(`Postcode ${postcodeCheck}: Express courier delivery estimated in 2-4 business days. Qualifies for Free Delivery on orders over $1500!`);
+      setPostcodeStatus(`Postcode ${postcodeCheck}: Express courier delivery estimated in 2-5 business days. Qualifies for Free Delivery on orders over $1500!`);
     }
   };
 

@@ -88,7 +88,7 @@ export default function PartsLandingPage() {
     },
     {
       question: 'How fast do spare parts dispatch across Australia?',
-      answer: 'All spare tyres, inner tubes, brake pads, chains, and workshop tools dispatch within 24 business hours from our Sydney, Melbourne, and Brisbane logistics hubs with Australia Post tracking. Express courier delivery is available at checkout.'
+      answer: 'All spare tyres, inner tubes, brake pads, chains, and workshop tools are delivered in 2-5 business days from our Sydney, Melbourne, and Brisbane logistics hubs with Australia Post tracking. Express courier delivery is available at checkout.'
     },
     {
       question: 'Do you offer a crypto discount on replacement parts and tyres?',
@@ -141,7 +141,7 @@ export default function PartsLandingPage() {
               </span>
               <span className="inline-flex items-center gap-1.5 bg-white/10 text-white text-xs px-3 py-1.5 rounded-lg font-medium backdrop-blur-xs">
                 <Truck className="w-3.5 h-3.5 text-emerald-400" />
-                Dispatched Within 24 Hours
+                Delivered in 2-5 Business Days
               </span>
               <span className="inline-flex items-center gap-1.5 bg-white/10 text-white text-xs px-3 py-1.5 rounded-lg font-medium backdrop-blur-xs">
                 <Package className="w-3.5 h-3.5 text-emerald-400" />
