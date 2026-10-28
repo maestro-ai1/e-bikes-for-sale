@@ -23,6 +23,28 @@ Property: `sc-domain:ebikesforsale.com.au` (Google account proppsptyltd@gmail.co
 ## Next session - do these first (confirmed NOT on Google)
 - [ ] https://ebikesforsale.com.au/blog/electric-bike-with-child-seat-australia - quota hit before this could be requested
 
+## Tier 0 - blog batch 2 (20 new guides, added 2026-10-28; request these first after the push)
+- [ ] https://ebikesforsale.com.au/blog/discount-electric-bikes-australia
+- [ ] https://ebikesforsale.com.au/blog/mid-drive-electric-bikes-guide
+- [ ] https://ebikesforsale.com.au/blog/hybrid-bike-guide-australia
+- [ ] https://ebikesforsale.com.au/blog/fast-e-bicycle-guide-australia
+- [ ] https://ebikesforsale.com.au/blog/bike-computers-guide-australia
+- [ ] https://ebikesforsale.com.au/blog/best-folding-electric-bike-australia
+- [ ] https://ebikesforsale.com.au/blog/best-electric-mountain-bike-australia
+- [ ] https://ebikesforsale.com.au/blog/electric-bike-repair-guide-australia
+- [ ] https://ebikesforsale.com.au/blog/e-bike-li-ion-battery-safety-guide
+- [ ] https://ebikesforsale.com.au/blog/electric-bicycle-reviews-australia
+- [ ] https://ebikesforsale.com.au/blog/australian-e-bikes-brands-guide
+- [ ] https://ebikesforsale.com.au/blog/small-e-bike-guide-australia
+- [ ] https://ebikesforsale.com.au/blog/kids-e-bike-guide-by-age
+- [ ] https://ebikesforsale.com.au/blog/electric-bike-hub-motor-guide
+- [ ] https://ebikesforsale.com.au/blog/lightweight-electric-bicycle-guide
+- [ ] https://ebikesforsale.com.au/blog/electric-bicycle-500-watt-legal-guide
+- [ ] https://ebikesforsale.com.au/blog/electric-dual-suspension-mountain-bike-guide
+- [ ] https://ebikesforsale.com.au/blog/bike-helmets-for-infants-guide
+- [ ] https://ebikesforsale.com.au/blog/ebike-mods-legal-guide
+- [ ] https://ebikesforsale.com.au/blog/bike-with-basket-in-the-front-electric-guide
+
 ## Tier 1 - blog guides (informational, link to products) (2)
 - [ ] https://ebikesforsale.com.au/blog/bike-size-guide-electric-bicycles
 - [ ] https://ebikesforsale.com.au/blog/electric-bike-kids-guide

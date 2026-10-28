@@ -10,10 +10,29 @@ const GUIDE = {
   childSeat: { label: 'Electric bike with child seat in Australia', href: '/blog/electric-bike-with-child-seat-australia' },
   size: { label: 'E-bike size guide: frame and height chart', href: '/blog/bike-size-guide-electric-bicycles' },
   motor: { label: 'E bike motor guide: hub vs mid-drive', href: '/blog/e-bike-motor-guide-hub-vs-mid-drive' },
+  discount: { label: 'Discount electric bikes: real deals vs fake sales', href: '/blog/discount-electric-bikes-australia' },
+  midDrive: { label: 'Mid drive electric bikes: who needs one and what they cost', href: '/blog/mid-drive-electric-bikes-guide' },
+  hybrid: { label: 'Hybrid bike guide: why electric hybrids suit Australian roads', href: '/blog/hybrid-bike-guide-australia' },
+  fast: { label: 'Fast e bicycle guide: how fast is legal', href: '/blog/fast-e-bicycle-guide-australia' },
+  computers: { label: 'Bike computers for e-bike riders: GPS, maps and sensors', href: '/blog/bike-computers-guide-australia' },
+  bestFolding: { label: 'Best folding electric bike Australia: picks by use and budget', href: '/blog/best-folding-electric-bike-australia' },
+  bestEmtb: { label: 'Best electric mountain bike Australia: trail picks for 2026', href: '/blog/best-electric-mountain-bike-australia' },
+  repair: { label: 'Electric bike repair: what you can fix and when to call a pro', href: '/blog/electric-bike-repair-guide-australia' },
+  liIon: { label: 'E bike li ion battery guide: safety, storage and charging', href: '/blog/e-bike-li-ion-battery-safety-guide' },
+  reviews: { label: 'Electric bicycle reviews Australia: how to read them', href: '/blog/electric-bicycle-reviews-australia' },
+  australian: { label: 'Australian e bikes: brands, models and what to know', href: '/blog/australian-e-bikes-brands-guide' },
+  small: { label: 'Small e bike guide: compact bikes for tight spaces', href: '/blog/small-e-bike-guide-australia' },
+  kidsAge: { label: 'Kids e bike guide by age: 6, 10 and teens', href: '/blog/kids-e-bike-guide-by-age' },
+  hub: { label: 'Electric bike hub motor guide: pros, cons and models', href: '/blog/electric-bike-hub-motor-guide' },
+  light: { label: 'Lightweight electric bicycle guide: what light really means', href: '/blog/lightweight-electric-bicycle-guide' },
+  watt500: { label: 'Electric bicycle 500 watt: is it legal in Australia?', href: '/blog/electric-bicycle-500-watt-legal-guide' },
+  dualSusp: { label: 'Electric dual suspension mountain bike: is full suspension worth it?', href: '/blog/electric-dual-suspension-mountain-bike-guide' },
+  infants: { label: 'Bike helmets for infants: fit, standards and when to wait', href: '/blog/bike-helmets-for-infants-guide' },
+  mods: { label: 'Ebike mods: what is legal, safe and warranty-friendly', href: '/blog/ebike-mods-legal-guide' },
+  basket: { label: 'Bike with basket in the front: electric options', href: '/blog/bike-with-basket-in-the-front-electric-guide' },
 } satisfies Record<string, GuideLink>;
 
-const PATH_GUIDES: Record<string, GuideLink[]> = {
-  '/ebikes': [GUIDE.size, GUIDE.motor],
+const PATH_GUIDES: Record<string, GuideLink[]> = {  '/ebikes': [GUIDE.size, GUIDE.motor],
   '/ebikes/electric-mountain-bike': [GUIDE.emtb, GUIDE.motor],
   '/ebikes/electric-mountain-bike/hardtail': [GUIDE.emtb],
   '/ebikes/electric-mountain-bike/dual-suspension': [GUIDE.emtb],
@@ -30,4 +49,29 @@ const PATH_GUIDES: Record<string, GuideLink[]> = {
   '/e-bike-accessories': [GUIDE.childSeat],
 };
 
-export const guideLinksFor = (path: string): GuideLink[] => PATH_GUIDES[path] ?? [];
+// Newer guides (blog batch 2): extra inbound links from the category, brand and gear pages
+const PATH_GUIDES_2: Record<string, GuideLink[]> = {
+  '/brands/merida': [GUIDE.reviews],
+  '/brands/cube': [GUIDE.midDrive],
+  '/brands/pedal': [GUIDE.australian],
+  '/kids-bike-helmets': [GUIDE.infants],
+  '/e-bike-accessories': [GUIDE.computers, GUIDE.basket],
+  '/e-bike-parts': [GUIDE.repair, GUIDE.mods],
+  '/electric-bike-conversion-kits': [GUIDE.watt500, GUIDE.mods],
+  '/electric-bike-batteries': [GUIDE.liIon],
+  '/cheap-electric-bikes': [GUIDE.discount],
+  '/electric-hybrid-bikes': [GUIDE.hybrid, GUIDE.midDrive, GUIDE.watt500],
+  '/ebikes/kids-electric-bikes': [GUIDE.kidsAge],
+  '/ebikes/electric-cruiser-bikes': [GUIDE.basket],
+  '/ebikes/electric-commuter-bikes': [GUIDE.hybrid, GUIDE.light],
+  '/ebikes/electric-road-bikes': [GUIDE.fast, GUIDE.light],
+  '/ebikes/fat-tyre-electric-bicycle': [GUIDE.hub],
+  '/ebikes/folding-e-bike': [GUIDE.bestFolding, GUIDE.small],
+  '/ebikes/electric-mountain-bike/enduro': [GUIDE.dualSusp],
+  '/ebikes/electric-mountain-bike/dual-suspension': [GUIDE.dualSusp],
+  '/ebikes/electric-mountain-bike/hardtail': [GUIDE.bestEmtb],
+  '/ebikes/electric-mountain-bike': [GUIDE.bestEmtb, GUIDE.midDrive],
+  '/ebikes': [GUIDE.reviews, GUIDE.australian],
+};
+
+export const guideLinksFor = (path: string): GuideLink[] => [...(PATH_GUIDES[path] ?? []), ...(PATH_GUIDES_2[path] ?? [])];
