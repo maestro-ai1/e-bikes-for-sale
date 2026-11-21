@@ -273,7 +273,7 @@ export default function Header() {
               Select Your Australian Shipping Region
             </h3>
             <p className="text-xs text-gray-500 mb-4">
-              We deliver Australia-wide. Orders over $1,500 qualify for free standard metropolitan delivery.
+              We deliver Australia-wide. Orders over $500 qualify for free standard metropolitan delivery.
             </p>
 
             <div className="grid grid-cols-2 gap-2 mb-4">

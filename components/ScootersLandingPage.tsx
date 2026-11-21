@@ -120,7 +120,7 @@ export default function ScootersLandingPage() {
 
           <p className="text-sm sm:text-base text-gray-200 max-w-3xl leading-relaxed">
             Shop Australia&apos;s finest selection of street-compliant adult commuter electric scooters, safe 3-wheel lean-to-steer kids scooters, and heavy-duty scooter security locks. 
-            Enjoy free metro delivery on orders over $1,500 and an <strong>extra 10% discount when paying with Bitcoin or USDT</strong>.
+            Enjoy free metro delivery on orders over $500 and an <strong>extra 10% discount when paying with Bitcoin or USDT</strong>.
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3 max-w-3xl">

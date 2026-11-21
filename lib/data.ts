@@ -313,7 +313,7 @@ export const HOMEPAGE_FAQS: FAQItem[] = [
   },
   {
     question: 'Which areas do you deliver to?',
-    answer: 'We deliver Australia-wide across New South Wales, Victoria, Queensland, Western Australia, South Australia, Tasmania, ACT, and the Northern Territory. Orders over $1,500 receive Free Standard Delivery to all Australian metropolitan zones.'
+    answer: 'We deliver Australia-wide across New South Wales, Victoria, Queensland, Western Australia, South Australia, Tasmania, ACT, and the Northern Territory. Orders over $500 receive Free Standard Delivery to all Australian metropolitan zones.'
   },
   {
     question: 'How is the e bike packaged for delivery?',

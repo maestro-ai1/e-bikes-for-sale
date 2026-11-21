@@ -190,7 +190,7 @@ export default function EbikesLandingPage() {
               </div>
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-xs p-2.5 rounded-xl border border-white/10 text-xs">
                 <Truck className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>Free Delivery Over $1,500</span>
+                <span>Free Delivery Over $500</span>
               </div>
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-xs p-2.5 rounded-xl border border-white/10 text-xs">
                 <Coins className="w-4 h-4 text-emerald-300 shrink-0" />

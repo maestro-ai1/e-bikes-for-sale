@@ -289,7 +289,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     return total + itemUnit * item.quantity;
   }, 0);
 
-  // Free shipping over threshold ($1500)
+  // Free shipping over threshold ($500)
   const shippingCost = cartSubtotal >= BUSINESS_INFO.freeDeliveryThreshold || cartSubtotal === 0 ? 0 : 75;
 
   // 10% Crypto discount
