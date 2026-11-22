@@ -135,6 +135,9 @@ export const TRANSACTIONAL_KEYWORDS: Record<string, string[]> = {
     "electric scooter for beginners", // 40 / KD 6
     "electric scooter battery 48v", // 30 / KD 3
     "e2 plus electric scooter", // 30 / KD 9
+    "electric scooters for sale", // 590 / KD 14 (T, refreshed 2026-11-22)
+    "cheapest electric scooters", // 390 / KD 19 (T, refreshed 2026-11-22)
+    "scooter electric folding", // 70 / KD 6 (TI, refreshed 2026-11-22)
   ],
   'cargo': [
     "cargo e bikes for sale", // 30 / KD 7
@@ -254,6 +257,7 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "best budget electric bike", // 170 / KD 6 (C, refreshed 2026-11-22)
     "budget electric bike", // 170 / KD 23 (C, refreshed 2026-11-22)
     "e bike affordable", // 170 / KD 26 (C, refreshed 2026-11-22)
+    "cheapest best electric bike", // 210 / KD 23 (C, refreshed 2026-11-22)
   ],
   'city-melbourne': [
     "e bike melbourne", // 480 / KD 26 (Commercial)
@@ -295,6 +299,7 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "72v 2000w ebike kit with battery", // 210 / KD 6 (C, refreshed 2026-11-22)
     "electric bike kits", // 210 / KD 3 (C, refreshed 2026-11-22)
     "2000w electric bike kit", // 170 / KD 10 (CI, refreshed 2026-11-22)
+    "mid drive electric bike kit", // 320 / KD 17 (C, refreshed 2026-11-22)
   ],
   'emtb': [
     "mtb entry level", // 390 / KD 20 (Commercial)
@@ -497,6 +502,7 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "e-bike pedal", // 260 / KD 9 (C, refreshed 2026-11-22)
     "e bike tyres", // 170 / KD 10 (C, refreshed 2026-11-22)
     "ebike display", // 210 / KD 17 (TI, refreshed 2026-11-22)
+    "throttle ebike", // 210 / KD 24 (C, refreshed 2026-11-22)
   ],
   'city-brisbane': [
     "electric bike for sale brisbane", // 50 / KD 21 (Transactional)
@@ -521,6 +527,7 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "ninebot e2 pro km", // 30 / KD 10 (Commercial)
     "ninebot e2 pro motor", // 30 / KD 8 (Transactional)
     "segway e2 plus ii", // 30 / KD 18 (Commercial)
+    "electric scooter ninebot", // 480 / KD 11 (C, refreshed 2026-11-22)
   ],
   'brand-pulse': [
     "pulse bicycles", // 50 / KD 8 (Commercial)
@@ -553,6 +560,7 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "folding bike helmet", // 30 / KD 17 (Commercial)
     "nta 8776 e bike helmet", // 30 / KD 11 (Commercial)
     "10 month old bike helmet", // 20 / KD 7 (Commercial)
+    "electric scooter helmet", // 320 / KD 10 (CI, refreshed 2026-11-22)
   ],
   'city-sydney': [
     "cargo bike sydney", // 30 / KD 21 (Commercial)
@@ -571,6 +579,14 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
   ],
   'sc-electric': [
     "scooter cushion", // 20 / KD 6 (Transactional)
+    "kids electric scooter", // 3600 / KD 13 (C, refreshed 2026-11-22)
+    "electric childrens scooters", // 2900 / KD 12 (C, refreshed 2026-11-22)
+    "cheap electric scooter", // 880 / KD 8 (C, refreshed 2026-11-22)
+    "best electric scooter australia", // 720 / KD 16 (C, refreshed 2026-11-22)
+    "electric commuter scooter", // 590 / KD 9 (CI, refreshed 2026-11-22)
+    "foldable electric scooter", // 590 / KD 7 (C, refreshed 2026-11-22)
+    "electric scooter under $500", // 480 / KD 19 (C, refreshed 2026-11-22)
+    "electric scooter commute", // 320 / KD 11 (C, refreshed 2026-11-22)
   ],
   'brand-pedal': [
   ],
@@ -579,6 +595,9 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
   ],
   'city-hobart': [
     "electric bikes tasmania", // 210 / KD 10 (C, refreshed 2026-11-22)
+  ],
+  'sc-adults': [
+    "electric scooter for adults australia cheap", // 320 / KD 8 (C, refreshed 2026-11-22)
   ],
 };
 
