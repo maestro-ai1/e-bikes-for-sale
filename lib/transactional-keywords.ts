@@ -579,8 +579,6 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
   ],
   'sc-electric': [
     "scooter cushion", // 20 / KD 6 (Transactional)
-    "kids electric scooter", // 3600 / KD 13 (C, refreshed 2026-11-22)
-    "electric childrens scooters", // 2900 / KD 12 (C, refreshed 2026-11-22)
     "cheap electric scooter", // 880 / KD 8 (C, refreshed 2026-11-22)
     "best electric scooter australia", // 720 / KD 16 (C, refreshed 2026-11-22)
     "electric commuter scooter", // 590 / KD 9 (CI, refreshed 2026-11-22)
