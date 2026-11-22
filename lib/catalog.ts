@@ -474,11 +474,11 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
     navLabel: 'Electric Scooters',
     title: 'Push Scooter Electric Australia | Kids & Adult E-Scooters',
     description:
-      'Shop a push scooter electric model in Australia: commuter e-scooters, kids 3-wheel scooters, adult scooters and accessories. Foldable, with disc brakes.',
+      'Shop a push scooter electric model in Australia: Segway-Ninebot electric scooters from $279, kids push scooters from $119, plus scooter parts and accessories.',
     h1: 'Electric Scooters: Push Scooter Electric Range for Kids & Adults',
     intro: [
-      'An electric scooter is a fast, compact way to cover short trips. Our range includes a foldable commuter e-scooter, an adult dual-brake scooter, a kids 3-wheel scooter with a speed governor, and a lock and bag kit.',
-      'A commuter e-scooter combines a 350W-class motor, a folding frame and a battery sized for daily trips. Compare watt-hours, brakes and weight.',
+      'An electric scooter is a fast, compact way to cover short trips. Our range includes eight Segway-Ninebot electric scooters from $279 to $1,694, kids push scooters from Globber, Envy and Vital, and scooter parts and accessories.',
+      'A commuter e-scooter combines a motor, a battery sized for daily trips and a frame you can carry. Compare motor power, battery size, brakes and weight on each product page.',
     ],
     bridge: {
       heading: 'Push scooter or electric foot scooter?',
@@ -489,11 +489,11 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
       { heading: 'What to check before buying an e-scooter', body: 'Look at motor power, battery capacity, brake type, tyre style (pneumatic for comfort, honeycomb for puncture resistance), weight and the maximum rider load. State rules for e-scooters differ, and some set speed and power limits. Top-rated electric scooters and folding electric scooters share a few traits: reliable brakes, a sealed battery and a clear payload rating. Compare any e scooter price in australia against battery size and warranty.' },
     ],
     faqs: [
-      { q: 'What is the best electric scooter for commuting?', a: 'Choose a foldable model with a motor of around 350W, dual brakes and a battery matching your daily distance.' },
+      { q: 'What is the best electric scooter for commuting?', a: 'Choose a model with reliable brakes, a battery matching your daily distance and a weight you can carry. Compare the Segway-Ninebot range on this page and ask us if you want help choosing.' },
       { q: 'Are electric scooters legal in Australia?', a: 'Rules vary by state and are changing. Many states allow e-scooters on certain paths and roads with speed and power limits and helmet requirements. Check your state authority before riding.' },
-      { q: 'Is a push scooter electric model good for kids?', a: 'Kids should use models designed for them. Our kids scooter has a speed governor at 12 km/h and a rear foot brake. Always supervise and use a helmet.' },
+      { q: 'Is a push scooter electric model good for kids?', a: 'Our kids scooters are push scooters with no motor or battery. Electric scooters have rider age and weight limits set by the manufacturer and state rules, so check them before you buy for a child. Always supervise and use a helmet.' },
       { q: 'How long does a scooter battery last?', a: 'Range per charge depends on rider weight, terrain and speed. Battery lifespan depends on charging habits and storage.' },
-      { q: 'What accessories do I need for an e-scooter?', a: 'A certified helmet, a strong lock and a bag are the basics. Our lock and bag kit includes an anti-cut steel lock and a waterproof handlebar bag.' },
+      { q: 'What accessories do I need for an e-scooter?', a: 'A certified helmet and a strong lock are the basics. We list a Globber cable lock and a range of scooter parts such as wheels, grips and clamps.' },
     ],
     children: ['sc-adults', 'sc-kids', 'sc-accessories'],
     matches: (p) => p.category === 'scooters',
@@ -505,13 +505,13 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
     path: '/scooters/adults-scooters',
     name: 'Adults Scooters',
     navLabel: 'Adults Scooters',
-    title: 'E Scooter Adults Australia | Foldable Electric Scooters',
+    title: 'E Scooter Adults Australia | Segway Electric Scooters',
     description:
-      'Shop an e scooter adults can commute on: foldable, 120 kg payload, dual brakes, 350W motor and 10-inch pneumatic tyres. Delivered Australia-wide.',
-    h1: 'E Scooter Adults: Foldable Adult Electric Scooters',
+      'Shop an e scooter adults can commute on: Segway-Ninebot electric scooters from $279 to $1,694, delivered Australia-wide.',
+    h1: 'E Scooter Adults: Segway-Ninebot Adult Electric Scooters',
     intro: [
       'An adult e scooter needs a stronger frame, bigger tyres and reliable brakes than a kids model. Look for a high payload rating, dual brakes and 10-inch pneumatic comfort tyres.',
-      'It folds for storage and transport, weighs 14.5 kg and lists up to 45 km per charge on a 468 Wh battery.',
+      'Our adult range is Segway-Ninebot: the C2 Lite and C2 Pro, E2 Plus II and E2 Pro, E3 Pro, F3 and F3 Pro, and the MAX G3. Check each product page for the motor, battery and range, and ask us to confirm details before you order.',
     ],
     bridge: {
       heading: 'Adult escooter, foldable scooters and motorised options',

@@ -92,32 +92,32 @@ export const KIDS_NODES: KidsNode[] = [
     path: "/scooters/kids-scooters",
     name: "Kids Scooters",
     navLabel: "Kids Scooters",
-    title: "Kids E Scooter Australia | Childrens Electric Scooters",
+    title: "Kids Scooters Australia | Push, Foldable & 3-Wheel Scooters",
     description:
-      "Shop a kids e scooter in Australia: a lean-to-steer 3-wheel childrens electric scooter with a 12 km/h speed governor, LED wheels and a rear foot brake.",
-    h1: "Kids E Scooter: Childrens Electric Scooters",
+      "Shop kids scooters in Australia: 3-wheel and 2-wheel push scooters from Globber, Envy and Vital, from $119 to $305, with delivery Australia-wide.",
+    h1: "Kids Scooters: Push, Foldable and 3-Wheel Scooters",
     intro: [
-      "A kids e scooter is a fun way for children to get around the neighbourhood, but the speed and the build matter. Look for a lean-to-steer 3-wheel scooter with a speed governor and a rear brake.",
-      "It has LED wheels, a rear foot brake, a 180 Wh battery, a listed range of up to 20 km and weighs 6.8 kg, light enough for a parent to carry.",
+      "A kids scooter is a fun way for children to get around the neighbourhood, and the right one depends on age and confidence. Younger children usually start on a stable 3-wheel scooter, while older kids move to a 2-wheel scooter or a complete trick scooter.",
+      "Our kids range is push scooters: the rider kicks along and there is no motor or battery. They come from Globber, Envy and Vital, from $119 to $305, and several models fold for the car and have light-up wheels.",
     ],
     bridge: {
-      heading: "Childrens electric scooters, childrens e scooter and teen scooters",
+      heading: "Kids scooters, childrens scooters and teen scooters",
       body:
-        "Searches for childrens electric scooters, a childrens e scooter, a best childrens electric scooter or electric scooters for 10 year olds all lead to the same question: how fast and how safe. A speed-limited 3-wheel design suits younger children, while older kids and teens may prefer a larger scooter. Check your state's age limit for e-scooters before you buy.",
+        "Searches for kids scooters, childrens scooters, a 3 wheel scooter or a scooter for teenagers all come down to age, size and stability. A 3-wheel design suits younger children, while a 2-wheel or complete trick scooter suits older kids and teens. We list push scooters only and do not currently stock a motorised kids scooter.",
     },
     guides: [
       {
-        heading: "What to look for in a kids electric scooter",
+        heading: "What to look for in a kids scooter",
         body:
-          "Look for a speed governor, a rear foot brake, a stable 3-wheel design, a low deck and a weight your child can handle. Always use a certified helmet, and supervise young riders away from roads.",
+          "Look for a stable 3-wheel design for a first scooter, a deck and handlebar height your child can manage, working brakes and a weight they can lift. Foldable models are easier to store. Always use a certified helmet, and supervise young riders away from roads.",
       },
     ],
     faqs: [
-      { q: "What is the best childrens electric scooter?", a: "Choose a speed-limited model with a stable 3-wheel design and a rear brake." },
-      { q: "What age is a kids e scooter suitable for?", a: "It depends on the child's size and the scooter's rating, and state age rules for e-scooters vary. Check the manufacturer's guidance and your state authority." },
-      { q: "How fast is a kids electric scooter?", a: "Speed varies by model, and kids models are usually limited by a speed governor. Check the listed top speed and your state rules." },
-      { q: "Do kids need a helmet on an electric scooter?", a: "Yes. Use a certified helmet that fits well and supervise young riders." },
-      { q: "Are electric scooters for 10 year olds legal on the road?", a: "E-scooter rules differ by state and are changing, and many restrict where scooters can be used. Check your state authority before riding on public paths or roads." },
+      { q: "What is the best scooter for a young child?", a: "Choose a stable 3-wheel model with a low deck and a brake, and match it to your child's height and the age range on the manufacturer's listing." },
+      { q: "Are these kids scooters electric?", a: "No. They are push scooters with no motor or battery. If you want an electric scooter, our adult range is Segway-Ninebot, and manufacturer and state rules set age limits for those." },
+      { q: "What age is a kids scooter suitable for?", a: "It depends on the child's size and the scooter's rating. Check the age and weight guidance on each product page, and ask us if you are unsure." },
+      { q: "Do kids need a helmet on a scooter?", a: "Yes. Use a certified helmet that fits well and supervise young riders." },
+      { q: "What is the difference between a kids scooter and a trick scooter?", a: "A kids scooter is built around stability and low weight, while a complete trick scooter such as the Envy Prodigy is built for tricks at the skate park. Ask us which suits your child." },
     ],
     matches: (p) => p.category === "scooters" && p.subcategoryId === "scooters-kids",
   },
@@ -130,31 +130,31 @@ export const KIDS_NODES: KidsNode[] = [
     path: "/scooters/scooter-accessories",
     name: "Scooter Accessories",
     navLabel: "Scooter Accessories",
-    title: "Electric Scooter Accessories Australia | Locks & Bags",
+    title: "Scooter Parts & Accessories Australia | Wheels, Grips & More",
     description:
-      "Shop electric scooter accessories in Australia: an anti-cut steel lock and waterproof handlebar bag kit, plus a guide to helmets, lights and scooter security.",
-    h1: "Electric Scooter Accessories: Locks, Bags and Safety Gear",
+      "Shop scooter parts and accessories in Australia: Envy wheels, grips and clamps, stunt scooters from Envy, Grit and Raven, Globber trikes and a cable lock.",
+    h1: "Scooter Parts and Accessories: Wheels, Grips, Clamps and Stunt Scooters",
     intro: [
-      "The right electric scooter accessories keep your scooter secure and your ride comfortable. The most useful are a strong lock, a bag you can fit to the handlebar and a certified helmet.",
-      "A scooter lock and bag kit combines a hardened anti-cut steel lock with a waterproof handlebar storage bag in one pack.",
+      "Scooter parts and accessories keep a push or stunt scooter rolling and safe. Wheels, grips, clamps and hardware are the parts that wear out first, and a lock keeps a scooter secure when you leave it.",
+      "This range covers Envy wheels, grips, clamps, a hardware pack and a stand, complete stunt scooters from Envy, Grit and Raven, Globber trikes and skates for younger kids, a Globber cable lock and a brake disc rotor listed for Dragon, Kaabo and Mercane e-scooters. Prices run from $7 to $319.",
     ],
     bridge: {
-      heading: "Scooter accessories and scooters and accessories bundles",
+      heading: "Scooter accessories and scooter parts",
       body:
-        "Whether you search scooter accessories or scooters and accessories as a bundle, start with security and safety before extras. Theft is the main risk for a scooter parked in public, so a quality lock matters more than a cosmetic upgrade.",
+        "Whether you search scooter accessories, scooter parts or scooters and accessories, start with what wears out or keeps the rider safe: wheels, grips and a certified helmet. Parts are not universal, so check wheel diameter and clamp size against your scooter before you buy.",
     },
     guides: [
       {
-        heading: "Which accessories do you actually need?",
+        heading: "Which parts and accessories do you actually need?",
         body:
-          "A certified helmet and a good lock are the essentials. Lights and a bell help you be seen and heard, and a handlebar bag keeps your phone and keys secure. Check that any accessory suits your scooter's handlebar and weight rating.",
+          "Wheels and grips wear first, so replace them when they are worn or chipped. Check the wheel diameter (the Envy wheels listed here are 120 mm), the bearing fit and the clamp type against your scooter. A certified helmet and a lock are the essentials for riding and parking. Ask us if you are unsure what fits.",
       },
     ],
     faqs: [
-      { q: "What electric scooter accessories do I need?", a: "A certified helmet, a strong lock and lights are the essentials, with a handlebar bag as a useful extra." },
-      { q: "Is a scooter lock really necessary?", a: "Yes. Scooters are easy to carry off, and a hardened lock is the best deterrent when you park in public." },
-      { q: "What is in a scooter lock and bag kit?", a: "A hardened anti-cut steel lock and a waterproof handlebar storage bag in one pack." },
-      { q: "Can I use any bag on a scooter handlebar?", a: "Check the handlebar fit and the weight rating. Heavy loads on the handlebar can affect steering." },
+      { q: "What scooter parts do you sell?", a: "Wheels, grips, clamps, a hardware pack and a stand from Envy, plus a brake disc rotor listed for some e-scooters." },
+      { q: "How do I know which scooter wheels fit?", a: "Match the wheel diameter and width and check the bearing fit. The Envy wheels listed here are 120 mm, in a few widths." },
+      { q: "Is a scooter lock really necessary?", a: "Yes. Scooters are easy to carry off, and a lock is the best deterrent when you park in public." },
+      { q: "Do you sell stunt scooters?", a: "Yes, complete stunt scooters from Envy, Grit and Raven are listed on this page." },
       { q: "Do you sell helmets for scooter riders?", a: "Yes, see our kids bike helmet guide and range. Always wear a certified helmet." },
     ],
     matches: (p) => p.category === "scooters" && p.subcategoryId === "scooters-accessories",
