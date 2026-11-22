@@ -5,6 +5,7 @@ import { STRATEGY_KEYWORDS } from '@/lib/strategy-map';
 import { withTransactional, withSupporting } from '@/lib/transactional-keywords';
 import { typeKeywordsFor } from '@/lib/product-keywords';
 import { RETAIL_BRAND_KEYWORDS } from '@/lib/brand-pages-retail';
+import { MODEL_KEYWORDS } from '@/lib/model-keywords';
 
 /**
  * Product SEO rules (seo-strategy/keyword-map.md is the source of truth, never invent keywords):
@@ -144,9 +145,10 @@ export function tagsForProduct(p: Product): string[] {
   let all = [...typed, k.primary, ...(k.commerce || []).slice(0, 3), ...k.secondary, ...(k.supporting || [])];
   if (BIKE_CATS.includes(p.category)) {
     const brandKws = brandKeywordsFor(p);
-    const pool = [...new Set([...brandKws.slice(0, 6), ...all])];
+    const modelKws = MODEL_KEYWORDS[p.slug] || [];
+    const pool = [...new Set([...modelKws, ...brandKws.slice(0, 6), ...all])];
     all = pool
-      .map((t, i) => ({ t, i, s: bikeFitScore(p, t, brandKws.includes(t), t === k.primary) }))
+      .map((t, i) => ({ t, i, s: bikeFitScore(p, t, brandKws.includes(t), t === k.primary) + (modelKws.includes(t) ? 30 : 0) }))
       .filter((x) => x.s > -2)
       .sort((a, b) => b.s - a.s || a.i - b.i)
       .map((x) => x.t);
