@@ -26,6 +26,8 @@ export const TRANSACTIONAL_KEYWORDS: Record<string, string[]> = {
     "e bike with price", // 110 / KD 28 (T, refreshed 2026-11-21)
     "e bike on sale", // 90 / KD 17 (T, refreshed 2026-11-21)
     "prices for e bikes", // 90 / KD 17 (T, refreshed 2026-11-21)
+    "buying e bike", // 110 / KD 23 (T, refreshed 2026-11-22)
+    "ebike price in australia", // 70 / KD 27 (T, refreshed 2026-11-22)
   ],
   'brand-specialized': [
     "road specialized bikes", // 720 / KD 22
@@ -151,6 +153,7 @@ export const TRANSACTIONAL_KEYWORDS: Record<string, string[]> = {
   ],
   'conversion': [
     "e bike conversion kit 250w", // 260 / KD 0 (T, refreshed 2026-11-21)
+    "electric bike kit 5000w", // 590 / KD 2 (TI, refreshed 2026-11-22)
   ],
   'brand-merida': [
     "e bike merida", // 720 / KD 16 (TI, refreshed 2026-11-21)
@@ -160,6 +163,12 @@ export const TRANSACTIONAL_KEYWORDS: Record<string, string[]> = {
   ],
   'brand-cube': [
     "cube e bikes australia", // 140 / KD 6 (T, refreshed 2026-11-21)
+  ],
+  'cruiser': [
+    "e bike beach cruiser", // 320 / KD 18 (T, refreshed 2026-11-22)
+  ],
+  'road': [
+    "electric road bikes for sale", // 50 / KD 11 (T, refreshed 2026-11-22)
   ],
 };
 
@@ -211,6 +220,7 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "the electric bicycle company", // 260 / KD 14 (Commercial)
     "spezialist ebike", // 260 / KD 24 (Commercial)
     "best e bikes in australia", // 170 / KD 7 (C, refreshed 2026-11-21)
+    "best ebike", // 880 / KD 24 (C, refreshed 2026-11-22)
   ],
   'cheap': [
     "cheapest e bike", // 480 / KD 14 (Commercial)
@@ -232,6 +242,9 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "affordable e-bike australia", // 320 / KD 15 (CI, refreshed 2026-11-21)
     "affordable e-bikes", // 320 / KD 24 (CI, refreshed 2026-11-21)
     "cheap e bikes australia", // 170 / KD 24 (C, refreshed 2026-11-21)
+    "cheap ebikes", // 1300 / KD 23 (CI, refreshed 2026-11-22)
+    "cheap electric bikes australia under $500", // 720 / KD 18 (CI, refreshed 2026-11-22)
+    "e bike under $1000", // 590 / KD 16 (C, refreshed 2026-11-22)
   ],
   'city-melbourne': [
     "e bike melbourne", // 480 / KD 26 (Commercial)
@@ -260,6 +273,9 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "e bike conversion kits", // 390 / KD 10 (C, refreshed 2026-11-21)
     "e bike conversion kits australia", // 260 / KD 2 (CI, refreshed 2026-11-21)
     "e bike conversion kit 1500w", // 210 / KD 2 (C, refreshed 2026-11-21)
+    "bicycle e bike kit", // 480 / KD 4 (C, refreshed 2026-11-22)
+    "ebike kits", // 480 / KD 13 (C, refreshed 2026-11-22)
+    "1000w ebike conversion kit", // 140 / KD 2 (CI, refreshed 2026-11-22)
   ],
   'emtb': [
     "mtb entry level", // 390 / KD 20 (Commercial)
@@ -278,6 +294,8 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "buy mtb bike", // 90 / KD 28 (Transactional)
     "e bike off road", // 320 / KD 6 (C, refreshed 2026-11-21)
     "e bike offroad", // 320 / KD 6 (C, refreshed 2026-11-21)
+    "electric off road bike", // 590 / KD 6 (C, refreshed 2026-11-22)
+    "electric mountain bike australia", // 480 / KD 10 (C, refreshed 2026-11-22)
   ],
   'fat-tyre': [
     "fat tire electric bikes", // 320 / KD 14 (Commercial)
@@ -296,6 +314,7 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "fatbike ebike", // 70 / KD 15 (Commercial)
     "fat tyre e bike", // 480 / KD 13 (CI, refreshed 2026-11-21)
     "fat tire e bikes", // 390 / KD 6 (C, refreshed 2026-11-21)
+    "fat tire electric bike", // 720 / KD 14 (C, refreshed 2026-11-22)
   ],
   'brand-specialized': [
     "specialised ebike", // 320 / KD 24 (Commercial)
@@ -358,6 +377,8 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "ladies e bike", // 260 / KD 10 (CI, refreshed 2026-11-21)
     "step through e bike", // 260 / KD 8 (CI, refreshed 2026-11-21)
     "e bike commuter", // 210 / KD 10 (CI, refreshed 2026-11-21)
+    "ebike commute", // 1000 / KD 17 (C, refreshed 2026-11-22)
+    "e-bike commuting", // 480 / KD 8 (C, refreshed 2026-11-22)
   ],
   'gear-accessories': [
     "e-bike accessories", // 140 / KD 12 (Commercial)
@@ -374,6 +395,7 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "e dirt bike accessories", // 20 / KD 15 (Commercial)
     "echo bike accessories", // 20 / KD 26 (Transactional)
     "electra bicycle accessories", // 20 / KD 15 (Transactional)
+    "electric bike basket", // 50 / KD 6 (C, refreshed 2026-11-22)
   ],
   'cargo': [
     "cargo electric bike", // 110 / KD 6 (Commercial)
@@ -417,6 +439,8 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "ebike parts for sale", // 20 / KD 4 (Transactional)
     "ebike parts store", // 20 / KD 10 (Commercial)
     "electric bicycle bike parts", // 20 / KD 0 (Transactional)
+    "ebike throttle", // 880 / KD 9 (C, refreshed 2026-11-22)
+    "ebike wheels", // 50 / KD 6 (C, refreshed 2026-11-22)
   ],
   'city-brisbane': [
     "electric bike for sale brisbane", // 50 / KD 21 (Transactional)
@@ -485,6 +509,7 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
   'brand-cube': [
     "cube electric bike accessories", // 20 / KD 6 (Transactional)
     "cube e bike", // 390 / KD 10 (C, refreshed 2026-11-21)
+    "cube electric bike", // 480 / KD 17 (C, refreshed 2026-11-22)
   ],
   'sc-electric': [
     "scooter cushion", // 20 / KD 6 (Transactional)
