@@ -6,6 +6,7 @@ import { brandLogoFor } from '@/lib/brand-logos';
 import { ChevronRight, HelpCircle } from 'lucide-react';
 import { CATALOG_IMAGES } from '@/lib/catalog-images';
 import { RELATED_SEARCHES } from '@/lib/related-searches';
+import { WAVE_COPY, type WaveSection } from '@/lib/wave-copy';
 import { PRODUCTS } from '@/lib/data';
 import type { Product } from '@/lib/types';
 import {
@@ -329,6 +330,17 @@ export default function CatalogPage({ node, page = 1 }: { node: CatalogNode; pag
               <p className="mt-2 leading-relaxed text-gray-700">{g.body}</p>
             </div>
           ))}
+          {(WAVE_COPY[node.id] ?? []).map((w) => (
+            <div key={w.h2} className="mt-8">
+              <h2 className="text-xl font-black tracking-tight text-gray-900">{w.h2}</h2>
+              <p className="mt-2 leading-relaxed text-gray-700">{linkText(w)}</p>
+              {w.source && (
+                <p className="mt-2 text-sm text-gray-600">
+                  Source: <a href={w.source.href} target="_blank" rel="noopener noreferrer" className="font-semibold text-[#2E6B4D] underline">{w.source.label}</a>
+                </p>
+              )}
+            </div>
+          ))}
         </div>
       </section>
 
@@ -449,4 +461,21 @@ export default function CatalogPage({ node, page = 1 }: { node: CatalogNode; pag
       )}
     </article>
   );
+}
+
+/** Turns the first occurrence of each link phrase in a guide section into a real link. */
+function linkText(w: WaveSection): React.ReactNode {
+  let parts: React.ReactNode[] = [w.p];
+  for (const l of w.links) {
+    const next: React.ReactNode[] = [];
+    let done = false;
+    for (const part of parts) {
+      if (done || typeof part !== 'string' || !part.includes(l.t)) { next.push(part); continue; }
+      const i = part.indexOf(l.t);
+      next.push(part.slice(0, i), <Link key={l.t} href={l.h} className="font-semibold text-[#2E6B4D] underline">{l.t}</Link>, part.slice(i + l.t.length));
+      done = true;
+    }
+    parts = next;
+  }
+  return <>{parts.map((p, i) => <React.Fragment key={i}>{p}</React.Fragment>)}</>;
 }
