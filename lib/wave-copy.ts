@@ -443,5 +443,189 @@ export const WAVE_COPY: Record<string, WaveSection[]> = {
         }
       ]
     }
+  ],
+  "cruiser": [
+    {
+      "h2": "Cruiser electric bike: step-through and beach cruiser style",
+      "p": "A cruiser electric bike is built for comfort: a relaxed upright position, wide saddle and easy pedalling for flat roads, bike paths and beachfront rides. We list eight cruisers from $999 to $1,699, with 275 Wh to 374 Wh batteries that suit short and medium rides. If you want a beach electric bike for the esplanade, the vintage-style models look the part and are simple to ride. An electric bike step through frame, like the Pedal Breeze ST at $1,699, is easy to mount in a coat or skirt, and a step through electric bike in Australia is a popular choice for riders of all ages.",
+      "links": [
+        {
+          "t": "Pedal Breeze ST",
+          "h": "/brands/pedal"
+        }
+      ],
+      "source": {
+        "label": "Cruiser bicycle (Wikipedia)",
+        "href": "https://en.wikipedia.org/wiki/Cruiser_bicycle"
+      }
+    }
+  ],
+  "brand-pedal": [
+    {
+      "h2": "Pedal electric bike range: 30 bikes from $899",
+      "p": "A Pedal electric bike covers many types of riding: 30 bikes from $899 to $3,499, across commuter, cruiser, folding, fat tyre, electric mountain and cargo models. Batteries run from 275 Wh to 624 Wh, so you can match range to your route and budget. Choose a folding model for trains and small spaces, a cruiser for relaxed riding, a fat tyre for sand and gravel or a mountain bike for trails. Every Pedal e-bike here has a 250W motor and pedal assist that stops at 25 km/h, and you can compare specs on each model page.",
+      "links": [
+        {
+          "t": "folding",
+          "h": "/ebikes/folding-e-bike"
+        },
+        {
+          "t": "cruiser",
+          "h": "/ebikes/electric-cruiser-bikes"
+        },
+        {
+          "t": "fat tyre",
+          "h": "/ebikes/fat-tyre-electric-bicycle"
+        },
+        {
+          "t": "mountain bike",
+          "h": "/ebikes/electric-mountain-bike"
+        }
+      ]
+    }
+  ],
+  "trikes": [
+    {
+      "h2": "Three wheel e bike: who needs an electric trike?",
+      "p": "A three wheel e bike, also called an electric trike bike or a 3 wheel e bike, suits riders who want stability at low speed, easy starting and stopping, or the confidence of not having to balance. Trikes are wider and heavier than bikes, so check your storage space, the turning circle and the weight limit. We do not currently list an adult electric trike. If you want a stable way to carry loads or passengers, a longtail cargo e-bike is the closest option in our range, from $3,499. Check your state's rules for trikes and for riding age.",
+      "links": [
+        {
+          "t": "longtail cargo e-bike",
+          "h": "/ebikes/electric-cargo-bikes"
+        }
+      ],
+      "source": {
+        "label": "Product Safety Australia: e-bikes and e-scooters",
+        "href": "https://www.productsafety.gov.au/business/e-bikes-e-scooters-and-other-e-micromobility-devices"
+      }
+    }
+  ],
+  "brand-merida": [
+    {
+      "h2": "Merida electric bike range: mountain, road and commuter",
+      "p": "A Merida electric bike is a well-known name in electric bikes. We list 15 Merida e-bikes from $2,999 to $7,777: seven electric mountain bikes, six commuter and trekking bikes and two e-road bikes, with batteries from 250 Wh up to 800 Wh. A Merida electric mountain bike suits trails and climbing, while the commuter models are built for daily use with racks and mudguards. Compare motor, battery and frame sizes on each model page, and ask us if you want help matching a Merida to your height and riding.",
+      "links": [
+        {
+          "t": "electric mountain bikes",
+          "h": "/ebikes/electric-mountain-bike"
+        },
+        {
+          "t": "commuter and trekking bikes",
+          "h": "/ebikes/electric-commuter-bikes"
+        },
+        {
+          "t": "ask us",
+          "h": "/contact"
+        }
+      ]
+    }
+  ],
+  "kids-ebikes": [
+    {
+      "h2": "Ebike for kids and teenagers: what is available and what to check",
+      "p": "Parents searching for an ebike for kids, a children's electric bike or a youth electric bike should know the options are limited. We list one youth model, the Pedal Warrior 2 24-inch electric mountain bike at $1,199. For an e bike for 12 year olds, check the minimum rider age, the frame size and the weight, because e-bike rules differ by state. If you need to carry a small child, a longtail cargo e-bike with a child seat approved for the bike is the usual choice. Always fit a helmet that meets AS/NZS 2063.",
+      "links": [
+        {
+          "t": "longtail cargo e-bike",
+          "h": "/ebikes/electric-cargo-bikes"
+        },
+        {
+          "t": "AS/NZS 2063",
+          "h": "/e-bike-helmets"
+        }
+      ],
+      "source": {
+        "label": "Product Safety Australia: e-bikes and e-scooters",
+        "href": "https://www.productsafety.gov.au/business/e-bikes-e-scooters-and-other-e-micromobility-devices"
+      }
+    }
+  ],
+  "brand-cube": [
+    {
+      "h2": "Cube electric bike range: 36 models from $2,500",
+      "p": "A Cube electric bike comes from a German bike brand with a wide e-bike range. We list 36 Cube e-bikes from $2,500 up to $13,999: 17 electric mountain bikes, 17 commuter and trekking bikes, one e-road bike and one cargo bike. Batteries run from 400 Wh to 800 Wh, enough for long rides, climbs and daily commutes. Use the mountain range for trails and the commuter range for city riding, and compare motors, brakes and frame sizes on each model page. Ask us if you need help choosing a size.",
+      "links": [
+        {
+          "t": "electric mountain bikes",
+          "h": "/ebikes/electric-mountain-bike"
+        },
+        {
+          "t": "commuter and trekking bikes",
+          "h": "/ebikes/electric-commuter-bikes"
+        },
+        {
+          "t": "Ask us",
+          "h": "/contact"
+        }
+      ]
+    }
+  ],
+  "cargo": [
+    {
+      "h2": "E cargo bike and cargo ebike Australia: choosing a load carrier",
+      "p": "An e cargo bike replaces many car trips: school runs, shopping and tradie gear. A cargo ebike in Australia should have a strong frame, a motor with enough torque for a full load and powerful brakes, because the extra weight changes how it stops. We list two models, the Pedal Nomad Cargo at $3,499 and the Cube Cargo Sport Dual Hybrid 1000 at $6,999. Check the payload rating, the length for your storage and the child seat approvals before you buy. A longtail layout keeps the load low and stable at the rear.",
+      "links": [
+        {
+          "t": "Pedal Nomad Cargo",
+          "h": "/brands/pedal"
+        },
+        {
+          "t": "Cube Cargo Sport Dual Hybrid 1000",
+          "h": "/brands/cube"
+        }
+      ],
+      "source": {
+        "label": "Cargo bike (Wikipedia)",
+        "href": "https://en.wikipedia.org/wiki/Cargo_bike"
+      }
+    }
+  ],
+  "city-brisbane": [
+    {
+      "h2": "Electric bike for sale in Brisbane: new bikes delivered to Queensland",
+      "p": "Looking for an electric bike for sale in Brisbane? We are an online e-bike shop with our head office in Brisbane, and we deliver across Queensland and the rest of Australia. We sell new bikes only, each with an Australian warranty, so if you were searching for second hand electric bikes in Brisbane, a new budget model is often the safer buy because a used battery is hard to assess. Brisbane is warm and humid with river paths and hills, so choose sealed components, hydraulic brakes and a battery you can charge indoors.",
+      "links": [
+        {
+          "t": "budget model",
+          "h": "/cheap-electric-bikes"
+        }
+      ]
+    }
+  ],
+  "city-adelaide": [
+    {
+      "h2": "E bike Adelaide: buying online for the city and the Hills",
+      "p": "If you are looking for an e bike Adelaide riders can order online, every model page lists the motor, battery and price, and we deliver across South Australia. The city is flat, so a step-through commuter with a rack covers most trips, while the Adelaide Hills reward a mid-drive electric mountain bike with strong brakes. Choose a battery that covers your return trip with spare, and check the weight if you will carry the bike. Ask us if you want help choosing a size.",
+      "links": [
+        {
+          "t": "step-through commuter",
+          "h": "/ebikes/electric-commuter-bikes"
+        },
+        {
+          "t": "electric mountain bike",
+          "h": "/ebikes/electric-mountain-bike"
+        },
+        {
+          "t": "Ask us",
+          "h": "/contact"
+        }
+      ]
+    }
+  ],
+  "city-hobart": [
+    {
+      "h2": "Electric bikes Tasmania: delivery to Hobart and beyond",
+      "p": "If you are searching for electric bikes in Tasmania, we deliver across Australia, including Hobart and regional Tasmania, and delivery details are shown at checkout. Tasmanian weather and hills call for a bike with good brakes, mudguards and a battery sized for climbs, and in cooler weather a battery loses some range, so allow a margin. A mid-drive commuter or mountain e-bike suits most Tasmanian riders. Check Tasmania's e-bike rules before you ride, and wear a certified helmet.",
+      "links": [
+        {
+          "t": "commuter",
+          "h": "/ebikes/electric-commuter-bikes"
+        },
+        {
+          "t": "mountain",
+          "h": "/ebikes/electric-mountain-bike"
+        }
+      ]
+    }
   ]
 };
