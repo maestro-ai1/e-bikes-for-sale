@@ -198,5 +198,250 @@ export const WAVE_COPY: Record<string, WaveSection[]> = {
         }
       ]
     }
+  ],
+  "conversion": [
+    {
+      "h2": "Electric bike conversion kit: what is in the box and what to check",
+      "p": "An electric bike conversion kit adds a motor, battery, controller and display to a bike you already own. A typical electric ebike kit comes as either a hub motor in the front or rear wheel or a mid-drive unit at the cranks. The bike frame must suit the motor, so check the axle width, brake type and frame material before you buy. Mount quality matters, because a conversion changes how the bike is loaded and braked. We do not currently list conversion kits on this site. If you are weighing a kit against a complete e-bike, our commuter and mountain bikes arrive built, tested and under warranty.",
+      "links": [
+        {
+          "t": "commuter",
+          "h": "/ebikes/electric-commuter-bikes"
+        },
+        {
+          "t": "mountain",
+          "h": "/ebikes/electric-mountain-bike"
+        }
+      ],
+      "source": {
+        "label": "Electric bicycle (Wikipedia)",
+        "href": "https://en.wikipedia.org/wiki/Electric_bicycle"
+      }
+    },
+    {
+      "h2": "E bike conversion kits in Australia: the 250W rule and bigger kits",
+      "p": "E bike conversion kits sold in Australia must still meet the rules for the bicycle you ride: a 250W motor that stops assisting at 25 km/h, and pedal assist. A 250 watt electric bike conversion kit is the size that matches that limit. Kits advertised at 1500W, 2000W, 3000W or 5000W are well above it, so a bike fitted with an electric bike kit at that power is generally not legal on public roads as a bicycle. Rules differ by state, so check with your road authority, and note that converted e-bikes are not allowed on Victorian trains.",
+      "links": [],
+      "source": {
+        "label": "Product Safety Australia: e-bikes and e-scooters",
+        "href": "https://www.productsafety.gov.au/business/e-bikes-e-scooters-and-other-e-micromobility-devices"
+      }
+    },
+    {
+      "h2": "Conversion kit with battery: voltage, capacity and fit",
+      "p": "When you shop for an electric bike conversion kit with battery, match three things: the battery voltage to the motor and controller, the capacity in watt-hours to the distance you ride, and the mounting to your frame. A 36V or 48V kit is common on commuter conversions, while 52V and 72V systems are used for higher power. Capacity is volts multiplied by amp-hours, so a 48V 10Ah pack holds 480 Wh. Check that a kit with a bottle, rack or frame-mounted battery fits your bike, and that the supplier offers a warranty and a compatible charger.",
+      "links": [
+        {
+          "t": "charger",
+          "h": "/electric-bike-batteries"
+        }
+      ]
+    }
+  ],
+  "batteries": [
+    {
+      "h2": "Electric bike batteries: volts, amp-hours and watt-hours explained",
+      "p": "Electric bike batteries are described by voltage (V), capacity in amp-hours (Ah) and energy in watt-hours (Wh). Multiply volts by amp-hours to get watt-hours: a 36V 10Ah pack holds 360 Wh and a 52V 20Ah pack holds 1,040 Wh. More watt-hours mean more range and more weight. A lithium-ion e bike battery loses capacity slowly with age and charge cycles, so storage and charging habits matter. Our complete e-bikes range from about 280 Wh to 1,040 Wh, which gives a useful guide to what suits commuting, trails or long rides.",
+      "links": [
+        {
+          "t": "complete e-bikes",
+          "h": "/ebikes"
+        }
+      ],
+      "source": {
+        "label": "Lithium-ion battery (Wikipedia)",
+        "href": "https://en.wikipedia.org/wiki/Lithium-ion_battery"
+      }
+    },
+    {
+      "h2": "48V, 52V, 72V and 36V ebike battery: which voltage do you need?",
+      "p": "Voltage must match your motor and controller. A 36V ebike battery suits many older and lighter systems, a 48V ebike battery or 48 volt battery is common on many commuter and cargo systems, and a 52V ebike battery is used on some newer fat tyre systems such as the DiroDi Rover. A 72V ebike battery is usually used on high-power systems, which can go beyond the 250W limit for a bicycle in Australia. Never swap in a different voltage. Check the label on your current pack, and ask us before you order if you are not sure whether a battery fits your bike.",
+      "links": [
+        {
+          "t": "DiroDi Rover",
+          "h": "/brands/dirodi"
+        },
+        {
+          "t": "ask us",
+          "h": "/contact"
+        }
+      ]
+    },
+    {
+      "h2": "Electric bike charger and ebike battery bag: matching, care and storage",
+      "p": "An electric bike charger must match your battery's voltage, current and connector. The wrong charger can damage the pack or create a fire risk, so use the one supplied, or a charger approved for your model. We list the DiroDi Rover charger ST 52V for DiroDi Rover bikes. For other bikes, ask us first. Charge indoors on a hard surface, unplug when full and store the battery at room temperature. A battery bag or cover protects a frame or rack battery from rain and mud, but it never replaces the correct charger or careful charging.",
+      "links": [
+        {
+          "t": "DiroDi Rover charger ST 52V",
+          "h": "/product/dirodi-rover-charger-st-52v-gen-5-6-black"
+        },
+        {
+          "t": "ask us",
+          "h": "/contact"
+        }
+      ]
+    }
+  ],
+  "gear-parts": [
+    {
+      "h2": "E bike parts Australia: what we list and what to ask first",
+      "p": "Our e bike parts range covers common components such as tyres and tubes, brake pads and rotors, pedals, power meters and fitting accessories for a wide range of bikes. Motor, controller, display, throttle and battery parts are different: they are specific to each e-bike system, so check the make, model and voltage before you buy parts for an ebike, and ask us to confirm compatibility. Quality parts matter on an e-bike because the bike is heavier and faster than a normal bicycle, so brakes, tyres and chains wear sooner. Replace worn parts early rather than waiting for them to fail.",
+      "links": [
+        {
+          "t": "ask us",
+          "h": "/contact"
+        }
+      ]
+    },
+    {
+      "h2": "Ebike controller, display and throttle: what each part does",
+      "p": "The ebike controller is the brain of the system: it reads the pedal sensor and manages power from the battery to the motor. The ebike display shows speed, battery level and assist mode, and a throttle sends power to the motor without pedalling. Most e-bikes sold in Australia are pedal assist, and a throttle that works without pedalling is regulated differently, so check your state rules. These parts are matched to the motor and battery, so do not mix brands. Ask us for help if a display fault, a dead sensor or a worn throttle is stopping your bike.",
+      "links": [],
+      "source": {
+        "label": "Product Safety Australia: e-bikes and e-scooters",
+        "href": "https://www.productsafety.gov.au/business/e-bikes-e-scooters-and-other-e-micromobility-devices"
+      }
+    },
+    {
+      "h2": "E bike tyres, pedals and chain: wear parts to keep in stock",
+      "p": "E bike tyres carry more weight and torque than normal bike tyres, so look for puncture protection and the load rating on the sidewall. E-bike pedal choices include flat pedals for casual riding and clipless pedals for performance. An ebike chain wears faster because the motor adds torque, so clean and oil it often and replace it before it stretches your cassette. Measure your wheel size and tyre width before ordering, and check that brake pads suit your rotor or rim type. Match the part to the bike, and fit parts carefully or use a workshop.",
+      "links": []
+    }
+  ],
+  "gear-accessories": [
+    {
+      "h2": "Ebike rack, basket and pannier: carrying more on an e-bike",
+      "p": "An ebike rack turns an e-bike into a daily workhorse for groceries, work gear and school bags. Check the rack's weight rating against your load, the mounting points on your frame and whether it clears the battery. A basket suits light loads and quick errands, while pannier bags keep weight low and balanced. Compare capacity and fit across the racks and bags we list. Heavy loads change how the bike brakes and handles, so pack low, balance left and right and ride more cautiously until you are used to the weight.",
+      "links": []
+    },
+    {
+      "h2": "Electric bike lock and ebike lights: security and visibility",
+      "p": "An e-bike is a valuable target, so use a strong electric bike lock rather than a light cable. A D-lock or chain through the frame and a wheel gives better protection, and locking in a visible, busy place helps. For lights, choose a bright front lamp and a rear light, and check that they are rechargeable and visible from the side. Ebike lights keep you seen at dusk and in the rain, and a helmet that meets AS/NZS 2063 is required for riders. Compare price and rating across the locks and lights we list.",
+      "links": [
+        {
+          "t": "AS/NZS 2063",
+          "h": "/e-bike-helmets"
+        }
+      ]
+    },
+    {
+      "h2": "Seats, pedals and trailers: other accessories for an electric bike",
+      "p": "A comfortable e bike seat makes longer rides easier, so look at width, padding and whether it suits your riding position. Electric bicycle seats are often upgraded first, along with grips and pedals. If you are thinking about an electric bike trailer, check your bike's towing rating, the trailer's weight and the brakes, because towing adds load. Accessories must fit your bike, so check frame size, mounting points and any weight limit before you order, and ask us if you are not sure.",
+      "links": [
+        {
+          "t": "ask us",
+          "h": "/contact"
+        }
+      ]
+    }
+  ],
+  "gear-hybrid": [
+    {
+      "h2": "Hybrid ebike: pedal assist, throttle and motor basics",
+      "p": "A hybrid ebike mixes road and trail comfort: upright riding, wider tyres than a road bike and mudguards and racks for daily use. Most e bike models with pedal assist only help while you pedal, which is how the 250W motor stays inside the Australian bicycle rules. People often search for an electric bike with throttle, but a throttle that powers the bike without pedalling is regulated differently, so check your state rules and the model specification. A 250W e bike with assistance up to 25 km/h is the standard for a hybrid commuter.",
+      "links": [],
+      "source": {
+        "label": "Product Safety Australia: e-bikes and e-scooters",
+        "href": "https://www.productsafety.gov.au/business/e-bikes-e-scooters-and-other-e-micromobility-devices"
+      }
+    },
+    {
+      "h2": "Electric bike motor: mid drive electric bike or hub motor?",
+      "p": "The electric bike motor decides how the bike feels. A mid drive electric bike has the motor at the cranks, which gives balanced weight and strong climbing through the gears. A hub motor sits in a wheel, usually costs less and works well on flat routes. Our commuter and hybrid models have batteries from about 280 Wh to 800 Wh. Check the motor type and the battery size on each model page, and match them to your hills, load and distance.",
+      "links": [
+        {
+          "t": "commuter",
+          "h": "/ebikes/electric-commuter-bikes"
+        }
+      ]
+    }
+  ],
+  "brand-dirodi": [
+    {
+      "h2": "Dirodi electric bike range: Rover Gen 6 and Rover Pro fat bikes",
+      "p": "A Dirodi electric bike is a fat tyre e-bike built for sand, gravel and rough tracks as well as everyday paths. We list the Rover Gen 6 at $2,479 with a 960 Wh battery and the Rover Pro at $3,259 with a 1,040 Wh battery, both with a 250W motor and pedal assist that stops at 25 km/h. The larger battery gives long-range riding on soft ground. For Dirodi owners we also list the Rover charger ST 52V at $129. Check the spec on each model page and compare the two before you choose.",
+      "links": [
+        {
+          "t": "Rover charger ST 52V",
+          "h": "/product/dirodi-rover-charger-st-52v-gen-5-6-black"
+        },
+        {
+          "t": "fat tyre e-bike",
+          "h": "/ebikes/fat-tyre-electric-bicycle"
+        }
+      ],
+      "source": {
+        "label": "Fatbike (Wikipedia)",
+        "href": "https://en.wikipedia.org/wiki/Fatbike"
+      }
+    }
+  ],
+  "city-melbourne": [
+    {
+      "h2": "Electric bikes Melbourne Australia: buying online with Melbourne dispatch",
+      "p": "We are an online e-bike shop, and our dispatch hubs include Melbourne, so electric bikes for sale in Melbourne ship quickly to metro addresses. There is no showroom to visit, but every model page shows the motor, battery and price, and you can ask us about sizing before you buy. The best electric bike for Melbourne depends on your ride: a step-through commuter for trams and the city, a folding e bike for tram and train trips, or a mountain e-bike for the Dandenongs. Standard metro delivery is free on orders of $500 or more.",
+      "links": [
+        {
+          "t": "step-through commuter",
+          "h": "/ebikes/electric-commuter-bikes"
+        },
+        {
+          "t": "folding e bike",
+          "h": "/ebikes/folding-e-bike"
+        },
+        {
+          "t": "mountain e-bike",
+          "h": "/ebikes/electric-mountain-bike"
+        },
+        {
+          "t": "ask us",
+          "h": "/contact"
+        }
+      ]
+    }
+  ],
+  "city-perth": [
+    {
+      "h2": "Electric bikes Perth WA: buying an e bike for sale in Perth online",
+      "p": "We sell e bikes for sale in Perth online, with a dispatch hub in Western Australia, so an order does not have to start from the other side of the country. If you are looking for an electric bike Perth Australia riders can order online, every model page shows the motor, battery and price. Perth is flat with long river and coastal paths, so look for a bigger battery and a comfortable riding position over top speed. A commuter, a cruiser or a fat tyre e-bike for beach tracks all work well here. Many riders on the best electric bikes Perth offers prefer a battery of 500 Wh or more for long paths. Ask us if you want help choosing.",
+      "links": [
+        {
+          "t": "commuter",
+          "h": "/ebikes/electric-commuter-bikes"
+        },
+        {
+          "t": "cruiser",
+          "h": "/ebikes/electric-cruiser-bikes"
+        },
+        {
+          "t": "fat tyre e-bike",
+          "h": "/ebikes/fat-tyre-electric-bicycle"
+        },
+        {
+          "t": "Ask us",
+          "h": "/contact"
+        }
+      ]
+    }
+  ],
+  "city-sydney": [
+    {
+      "h2": "Electric bike Sydney: buying online with Sydney dispatch",
+      "p": "An electric bike Sydney riders choose has to handle hills, bridges and mixed commutes. We are an online e-bike shop and our dispatch hubs include Sydney, so orders ship quickly to metro addresses, and standard metro delivery is free on orders of $500 or more. For hilly suburbs look at a mid-drive e-bike with a strong battery, and for trains and small apartments a folding e-bike is easier to carry. A cargo e-bike is an option if you are carrying kids or shopping. Every model page lists the motor, battery and price.",
+      "links": [
+        {
+          "t": "mid-drive e-bike",
+          "h": "/ebikes/electric-mountain-bike"
+        },
+        {
+          "t": "folding e-bike",
+          "h": "/ebikes/folding-e-bike"
+        },
+        {
+          "t": "cargo e-bike",
+          "h": "/ebikes/electric-cargo-bikes"
+        }
+      ]
+    }
   ]
 };
