@@ -451,4 +451,149 @@ export const LANDING_NODES: LandingNode[] = [
       { q: "Do you deliver electric bikes to regional Victoria?", a: "Yes. We deliver Australia-wide, including regional Victoria, and delivery details are shown at checkout." },
     ],
   ),
+  cityNode(
+    "city-newcastle",
+    "electric-bikes-newcastle",
+    "Electric Bikes Newcastle",
+    "Electric Bikes Newcastle | E-Bikes for Novocastrian Riders",
+    "Shop electric bikes Newcastle riders choose: commuter, folding, mountain and cargo e-bikes for the foreshore and rail trails. 250W EN15194, delivered Australia-wide.",
+    "Electric Bikes Newcastle: E-Bikes for the Foreshore and the Fernleigh Track",
+    [
+      "Electric bikes Newcastle riders choose are built for a coastal city: flat foreshore paths, sea breezes, a few sharp hills in the suburbs and long shared paths such as the Fernleigh Track. Pedal assist keeps the effort low on windy days and on the climbs.",
+      "We deliver e-bikes across Australia, including Newcastle, Lake Macquarie and the Hunter. Every bike below is a 250W pedal-assist model with a 25 km/h cut-out, built to EN 15194.",
+    ],
+    {
+      heading: "Electric bikes Newcastle: choose for the coast",
+      body:
+        "A step-through commuter with mudguards and a rack suits the daily ride along the foreshore and into the city. For longer rides on rail trails and shared paths, pick a comfortable hybrid or cruiser with a larger battery. Shoppers searching for an ebike in Newcastle can order online and have the bike delivered to the door.",
+    },
+    {
+      heading: "NSW e-bike rules for Hunter riders",
+      body:
+        "E-bike rules in New South Wales are changing, so check Transport for NSW before you ride on roads and shared paths. Always wear a certified helmet and charge the battery indoors with the supplied charger.",
+    },
+    [
+      { q: "Where can I buy electric bikes in Newcastle?", a: "Order online and we deliver across Australia, including Newcastle and the Hunter. Contact us if you need help choosing a frame size." },
+      { q: "What is the best electric bike for the Newcastle foreshore?", a: "A step-through commuter or a cruiser with a comfortable upright position suits the foreshore paths and the city streets." },
+      { q: "Are electric bikes good for the Fernleigh Track?", a: "Yes. The track is mostly flat and sealed, so a hybrid or commuter e-bike with a larger battery works well." },
+      { q: "Do I need a licence to ride an e-bike in NSW?", a: "Compliant e-bikes are generally treated like bicycles, but rules are changing. Check Transport for NSW before you ride." },
+      { q: "Can I get an e-bike delivered to Newcastle?", a: "Yes. We deliver Australia-wide, and delivery details are shown at checkout." },
+    ],
+  ),
+  cityNode(
+    "city-canberra",
+    "electric-bikes-canberra",
+    "Electric Bike Canberra",
+    "Electric Bike Canberra | E-Bikes for Canberra Riders",
+    "Shop an electric bike Canberra riders can use year round: commuter, folding and mountain e-bikes for lake paths and hills. 250W EN15194, delivered Australia-wide.",
+    "Electric Bike Canberra: E-Bikes for Lake Paths, Hills and Cold Mornings",
+    [
+      "An electric bike Canberra riders choose has to suit a city with excellent cycle paths, a path loop around Lake Burley Griffin, short sharp hills such as Red Hill and Mount Ainslie, and cold winter mornings. Pedal assist makes the commute easy and the hills manageable.",
+      "We deliver e-bikes across Australia, including Canberra and the ACT. Every bike below is a 250W pedal-assist model with a 25 km/h cut-out, built to EN 15194.",
+    ],
+    {
+      heading: "Ebikes Canberra: commuter, hills or bush trails",
+      body:
+        "For the daily commute between the suburbs, the city and the parliamentary triangle, a step-through commuter with lights and mudguards is the practical choice. For the hills and the bush trails around Canberra, a mid-drive electric mountain bike gives the best grip and torque. Shoppers searching for ebikes in Canberra can order online for delivery.",
+    },
+    {
+      heading: "ACT e-bike rules",
+      body:
+        "E-bike rules in the Australian Capital Territory may differ from other states and are changing across Australia in 2026. Check Access Canberra before you ride, and always wear a certified helmet.",
+    },
+    [
+      { q: "Where can I buy an electric bike in Canberra?", a: "Order online and we deliver across Australia, including Canberra. Contact us if you need help choosing a size." },
+      { q: "What is the best electric bike for Canberra hills?", a: "A mid-drive e-bike or eMTB climbs best. Check motor torque and battery size." },
+      { q: "Are electric bikes good for commuting in Canberra?", a: "Yes. Canberra has an extensive path network, so a commuter e-bike with lights and mudguards is a practical choice." },
+      { q: "Do I need a licence to ride an e-bike in the ACT?", a: "Compliant e-bikes are generally treated like bicycles, but rules are changing. Check Access Canberra." },
+      { q: "Can I get an e-bike delivered to Canberra?", a: "Yes. We deliver Australia-wide, and delivery details are shown at checkout." },
+    ],
+  ),
+  cityNode(
+    "city-geelong",
+    "electric-bikes-geelong",
+    "Electric Bikes Geelong",
+    "Electric Bikes Geelong | E-Bikes for Geelong Riders",
+    "Shop electric bikes Geelong riders choose: commuter, folding, cruiser and fat tyre e-bikes for the waterfront and the Bellarine. 250W EN15194, delivered Australia-wide.",
+    "Electric Bikes Geelong: E-Bikes for the Waterfront and the Bellarine",
+    [
+      "Electric bikes Geelong riders choose are built for waterfront paths, the Bellarine Rail Trail towards Queenscliff, windy days along the bay and the hills of the Surf Coast. A larger battery and a comfortable riding position matter more than top speed.",
+      "We deliver e-bikes across Australia, including Geelong and the Surf Coast. Every bike below is a 250W pedal-assist model with a 25 km/h cut-out, built to EN 15194.",
+    ],
+    {
+      heading: "Electric bikes Geelong: match the bike to the ride",
+      body:
+        "For the Eastern Beach waterfront and the city, a cruiser or step-through commuter is a relaxed choice. For the Bellarine Rail Trail and weekend rides, choose a hybrid or commuter with a bigger battery. For gravel and beach tracks, a fat tyre e-bike gives more grip. Shoppers searching for e-bikes in Geelong can order online for delivery.",
+    },
+    {
+      heading: "Victorian e-bike rules",
+      body:
+        "In Victoria only compliant e-bikes may be used on public roads and paths, helmets are required, and converted e-bikes are not allowed on trains. Check the state authority for the latest requirements before you ride.",
+    },
+    [
+      { q: "Where can I buy electric bikes in Geelong?", a: "Order online and we deliver across Australia, including Geelong and the Surf Coast. Contact us if you need help choosing a size." },
+      { q: "What is the best electric bike for the Bellarine Rail Trail?", a: "A comfortable hybrid, commuter or cruiser with a larger battery suits the long, flat rail trail." },
+      { q: "Are electric bikes good for windy waterfront rides?", a: "Yes. Pedal assist takes the effort out of riding into a headwind along the bay." },
+      { q: "Do I need a licence to ride an e-bike in Victoria?", a: "Compliant e-bikes are generally treated like bicycles in Victoria, but rules are changing, so check the state authority." },
+      { q: "Can I get an e-bike delivered to Geelong?", a: "Yes. We deliver Australia-wide, and delivery details are shown at checkout." },
+    ],
+  ),
+  cityNode(
+    "city-hobart",
+    "electric-bikes-hobart",
+    "Electric Bikes Hobart",
+    "Electric Bikes Hobart | E-Bikes for Hobart Riders",
+    "Shop electric bikes Hobart riders choose: commuter, folding and mountain e-bikes for steep streets and waterfront paths. 250W EN15194, delivered Australia-wide.",
+    "Electric Bikes Hobart: E-Bikes for Steep Streets and the Derwent",
+    [
+      "Electric bikes Hobart riders choose have to climb. The city is built on hills rising from the Derwent River, so a strong motor and good hydraulic brakes matter more than anything else. Pedal assist makes the climbs easy and the descents controlled.",
+      "We deliver e-bikes across Australia, including Hobart and the rest of Tasmania. Every bike below is a 250W pedal-assist model with a 25 km/h cut-out, built to EN 15194.",
+    ],
+    {
+      heading: "Electric bikes Hobart: motor, brakes and battery",
+      body:
+        "For steep suburbs, look for a mid-drive motor with high torque, hydraulic disc brakes and a battery sized for hills. A step-through commuter handles the waterfront and the city, while an electric mountain bike suits the trails on kunanyi / Mount Wellington. Shoppers searching for e-bikes in Hobart can order online for delivery.",
+    },
+    {
+      heading: "Tasmanian e-bike rules",
+      body:
+        "E-bike rules in Tasmania may differ from other states and are changing across Australia in 2026. Check the Tasmanian authority before you ride, and always wear a certified helmet.",
+    },
+    [
+      { q: "Where can I buy electric bikes in Hobart?", a: "Order online and we deliver across Australia, including Hobart and Tasmania. Delivery details are shown at checkout." },
+      { q: "What is the best electric bike for Hobart hills?", a: "A mid-drive e-bike or eMTB climbs best. Check motor torque, brakes and battery size." },
+      { q: "Are electric bikes good for commuting in Hobart?", a: "Yes. Pedal assist flattens the hills, and a commuter with mudguards and lights suits the weather." },
+      { q: "Do I need a licence to ride an e-bike in Tasmania?", a: "Compliant e-bikes are generally treated like bicycles, but rules are changing. Check the Tasmanian authority." },
+      { q: "Can I get an e-bike delivered to Hobart?", a: "Yes. We deliver Australia-wide, including Tasmania, and delivery details are shown at checkout." },
+    ],
+  ),
+  cityNode(
+    "city-nsw",
+    "electric-bikes-nsw",
+    "Electric Bike NSW",
+    "Electric Bike NSW | E-Bikes Delivered Across New South Wales",
+    "Shop an electric bike NSW riders trust: commuter, folding, mountain and cargo e-bikes for coast, city and country. 250W EN15194, delivered Australia-wide.",
+    "Electric Bike NSW: E-Bikes for Coast, City and Country",
+    [
+      "An electric bike NSW riders choose depends on the ride: city streets in Sydney and Newcastle, long coastal paths, the hills of the Illawarra and the Blue Mountains, and country rail trails. Pedal assist makes all of them easier.",
+      "We deliver e-bikes across Australia, so you can order online from anywhere in New South Wales. Every bike below is a 250W pedal-assist model with a 25 km/h cut-out, built to EN 15194.",
+    ],
+    {
+      heading: "Electric bike NSW: match the bike to the ride",
+      body:
+        "For the daily commute choose a step-through commuter with lights and mudguards. For hills and trails choose a mid-drive electric mountain bike. For trains and small spaces choose a folding e-bike. If you live in Sydney, see our ebike Sydney page for city advice.",
+    },
+    {
+      heading: "NSW e-bike rules",
+      body:
+        "Bicycle Network reports that NSW has reduced its maximum e-bike power to 250W and is reviewing a minimum riding age. Check Transport for NSW before you ride, because the rules are changing.",
+    },
+    [
+      { q: "Where can I buy an electric bike in NSW?", a: "Order online and we deliver across Australia, including New South Wales. Contact us for help choosing a frame size." },
+      { q: "What is the maximum e-bike power in NSW?", a: "Bicycle Network reports NSW has reduced the limit to 250W. All bikes in our range are 250W." },
+      { q: "What is the best electric bike for NSW hills?", a: "A mid-drive e-bike or eMTB climbs best. Check motor torque and battery size." },
+      { q: "Do I need a licence to ride an e-bike in NSW?", a: "Compliant e-bikes are generally treated like bicycles, but rules are changing. Check Transport for NSW before you ride." },
+      { q: "Do you deliver electric bikes to regional NSW?", a: "Yes. We deliver Australia-wide, including regional NSW, and delivery details are shown at checkout." },
+    ],
+  ),
 ];

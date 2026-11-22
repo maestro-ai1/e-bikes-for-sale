@@ -86,6 +86,7 @@ export const TRANSACTIONAL_KEYWORDS: Record<string, string[]> = {
     "cargo bikes perth", // 40 / KD 10
     "e bike perth", // 390 / KD 18 (T, refreshed 2026-11-21)
     "e bikes for sale perth", // 140 / KD 16 (T, refreshed 2026-11-21)
+    "electric bikes perth wa", // 260 / KD 12 (T, refreshed 2026-11-22)
   ],
   'batteries': [
     "battery for electric bike", // 50 / KD 12
@@ -197,6 +198,7 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "foldable bikes", // 320 / KD 24 (Commercial)
     "electric folding bicycles australia", // 260 / KD 6 (Commercial)
     "e bike fold", // 390 / KD 10 (CI, refreshed 2026-11-21)
+    "foldable electric bikes", // 320 / KD 13 (CI, refreshed 2026-11-22)
   ],
   'hub': [
     "best ebikes", // 590 / KD 28 (Commercial)
@@ -238,6 +240,8 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "cheap ebikes", // 1300 / KD 23 (CI, refreshed 2026-11-22)
     "cheap electric bikes australia under $500", // 720 / KD 18 (CI, refreshed 2026-11-22)
     "e bike under $1000", // 590 / KD 16 (C, refreshed 2026-11-22)
+    "ebike cheap", // 390 / KD 18 (CI, refreshed 2026-11-22)
+    "ebike under $1000", // 260 / KD 17 (C, refreshed 2026-11-22)
   ],
   'city-melbourne': [
     "e bike melbourne", // 480 / KD 26 (Commercial)
@@ -267,6 +271,13 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "bicycle e bike kit", // 480 / KD 4 (C, refreshed 2026-11-22)
     "ebike kits", // 480 / KD 13 (C, refreshed 2026-11-22)
     "1000w ebike conversion kit", // 140 / KD 2 (CI, refreshed 2026-11-22)
+    "electric bike conversion kit with battery", // 390 / KD 6 (CI, refreshed 2026-11-22)
+    "mid drive ebike kit", // 390 / KD 19 (CI, refreshed 2026-11-22)
+    "250 watt electric bike conversion kit", // 320 / KD 23 (C, refreshed 2026-11-22)
+    "2000w ebike conversion kit", // 260 / KD 6 (C, refreshed 2026-11-22)
+    "2000w ebike kit", // 260 / KD 8 (CI, refreshed 2026-11-22)
+    "electric bike conversion kit with battery australia", // 260 / KD 9 (CI, refreshed 2026-11-22)
+    "electric bike conversion kit 1500w", // 260 / KD 2 (C, refreshed 2026-11-22)
   ],
   'emtb': [
     "mtb entry level", // 390 / KD 20 (Commercial)
@@ -287,6 +298,9 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "e bike offroad", // 320 / KD 6 (C, refreshed 2026-11-21)
     "electric off road bike", // 590 / KD 6 (C, refreshed 2026-11-22)
     "electric mountain bike australia", // 480 / KD 10 (C, refreshed 2026-11-22)
+    "off road ebike", // 480 / KD 6 (C, refreshed 2026-11-22)
+    "ebike mountain bike", // 390 / KD 17 (C, refreshed 2026-11-22)
+    "best electric mountain bike", // 260 / KD 28 (C, refreshed 2026-11-22)
   ],
   'fat-tyre': [
     "fat tire electric bikes", // 320 / KD 14 (Commercial)
@@ -306,6 +320,10 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "fat tyre e bike", // 480 / KD 13 (CI, refreshed 2026-11-21)
     "fat tire e bikes", // 390 / KD 6 (C, refreshed 2026-11-21)
     "fat tire electric bike", // 720 / KD 14 (C, refreshed 2026-11-22)
+    "fat tyre electric bikes", // 390 / KD 12 (CI, refreshed 2026-11-22)
+    "fat tire e bike", // 320 / KD 11 (C, refreshed 2026-11-22)
+    "best fat tyre electric bike australia", // 320 / KD 4 (C, refreshed 2026-11-22)
+    "electric mini bike", // 590 / KD 6 (C, refreshed 2026-11-22)
   ],
   'brand-specialized': [
     "specialised ebike", // 320 / KD 24 (Commercial)
@@ -336,6 +354,12 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "e bike charger", // 260 / KD 6 (C, refreshed 2026-11-21)
     "e bike battery bag", // 210 / KD 6 (C, refreshed 2026-11-21)
     "e bike battery replacement", // 210 / KD 7 (C, refreshed 2026-11-21)
+    "72v ebike battery", // 320 / KD 7 (C, refreshed 2026-11-22)
+    "52v ebike battery", // 320 / KD 4 (CI, refreshed 2026-11-22)
+    "battery ebike 48v", // 320 / KD 3 (CI, refreshed 2026-11-22)
+    "electric bike battery chargers", // 260 / KD 4 (C, refreshed 2026-11-22)
+    "36v ebike battery", // 260 / KD 21 (C, refreshed 2026-11-22)
+    "ebike battery bag", // 260 / KD 8 (C, refreshed 2026-11-22)
   ],
   'kids-ebikes': [
     "kids electric bikes", // 170 / KD 15 (Commercial)
@@ -369,6 +393,8 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "step through e bike", // 260 / KD 8 (CI, refreshed 2026-11-21)
     "ebike commute", // 1000 / KD 17 (C, refreshed 2026-11-22)
     "e-bike commuting", // 480 / KD 8 (C, refreshed 2026-11-22)
+    "step through ebike", // 390 / KD 8 (CI, refreshed 2026-11-22)
+    "ladies ebike", // 320 / KD 11 (C, refreshed 2026-11-22)
   ],
   'gear-accessories': [
     "e-bike accessories", // 140 / KD 12 (Commercial)
@@ -386,6 +412,8 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "echo bike accessories", // 20 / KD 26 (Transactional)
     "electra bicycle accessories", // 20 / KD 15 (Transactional)
     "electric bike basket", // 50 / KD 6 (C, refreshed 2026-11-22)
+    "ebike rack", // 320 / KD 4 (C, refreshed 2026-11-22)
+    "electric bike lock", // 260 / KD 9 (CI, refreshed 2026-11-22)
   ],
   'cargo': [
     "cargo electric bike", // 110 / KD 6 (Commercial)
@@ -411,6 +439,7 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
   ],
   'city-perth': [
     "perth electric bike", // 90 / KD 19 (Commercial)
+    "electric bike perth australia", // 260 / KD 17 (C, refreshed 2026-11-22)
   ],
   'cruiser': [
     "step through electric bike australia", // 70 / KD 4 (Commercial)
@@ -430,6 +459,9 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "electric bicycle bike parts", // 20 / KD 0 (Transactional)
     "ebike throttle", // 880 / KD 9 (C, refreshed 2026-11-22)
     "ebike wheels", // 50 / KD 6 (C, refreshed 2026-11-22)
+    "ebike with throttle", // 260 / KD 6 (C, refreshed 2026-11-22)
+    "ebike controller", // 320 / KD 9 (C, refreshed 2026-11-22)
+    "e-bike pedal", // 260 / KD 9 (C, refreshed 2026-11-22)
   ],
   'city-brisbane': [
     "electric bike for sale brisbane", // 50 / KD 21 (Transactional)
@@ -499,6 +531,7 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "cube electric bike accessories", // 20 / KD 6 (Transactional)
     "cube e bike", // 390 / KD 10 (C, refreshed 2026-11-21)
     "cube electric bike", // 480 / KD 17 (C, refreshed 2026-11-22)
+    "cube e bikes", // 260 / KD 7 (C, refreshed 2026-11-22)
   ],
   'sc-electric': [
     "scooter cushion", // 20 / KD 6 (Transactional)
