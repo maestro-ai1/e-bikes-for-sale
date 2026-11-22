@@ -19,6 +19,9 @@ type FaqItem = { question: string; answer: string };
 
 /** Category page (keyword-map.md node) a product belongs to. */
 export function nodeIdForProduct(p: Product): string {
+  if (p.category === 'cargo' && /\b(trike|tricycle)\b/i.test(p.name)) return 'trikes';
+  if (p.category === 'parts' && /conversion kit|motor kit/i.test(p.name)) return 'conversion';
+  if (p.category === 'parts' && /battery/i.test(p.name)) return 'batteries';
   if (p.brand === 'Segway-Ninebot') return 'brand-segway';
   const sub = p.subcategoryId || '';
   switch (p.category) {
@@ -76,8 +79,20 @@ function fitsProduct(p: Product, kw: string): boolean {
     [/\btyres?\b|\btires?\b|\btubes?\b/, /\btyres?\b|\btires?\b|\btubes?\b/],
     [/\bgloves?\b/, /\bgloves?\b/],
     [/\bcomputers?\b|\bgps\b/, /\bcomputers?\b|\bgps\b|garmin|wahoo/],
+    [/\bdisplay\b/, /\bdisplay\b|kiox|intuvia|nyon/],
+    [/\bthrottle\b/, /\bthrottle\b/],
+    [/\bcontroller\b/, /\bcontroller\b/],
   ];
   for (const [kwRe, nameRe] of KINDS) if (kwRe.test(k) && !nameRe.test(name)) return false;
+  // electronics (displays) never carry mechanical-part keywords, and brand-name look-alikes from the bank are dropped
+  if (/display|kiox|intuvia/.test(name) && /frame|chain|tyre|tire|wheel|pedal|brake|saddle|seat|easy motion|a2b/.test(k)) return false;
+  // a kit or battery keyword must match the product's voltage, and a 250 W kit does not carry high-power keywords
+  if (/kit|battery/.test(name)) {
+    const kv = k.match(/(\d{2})\s?v\b/); const nv = name.match(/(\d{2})\s?v\b/);
+    if (kv && nv && kv[1] !== nv[1]) return false;
+    const kw = k.match(/(\d{3,4})\s?w\b/);
+    if (kw && +kw[1] > 250) return false;
+  }
   // keywords describing a whole bike ("bikes with basket") do not belong on a component
   if (/\b(bikes?|bicycles?) (with|for)\b|\bwomens\b/.test(k) && /\bwith\b/.test(k)) return false;
   return true;
@@ -200,6 +215,36 @@ export function buildFaqs(p: Product): FaqItem[] {
       { question: `Are helmets compulsory in Australia?`, answer: `Yes. An approved bicycle helmet is required for all bicycle and e-bike riders in every state and territory. A helmet certified to AS/NZS 2063 meets the standard.${clause(2, (k) => `That covers a "${k}" purchase too.`)} Check your state authority for the details.` },
       { question: `How much is the ${p.name} and can I buy it online?`, answer: `The ${p.name} is ${price}. ${delivery}${clause(3, (k) => `Searching for "${k}"? Add it to cart or ask us about sizing.`)}` },
       { question: `When should I replace a bike helmet?`, answer: `Replace a helmet after a significant impact, when the shell or straps are damaged, or when it no longer fits. Many makers also recommend replacing a helmet every few years.${clause(4, (k) => `This is worth checking before you buy for "${k}".`)}` },
+    ];
+  }
+
+  // conversion kits, conversion batteries and e-bike displays: fit and legality matter more than the generic accessory answers
+  if (p.category === 'parts' && /conversion kit|motor kit/i.test(p.name)) {
+    const motorOnly = p.features.some((f) => /battery sold separately/i.test(f));
+    return [
+      { question: q1, answer: `${desc} A conversion changes how a bike brakes and handles, so check that your frame, bottom bracket and brakes suit the kit before you order.` },
+      { question: `Is the ${p.name} legal to use in Australia?`, answer: `A conversion must still meet the rules for the bike you ride: a motor rated at 250 W with assistance that stops at 25 km/h. Kits above that power are generally not legal on public roads as a bicycle, rules differ by state and converted e-bikes are not allowed on Victorian trains. Check your road authority before you ride.${clause(0, (k) => `This applies to any "${k}".`)}` },
+      { question: `How much is the ${p.name} and can I buy it online?`, answer: `The ${p.name} is ${price}. ${delivery}${clause(1, (k) => `Searching for "${k}"? Send an enquiry and we will confirm fit and stock.`)}` },
+      { question: `Does the ${p.name} include a battery?`, answer: `${motorOnly ? 'No. The kit is the motor and its parts only, so you need a battery that suits the system, such as a 36V battery from our conversion batteries.' : 'Check the package contents on the product page, and ask us if you are unsure what is included.'}${clause(2, (k) => `Compare options for "${k}" before you buy.`)}` },
+      { question: `Can you confirm fit before I pay?`, answer: `Yes. Send us your bike's make, model and bottom bracket width through the enquiry button and we will check the kit suits it.${clause(3, (k) => `Mention "${k}" if you want us to suggest alternatives.`)}` },
+    ];
+  }
+  if (p.category === 'parts' && /battery/i.test(p.name)) {
+    return [
+      { question: q1, answer: `${desc} Check that the voltage matches your motor and controller, and that the battery mounts on your bike.` },
+      { question: `Which systems does the ${p.name} suit?`, answer: `It is built for conversion kits of the same voltage, for example 36V systems such as the Bafang BBS01B 36V. Never swap in a different voltage, and send us your kit's model if you are not sure.${clause(0, (k) => `This matters when you shop for "${k}".`)}` },
+      { question: `How much is the ${p.name} and can I buy it online?`, answer: `The ${p.name} is ${price}. ${delivery}${clause(1, (k) => `Searching for "${k}"? Send an enquiry and we will confirm fit and stock.`)}` },
+      { question: `How should I charge and store the battery?`, answer: `Use only the supplied charger, charge indoors on a hard surface away from flammable items, do not leave it charging unattended and store it at room temperature. Never use a damaged battery or charger.${clause(2, (k) => `Follow the same rules with any "${k}".`)}` },
+      { question: `Can you confirm stock and fit before I pay?`, answer: `Yes. Use the enquiry button and we will confirm stock and check the battery against your kit.${clause(3, (k) => `Mention "${k}" if you want us to suggest alternatives.`)}` },
+    ];
+  }
+  if (p.category === 'parts' && /display/i.test(p.name)) {
+    return [
+      { question: q1, answer: `${desc} It is a replacement or upgrade part, so check your bike's system before you order.` },
+      { question: `Will the ${p.name} fit my bike?`, answer: `Only if your bike uses a compatible system and connector. Send us your bike's make, model and year and we will check before you pay.${clause(0, (k) => `This matters when you shop for "${k}".`)}` },
+      { question: `How much is the ${p.name} and can I buy it online?`, answer: `The ${p.name} is ${price}. ${delivery}${clause(1, (k) => `Searching for "${k}"? Send an enquiry and we will confirm fit and stock.`)}` },
+      { question: `What does the ${p.name} show?`, answer: `${desc} Check the product page for the full feature list.${clause(2, (k) => `It sits in our "${k}" range.`)}` },
+      { question: `Can you confirm stock and fit before I pay?`, answer: `Yes. Use the enquiry button and we will confirm stock and compatibility with your bike.${clause(3, (k) => `Mention "${k}" if you want us to suggest alternatives.`)}` },
     ];
   }
 

@@ -134,9 +134,11 @@ export default function ProductDetailModal() {
                     {product.badge}
                   </span>
                 )}
-                <span className="bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-md">
-                  EN15194 Certified
-                </span>
+                {/ens?15194/i.test(product.auCompliance || '') && (
+                  <span className="bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-md">
+                    EN15194 Certified
+                  </span>
+                )}
               </div>
 
               {/* 360 Spin Mode Button */}

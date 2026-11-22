@@ -116,7 +116,8 @@ export const LANDING_NODES: LandingNode[] = [
       { q: "Are electric bike conversion kits legal?", a: "They must still meet your state's rules for power, speed and rider age. Check your state transport authority, as the rules are changing in 2026." },
       { q: "Is it better to buy a ready-built e-bike?", a: "Often yes for most riders. A factory-built e-bike is tested as a system, carries a compliance label and has a warranty." },
     ],
-    matches: () => false,
+    productLimit: 6,
+    matches: (p) => /conversion kit|mid-drive motor kit/i.test(p.name),
   },
 
   // ───────────── BATTERIES ─────────────
@@ -158,7 +159,8 @@ export const LANDING_NODES: LandingNode[] = [
       { q: "Can I use a different charger for my e bike battery?", a: "Use the charger supplied or recommended by the manufacturer. Mismatched chargers are a fire risk." },
       { q: "How should I store an ebike battery?", a: "Keep it in a cool, dry place away from direct sunlight, partially charged if stored for long periods, and never in a parked vehicle." },
     ],
-    matches: () => false,
+    productLimit: 6,
+    matches: (p) => /battery|charger/i.test(p.name),
   },
 
   // ───────────── KIDS HELMETS ─────────────
@@ -217,7 +219,7 @@ export const LANDING_NODES: LandingNode[] = [
     h1: "3 Wheel Electric Bike: Electric Trikes Explained",
     intro: [
       "A 3 wheel electric bike gives you the stability of a trike with a motor to do the hard work. It suits riders who want to stay upright without balancing, carry a load, or ride with confidence after time off the bike.",
-      "This guide explains how e-trikes compare with two-wheel e-bikes, what to look for, and which of our bikes is the closest alternative today. Ask us if you want to know about e-trike availability.",
+      "This guide explains how e-trikes compare with two-wheel e-bikes, what to look for, and which of our bikes is the closest alternative. Ask us if you want to know about e-trike availability.",
     ],
     bridge: {
       heading: "Trike bike, e tricycle or electric trike?",
@@ -240,11 +242,11 @@ export const LANDING_NODES: LandingNode[] = [
       { q: "What is a 3 wheel electric bike?", a: "It is a three-wheeled bicycle (a trike) with a motor that assists your pedalling, offering stability without needing to balance." },
       { q: "Are electric trikes legal in Australia?", a: "Rules depend on your state and on whether the trike meets EN 15194 power and speed limits. Check your state authority." },
       { q: "Are electric tricycles good for adults?", a: "Yes. They suit adults who want a stable, comfortable ride or need to carry loads." },
-      { q: "Do you sell an electric trike for adults?", a: "Contact us for current availability. The closest stable option in our range today is a longtail cargo e-bike." },
+      { q: "Do you sell an electric trike for adults?", a: "Yes. We list the Addmotor Citytri E-310 foldable electric trike. A longtail cargo e-bike is the other stable option in our range." },
       { q: "Is a trike harder to ride than a bike?", a: "It is easier to start and stop, but wider and heavier, so it needs more space and careful cornering." },
     ],
-    productLimit: 3,
-    matches: (p) => p.category === "cargo",
+    productLimit: 6,
+    matches: (p) => /trike|tricycle/i.test(p.name) || p.category === "cargo",
   },
 
   // ───────────── CITIES ─────────────

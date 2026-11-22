@@ -202,7 +202,7 @@ export const WAVE_COPY: Record<string, WaveSection[]> = {
   "conversion": [
     {
       "h2": "Electric bike conversion kit: what is in the box and what to check",
-      "p": "An electric bike conversion kit adds a motor, battery, controller and display to a bike you already own. A typical electric ebike kit comes as either a hub motor in the front or rear wheel or a mid-drive unit at the cranks. The bike frame must suit the motor, so check the axle width, brake type and frame material before you buy. Mount quality matters, because a conversion changes how the bike is loaded and braked. We do not currently list conversion kits on this site. If you are weighing a kit against a complete e-bike, our commuter and mountain bikes arrive built, tested and under warranty.",
+      "p": "An electric bike conversion kit adds a motor, battery, controller and display to a bike you already own. A typical electric ebike kit comes as either a hub motor in the front or rear wheel or a mid-drive unit at the cranks. The bike frame must suit the motor, so check the axle width, brake type and frame material before you buy. Mount quality matters, because a conversion changes how the bike is loaded and braked. We list the Bafang BBS01B 36V 250W mid-drive kit at $689 (motor only: a 36V battery is sold separately). If you are weighing a kit against a complete e-bike, our commuter and mountain bikes arrive built, tested and under warranty.",
       "links": [
         {
           "t": "commuter",
@@ -285,7 +285,7 @@ export const WAVE_COPY: Record<string, WaveSection[]> = {
   "gear-parts": [
     {
       "h2": "E bike parts Australia: what we list and what to ask first",
-      "p": "Our e bike parts range covers common components such as tyres and tubes, brake pads and rotors, pedals, power meters and fitting accessories for a wide range of bikes. Motor, controller, display, throttle and battery parts are different: they are specific to each e-bike system, so check the make, model and voltage before you buy parts for an ebike, and ask us to confirm compatibility. Quality parts matter on an e-bike because the bike is heavier and faster than a normal bicycle, so brakes, tyres and chains wear sooner. Replace worn parts early rather than waiting for them to fail.",
+      "p": "Our e bike parts range covers common components such as tyres and tubes, brake pads and rotors, pedals, power meters and fitting accessories for a wide range of bikes. We also list Bosch Kiox and Intuvia displays. Motor, controller, throttle and battery parts are specific to each e-bike system, so check the make, model and voltage before you buy parts for an ebike, and ask us to confirm compatibility. Quality parts matter on an e-bike because the bike is heavier and faster than a normal bicycle, so brakes, tyres and chains wear sooner. Replace worn parts early rather than waiting for them to fail.",
       "links": [
         {
           "t": "ask us",
@@ -487,7 +487,7 @@ export const WAVE_COPY: Record<string, WaveSection[]> = {
   "trikes": [
     {
       "h2": "Three wheel e bike: who needs an electric trike?",
-      "p": "A three wheel e bike, also called an electric trike bike or a 3 wheel e bike, suits riders who want stability at low speed, easy starting and stopping, or the confidence of not having to balance. Trikes are wider and heavier than bikes, so check your storage space, the turning circle and the weight limit. We do not currently list an adult electric trike. If you want a stable way to carry loads or passengers, a longtail cargo e-bike is the closest option in our range, from $3,499. Check your state's rules for trikes and for riding age.",
+      "p": "A three wheel e bike, also called an electric trike bike or a 3 wheel e bike, suits riders who want stability at low speed, easy starting and stopping, or the confidence of not having to balance. Trikes are wider and heavier than bikes, so check your storage space, the turning circle and the weight limit. We list the Addmotor Citytri E-310 foldable electric trike at $2,899, with a 250W rear-drive motor and a 960 Wh battery. If you want to carry heavier loads, a longtail cargo e-bike from $3,499 is the other stable option. Check your state's rules for trikes and for riding age.",
       "links": [
         {
           "t": "longtail cargo e-bike",

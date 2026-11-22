@@ -201,10 +201,12 @@ export default function ProductLandingPage({ initialProduct }: ProductLandingPag
                     {product.badge}
                   </span>
                 )}
-                <span className="bg-emerald-600 text-white text-[11px] font-bold px-2.5 py-1 rounded-full shadow-xs flex items-center gap-1">
-                  <ShieldCheck className="w-3.5 h-3.5" />
-                  <span>EN15194 Certified</span>
-                </span>
+                {/en\s?15194/i.test(product.auCompliance || '') && (
+                  <span className="bg-emerald-600 text-white text-[11px] font-bold px-2.5 py-1 rounded-full shadow-xs flex items-center gap-1">
+                    <ShieldCheck className="w-3.5 h-3.5" />
+                    <span>EN15194 Certified</span>
+                  </span>
+                )}
               </div>
 
               {/* In-Stock Indicator */}

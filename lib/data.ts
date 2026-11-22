@@ -1,6 +1,7 @@
 import { Product, FAQItem, AustralianStateRule, BrandInfo, RevolutionarySlide } from './types';
 import { PARTNER_PRODUCTS } from '@/lib/partner-products';
 import { FEED_PRODUCTS } from '@/lib/feed-products';
+import { EXTRA_PRODUCTS } from '@/lib/extra-products';
 import { PRODUCT_IMAGES } from '@/lib/product-images';
 import { ensureFaqs, tagsForProduct } from '@/lib/product-seo';
 
@@ -168,7 +169,7 @@ export const PARTS_PAGE_CONFIG = {
 };
 
 // Cube, Merida, Pedal and Dirodi models (own file)
-PRODUCTS.push(...PARTNER_PRODUCTS, ...FEED_PRODUCTS);
+PRODUCTS.push(...PARTNER_PRODUCTS, ...FEED_PRODUCTS, ...EXTRA_PRODUCTS);
 
 // Pedal Breeze "Electric Cruiser Bike" listings are cruisers by name and by the keyword map (cruiser e bike),
 // although the supplier files them under hybrid comfort: list them with the cruiser category.
@@ -181,7 +182,7 @@ PRODUCTS.forEach((p) => {
 
 // Keyword-map rules: new products take their 10 tags from the mapped category keywords, and every
 // product page carries exactly 5 FAQs that each include one mapped keyword.
-[...PARTNER_PRODUCTS, ...FEED_PRODUCTS].forEach((p) => { p.tags = tagsForProduct(p); });
+[...PARTNER_PRODUCTS, ...FEED_PRODUCTS, ...EXTRA_PRODUCTS].forEach((p) => { p.tags = tagsForProduct(p); });
 
 // Photos matched from the supplier folder (see seo-strategy/preview-site/apply-pics.js)
 PRODUCTS.forEach((p) => {
