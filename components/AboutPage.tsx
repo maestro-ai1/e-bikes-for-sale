@@ -39,7 +39,6 @@ export default function AboutPage() {
           <dl className="mt-3 grid gap-2 text-sm text-gray-700 sm:grid-cols-[10rem_1fr]">
             <dt className="font-bold">Trading name</dt><dd>{BUSINESS_INFO.name}</dd>
             <dt className="font-bold">Legal name</dt><dd>{BUSINESS_INFO.legalName}</dd>
-            <dt className="font-bold">ABN</dt><dd>{BUSINESS_INFO.abn}</dd>
             <dt className="font-bold">Address</dt><dd>{BUSINESS_INFO.address}</dd>
             <dt className="font-bold">Website</dt><dd>{BUSINESS_INFO.domain}</dd>
           </dl>

@@ -94,19 +94,16 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* COMPACT BOTTOM BAR WITH PAYMENT MODES & MANDATORY ABN */}
+      {/* COMPACT BOTTOM BAR WITH PAYMENT MODES */}
       <div className="border-t border-gray-800 bg-[#070b13] py-6 text-xs text-gray-400">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-4">
           
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             
-            {/* COPYRIGHT & ABN EXCLUSIVELY AT FOOTER */}
+            {/* COPYRIGHT */}
             <div className="space-y-0.5 text-center md:text-left">
               <div>
                 © {currentYear} <strong className="text-white font-bold">{BUSINESS_INFO.name}</strong>. All rights reserved.
-              </div>
-              <div className="font-mono text-xs text-emerald-400 font-bold">
-                ABN: {BUSINESS_INFO.abn}
               </div>
             </div>
 

@@ -58,7 +58,7 @@ export function llmsTxt(): string {
     '',
     `> ${TAGLINE}. Australian online store with ${PRODUCTS.length} products, prices in AUD, delivery Australia-wide. Pedal-assist e-bikes follow the Australian EN 15194 rules (250 W, assistance cuts out at 25 km/h).`,
     '',
-    `Operated by ${BUSINESS_INFO.legalName} (ABN ${BUSINESS_INFO.abn}). Contact: ${BUSINESS_INFO.email}, ${BUSINESS_INFO.phone}. Minimum order ${money(BUSINESS_INFO.minOrder)}; free delivery over ${money(BUSINESS_INFO.freeDeliveryThreshold)}. Payment by PayID, bank transfer (Osko/EFT) or crypto (10% discount).`,
+    `Operated by ${BUSINESS_INFO.legalName} . Contact: ${BUSINESS_INFO.email}, ${BUSINESS_INFO.phone}. Minimum order ${money(BUSINESS_INFO.minOrder)}; free delivery over ${money(BUSINESS_INFO.freeDeliveryThreshold)}. Payment by PayID, bank transfer (Osko/EFT) or crypto (10% discount).`,
     '',
     '## Shop',
     ...CATEGORY_LINKS.map((c) => `- [${c.label}](${SITE}${c.path}): ${c.blurb}`),

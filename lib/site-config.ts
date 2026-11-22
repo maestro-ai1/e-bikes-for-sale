@@ -4,7 +4,6 @@ export const BUSINESS_INFO = {
   name: 'e bikes for sale',
   legalName: 'e bikes for sale Australia Pty Ltd',
   domain: 'ebikesforsale.com.au',
-  abn: '85 145 434 286', // Strictly placed at the footer
   phone: '+61420128746',
   whatsapp: '+61420128746',
   email: 'sales@ebikesforsale.com.au',

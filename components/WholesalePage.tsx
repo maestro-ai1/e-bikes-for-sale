@@ -154,7 +154,7 @@ export default function WholesalePage() {
                     <input
                       type="text"
                       required
-                      placeholder="e.g. 85 145 434 286"
+                      placeholder="e.g. 11 222 333 444"
                       value={formData.abn}
                       onChange={(e) => setFormData({ ...formData, abn: e.target.value })}
                       className="w-full text-xs border border-gray-300 rounded-lg p-2.5 bg-white"

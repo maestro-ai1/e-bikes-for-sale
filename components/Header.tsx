@@ -361,9 +361,6 @@ export default function Header() {
                 <MessageCircle className="w-4 h-4" />
                 WhatsApp: {BUSINESS_INFO.whatsapp}
               </a>
-              <div className="text-[11px] text-gray-400">
-                ABN: {BUSINESS_INFO.abn} (Registered Australian Business)
-              </div>
             </div>
           </div>
         </div>
