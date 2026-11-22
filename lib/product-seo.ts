@@ -4,6 +4,7 @@ import { GEAR_KEYWORDS, STRATEGY_OVERRIDES } from '@/lib/gear-pages';
 import { STRATEGY_KEYWORDS } from '@/lib/strategy-map';
 import { withTransactional, withSupporting } from '@/lib/transactional-keywords';
 import { typeKeywordsFor } from '@/lib/product-keywords';
+import { RETAIL_BRAND_KEYWORDS } from '@/lib/brand-pages-retail';
 
 /**
  * Product SEO rules (seo-strategy/keyword-map.md is the source of truth, never invent keywords):
@@ -82,13 +83,59 @@ function fitsProduct(p: Product, kw: string): boolean {
   return true;
 }
 
+// ---------- bike tags that fit the individual bike (owner-approved product mapping fix, 2026-11-22) ----------
+// A bike's tags used to be the category list in fixed order, so 63 commuter bikes carried the identical set. Now the same mapped keywords
+// (category page plus the bike's brand page) are ranked by how well they fit THIS bike: frame shape, price, battery size, suspension and brand.
+const BIKE_CATS = ['emtb', 'folding', 'cruiser', 'fat-tyre', 'cargo', 'road', 'commuter'];
+const BRAND_NODE: Record<string, string> = { Cube: 'brand-cube', Merida: 'brand-merida', Pedal: 'brand-pedal', Dirodi: 'brand-dirodi' };
+function brandKeywordsFor(p: Product): string[] {
+  const id = BRAND_NODE[p.brand];
+  if (!id) return [];
+  const b = { ...(RETAIL_BRAND_KEYWORDS[id] ?? {}), ...(STRATEGY_KEYWORDS[id] ?? {}) } as Partial<NodeKeywords>;
+  const commerce = withTransactional(id, b.commerce) || [];
+  const supporting = withSupporting(id, b.supporting) || [];
+  return [b.primary, ...commerce, ...supporting, ...(b.secondary || [])].filter((x): x is string => !!x);
+}
+function bikeFitScore(p: Product, kw: string, isBrand: boolean, isPrimary: boolean): number {
+  const k = kw.toLowerCase();
+  const sub = p.subcategoryId || '';
+  const step = p.frameType === 'Step-Through' || /easy entry|\bst\b|\bee\b|step/i.test(p.name);
+  let s = isBrand ? 5 : 0;
+  if (isBrand) {
+    // a brand keyword only fits a bike of the kind it names
+    if (/accessor/.test(k)) s -= 20;
+    if (/cargo/.test(k) && p.category !== 'cargo') s -= 20;
+    if (/mountain|mtb/.test(k) && p.category !== 'emtb') s -= 20;
+  }
+  if (isPrimary) s += 2;
+  if (/step.?through|\bwomen|\bladies|\blady/.test(k)) s += step ? 4 : -6;
+  if (/\bmens?\b/.test(k)) s += !step && p.frameType === 'Crossbar' ? 3 : -6;
+  if (/cheap|afford|budget|inexpensive|under \$|low cost|discount|bargain/.test(k)) s += p.price < 1500 ? 3 : p.price < 2000 ? 0 : -6;
+  if (/long range|battery|watt/.test(k)) s += (p.batteryWh || 0) >= 600 ? 2 : 0;
+  if (/hardtail/.test(k)) s += /hardtail/.test(sub) ? 4 : -6;
+  if (/dual|full sus|full suspension|enduro|downhill/.test(k)) s += /dual|enduro|trial|trail/.test(sub) ? 3 : -6;
+  if (/kids|youth|junior|child/.test(k)) s += /kid|youth|junior/i.test(`${sub} ${p.name}`) ? 3 : -6;
+  if (/commut|trekking|hybrid/.test(k)) s += p.category === 'commuter' ? 1 : 0;
+  if (/for sale|price|cost|buy/.test(k)) s += 1;
+  return s;
+}
+
 /** Up to 10 tags from the mapped keywords of this product's category that fit the product. */
 export function tagsForProduct(p: Product): string[] {
   const k = keywordsForProduct(p);
   if (!k) return p.tags || [];
   // product-type keywords first (a helmet, a light and a scooter carry different terms), then the category keywords
   const typed = typeKeywordsFor(p).slice(0, 4);
-  const all = [...typed, k.primary, ...(k.commerce || []).slice(0, 3), ...k.secondary, ...(k.supporting || [])];
+  let all = [...typed, k.primary, ...(k.commerce || []).slice(0, 3), ...k.secondary, ...(k.supporting || [])];
+  if (BIKE_CATS.includes(p.category)) {
+    const brandKws = brandKeywordsFor(p);
+    const pool = [...new Set([...brandKws.slice(0, 6), ...all])];
+    all = pool
+      .map((t, i) => ({ t, i, s: bikeFitScore(p, t, brandKws.includes(t), t === k.primary) }))
+      .filter((x) => x.s > -2)
+      .sort((a, b) => b.s - a.s || a.i - b.i)
+      .map((x) => x.t);
+  }
   // one tag per concept: "ebike accessories", "e bike accessories" and "e-bike accessory" count as the same tag
   const concept = (t: string) => t.toLowerCase().replace(/e[- ]?bikes?/g, 'ebike').replace(/electric (bikes?|bicycles?)/g, 'ebike').replace(/[^a-z0-9 ]+/g, ' ').replace(/\b(\w+?)(ies|es|s|y)\b/g, '$1').split(/\s+/).filter((w) => w && !['and', 'for', 'an', 'a', 'the', 'with', 'of', 'in'].includes(w)).sort().join(' ');
   // brand-name and off-topic variants from the bank never make a good product tag
