@@ -11,9 +11,9 @@ type BrandNode = Omit<CatalogNode, "keywords">;
  */
 export const RETAIL_BRAND_KEYWORDS: Record<string, NodeKeywords> = {
   "brand-cube": { primary: "cube e mountain bikes", primaryVolume: 50, primaryKd: 7, secondary: ["cube cargo bike"], supporting: [] },
-  "brand-merida": { primary: "merida electric bike", primaryVolume: 0, primaryKd: 0, secondary: [], supporting: [] },
-  "brand-pedal": { primary: "pedal electric bikes", primaryVolume: 0, primaryKd: 0, secondary: [], supporting: [] },
-  "brand-dirodi": { primary: "dirodi electric bike", primaryVolume: 0, primaryKd: 0, secondary: [], supporting: [] },
+  "brand-merida": { primary: "e bike merida", primaryVolume: 720, primaryKd: 16, secondary: [], supporting: ["merida electric bike", "merida e bike"] },
+  "brand-pedal": { primary: "pedal ebike", primaryVolume: 1000, primaryKd: 11, secondary: [], supporting: ["pedal electric bikes", "pedal electric bike"] },
+  "brand-dirodi": { primary: "dirodi e bike", primaryVolume: 2400, primaryKd: 22, secondary: [], supporting: ["dirodi electric bike", "dirodi ebike"] },
 };
 
 export const BRAND_NODES_RETAIL: BrandNode[] = [
@@ -62,12 +62,12 @@ export const BRAND_NODES_RETAIL: BrandNode[] = [
     path: "/brands/merida",
     name: "Merida E-Bikes",
     navLabel: "Merida E-Bikes",
-    title: "Merida Electric Bike Australia | eOne-Sixty & eSilex",
+    title: "E Bike Merida Australia | eOne-Sixty & eSilex",
     description:
-      "Shop the Merida electric bike range: eOne-Sixty 400 enduro eMTB and eSilex gravel e-bikes. Compare motors, batteries and prices on each model page.",
-    h1: "Merida Electric Bike: eOne-Sixty Enduro and eSilex Gravel E-Bikes",
+      "Shop the Merida e bike range: eOne-Sixty 400 enduro eMTB and eSilex gravel e-bikes. Compare motors, batteries and prices on each model page.",
+    h1: "E Bike Merida: eOne-Sixty Enduro and eSilex Gravel E-Bikes",
     intro: [
-      "A Merida electric bike gives you two very different options: the eOne-Sixty 400, a long-travel enduro eMTB with a Shimano EP801 mid-drive, and the eSilex gravel bikes, which use a light MAHLE hub drive and ride close to a regular gravel bike.",
+      "A Merida e bike gives you two very different options: the eOne-Sixty 400, a long-travel enduro eMTB with a Shimano EP801 mid-drive, and the eSilex gravel bikes, which use a light MAHLE hub drive and ride close to a regular gravel bike.",
       "Open a model page for specs, battery size and current pricing, or use the notes below to pick the right Merida for your riding.",
     ],
     bridge: {
@@ -100,12 +100,12 @@ export const BRAND_NODES_RETAIL: BrandNode[] = [
     path: "/brands/pedal",
     name: "Pedal Electric Bikes",
     navLabel: "Pedal Electric Bikes",
-    title: "Pedal Electric Bikes Australia | Folding, Cruiser, Fat Tyre",
+    title: "Pedal Ebike Australia | Folding, Cruiser, Fat Tyre",
     description:
-      "Shop Pedal electric bikes: Derby and Dynamo folding e-bikes, Brewer cruiser, Bandit fat tyre and Lynx hardtail. Compare battery size, range and price.",
-    h1: "Pedal Electric Bikes: Folding, Cruiser, Fat Tyre and Hardtail E-Bikes",
+      "Shop the Pedal ebike range: Derby and Dynamo folding e-bikes, Brewer cruiser, Bandit fat tyre and Lynx hardtail. Compare battery size, range and price.",
+    h1: "Pedal Ebike: Folding, Cruiser, Fat Tyre and Hardtail E-Bikes",
     intro: [
-      "Pedal electric bikes cover value-focused folding, cruiser, fat tyre and hardtail e-bikes. This range includes the Derby and Dynamo 3 folding bikes, the Brewer cruiser, the Bandit 20 fat tyre bike and the Lynx 3 hardtail.",
+      "A Pedal ebike covers value-focused folding, cruiser, fat tyre and hardtail e-bikes. This range includes the Derby and Dynamo 3 folding bikes, the Brewer cruiser, the Bandit 20 fat tyre bike and the Lynx 3 hardtail.",
       "Each model has its own page with battery size, motor and price details. Use the notes below to match a Pedal e-bike to how you ride.",
     ],
     bridge: {
@@ -140,12 +140,12 @@ export const BRAND_NODES_RETAIL: BrandNode[] = [
     path: "/brands/dirodi",
     name: "Dirodi Electric Bikes",
     navLabel: "Dirodi Electric Bikes",
-    title: "Dirodi Electric Bike Australia | Rover Pro Fat Bike",
+    title: "Dirodi E Bike Australia | Rover Pro Fat Bike",
     description:
-      "Shop the Dirodi electric bike: Rover Pro 250W moto-style fat bike with a 52 V battery and up to 125 km claimed range. See specs, price and photos.",
-    h1: "Dirodi Electric Bike: Rover Pro 250W Electric Fat Bike",
+      "Shop the Dirodi e bike: Rover Pro 250W moto-style fat bike with a 52 V battery and up to 125 km claimed range. See specs, price and photos.",
+    h1: "Dirodi E Bike: Rover Pro 250W Electric Fat Bike",
     intro: [
-      "The Dirodi electric bike range is built around the Rover Pro, a moto-styled fat bike with a 250 W geared hub motor, a large 52 V battery and a two-person saddle.",
+      "The Dirodi e bike range is built around the Rover Pro, a moto-styled fat bike with a 250 W geared hub motor, a large 52 V battery and a two-person saddle.",
       "The Rover Pro page lists the motor, battery, range and price. Read the notes below to see who it suits.",
     ],
     bridge: {

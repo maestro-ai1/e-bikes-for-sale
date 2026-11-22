@@ -251,12 +251,12 @@ export const LANDING_NODES: LandingNode[] = [
   cityNode(
     "city-melbourne",
     "electric-bikes-melbourne",
-    "Electric Bikes Melbourne",
-    "Electric Bikes Melbourne | E-Bikes Delivered Australia-Wide",
-    "Shop electric bikes Melbourne riders love: commuter, folding and cruiser e-bikes for trams and bay trails. 250W EN15194 models, delivered Australia-wide.",
-    "Electric Bikes Melbourne: E-Bikes for the City and the Bay",
+    "Electric Bike Melbourne",
+    "Electric Bike Melbourne | E-Bikes Delivered Australia-Wide",
+    "Shop an electric bike Melbourne riders love: commuter, folding and cruiser e-bikes for trams and bay trails. 250W EN15194 models, delivered Australia-wide.",
+    "Electric Bike Melbourne: E-Bikes for the City and the Bay",
     [
-      "Electric bikes Melbourne riders choose are usually built for mixed commutes: flat city streets, tram tracks, long trail rides along the river and bay, and the occasional climb out to the hills. A step-through commuter or a folding e-bike covers most of these.",
+      "An electric bike Melbourne riders choose is usually built for mixed commutes: flat city streets, tram tracks, long trail rides along the river and bay, and the occasional climb out to the hills. A step-through commuter or a folding e-bike covers most of these.",
       "We deliver e-bikes Australia-wide, so you can order online from anywhere in Victoria. Every bike below is a 250W, 25 km/h pedal-assist model built to EN 15194.",
     ],
     {
@@ -367,12 +367,12 @@ export const LANDING_NODES: LandingNode[] = [
   cityNode(
     "city-sydney",
     "electric-bikes-sydney",
-    "Electric Bike Sydney",
-    "Electric Bike Sydney | E-Bikes for Sydney Riders",
-    "Shop an electric bike Sydney riders can use daily: commuter, folding and mountain e-bikes for hills and trains. 250W EN15194, delivered Australia-wide.",
-    "Electric Bike Sydney: E-Bikes for Hills, Harbour and Trains",
+    "Ebike Sydney",
+    "Ebike Sydney | E-Bikes for Sydney Riders",
+    "Shop an ebike Sydney riders can use daily: commuter, folding and mountain e-bikes for hills and trains. 250W EN15194, delivered Australia-wide.",
+    "Ebike Sydney: E-Bikes for Hills, Harbour and Trains",
     [
-      "An electric bike Sydney riders choose has to handle hills and mixed commutes. Pedal assist flattens the climbs, and a folding e-bike makes it easier to combine riding with trains and ferries.",
+      "An ebike Sydney riders choose has to handle hills and mixed commutes. Pedal assist flattens the climbs, and a folding e-bike makes it easier to combine riding with trains and ferries.",
       "We deliver e-bikes across Australia, including Sydney and NSW. All bikes here are 250W models with pedal assist cutting out at 25 km/h.",
     ],
     {

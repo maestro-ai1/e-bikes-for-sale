@@ -149,14 +149,12 @@ export const TRANSACTIONAL_KEYWORDS: Record<string, string[]> = {
     "scooter adult electric", // 30 / KD 13
   ],
   'brand-dirodi': [
-    "dirodi e bike", // 2400 / KD 22 (T, refreshed 2026-11-21)
   ],
   'conversion': [
     "e bike conversion kit 250w", // 260 / KD 0 (T, refreshed 2026-11-21)
     "electric bike kit 5000w", // 590 / KD 2 (TI, refreshed 2026-11-22)
   ],
   'brand-merida': [
-    "e bike merida", // 720 / KD 16 (TI, refreshed 2026-11-21)
   ],
   'brand-pedal': [
     "pedal e bike price", // 90 / KD 15 (T, refreshed 2026-11-21)

@@ -10,9 +10,9 @@ type GearNode = Omit<CatalogNode, "keywords">;
  */
 export const GEAR_KEYWORDS: Record<string, NodeKeywords> = {
   "gear-hybrid": {
-    primary: "pedal assist bike", primaryVolume: 590, primaryKd: 16,
+    primary: "pedal assist electric bike", primaryVolume: 1000, primaryKd: 13,
     secondary: ["electric assist bike", "e bike with motor", "electric bike motor", "electric bike with throttle", "e bike with pedal assist"],
-    supporting: ["ebike motor", "hybrid ebike", "250w e bike", "mid drive electric bike", "electric hybrid bikes", "electric pedal assist bike", "e bike with throttle", "pedal assist e-bike"],
+    supporting: ["pedal assist bike", "ebike motor", "hybrid ebike", "250w e bike", "mid drive electric bike", "electric hybrid bikes", "electric pedal assist bike", "e bike with throttle", "pedal assist e-bike"],
   },
   "gear-helmets": {
     primary: "e bike helmet", primaryVolume: 590, primaryKd: 8,
@@ -35,14 +35,14 @@ export const GEAR_KEYWORDS: Record<string, NodeKeywords> = {
 /** Strategy keyword sets for existing nodes whose primary had drifted from keyword-map.md. */
 export const STRATEGY_OVERRIDES: Record<string, Omit<NodeKeywords, "commerce">> = {
   commuter: {
-    primary: "electric bike for commuters", primaryVolume: 480, primaryKd: 11,
+    primary: "electric commuter bike", primaryVolume: 1900, primaryKd: 17,
     secondary: ["electric commuter bikes", "commuter e-bike", "trekking e bike", "e bike women", "womens electric bike"],
-    supporting: ["mens electric bike", "step through electric bikes", "lightweight electric bike", "e bike mens", "ebike for commute", "ebike for commuting", "lightweight electric bike australia"],
+    supporting: ["electric bike for commuters", "mens electric bike", "step through electric bikes", "lightweight electric bike", "e bike mens", "ebike for commute", "ebike for commuting", "lightweight electric bike australia"],
   },
   cruiser: {
-    primary: "cruiser e bike", primaryVolume: 390, primaryKd: 6,
+    primary: "electric cruiser bike", primaryVolume: 720, primaryKd: 15,
     secondary: ["cruiser electric bike", "electric cruiser bike australia", "cruiser e bikes australia"],
-    supporting: ["electric cruiser bikes"],
+    supporting: ["cruiser e bike", "electric cruiser bikes"],
   },
   batteries: {
     primary: "e cycle battery", primaryVolume: 1900, primaryKd: 15,
@@ -64,14 +64,14 @@ export const STRATEGY_OVERRIDES: Record<string, Omit<NodeKeywords, "commerce">> 
 /** Title / H1 / meta that carry the restored strategy primary. */
 export const STRATEGY_TEXT: Record<string, { title: string; h1: string; description: string }> = {
   commuter: {
-    title: "Electric Bike for Commuters | Women's & Men's E-Bikes",
-    h1: "Electric Bike for Commuters: Step-Through and Hybrid E-Bikes",
-    description: "Shop an electric bike for commuters in Australia: electric commuter bikes, commuter e-bikes, trekking and women's e-bikes. 250W EN15194, fast dispatch.",
+    title: "Electric Commuter Bike | Women's and Men's E-Bikes",
+    h1: "Electric Commuter Bike: Step-Through and Hybrid E-Bikes",
+    description: "Shop an electric commuter bike in Australia: electric bike for commuters, commuter e-bikes, trekking and women's e-bikes. 250W EN15194, fast dispatch.",
   },
   cruiser: {
-    title: "Cruiser E Bike Australia | Electric Cruiser Bikes",
-    h1: "Cruiser E Bike: Electric Cruiser Bikes for Beach and City",
-    description: "Shop a cruiser e bike in Australia: cruiser electric bike and electric cruiser bike models with step-through frames. 250W EN15194, fast dispatch.",
+    title: "Electric Cruiser Bike Australia | Beach and City E-Bikes",
+    h1: "Electric Cruiser Bike: Step-Through E-Bikes for Beach and City",
+    description: "Shop an electric cruiser bike in Australia: cruiser e bike and cruiser electric bike models with step-through frames. 250W EN15194, fast dispatch.",
   },
   batteries: {
     title: "E Cycle Battery Australia | Ebike Battery & Chargers",
@@ -99,10 +99,10 @@ export const GEAR_NODES: GearNode[] = [
     path: "/electric-hybrid-bikes",
     name: "Pedal Assist Bikes",
     navLabel: "Pedal Assist Bikes",
-    title: "Pedal Assist Bike Australia | Electric Hybrid Bikes",
+    title: "Pedal Assist Electric Bike Australia | Hybrid E-Bikes",
     description:
-      "Shop a pedal assist bike in Australia: electric hybrid bikes with a motor, throttle or pedal-assist options. 250W EN15194 models with fast dispatch.",
-    h1: "Pedal Assist Bike: Electric Hybrid Bikes with Motor Assist",
+      "Shop a pedal assist electric bike in Australia: electric hybrid bikes with a motor, throttle or pedal-assist options. 250W EN15194 models, fast dispatch.",
+    h1: "Pedal Assist Electric Bike: Hybrid E-Bikes with Motor Assist",
     intro: [
       "A pedal assist bike adds a motor that helps while you pedal, so hills, headwinds and longer distances get easier without changing how the bike rides. Hybrid e-bikes combine this assistance with an upright, versatile frame suited to roads, paths and light tracks.",
       "Compare the hybrid and commuter models below by motor type, battery size and brakes, then open a model page for full specifications and current pricing.",

@@ -149,9 +149,9 @@ export const STRATEGY_KEYWORDS: Record<string, Omit<NodeKeywords, 'commerce'>> =
     ]
   },
   "commuter": {
-    "primary": "electric bike for commuters",
-    "primaryVolume": 480,
-    "primaryKd": 11,
+    "primary": "electric commuter bike",
+    "primaryVolume": 1900,
+    "primaryKd": 17,
     "secondary": [
       "electric commuter bikes",
       "commuter e-bike",
@@ -160,6 +160,7 @@ export const STRATEGY_KEYWORDS: Record<string, Omit<NodeKeywords, 'commerce'>> =
       "womens electric bike"
     ],
     "supporting": [
+      "electric bike for commuters",
       "mens electric bike",
       "step through electric bikes",
       "lightweight electric bike",
@@ -183,20 +184,22 @@ export const STRATEGY_KEYWORDS: Record<string, Omit<NodeKeywords, 'commerce'>> =
     "supporting": []
   },
   "cruiser": {
-    "primary": "cruiser e bike",
-    "primaryVolume": 390,
-    "primaryKd": 6,
+    "primary": "electric cruiser bike",
+    "primaryVolume": 720,
+    "primaryKd": 15,
     "secondary": [
       "cruiser electric bike",
       "electric cruiser bike australia",
       "cruiser e bikes australia"
     ],
-    "supporting": []
+    "supporting": [
+      "cruiser e bike"
+    ]
   },
   "gear-hybrid": {
-    "primary": "pedal assist bike",
-    "primaryVolume": 590,
-    "primaryKd": 16,
+    "primary": "pedal assist electric bike",
+    "primaryVolume": 1000,
+    "primaryKd": 13,
     "secondary": [
       "electric assist bike",
       "e bike with motor",
@@ -205,6 +208,7 @@ export const STRATEGY_KEYWORDS: Record<string, Omit<NodeKeywords, 'commerce'>> =
       "e bike with pedal assist"
     ],
     "supporting": [
+      "pedal assist bike",
       "ebike motor",
       "hybrid ebike",
       "250w e bike",
@@ -399,9 +403,9 @@ export const STRATEGY_KEYWORDS: Record<string, Omit<NodeKeywords, 'commerce'>> =
     ]
   },
   "city-melbourne": {
-    "primary": "electric bikes melbourne",
-    "primaryVolume": 1900,
-    "primaryKd": 24,
+    "primary": "electric bike melbourne",
+    "primaryVolume": 880,
+    "primaryKd": 11,
     "secondary": [
       "ebike melbourne",
       "electric bikes melbourne australia",
@@ -411,6 +415,7 @@ export const STRATEGY_KEYWORDS: Record<string, Omit<NodeKeywords, 'commerce'>> =
       "e bikes melbourne australia"
     ],
     "supporting": [
+      "electric bikes melbourne",
       "electric bikes for sale melbourne",
       "electric bike shop melbourne"
     ]
@@ -460,9 +465,9 @@ export const STRATEGY_KEYWORDS: Record<string, Omit<NodeKeywords, 'commerce'>> =
     "supporting": []
   },
   "city-sydney": {
-    "primary": "electric bike sydney",
-    "primaryVolume": 720,
-    "primaryKd": 24,
+    "primary": "ebike sydney",
+    "primaryVolume": 1600,
+    "primaryKd": 13,
     "secondary": [
       "e bike sydney",
       "electric bicycle sydney",
@@ -470,6 +475,8 @@ export const STRATEGY_KEYWORDS: Record<string, Omit<NodeKeywords, 'commerce'>> =
       "electric bikes for sale sydney",
       "ebike shop sydney"
     ],
-    "supporting": []
+    "supporting": [
+      "electric bike sydney"
+    ]
   }
 };
