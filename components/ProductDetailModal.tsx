@@ -47,6 +47,7 @@ export default function ProductDetailModal() {
   const [postcodeCheck, setPostcodeCheck] = useState('');
   const [postcodeStatus, setPostcodeStatus] = useState<string | null>(null);
   const [is360Active, setIs360Active] = useState(false);
+  const router = useRouter(); // hooks must run before the early return below, in the same order on every render
 
   if (!product) return null;
 
@@ -73,7 +74,6 @@ export default function ProductDetailModal() {
     }
   };
 
-  const router = useRouter();
   const handleBuyNow = () => {
     addToCart(product, quantity, currentSizeVariant?.label, selectedAddOns);
     router.push('/checkout');

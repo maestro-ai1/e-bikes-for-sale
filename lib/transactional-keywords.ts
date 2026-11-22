@@ -22,8 +22,6 @@ export const TRANSACTIONAL_KEYWORDS: Record<string, string[]> = {
     "ebike sales", // 260 / KD 28
     "electric bikes on sale", // 170 / KD 17
     "buy e bike", // 590 / KD 6 (T, refreshed 2026-11-21)
-    "e bike for sale", // 590 / KD 19 (T, refreshed 2026-11-21)
-    "e bike with price", // 110 / KD 28 (T, refreshed 2026-11-21)
     "e bike on sale", // 90 / KD 17 (T, refreshed 2026-11-21)
     "prices for e bikes", // 90 / KD 17 (T, refreshed 2026-11-21)
     "buying e bike", // 110 / KD 23 (T, refreshed 2026-11-22)
@@ -199,8 +197,6 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "foldable bikes", // 320 / KD 24 (Commercial)
     "electric folding bicycles australia", // 260 / KD 6 (Commercial)
     "e bike fold", // 390 / KD 10 (CI, refreshed 2026-11-21)
-    "e bikes folding", // 390 / KD 13 (CI, refreshed 2026-11-21)
-    "electric folding e bike", // 260 / KD 6 (CI, refreshed 2026-11-21)
   ],
   'hub': [
     "best ebikes", // 590 / KD 28 (Commercial)
@@ -217,7 +213,6 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "australian electric bike", // 260 / KD 28 (Commercial)
     "the electric bicycle company", // 260 / KD 14 (Commercial)
     "spezialist ebike", // 260 / KD 24 (Commercial)
-    "best e bikes in australia", // 170 / KD 7 (C, refreshed 2026-11-21)
     "best ebike", // 880 / KD 24 (C, refreshed 2026-11-22)
   ],
   'cheap': [
@@ -266,9 +261,7 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "e bike kits australia", // 140 / KD 4 (Commercial)
     "bike electric conversion kit with battery", // 110 / KD 13 (Commercial)
     "e bike conversion kit battery", // 110 / KD 7 (Commercial)
-    "e bike kit 5000w", // 720 / KD 4 (C, refreshed 2026-11-21)
     "electric bicycle e bike conversion kits", // 480 / KD 3 (C, refreshed 2026-11-21)
-    "e bike conversion kits", // 390 / KD 10 (C, refreshed 2026-11-21)
     "e bike conversion kits australia", // 260 / KD 2 (CI, refreshed 2026-11-21)
     "e bike conversion kit 1500w", // 210 / KD 2 (C, refreshed 2026-11-21)
     "bicycle e bike kit", // 480 / KD 4 (C, refreshed 2026-11-22)
@@ -374,7 +367,6 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "ebike urban", // 50 / KD 6 (Commercial)
     "ladies e bike", // 260 / KD 10 (CI, refreshed 2026-11-21)
     "step through e bike", // 260 / KD 8 (CI, refreshed 2026-11-21)
-    "e bike commuter", // 210 / KD 10 (CI, refreshed 2026-11-21)
     "ebike commute", // 1000 / KD 17 (C, refreshed 2026-11-22)
     "e-bike commuting", // 480 / KD 8 (C, refreshed 2026-11-22)
   ],
@@ -424,7 +416,6 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "step through electric bike australia", // 70 / KD 4 (Commercial)
     "electric bike step through", // 70 / KD 2 (Commercial)
     "electric bikes cruiser", // 50 / KD 8 (Commercial)
-    "cruiser e bikes", // 170 / KD 13 (C, refreshed 2026-11-21)
   ],
   'gear-parts': [
     "e-bike parts", // 70 / KD 8 (Commercial)
@@ -513,7 +504,6 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "scooter cushion", // 20 / KD 6 (Transactional)
   ],
   'brand-pedal': [
-    "pedal e bike", // 590 / KD 17 (C, refreshed 2026-11-21)
   ],
 };
 
