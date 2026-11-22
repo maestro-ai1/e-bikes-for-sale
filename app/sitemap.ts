@@ -23,7 +23,7 @@ const STATIC_ROUTES = [
 ];
 
 // Fixed content date, not the build time, so lastmod only moves when the catalogue or pages really change.
-const CONTENT_UPDATED = new Date('2026-10-11T00:00:00+10:00');
+const CONTENT_UPDATED = new Date('2026-11-22T00:00:00+10:00');
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = CONTENT_UPDATED;
