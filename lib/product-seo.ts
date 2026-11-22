@@ -156,6 +156,17 @@ export function buildFaqs(p: Product): FaqItem[] {
     ];
   }
 
+  // chargers: voltage and connector must match the battery, so the generic accessory answers must not say "suits most e-bikes"
+  if (/\bcharger\b/i.test(p.name)) {
+    return [
+      { question: q1, answer: `${desc} A charger must match your battery's voltage and connector, so check both on your current charger or battery label before you order.` },
+      { question: `Will the ${p.name} charge any e-bike battery?`, answer: `No. Use only a charger made for your battery's voltage, amperage and connector. The wrong charger can damage the battery or create a fire risk. Send us your bike make and model and we will confirm fit before you pay.${clause(0, (k) => `This matters when you shop for "${k}".`)}` },
+      { question: `How much is the ${p.name} and can I buy it online?`, answer: `The ${p.name} is ${price}. ${delivery}${clause(1, (k) => `Searching for "${k}"? Send an enquiry and we will confirm compatibility and stock.`)}` },
+      { question: `How should I charge and store my e-bike battery?`, answer: `Charge indoors on a hard surface away from flammable items, do not leave a battery charging unattended, unplug it once it is full and store it at room temperature. Never use a damaged charger or cable.${clause(2, (k) => `Follow the same rules with any "${k}".`)}` },
+      { question: `Can you confirm stock and fit before I pay?`, answer: `Yes. Use the enquiry button and we will confirm stock and check the charger against your bike's battery.${clause(3, (k) => `Mention "${k}" if you want us to suggest alternatives.`)}` },
+    ];
+  }
+
   // accessories, parts and everything else
   const kind = (p.subtitle || p.categoryLabel).replace(/\.$/, '');
   return [

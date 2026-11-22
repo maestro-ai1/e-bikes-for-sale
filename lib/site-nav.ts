@@ -107,6 +107,8 @@ export const NAV: NavItem[] = [
         { label: 'Brisbane', href: '/electric-bikes-brisbane' },
         { label: 'Perth', href: '/electric-bikes-perth' },
         { label: 'Adelaide', href: '/electric-bikes-adelaide' },
+        { label: 'Wollongong', href: '/electric-bikes-wollongong' },
+        { label: 'Victoria', href: '/electric-bikes-victoria' },
       ],
     }],
   },

@@ -342,6 +342,10 @@ export const PRODUCT_IMAGES: Record<string, string[]> = {
   "pedal-breeze-st-e4-electric-cruiser-bike-gloss-pearl-white": [
     "/images/products/pedal-breeze-st-e4-electric-cruiser-bike-gloss-pearl-white.webp"
   ],
+  "dirodi-rover-charger-st-52v-gen-5-6-black": [
+    "/images/products/dirodi-rover-charger-st-52v-gen-5-6-black.webp",
+    "/images/products/dirodi-rover-charger-st-52v-gen-5-6-black-2.webp"
+  ],
   "cube-cargo-sport-dual-hybrid-1000-electric-cargo-bike-flashwhite-n-black": [
     "/images/products/cube-cargo-sport-dual-hybrid-1000-electric-cargo-bike-flashwhite-n-black.webp"
   ],

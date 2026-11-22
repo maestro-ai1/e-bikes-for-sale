@@ -7,15 +7,12 @@ export const BUSINESS_INFO = {
   phone: '+61420128746',
   whatsapp: '+61420128746',
   email: 'sales@ebikesforsale.com.au',
-  displayEmail: '[EMAIL ADDRESS]',
   address: 'Level 4, 100 Creek Street, Brisbane QLD 4000 (Dispatch Hubs: Sydney NSW, Melbourne VIC, Perth WA)',
-  displayAddress: '[BUSINESS ADDRESS]',
   minOrder: 350,
   freeDeliveryThreshold: 500,
   cryptoDiscountPercentage: 10,
   operatingHours: 'Mon - Fri: 8:00am - 6:00pm AEST | Sat: 9:00am - 4:00pm AEST',
   deliveryTimeframe: '2-5 Business Days Metro (Australia-Wide Fast Dispatch)',
-  verifiedTimeframePlaceholder: '[INSERT VERIFIED DELIVERY TIMEFRAME]',
   warranty: '2-Year Australian Frame Warranty & 1-Year Battery Cell Warranty',
 };
 

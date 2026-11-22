@@ -1335,6 +1335,22 @@ const ROWS: Row[] = [
   "motor": ""
  },
  {
+  "slug": "dirodi-rover-charger-st-52v-gen-5-6-black",
+  "name": "DiroDi Rover Charger ST 52V (Gen 5/6) Black",
+  "brand": "Dirodi",
+  "cat": "accessories",
+  "label": "Accessories",
+  "subId": "accessories-other",
+  "sub": "Other accessories",
+  "frame": "Universal",
+  "group": "accessories",
+  "price": 129,
+  "rrp": 150,
+  "wh": 0,
+  "nm": 0,
+  "motor": ""
+ },
+ {
   "slug": "cube-cargo-sport-dual-hybrid-1000-electric-cargo-bike-flashwhite-n-black",
   "name": "Cube Cargo Sport Dual Hybrid 1000 Electric Cargo Bike Flashwhite'n'Black",
   "brand": "Cube",

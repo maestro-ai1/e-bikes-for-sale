@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { AppProvider } from '@/context/AppContext';
 import StructuredData from '@/components/StructuredData';
+import Analytics from '@/components/Analytics';
 
 export const metadata: Metadata = {
   title: 'E Bikes for Sale Australia | Buy Electric Bikes Online',
@@ -46,6 +47,7 @@ export default function RootLayout({
         <AppProvider>
           <StructuredData />
           {children}
+          <Analytics />
         </AppProvider>
       </body>
     </html>

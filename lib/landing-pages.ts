@@ -393,4 +393,62 @@ export const LANDING_NODES: LandingNode[] = [
       { q: "Are there electric bikes for sale in Sydney under $2,000?", a: "Yes, see our low cost e-bikes. Delivery is Australia-wide." },
     ],
   ),
+  cityNode(
+    "city-wollongong",
+    "electric-bikes-wollongong",
+    "Electric Bikes Wollongong",
+    "Electric Bikes Wollongong | E-Bikes for Illawarra Riders",
+    "Shop electric bikes Wollongong riders choose: commuter, folding, mountain and cargo e-bikes for the coast path and escarpment. 250W EN15194, delivered Australia-wide.",
+    "Electric Bikes Wollongong: E-Bikes for the Coast and the Escarpment",
+    [
+      "Electric bikes Wollongong riders choose have to cope with a mix of flat coastal paths and steep climbs up the Illawarra escarpment. Pedal assist takes the effort out of the hills, and a larger battery keeps you going on longer rides along the coast.",
+      "We deliver e-bikes across Australia, including Wollongong and the Illawarra. Every bike below is a 250W pedal-assist model with a 25 km/h cut-out, built to EN 15194.",
+    ],
+    {
+      heading: "Electric bikes Wollongong: pick for hills or for the coast",
+      body:
+        "For the daily ride between the beaches, the university and the city centre, a step-through commuter with mudguards and a rack is the practical choice. For the escarpment climbs, a mid-drive electric mountain bike gives the best control and torque. Shoppers searching for an ebike in Wollongong or the wider Illawarra can order online and have the bike delivered to the door.",
+    },
+    {
+      heading: "NSW e-bike rules for Illawarra riders",
+      body:
+        "E-bike rules in New South Wales are changing, so check Transport for NSW before you ride on roads and shared paths. Always wear a certified helmet, and keep your battery charged indoors with the supplied charger.",
+    },
+    [
+      { q: "Where can I buy electric bikes in Wollongong?", a: "Order online and we deliver across Australia, including Wollongong and the Illawarra. Contact us if you need help choosing a frame size." },
+      { q: "What is the best electric bike for the Illawarra escarpment?", a: "A mid-drive electric mountain bike gives the best climbing. See our hardtail and dual suspension eMTBs." },
+      { q: "Are electric bikes good for commuting in Wollongong?", a: "Yes. A step-through commuter with a rack and mudguards covers most city and coastal commutes." },
+      { q: "Do I need a licence to ride an e-bike in NSW?", a: "Compliant e-bikes are generally treated like bicycles, but rules are changing. Check Transport for NSW before you ride." },
+      { q: "Can I get an e-bike delivered to Wollongong?", a: "Yes. We deliver Australia-wide, and delivery details are shown at checkout." },
+    ],
+  ),
+  cityNode(
+    "city-victoria",
+    "electric-bikes-victoria",
+    "E Bike Victoria",
+    "E Bike Victoria | Electric Bikes Delivered Across Victoria",
+    "Shop an e bike Victoria riders trust: commuter, folding, mountain and cargo e-bikes for rail trails, coast and city. 250W EN15194, delivered Australia-wide.",
+    "E Bike Victoria: Electric Bikes for Rail Trails, Coast and City",
+    [
+      "An e bike Victoria riders choose depends on where you ride. Victoria has long, gentle rail trails, the Great Ocean Road and Bellarine coast, hilly country around the Yarra Valley and the High Country, and busy city commutes. Pedal assist makes all of them easier.",
+      "We deliver e-bikes across Australia, so you can order online from anywhere in Victoria, from Geelong and Ballarat to Bendigo and Gippsland. Every bike below is a 250W pedal-assist model with a 25 km/h cut-out, built to EN 15194.",
+    ],
+    {
+      heading: "E bike Victoria: match the bike to the ride",
+      body:
+        "For rail trails and long weekend rides, choose a comfortable commuter or cruiser with a bigger battery. For hills and gravel, a mid-drive electric mountain bike or fat tyre e-bike gives more grip and torque. If you live in Melbourne, see our electric bikes Melbourne page for city-specific advice.",
+    },
+    {
+      heading: "Victorian e-bike rules",
+      body:
+        "In Victoria only compliant e-bikes may be used on public roads and paths, helmets are required, and converted e-bikes are not allowed on trains. Check VicRoads and the state authority for the latest requirements before you ride, as rules across Australia are changing in 2026.",
+    },
+    [
+      { q: "Where can I buy an e bike in Victoria?", a: "Order online and we deliver across Australia, including Victoria. Contact us if you have questions about sizing or availability." },
+      { q: "What is the best electric bike for Victorian rail trails?", a: "A comfortable commuter, hybrid or cruiser with a larger battery suits long, flat rail trails. See our commuter and cruiser e-bikes." },
+      { q: "Are electric bikes allowed on Victorian trains?", a: "Standard e-bikes may be, but converted e-bikes are not allowed on Victorian trains. Check the operator's rules before you travel." },
+      { q: "Do I need a licence to ride an e-bike in Victoria?", a: "Compliant e-bikes are generally treated like bicycles in Victoria, but rules are changing, so check the state authority." },
+      { q: "Do you deliver electric bikes to regional Victoria?", a: "Yes. We deliver Australia-wide, including regional Victoria, and delivery details are shown at checkout." },
+    ],
+  ),
 ];

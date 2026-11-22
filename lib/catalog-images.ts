@@ -43,6 +43,8 @@ export const CATALOG_IMAGES: Record<string, CatalogImage> = {
   'city-brisbane': img('electric-bikes-brisbane.webp', 'Ebikes Brisbane: Story Bridge, river and city skyline at sunset'),
   'city-perth': img('electric-bikes-perth.webp', 'Electric bicycle Perth WA: city skyline and Swan River from Kings Park'),
   'city-adelaide': img('electric-bikes-adelaide.webp', 'Ebikes Adelaide: city skyline and suburbs'),
+  'city-wollongong': img('electric-bikes-wollongong.webp', 'Electric bikes Wollongong: Breakwater Lighthouse and the harbour entrance'),
+  'city-victoria': img('electric-bikes-victoria.webp', 'E bike Victoria: coastal cliffs and surf at Bells Beach'),
   'conversion': img('electric-bike-conversion-kits.webp', 'Bike mechanic working on a bicycle drivetrain in a workshop'),
   'brand-trek': img('../brands/trek-electric-mountain-bike.webp', 'Trek e bikes Australia: rider on an electric mountain bike on a sunny trail'),
   'brand-specialized': img('../brands/specialized-electric-road-bike.webp', 'Specialized Australia: cyclists riding road bikes along a coastal road'),
