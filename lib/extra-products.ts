@@ -42,21 +42,21 @@ const SPECS: Spec[] = [
   {
     slug: 'conversion-battery-kit-36v-14ah-504wh-with-charger',
     name: 'Conversion Battery Kit 36V 14Ah 504Wh with Charger (BKS13614GB)',
-    brand: 'Das-Kit', kind: 'battery', price: 399, images: 1, wh: 504, hold: true,
+    brand: 'Das-Kit', kind: 'battery', price: 399, images: 1, wh: 504,
     subtitle: '36V 14Ah 504 Wh rear-rack battery for e-bike conversion kits',
     shortDescription: 'A 36V 14Ah 504 Wh lithium-ion rear-rack battery kit with charger for e-bike conversion kits.',
     description: 'This 36V 14Ah battery (504 Wh) is a rear-rack battery kit for e-bike conversions, built from NCR18650 cells. The listing gives a theoretical range of 60 to 80 km with usual use. It fits conversion kits on bikes with eyelets or mounts for a rear rack, and suits 36V systems such as the Bafang BBS01B 36V. The package includes the battery, fitting kit, keys and base plate, with a charger. Use only the supplied charger, charge indoors and never leave a battery charging unattended.',
-    features: ['36V 14Ah, 504 Wh lithium-ion battery', 'NCR18650 cells, theoretical range 60 to 80 km (listing)', 'Rear-rack mount with base plate, fitting kit and keys', 'Charger included', 'For 36V conversion kits: check compatibility before you order'],
+    features: ['36V 14Ah, 504 Wh lithium-ion battery', 'NCR18650 cells, theoretical range 60 to 80 km (listing)', 'Rear-rack mount with base plate, fitting kit and keys', 'Charger included', 'For 36V conversion kits: check compatibility before you order', 'Third-party (non-brand-name) battery: check the label for its standard marks and use only the supplied charger'],
     batterySpec: '36V 14Ah 504 Wh lithium-ion', auCompliance: 'Lithium-ion battery: use the supplied charger, charge indoors and check the battery label for its standard marks',
   },
   {
     slug: 'conversion-battery-kit-36v-18ah-648wh-3a-charger',
     name: 'Conversion Battery Kit 36V 18Ah 648Wh with 3A Charger (R2-3618H)',
-    brand: 'Das-Kit', kind: 'battery', price: 469, images: 1, wh: 648, hold: true,
+    brand: 'Das-Kit', kind: 'battery', price: 469, images: 1, wh: 648,
     subtitle: '36V 18Ah 648 Wh battery with case and 3A charger for conversions',
     shortDescription: 'A 36V 18Ah 648 Wh lithium-ion battery with case, keys and 3A charger for e-bike conversion kits.',
     description: 'This 36V 18Ah battery (648 Wh) is built from NCM18650 cells and comes in a battery case for e-bike conversion kits. The listing gives a theoretical range of 60 to 90 km with usual use. The package includes the battery, the case, a charger, keys and a fitting kit. It suits 36V systems such as the Bafang BBS01B 36V. A larger battery adds range and weight, so check the mounting on your bike. Use only the supplied charger, charge indoors and never leave a battery charging unattended.',
-    features: ['36V 18Ah, 648 Wh lithium-ion battery', 'NCM18650 cells, theoretical range 60 to 90 km (listing)', 'Battery case, keys and fitting kit included', '3A charger included', 'For 36V conversion kits: check compatibility before you order'],
+    features: ['36V 18Ah, 648 Wh lithium-ion battery', 'NCM18650 cells, theoretical range 60 to 90 km (listing)', 'Battery case, keys and fitting kit included', '3A charger included', 'For 36V conversion kits: check compatibility before you order', 'Third-party (non-brand-name) battery: check the label for its standard marks and use only the supplied charger'],
     batterySpec: '36V 18Ah 648 Wh lithium-ion', auCompliance: 'Lithium-ion battery: use the supplied charger, charge indoors and check the battery label for its standard marks',
   },
   {
@@ -102,12 +102,12 @@ const SPECS: Spec[] = [
   {
     slug: 'tdr-electric-tricycle-48v-250w-10ah-white',
     name: 'TDR Electric Tricycle 48V 250W 10Ah with Basket and Rear Rack (White)',
-    brand: 'TDR', kind: 'trike', price: 1129, compareAtPrice: 1379.95, images: 1, wh: 480, hold: true,
+    brand: 'TDR', kind: 'trike', price: 1129, compareAtPrice: 1379.95, images: 1, wh: 480,
     subtitle: 'Adult electric trike with a 250W motor, 48V 10Ah battery, basket and rear rack',
     shortDescription: 'An adult electric tricycle with a 250W motor, a 48V 10Ah battery, a basket and a rear rack.',
     description: 'The TDR electric tricycle is a three-wheel adult trike with a 250W motor and a 48V 10Ah battery (480 Wh). It comes with a basket, a rear rack and a trolley for shopping and light loads, and the three-wheel design is stable at low speed and easy to start and stop. A trike is wider and heavier than a bike, so check your storage space, the turning circle and your state\'s rules for trikes before you order.',
-    features: ['250W motor', '48V 10Ah battery (480 Wh)', 'Basket, rear rack and trolley', 'Three-wheel design for stability at low speed', 'White frame'],
-    motor: '250 W motor', batterySpec: '48V 10Ah (480 Wh)', auCompliance: '250 W pedal-assist: check your state rules for e-trikes before you ride',
+    features: ['250W motor', '48V 10Ah battery (480 Wh)', 'Basket, rear rack and trolley', 'Three-wheel design for stability at low speed', 'White frame', 'Third-party (non-brand-name) battery: check the label for its standard marks and use only the supplied charger'],
+    motor: '250 W motor', batterySpec: '48V 10Ah (480 Wh)', auCompliance: '250 W pedal-assist: check your state rules for e-trikes before you ride. Lithium-ion battery: use the supplied charger, charge indoors and check the battery label for its standard marks',
   },
 ];
 

@@ -149,7 +149,7 @@ export const LANDING_NODES: LandingNode[] = [
       {
         heading: "Battery safety: chargers and third-party packs",
         body:
-          "Use the manufacturer charger on a hard, non-flammable surface and stop using any battery that is swollen, hot or damaged. Product Safety Australia warns that low-quality, unbranded or incompatible lithium-ion batteries are the main fire risk, so avoid cheap third-party packs and a 48v ebike battery that does not match your controller.",
+          "Use the manufacturer charger on a hard, non-flammable surface and stop using any battery that is swollen, hot or damaged. Product Safety Australia warns that low-quality, unbranded or incompatible lithium-ion batteries are the main fire risk, so buy from a seller who tells you the cell type and charger, check the battery label for its standard marks, and avoid a 48v ebike battery that does not match your controller.",
       },
     ],
     faqs: [
