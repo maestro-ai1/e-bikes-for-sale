@@ -6,6 +6,7 @@ import ProductImage from '@/components/ProductImage';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { categoryLinkFor } from '@/lib/product-meta';
+import { sourcesFor } from '@/lib/product-sources';
 import { useApp } from '@/context/AppContext';
 import { Product, AddOnItem } from '@/lib/types';
 import { PRODUCTS, BUSINESS_INFO } from '@/lib/data';
@@ -583,6 +584,21 @@ export default function ProductLandingPage({ initialProduct }: ProductLandingPag
           </div>
         </section>
       )}
+
+      {/* HIGH-AUTHORITY OUTBOUND LINKS (strict owner rule): official and standards sources, two per product */}
+      <section className="border-t border-gray-200 bg-white py-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <h2 className="text-xs font-black uppercase tracking-wider text-gray-500 mb-3">Sources and Australian rules</h2>
+          <ul className="space-y-1.5 text-sm">
+            {sourcesFor(product).map((s) => (
+              <li key={s.href}>
+                <a href={s.href} target="_blank" rel="noopener noreferrer" className="font-semibold text-[#2E6B4D] underline underline-offset-2 hover:text-emerald-900">{s.label}</a>
+                <span className="text-gray-500"> · {s.note}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
       {/* 5. MANDATORY 5 FAQS ACCORDION (OPTIMIZED H2) */}
       <section className="bg-gray-50 py-16 border-t border-gray-200">
