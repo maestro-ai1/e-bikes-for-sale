@@ -6,6 +6,7 @@ import { withTransactional, withSupporting } from '@/lib/transactional-keywords'
 import { typeKeywordsFor } from '@/lib/product-keywords';
 import { RETAIL_BRAND_KEYWORDS } from '@/lib/brand-pages-retail';
 import { MODEL_KEYWORDS } from '@/lib/model-keywords';
+import { isKidsPush, isPushScooter, isScooterPart, isStunt } from '@/lib/scooter-kinds';
 
 /**
  * Product SEO rules (seo-strategy/keyword-map.md is the source of truth, never invent keywords):
@@ -34,7 +35,8 @@ export function nodeIdForProduct(p: Product): string {
       if (/kid|youth|junior/.test(sub) || /junior|youth/i.test(p.name)) return 'emtb-kids';
       return 'emtb';
     case 'scooters':
-      if (/kids/.test(sub)) return 'sc-kids';
+      if (isStunt(p)) return 'sc-stunt';
+      if (isKidsPush(p)) return 'sc-kids';
       if (/accessor/.test(sub)) return 'sc-accessories';
       return 'sc-electric';
     case 'helmets':
@@ -197,6 +199,26 @@ export function buildFaqs(p: Product): FaqItem[] {
       { question: `Do I need a licence or registration for the ${p.name}?`, answer: `A compliant pedal-assist e-bike with a 250 W motor and assist that cuts out at 25 km/h is treated as a bicycle in Australia, so no registration or licence is needed.${clause(2, (k) => `That rule applies to a typical "${k}" too.`)} Wear a certified helmet and check your state rules.` },
       { question: `How much is the ${p.name} and can I buy it online?`, answer: `The ${p.name} is ${price}. ${delivery}${clause(3, (k) => `Searching for "${k}"? Send an enquiry and we will confirm availability and frame size.`)}` },
       { question: `What warranty and support come with the ${p.name}?`, answer: `The ${p.name} carries the manufacturer's Australian warranty, and we can help with servicing questions and spare parts.${clause(4, (k) => `If you are comparing options for "${k}", ask us for the warranty terms before you order.`)}` },
+    ];
+  }
+
+  if (p.category === 'scooters' && isPushScooter(p)) {
+    return [
+      { question: q1, answer: `${desc} It is a push scooter, so you ride it by kicking along. Check the manufacturer's size, age and weight guidance before you order.` },
+      { question: `Is the ${p.name} electric?`, answer: `No. It is a push scooter with no motor or battery, so there is nothing to charge and no e-scooter rules to check, though local rules about where scooters can be ridden still apply.${clause(1, (k) => `This is worth knowing if you searched for "${k}".`)}` },
+      { question: `What size or age is the ${p.name} suited to?`, answer: `Check the age, height and weight guidance on the manufacturer's listing, and ask us if you are unsure which size suits the rider.${clause(2, (k) => `The same sizing checks apply when you compare "${k}".`)}` },
+      { question: `How much is the ${p.name} and can I buy it online?`, answer: `The ${p.name} is ${price}. ${delivery}${clause(3, (k) => `Searching for "${k}"? Use the enquiry button and we will confirm stock and delivery time.`)}` },
+      { question: `What should I buy with the ${p.name}?`, answer: `A certified helmet is the essential, and pads help while learning.${clause(4, (k) => `Browse our scooter parts and helmets if you are building a setup around "${k}".`)}` },
+    ];
+  }
+
+  if (isScooterPart(p)) {
+    return [
+      { question: `Will the ${p.name} fit my scooter?`, answer: `${desc} Parts are not universal, so check the wheel diameter, bearing fit and clamp or bar size against your scooter before you order, and ask us if you are unsure.${clause(0, (k) => ` Searching for "${k}"? Check these details first.`)}` },
+      { question: `Can I fit the ${p.name} myself?`, answer: `Many scooter parts can be fitted with basic tools. If you are not sure, ask a scooter shop to fit it.${clause(1, (k) => `This applies to most "${k}".`)}` },
+      { question: `What else should I replace at the same time?`, answer: `Worn wheels, grips and bearings are the common ones. Replace them together if they are worn or chipped.${clause(2, (k) => `Look at our range if you are searching for "${k}".`)}` },
+      { question: `How much is the ${p.name} and can I buy it online?`, answer: `The ${p.name} is ${price}. ${delivery}${clause(3, (k) => `Searching for "${k}"? Use the enquiry button and we will confirm stock and delivery time.`)}` },
+      { question: `Do I need a helmet when riding a scooter?`, answer: `Yes. Wear a certified helmet that fits well.${clause(4, (k) => `Browse our helmets if you are building a setup around "${k}".`)}` },
     ];
   }
 

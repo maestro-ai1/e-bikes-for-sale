@@ -24,6 +24,7 @@ export const NODE_PATHS: Record<string, string> = {
   'sc-electric': '/scooters',
   'sc-adults': '/scooters/adults-scooters',
   'sc-kids': '/scooters/kids-scooters',
+  'sc-stunt': '/scooters/stunt-scooters',
   'sc-accessories': '/scooters/scooter-accessories',
   'kids-helmets': '/kids-bike-helmets',
   'gear-helmets': '/e-bike-helmets',
@@ -38,7 +39,7 @@ export function categoryLinkFor(p: Product): CategoryLink {
   const nodeId = nodeIdForProduct(p);
   let path = NODE_PATHS[nodeId] || '/ebikes';
   // adult e-scooters live on the adult scooters page (the scooters hub lists its children too)
-  if (p.category === 'scooters' && nodeId !== 'sc-kids' && nodeId !== 'sc-accessories' && (p.subcategoryId || '') === 'scooters-adults') path = '/scooters/adults-scooters';
+  if (p.category === 'scooters' && nodeId !== 'sc-kids' && nodeId !== 'sc-stunt' && nodeId !== 'sc-accessories' && (p.subcategoryId || '') === 'scooters-adults') path = '/scooters/adults-scooters';
   return { path, label: p.subcategory || p.categoryLabel, nodeId };
 }
 

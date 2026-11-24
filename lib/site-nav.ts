@@ -52,7 +52,8 @@ export const NAV: NavItem[] = [
       links: [
         { label: 'Adult scooters', href: '/scooters/adults-scooters' },
         { label: 'Kids scooters', href: '/scooters/kids-scooters' },
-        { label: 'Scooter accessories', href: '/scooters/scooter-accessories' },
+        { label: 'Stunt scooters', href: '/scooters/stunt-scooters' },
+        { label: 'Scooter parts', href: '/scooters/scooter-accessories' },
         { label: 'Segway-Ninebot', href: '/brands/segway-ninebot' },
       ],
     }],

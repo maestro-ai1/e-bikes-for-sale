@@ -25,6 +25,7 @@ const SCOOTER_SUB: Record<string, string> = {
   'electric scooters': '/scooters',
   'adults scooters': '/scooters/adults-scooters',
   'kids scooters': '/scooters/kids-scooters',
+  'stunt scooters': '/scooters/stunt-scooters',
   'scooter accessories': '/scooters/scooter-accessories',
 };
 

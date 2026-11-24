@@ -6,6 +6,7 @@
  * Entry comments: monthly volume / KD.
  */
 import type { Product } from '@/lib/types';
+import { isKidsPush, isScooterPart, isStunt } from '@/lib/scooter-kinds';
 
 export const TYPE_KEYWORDS: Record<string, string[]> = {
   'helmet': [
@@ -62,12 +63,20 @@ export const TYPE_KEYWORDS: Record<string, string[]> = {
     "bike gps computer", // 260 / KD 11
   ],
   'scooter-kids': [
-    "kids e scooter", // 590 / KD 14
-    "childrens electric scooters", // 260 / KD 9
-    "childrens e scooter", // 140 / KD 6
-    "best childrens electric scooter", // 110 / KD 24
-    "electric scooters for kids aged 8-12", // 70 / KD 10
-    "scooters teenager", // 70 / KD 8
+    "scooter kids", // 1300 / KD 10
+    "scooters for kids", // 720 / KD 9
+    "3 wheel scooter for kids", // 390 / KD 6
+    "kids 2 wheel scooter", // 260 / KD 8
+    "best kids scooter", // 210 / KD 12
+    "kids scooter with seat", // 70 / KD 6
+  ],
+  'scooter-stunt': [
+    "stunt trick scooter", // 880 / KD 20
+    "stunt scooter", // 720 / KD 18
+    "childrens stunt scooters", // 110 / KD 8
+    "pro stunt scooters", // 90 / KD 15
+    "kids stunt scooter", // 70 / KD 8
+    "stunt scooter for beginners", // 70 / KD 9
   ],
   'scooter-adult': [
     "e scooter adults", // 320 / KD 16
@@ -78,12 +87,10 @@ export const TYPE_KEYWORDS: Record<string, string[]> = {
     "adult escooter", // 90 / KD 20
   ],
   'scooter-parts': [
-    "electric scooter accessories", // 480 / KD 9
+    "scooter parts", // 590 / KD 15
+    "scooter parts australia", // 90 / KD 8
+    "parts for a scooter", // 70 / KD 16
     "scooter accessories", // 390 / KD 10
-    "scooters and accessories", // 260 / KD 12
-    "scooter with the seat", // 50 / KD 10
-    "segway ninebot scooter accessories", // 40 / KD 16
-    "48v scooter battery", // 30 / KD 3
   ],
 };
 
@@ -100,8 +107,9 @@ export function productTypeKey(p: Product): string | null {
     return 'helmet';
   }
   if (p.category === 'scooters') {
-    if (/kids/.test(sub) || KIDS.test(n)) return 'scooter-kids';
-    if (/accessor|part|tyre|tire|fender|charger|brake|seat/.test(sub + ' ' + n)) return 'scooter-parts';
+    if (isStunt(p)) return 'scooter-stunt';
+    if (isKidsPush(p)) return 'scooter-kids';
+    if (isScooterPart(p)) return /trike|skates|lock/i.test(n) ? null : 'scooter-parts';
     return 'scooter-adult';
   }
   if (p.category === 'accessories' || p.category === 'parts') {
@@ -117,5 +125,8 @@ export function productTypeKey(p: Product): string | null {
 /** The keyword pool for a product's type (empty when the bank has none). */
 export const typeKeywordsFor = (p: Product): string[] => {
   const k = productTypeKey(p);
-  return (k && TYPE_KEYWORDS[k]) || [];
+  const pool = (k && TYPE_KEYWORDS[k]) || [];
+  // a wheel-count or seat keyword only goes on a scooter that has that feature
+  const n = p.name.toLowerCase();
+  return pool.filter((kw) => (/3 wheel/.test(kw) ? /3[- ]wheel|tyke|primo|go up/.test(n) : /2 wheel/.test(kw) ? /2[- ]wheel|flow|duo/.test(n) : /with seat/.test(kw) ? /seat/.test(n) : true));
 };

@@ -113,11 +113,9 @@ export const TRANSACTIONAL_KEYWORDS: Record<string, string[]> = {
     "e bike accessories australia", // 40 / KD 8
   ],
   'sc-kids': [
-    "electric scooter teens", // 40 / KD 9
-    "electric scooter teenagers", // 30 / KD 15
-    "electric scooters for 11 year olds", // 30 / KD 7
     "scooter teens", // 30 / KD 7
-    "ninebot kids e scooter", // 30 / KD 15
+    "kids scooters for sale", // 110 / KD 15 (T, refreshed 2026-11-24)
+    "buy kids scooter", // 70 / KD 20 (T, refreshed 2026-11-24)
   ],
   'kids-ebikes': [
     "mini ebike for kids", // 30 / KD 15
@@ -544,6 +542,7 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "kids bike.helmet", // 30 / KD 9 (Commercial)
     "kids helmet anaconda", // 30 / KD 8 (Transactional)
     "kids' bike helmet", // 30 / KD 8 (Commercial)
+    "kids scooter helmet", // 110 / KD 7 (CI, refreshed 2026-11-24)
   ],
   'gear-helmets': [
     "2yr old helmet", // 30 / KD 14 (Commercial)
@@ -567,6 +566,9 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
   ],
   'sc-kids': [
     "scooters teens", // 30 / KD 7 (Commercial)
+    "kids scooter with seat", // 70 / KD 6 (C, refreshed 2026-11-24)
+    "globber kids scooter", // 70 / KD 2 (TI, refreshed 2026-11-24)
+    "kids scooters australia", // 70 / KD 5 (C, refreshed 2026-11-24)
   ],
   'emtb-enduro': [
     "carbon downhill bike", // 20 / KD 11 (Transactional)
@@ -596,6 +598,10 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
   ],
   'sc-adults': [
     "electric scooter for adults australia cheap", // 320 / KD 8 (C, refreshed 2026-11-22)
+  ],
+  'sc-stunt': [
+    "stunt scooter for beginners", // 70 / KD 9 (C, refreshed 2026-11-24)
+    "top rated stunt scooters", // 70 / KD 15 (C, refreshed 2026-11-24)
   ],
 };
 

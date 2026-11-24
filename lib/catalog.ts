@@ -2,6 +2,7 @@ import type { Product } from '@/lib/types';
 import { CATALOG_KEYWORDS, type NodeKeywords } from '@/lib/catalog-keywords';
 import { LANDING_NODES } from '@/lib/landing-pages';
 import { KIDS_NODES } from '@/lib/kids-pages';
+import { isKidsPush, isScooterPart, isStunt } from '@/lib/scooter-kinds';
 import { BRAND_NODES } from '@/lib/brand-pages';
 import { BRAND_NODES_MORE } from '@/lib/brand-pages-more';
 import { BRAND_NODES_RETAIL, RETAIL_BRAND_KEYWORDS } from '@/lib/brand-pages-retail';
@@ -477,7 +478,7 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
       'Shop a push scooter electric model in Australia: Segway-Ninebot electric scooters from $279, kids push scooters from $119, plus scooter parts and accessories.',
     h1: 'Electric Scooters: Push Scooter Electric Range for Kids & Adults',
     intro: [
-      'An electric scooter is a fast, compact way to cover short trips. Our range includes eight Segway-Ninebot electric scooters from $279 to $1,694, kids push scooters from Globber, Envy and Vital, and scooter parts and accessories.',
+      'An electric scooter is a fast, compact way to cover short trips. Our range includes eight Segway-Ninebot electric scooters from $279 to $1,694, kids push scooters from Globber and Vital, stunt scooters from Envy, Grit and Raven, and scooter parts and accessories.',
       'A commuter e-scooter combines a motor, a battery sized for daily trips and a frame you can carry. Compare motor power, battery size, brakes and weight on each product page.',
     ],
     bridge: {
@@ -495,7 +496,7 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
       { q: 'How long does a scooter battery last?', a: 'Range per charge depends on rider weight, terrain and speed. Battery lifespan depends on charging habits and storage.' },
       { q: 'What accessories do I need for an e-scooter?', a: 'A certified helmet and a strong lock are the basics. We list a Globber cable lock and a range of scooter parts such as wheels, grips and clamps.' },
     ],
-    children: ['sc-adults', 'sc-kids', 'sc-accessories'],
+    children: ['sc-adults', 'sc-kids', 'sc-stunt', 'sc-accessories'],
     matches: (p) => p.category === 'scooters',
   },
   {
@@ -533,8 +534,9 @@ const NODES: Omit<CatalogNode, 'keywords'>[] = [
 // Section products (in-page sections without their own URL)
 export const SECTION_MATCH: Record<string, (p: Product) => boolean> = {
   'emtb-kids': (p) => p.category === 'emtb' && /trailyouth|junior/.test(p.slug),
-  'sc-kids': (p) => p.category === 'scooters' && p.subcategoryId === 'scooters-kids',
-  'sc-accessories': (p) => p.category === 'scooters' && p.subcategoryId === 'scooters-accessories',
+  'sc-kids': isKidsPush,
+  'sc-stunt': isStunt,
+  'sc-accessories': isScooterPart,
 };
 
 export const CATALOG: CatalogNode[] = [...NODES, ...KIDS_NODES, ...BRAND_NODES, ...BRAND_NODES_MORE, ...BRAND_NODES_RETAIL, ...GEAR_NODES, ...LANDING_NODES].map((n) => ({

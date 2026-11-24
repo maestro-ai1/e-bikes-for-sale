@@ -1,4 +1,5 @@
 import type { CatalogNode } from "@/lib/catalog";
+import { isKidsPush, isScooterPart, isStunt } from "@/lib/scooter-kinds";
 
 type KidsNode = Omit<CatalogNode, "keywords">;
 
@@ -92,18 +93,18 @@ export const KIDS_NODES: KidsNode[] = [
     path: "/scooters/kids-scooters",
     name: "Kids Scooters",
     navLabel: "Kids Scooters",
-    title: "Kids Scooters Australia | Push, Foldable & 3-Wheel Scooters",
+    title: "Scooter Kids Australia | Push, Foldable & 3-Wheel Scooters",
     description:
-      "Shop kids scooters in Australia: 3-wheel and 2-wheel push scooters from Globber, Envy and Vital, from $119 to $305, with delivery Australia-wide.",
-    h1: "Kids Scooters: Push, Foldable and 3-Wheel Scooters",
+      "Shop scooters for kids in Australia: 3-wheel and 2-wheel push scooters from Globber and Vital, from $119 to $229, with delivery Australia-wide.",
+    h1: "Scooter Kids: Push, Foldable and 3-Wheel Scooters",
     intro: [
-      "A kids scooter is a fun way for children to get around the neighbourhood, and the right one depends on age and confidence. Younger children usually start on a stable 3-wheel scooter, while older kids move to a 2-wheel scooter or a complete trick scooter.",
-      "Our kids range is push scooters: the rider kicks along and there is no motor or battery. They come from Globber, Envy and Vital, from $119 to $305, and several models fold for the car and have light-up wheels.",
+      "A kids scooter is a fun way for children to get around the neighbourhood, and the right one depends on age and confidence. Younger children usually start on a stable 3-wheel scooter, while older kids move to a 2-wheel scooter.",
+      "Our kids range is push scooters: the rider kicks along and there is no motor or battery. They come from Globber and Vital, from $119 to $229, and several models fold for the car and have light-up wheels. Older kids who want to learn tricks can look at our stunt scooters.",
     ],
     bridge: {
-      heading: "Kids scooters, childrens scooters and teen scooters",
+      heading: "Scooters for kids, kids 2 wheel scooters and 3 wheel scooters",
       body:
-        "Searches for kids scooters, childrens scooters, a 3 wheel scooter or a scooter for teenagers all come down to age, size and stability. A 3-wheel design suits younger children, while a 2-wheel or complete trick scooter suits older kids and teens. We list push scooters only and do not currently stock a motorised kids scooter.",
+        "Searches for scooters for kids, a 3 wheel scooter for kids, a kids 2 wheel scooter or the best kids scooter all come down to age, size and stability. A 3-wheel design suits younger children, while a 2-wheel scooter suits older kids. We list push scooters only and do not currently stock a motorised kids scooter.",
     },
     guides: [
       {
@@ -113,13 +114,51 @@ export const KIDS_NODES: KidsNode[] = [
       },
     ],
     faqs: [
-      { q: "What is the best scooter for a young child?", a: "Choose a stable 3-wheel model with a low deck and a brake, and match it to your child's height and the age range on the manufacturer's listing." },
+      { q: "What is the best kids scooter for a young child?", a: "Choose a stable 3-wheel model with a low deck and a brake, and match it to your child's height and the age range on the manufacturer's listing." },
       { q: "Are these kids scooters electric?", a: "No. They are push scooters with no motor or battery. If you want an electric scooter, our adult range is Segway-Ninebot, and manufacturer and state rules set age limits for those." },
       { q: "What age is a kids scooter suitable for?", a: "It depends on the child's size and the scooter's rating. Check the age and weight guidance on each product page, and ask us if you are unsure." },
       { q: "Do kids need a helmet on a scooter?", a: "Yes. Use a certified helmet that fits well and supervise young riders." },
-      { q: "What is the difference between a kids scooter and a trick scooter?", a: "A kids scooter is built around stability and low weight, while a complete trick scooter such as the Envy Prodigy is built for tricks at the skate park. Ask us which suits your child." },
+      { q: "What is the difference between a kids scooter and a stunt scooter?", a: "A kids scooter is built around stability and low weight, while a stunt scooter is built for tricks at the skate park. See our stunt scooters if your child wants to learn tricks." },
     ],
-    matches: (p) => p.category === "scooters" && p.subcategoryId === "scooters-kids",
+    matches: isKidsPush,
+  },
+
+  // ───────────── STUNT SCOOTERS ─────────────
+  {
+    id: "sc-stunt",
+    kind: "sub",
+    parent: "sc-electric",
+    path: "/scooters/stunt-scooters",
+    name: "Stunt Scooters",
+    navLabel: "Stunt Scooters",
+    title: "Stunt Trick Scooter Australia | Envy, Grit & Raven Scooters",
+    description:
+      "Shop a stunt trick scooter in Australia: complete stunt scooters from Envy, Grit and Raven, from $110 to $305, with delivery Australia-wide.",
+    h1: "Stunt Trick Scooter: Complete Stunt Scooters from Envy, Grit and Raven",
+    intro: [
+      "A stunt trick scooter is built for the skate park and the street: a solid bar, a strong deck and small hard wheels made for tricks and landings. A complete stunt scooter comes with the deck, bars, fork, wheels and grips already fitted, so you do not have to pick parts one by one.",
+      "Our range has more than 20 stunt scooters from Envy, Grit and Raven, from $110 to $305. A lower-priced complete scooter is a good first stunt scooter, and the higher-priced models suit riders who are already learning tricks.",
+    ],
+    bridge: {
+      heading: "Stunt scooter, kids stunt scooter and stunt scooter for beginners",
+      body:
+        "Searches for a stunt scooter, a childrens stunt scooter, a pro stunt scooter or a stunt scooter for beginners all lead to the same choice: size, weight and build quality. Match the bar height to the rider, choose a complete scooter rather than loose parts if you are starting out, and add a certified helmet before the first session.",
+    },
+    guides: [
+      {
+        heading: "What to look for in a stunt scooter",
+        body:
+          "Check the bar height against the rider, the deck length and the wheel size, and look for a bar and fork that feel solid when you push and pull them. Lighter scooters are easier to spin and flip, while heavier ones feel steadier. Always wear a certified helmet, and replace worn wheels and grips early.",
+      },
+    ],
+    faqs: [
+      { q: "What is the best stunt scooter for a beginner?", a: "Choose a complete stunt scooter in your budget with a bar at the right height for the rider and a solid, rattle-free build. Our lower-priced Envy, Grit and Raven models are a good place to start, and you can ask us for help choosing." },
+      { q: "What is a complete stunt scooter?", a: "A complete scooter comes with the deck, bars, fork, wheels and grips already fitted, so it is ready to ride without buying parts separately." },
+      { q: "Are stunt scooters electric?", a: "No. They are push scooters with no motor or battery." },
+      { q: "Do I need a helmet for stunt scooting?", a: "Yes. Wear a certified helmet that fits well, and consider pads while you learn new tricks." },
+      { q: "Can I replace parts on a stunt scooter?", a: "Yes. Wheels, grips and clamps wear out and can be replaced. Check the size before you buy, and see our scooter parts range." },
+    ],
+    matches: isStunt,
   },
 
   // ───────────── SCOOTER ACCESSORIES ─────────────
@@ -130,18 +169,18 @@ export const KIDS_NODES: KidsNode[] = [
     path: "/scooters/scooter-accessories",
     name: "Scooter Accessories",
     navLabel: "Scooter Accessories",
-    title: "Scooter Parts & Accessories Australia | Wheels, Grips & More",
+    title: "Scooter Parts Australia | Wheels, Grips, Clamps & Accessories",
     description:
-      "Shop scooter parts and accessories in Australia: Envy wheels, grips and clamps, stunt scooters from Envy, Grit and Raven, Globber trikes and a cable lock.",
-    h1: "Scooter Parts and Accessories: Wheels, Grips, Clamps and Stunt Scooters",
+      "Shop scooter parts in Australia: Envy wheels, grips and clamps, Globber trikes and skates, a cable lock and a brake rotor. Delivery Australia-wide.",
+    h1: "Scooter Parts: Wheels, Grips, Clamps and Accessories",
     intro: [
       "Scooter parts and accessories keep a push or stunt scooter rolling and safe. Wheels, grips, clamps and hardware are the parts that wear out first, and a lock keeps a scooter secure when you leave it.",
-      "This range covers Envy wheels, grips, clamps, a hardware pack and a stand, complete stunt scooters from Envy, Grit and Raven, Globber trikes and skates for younger kids, a Globber cable lock and a brake disc rotor listed for Dragon, Kaabo and Mercane e-scooters. Prices run from $7 to $319.",
+      "This range covers Envy wheels, grips, clamps, a hardware pack and a stand, Globber trikes and skates for younger kids, a Globber cable lock and a brake disc rotor listed for Dragon, Kaabo and Mercane e-scooters. Prices run from $7 to $319. Looking for a complete scooter instead? See our stunt scooters and kids scooters.",
     ],
     bridge: {
-      heading: "Scooter accessories and scooter parts",
+      heading: "Scooter parts, parts for a scooter and scooter accessories",
       body:
-        "Whether you search scooter accessories, scooter parts or scooters and accessories, start with what wears out or keeps the rider safe: wheels, grips and a certified helmet. Parts are not universal, so check wheel diameter and clamp size against your scooter before you buy.",
+        "Whether you search scooter parts, scooter parts Australia, parts for a scooter or scooters and accessories, start with what wears out or keeps the rider safe: wheels, grips and a certified helmet. Parts are not universal, so check wheel diameter and clamp size against your scooter before you buy.",
     },
     guides: [
       {
@@ -151,12 +190,12 @@ export const KIDS_NODES: KidsNode[] = [
       },
     ],
     faqs: [
-      { q: "What scooter parts do you sell?", a: "Wheels, grips, clamps, a hardware pack and a stand from Envy, plus a brake disc rotor listed for some e-scooters." },
+      { q: "What scooter parts do you sell in Australia?", a: "Wheels, grips, clamps, a hardware pack and a stand from Envy, plus a brake disc rotor listed for some e-scooters." },
       { q: "How do I know which scooter wheels fit?", a: "Match the wheel diameter and width and check the bearing fit. The Envy wheels listed here are 120 mm, in a few widths." },
       { q: "Is a scooter lock really necessary?", a: "Yes. Scooters are easy to carry off, and a lock is the best deterrent when you park in public." },
-      { q: "Do you sell stunt scooters?", a: "Yes, complete stunt scooters from Envy, Grit and Raven are listed on this page." },
+      { q: "Do you sell stunt scooters?", a: "Yes, see our stunt scooter page for complete scooters from Envy, Grit and Raven." },
       { q: "Do you sell helmets for scooter riders?", a: "Yes, see our kids bike helmet guide and range. Always wear a certified helmet." },
     ],
-    matches: (p) => p.category === "scooters" && p.subcategoryId === "scooters-accessories",
+    matches: isScooterPart,
   },
 ];
