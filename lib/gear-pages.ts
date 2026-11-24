@@ -32,7 +32,7 @@ export const GEAR_KEYWORDS: Record<string, NodeKeywords> = {
     commerce: ["road bike helmets australia"],
   },
   "gear-helmets": {
-    primary: "e bike helmet", primaryVolume: 590, primaryKd: 8,
+    primary: "bike helmets", primaryVolume: 2400, primaryKd: 10,
     secondary: ["bike riding helmets", "helmet for a bike", "helmets for cycle", "electric bike helmet", "bike helmet sale"],
     supporting: ["cycle helmet sale", "bicycle helmets for sale", "buy bike helmet", "cheap bike helmets"],
     commerce: ["bike helmet sale", "buy bike helmet", "cycle helmet sale"],
@@ -161,10 +161,10 @@ export const GEAR_NODES: GearNode[] = [
     path: "/e-bike-helmets",
     name: "E-Bike Helmets",
     navLabel: "E-Bike Helmets",
-    title: "E Bike Helmet Australia | Bike Helmets for Sale",
+    title: "Bike Helmets Australia | E Bike Helmets for Sale",
     description:
-      "Shop an e bike helmet in Australia: bike riding helmets for road, MTB and kids, AS/NZS 2063 certified. Compare sizes, MIPS and prices with fast dispatch.",
-    h1: "E Bike Helmet: Certified Bike Helmets for Every Rider",
+      "Shop bike helmets in Australia: e bike helmets for road, MTB and kids, AS/NZS 2063 certified. Compare sizes, MIPS and prices with fast dispatch.",
+    h1: "Bike Helmets: Certified E Bike Helmets for Every Rider",
     intro: [
       "A helmet is compulsory for every bicycle and e-bike rider in Australia, and the right e bike helmet is one that is certified, fits properly and is comfortable enough that you wear it every ride.",
       "Browse our road, mountain bike, full face and kids helmets below. Each has its own page with sizing, price and features such as MIPS rotational protection.",

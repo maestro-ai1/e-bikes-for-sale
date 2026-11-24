@@ -281,9 +281,9 @@ export const STRATEGY_KEYWORDS: Record<string, Omit<NodeKeywords, 'commerce'>> =
     ]
   },
   "gear-helmets": {
-    "primary": "e bike helmet",
-    "primaryVolume": 590,
-    "primaryKd": 8,
+    "primary": "bike helmets",
+    "primaryVolume": 2400,
+    "primaryKd": 10,
     "secondary": [
       "bike riding helmets",
       "helmet for a bike",
@@ -292,6 +292,7 @@ export const STRATEGY_KEYWORDS: Record<string, Omit<NodeKeywords, 'commerce'>> =
       "bike helmet sale"
     ],
     "supporting": [
+      "e bike helmet",
       "cycle helmet sale",
       "bicycle helmets for sale",
       "buy bike helmet",

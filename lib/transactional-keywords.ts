@@ -571,6 +571,7 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "bike helmets australia", // 390 / KD 17 (C, refreshed 2026-11-24)
     "push bike helmets", // 320 / KD 22 (CI, refreshed 2026-11-24)
     "bike helmet with lights", // 110 / KD 6 (C, refreshed 2026-11-24)
+    "bike cycle helmets", // 6600 / KD 20 (C, refreshed 2026-11-24)
   ],
   'city-sydney': [
     "cargo bike sydney", // 30 / KD 21 (Commercial)
