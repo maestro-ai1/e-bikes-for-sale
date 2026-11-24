@@ -552,7 +552,8 @@ export const CATALOG: CatalogNode[] = [...NODES, ...KIDS_NODES, ...BRAND_NODES, 
     : n.matches,
   keywords: kw(n.id),
 }));
-export const LANDING_PATHS = [...LANDING_NODES, ...GEAR_NODES].map((n) => n.path);
+// single-segment landing pages only: nested pages (for example /e-bike-helmets/...) have their own route files
+export const LANDING_PATHS = [...LANDING_NODES, ...GEAR_NODES].map((n) => n.path).filter((p) => p.split('/').length === 2);
 export const nodeById = (id: string) => CATALOG.find((n) => n.id === id);
 export const nodeByPath = (path: string) => CATALOG.find((n) => n.path === path);
 export const childrenOf = (n: CatalogNode) => (n.children || []).map((id) => nodeById(id)!).filter(Boolean);

@@ -8,7 +8,7 @@ export function helmetKind(p: Product): HelmetKind {
   const kids = /\b(kids?|youth|junior|child|childrens|toddler|teen)\b|crackerjack|scamp|tremor|airo|roar /.test(n);
   const fullFace = /full ?face|fullface|rampage|proframe|switchblade/.test(n);
   const bmx = /bmx|superbold|raven/.test(n);
-  const road = /road|agilis|isode|velocita|aero|racing|time trial/.test(n) && !fullFace;
+  const road = /road|agilis|isode|velocita|aero|time trial|triathlon|codatronca/.test(n) && !fullFace;
   const mtb = /mtb|mountain|speedframe|fixture|radix|mainframe|enduro|trail/.test(n) || fullFace;
   return { kids, fullFace, mtb, road, bmx, visor: /visor/.test(n), mips: /mips/.test(n) };
 }
@@ -22,7 +22,11 @@ export function helmetKeywordFits(p: Product, kw: string): boolean {
   if (/\broad\b|racing|aero|time trial/.test(k) && !h.road) return false;
   if (/bmx/.test(k) && !h.bmx) return false;
   if (/kid|child|youth|teen|toddler|kiddie|junior|\dyr|\d yr|year old|baby|infant/.test(k) && !h.kids) return false;
+  if (/adults?/.test(k) && h.kids) return false;
   if (/visor/.test(k) && !h.visor) return false;
+  const brand = p.brand.toLowerCase();
+  for (const b of ['fox', 'giro', 'lazer', 'cinettica', 'raven']) if (new RegExp('\\b' + b + '\\b').test(k) && !brand.includes(b)) return false;
+  if (/\bmet\b/.test(k) && brand !== 'met') return false;
   if (/mips/.test(k) && !h.mips) return false;
   return true;
 }

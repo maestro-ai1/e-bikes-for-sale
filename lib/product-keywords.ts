@@ -7,35 +7,48 @@
  */
 import type { Product } from '@/lib/types';
 import { isKidsPush, isScooterPart, isStunt } from '@/lib/scooter-kinds';
-import { helmetKeywordFits } from '@/lib/helmet-kinds';
+import { helmetKeywordFits, helmetKind } from '@/lib/helmet-kinds';
 
 export const TYPE_KEYWORDS: Record<string, string[]> = {
   'helmet': [
+    "bike helmets", // 2400 / KD 10
+    "helmet bike adults", // 590 / KD 11
     "e bike helmet", // 590 / KD 8
-    "helmets for cycle", // 480 / KD 18
-    "bike helmets helmets", // 390 / KD 20
-    "electric bike helmet", // 260 / KD 11
-    "bike helmet sale", // 170 / KD 9
-    "bike riding helmets", // 170 / KD 27
+    "helmets bike", // 480 / KD 19
+    "adult bike helmet", // 480 / KD 15
+    "bike riding helmets", // 170 / KD 14
   ],
   'helmet-kids': [
-    "helmet youth bike", // 4400 / KD 10
-    "childs cycling helmet", // 320 / KD 10
-    "kiddies helmets", // 320 / KD 10
-    "childrens cycle helmet", // 170 / KD 15
-    "childrens cycling helmets", // 170 / KD 13
-    "childrens crash helmets", // 140 / KD 8
+    "helmet youth bike", // 3600 / KD 9
+    "kids bike helmet", // 2400 / KD 14
+    "kids bike helmets", // 590 / KD 13
+    "childrens mountain bike helmet", // 480 / KD 10
+    "bike helmet kids", // 320 / KD 7
+    "childrens bike helmets", // 260 / KD 14
+    "girls bike helmet", // 260 / KD 9
+    "boys bike helmet", // 170 / KD 8
+    "youth bike helmets", // 110 / KD 7
+  ],
+  'helmet-fullface': [
+    "full face mountain bike helmet", // 1300 / KD 9
+    "fox full face mountain bike helmet", // 210 / KD 9
+    "downhill bike helmet", // 170 / KD 17
+    "cheap full face mountain bike helmets", // 110 / KD 6
+    "best full face mountain bike helmet", // 90 / KD 17
   ],
   'helmet-mtb': [
-    "best e bike helmet full face", // 20 / KD 8
-    "e bike full face helmet", // 20 / KD 9
-    "e bike helmet full face", // 20 / KD 8
-    "e bike helmet full face with visor", // 20 / KD 8
-    "ebike full face helmet", // 20 / KD 7
-    "full face e bike helmet", // 20 / KD 8
+    "mountain bike helmets", // 480 / KD 20
+    "fox mountain bike helmet", // 480 / KD 7
+    "fox bike helmet", // 720 / KD 7
+    "mips mountain bike helmet", // 140 / KD 7
+    "childrens mountain bike helmet", // 480 / KD 10
   ],
   'helmet-road': [
-    "racing helmet bike", // 50 / KD 8
+    "road bike helmet", // 1300 / KD 17
+    "bike helmets for road bikes", // 390 / KD 22
+    "aero bike helmet", // 170 / KD 14
+    "best road bike helmet", // 140 / KD 28
+    "road bike helmets australia", // 140 / KD 13
   ],
   'light': [
     "ebike lights", // 210 / KD 7
@@ -102,9 +115,11 @@ export function productTypeKey(p: Product): string | null {
   const n = `${p.name} ${p.subcategory || ''}`.toLowerCase();
   const sub = (p.subcategoryId || '').toLowerCase();
   if (p.category === 'helmets') {
-    if (KIDS.test(n)) return 'helmet-kids';
-    if (/mtb|mountain|full ?face|fullface|enduro|downhill|trail|speedframe|fixture|radix|mainframe|rampage|proframe/.test(n)) return 'helmet-mtb';
-    if (/road|aero|time trial|agilis|isode|velocita/.test(n)) return 'helmet-road';
+    const hk = helmetKind(p);
+    if (hk.kids) return 'helmet-kids';
+    if (hk.fullFace) return 'helmet-fullface';
+    if (hk.mtb) return 'helmet-mtb';
+    if (hk.road) return 'helmet-road';
     return 'helmet';
   }
   if (p.category === 'scooters') {

@@ -108,6 +108,9 @@ export const TRANSACTIONAL_KEYWORDS: Record<string, string[]> = {
     "kids riding helmet", // 40 / KD 7
     "bike helmets kids helmet", // 30 / KD 11
     "childrens bike helmet full face", // 30 / KD 6
+    "girls bike helmet", // 260 / KD 9 (T, refreshed 2026-11-24)
+    "childrens mountain bike helmet", // 480 / KD 10 (T, refreshed 2026-11-24)
+    "kids mountain bike helmet", // 170 / KD 6 (T, refreshed 2026-11-24)
   ],
   'gear-accessories': [
     "e bike accessories australia", // 40 / KD 8
@@ -543,6 +546,10 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "kids helmet anaconda", // 30 / KD 8 (Transactional)
     "kids' bike helmet", // 30 / KD 8 (Commercial)
     "kids scooter helmet", // 110 / KD 7 (CI, refreshed 2026-11-24)
+    "kids bike helmet", // 2400 / KD 14 (C, refreshed 2026-11-24)
+    "childrens bike helmets", // 260 / KD 14 (C, refreshed 2026-11-24)
+    "boys bike helmet", // 170 / KD 8 (C, refreshed 2026-11-24)
+    "youth mountain bike helmet", // 110 / KD 5 (C, refreshed 2026-11-24)
   ],
   'gear-helmets': [
     "2yr old helmet", // 30 / KD 14 (Commercial)
@@ -560,6 +567,10 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
     "nta 8776 e bike helmet", // 30 / KD 11 (Commercial)
     "10 month old bike helmet", // 20 / KD 7 (Commercial)
     "electric scooter helmet", // 320 / KD 10 (CI, refreshed 2026-11-22)
+    "helmet bike adults", // 590 / KD 11 (C, refreshed 2026-11-24)
+    "bike helmets australia", // 390 / KD 17 (C, refreshed 2026-11-24)
+    "push bike helmets", // 320 / KD 22 (CI, refreshed 2026-11-24)
+    "bike helmet with lights", // 110 / KD 6 (C, refreshed 2026-11-24)
   ],
   'city-sydney': [
     "cargo bike sydney", // 30 / KD 21 (Commercial)
@@ -602,6 +613,9 @@ export const EXTRA_SUPPORTING: Record<string, string[]> = {
   'sc-stunt': [
     "stunt scooter for beginners", // 70 / KD 9 (C, refreshed 2026-11-24)
     "top rated stunt scooters", // 70 / KD 15 (C, refreshed 2026-11-24)
+  ],
+  'helmets-mtb': [
+    "lazer bike helmets", // 170 / KD 10 (C, refreshed 2026-11-24)
   ],
 };
 

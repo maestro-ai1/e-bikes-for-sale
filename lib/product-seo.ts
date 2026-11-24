@@ -3,11 +3,11 @@ import { CATALOG_KEYWORDS, type NodeKeywords } from '@/lib/catalog-keywords';
 import { GEAR_KEYWORDS, STRATEGY_OVERRIDES } from '@/lib/gear-pages';
 import { STRATEGY_KEYWORDS } from '@/lib/strategy-map';
 import { withTransactional, withSupporting } from '@/lib/transactional-keywords';
-import { typeKeywordsFor } from '@/lib/product-keywords';
+import { typeKeywordsFor, TYPE_KEYWORDS } from '@/lib/product-keywords';
 import { RETAIL_BRAND_KEYWORDS } from '@/lib/brand-pages-retail';
 import { MODEL_KEYWORDS } from '@/lib/model-keywords';
 import { isKidsPush, isPushScooter, isScooterPart, isStunt } from '@/lib/scooter-kinds';
-import { helmetKeywordFits } from '@/lib/helmet-kinds';
+import { helmetKeywordFits, helmetKind } from '@/lib/helmet-kinds';
 
 /**
  * Product SEO rules (seo-strategy/keyword-map.md is the source of truth, never invent keywords):
@@ -40,8 +40,14 @@ export function nodeIdForProduct(p: Product): string {
       if (isKidsPush(p)) return 'sc-kids';
       if (/accessor/.test(sub)) return 'sc-accessories';
       return 'sc-electric';
-    case 'helmets':
-      return /kid|youth|junior/i.test(p.name) ? 'kids-helmets' : 'gear-helmets';
+    case 'helmets': {
+      const hk = helmetKind(p);
+      if (hk.kids) return 'kids-helmets';
+      if (hk.fullFace) return 'helmets-fullface';
+      if (hk.mtb) return 'helmets-mtb';
+      if (hk.road) return 'helmets-road';
+      return 'gear-helmets';
+    }
     case 'accessories':
       return 'gear-accessories';
     case 'parts':
@@ -147,6 +153,8 @@ export function tagsForProduct(p: Product): string[] {
   // product-type keywords first (a helmet, a light and a scooter carry different terms), then the category keywords
   const typed = typeKeywordsFor(p).slice(0, 4);
   let all = [...typed, k.primary, ...(k.commerce || []).slice(0, 3), ...k.secondary, ...(k.supporting || [])];
+  // helmets of a small type (for example brand-limited mountain bike helmets) also carry the general helmet keywords
+  if (p.category === 'helmets') all = [...all, ...(TYPE_KEYWORDS['helmet'] || [])];
   if (BIKE_CATS.includes(p.category)) {
     const brandKws = brandKeywordsFor(p);
     const modelKws = MODEL_KEYWORDS[p.slug] || [];
