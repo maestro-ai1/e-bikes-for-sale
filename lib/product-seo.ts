@@ -7,6 +7,7 @@ import { typeKeywordsFor } from '@/lib/product-keywords';
 import { RETAIL_BRAND_KEYWORDS } from '@/lib/brand-pages-retail';
 import { MODEL_KEYWORDS } from '@/lib/model-keywords';
 import { isKidsPush, isPushScooter, isScooterPart, isStunt } from '@/lib/scooter-kinds';
+import { helmetKeywordFits } from '@/lib/helmet-kinds';
 
 /**
  * Product SEO rules (seo-strategy/keyword-map.md is the source of truth, never invent keywords):
@@ -65,6 +66,7 @@ export function keywordsForProduct(p: Product): NodeKeywords | undefined {
 
 /** Mapped keywords that make sense for this specific product (accessory sub-types get their own subset). */
 function fitsProduct(p: Product, kw: string): boolean {
+  if (p.category === 'helmets') return helmetKeywordFits(p, kw);
   if (p.category !== 'accessories' && p.category !== 'parts') return true;
   const name = `${p.name} ${p.subcategory || ''}`.toLowerCase();
   const k = kw.toLowerCase();

@@ -7,6 +7,7 @@
  */
 import type { Product } from '@/lib/types';
 import { isKidsPush, isScooterPart, isStunt } from '@/lib/scooter-kinds';
+import { helmetKeywordFits } from '@/lib/helmet-kinds';
 
 export const TYPE_KEYWORDS: Record<string, string[]> = {
   'helmet': [
@@ -102,8 +103,8 @@ export function productTypeKey(p: Product): string | null {
   const sub = (p.subcategoryId || '').toLowerCase();
   if (p.category === 'helmets') {
     if (KIDS.test(n)) return 'helmet-kids';
-    if (/mtb|mountain|full face|enduro|downhill|trail/.test(n)) return 'helmet-mtb';
-    if (/road|aero|time trial/.test(n)) return 'helmet-road';
+    if (/mtb|mountain|full ?face|fullface|enduro|downhill|trail|speedframe|fixture|radix|mainframe|rampage|proframe/.test(n)) return 'helmet-mtb';
+    if (/road|aero|time trial|agilis|isode|velocita/.test(n)) return 'helmet-road';
     return 'helmet';
   }
   if (p.category === 'scooters') {
@@ -128,5 +129,6 @@ export const typeKeywordsFor = (p: Product): string[] => {
   const pool = (k && TYPE_KEYWORDS[k]) || [];
   // a wheel-count or seat keyword only goes on a scooter that has that feature
   const n = p.name.toLowerCase();
+  if (p.category === 'helmets') return pool.filter((kw) => helmetKeywordFits(p, kw));
   return pool.filter((kw) => (/3 wheel/.test(kw) ? /3[- ]wheel|tyke|primo|go up/.test(n) : /2 wheel/.test(kw) ? /2[- ]wheel|flow|duo/.test(n) : /with seat/.test(kw) ? /seat/.test(n) : true));
 };
