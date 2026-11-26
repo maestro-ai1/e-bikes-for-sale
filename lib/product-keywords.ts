@@ -8,8 +8,36 @@
 import type { Product } from '@/lib/types';
 import { isKidsPush, isScooterPart, isStunt } from '@/lib/scooter-kinds';
 import { helmetKeywordFits, helmetKind } from '@/lib/helmet-kinds';
+import { gloveKeywordFits, gloveKind, isGlove } from '@/lib/glove-kinds';
 
 export const TYPE_KEYWORDS: Record<string, string[]> = {
+  'glove': [
+    "bike gloves", // 1300 / KD 13
+    "best bike gloves", // 90 / KD 10
+    "mens bike gloves", // 50 / KD 8
+  ],
+  'glove-kids': [
+    "childs bike gloves", // 480 / KD 10
+    "kids mountain bike gloves", // 90 / KD 6
+    "bike gloves", // 1300 / KD 13
+  ],
+  'glove-mtb': [
+    "mountain bike gloves", // 480 / KD 9
+    "fox mountain bike gloves", // 260 / KD 9
+    "bike gloves", // 1300 / KD 13
+    "best bike gloves", // 90 / KD 10
+  ],
+  'glove-road': [
+    "road bike gloves", // 140 / KD 10
+    "padded bike gloves", // 70 / KD 10
+    "bike gloves", // 1300 / KD 13
+    "best bike gloves", // 90 / KD 10
+  ],
+  'glove-winter': [
+    "winter biking gloves", // 320 / KD 13
+    "bike gloves", // 1300 / KD 13
+    "best bike gloves", // 90 / KD 10
+  ],
   'helmet': [
     "bike helmets", // 2400 / KD 10
     "helmet bike adults", // 590 / KD 11
@@ -128,6 +156,10 @@ export function productTypeKey(p: Product): string | null {
     if (isScooterPart(p)) return /trike|skates|lock/i.test(n) ? null : 'scooter-parts';
     return 'scooter-adult';
   }
+  if (isGlove(p)) {
+    const g = gloveKind(p);
+    return g.kids ? 'glove-kids' : g.winter ? 'glove-winter' : g.road ? 'glove-road' : g.mtb ? 'glove-mtb' : 'glove';
+  }
   if (p.category === 'accessories' || p.category === 'parts') {
     if (/computer|gps|head unit|garmin|wahoo/.test(n)) return 'computer';
     if (/\blights?\b|lumen|headlight/.test(n)) return 'light';
@@ -145,5 +177,6 @@ export const typeKeywordsFor = (p: Product): string[] => {
   // a wheel-count or seat keyword only goes on a scooter that has that feature
   const n = p.name.toLowerCase();
   if (p.category === 'helmets') return pool.filter((kw) => helmetKeywordFits(p, kw));
+  if (isGlove(p)) return pool.filter((kw) => gloveKeywordFits(p, kw));
   return pool.filter((kw) => (/3 wheel/.test(kw) ? /3[- ]wheel|tyke|primo|go up/.test(n) : /2 wheel/.test(kw) ? /2[- ]wheel|flow|duo/.test(n) : /with seat/.test(kw) ? /seat/.test(n) : true));
 };

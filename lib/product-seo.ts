@@ -8,6 +8,7 @@ import { RETAIL_BRAND_KEYWORDS } from '@/lib/brand-pages-retail';
 import { MODEL_KEYWORDS } from '@/lib/model-keywords';
 import { isKidsPush, isPushScooter, isScooterPart, isStunt } from '@/lib/scooter-kinds';
 import { helmetKeywordFits, helmetKind } from '@/lib/helmet-kinds';
+import { gloveKeywordFits, isGlove } from '@/lib/glove-kinds';
 
 /**
  * Product SEO rules (seo-strategy/keyword-map.md is the source of truth, never invent keywords):
@@ -49,7 +50,7 @@ export function nodeIdForProduct(p: Product): string {
       return 'gear-helmets';
     }
     case 'accessories':
-      return 'gear-accessories';
+      return isGlove(p) ? 'gear-gloves' : 'gear-accessories';
     case 'parts':
       return 'gear-parts';
     case 'cruiser': return 'cruiser';
@@ -73,6 +74,7 @@ export function keywordsForProduct(p: Product): NodeKeywords | undefined {
 /** Mapped keywords that make sense for this specific product (accessory sub-types get their own subset). */
 function fitsProduct(p: Product, kw: string): boolean {
   if (p.category === 'helmets') return helmetKeywordFits(p, kw);
+  if (isGlove(p)) return gloveKeywordFits(p, kw);
   if (p.category !== 'accessories' && p.category !== 'parts') return true;
   const name = `${p.name} ${p.subcategory || ''}`.toLowerCase();
   const k = kw.toLowerCase();
@@ -155,6 +157,7 @@ export function tagsForProduct(p: Product): string[] {
   let all = [...typed, k.primary, ...(k.commerce || []).slice(0, 3), ...k.secondary, ...(k.supporting || [])];
   // helmets of a small type (for example brand-limited mountain bike helmets) also carry the general helmet keywords
   if (p.category === 'helmets') all = [...all, ...(TYPE_KEYWORDS['helmet'] || [])];
+  if (isGlove(p)) all = [...all, ...(TYPE_KEYWORDS['glove'] || [])];
   if (BIKE_CATS.includes(p.category)) {
     const brandKws = brandKeywordsFor(p);
     const modelKws = MODEL_KEYWORDS[p.slug] || [];
@@ -239,6 +242,16 @@ export function buildFaqs(p: Product): FaqItem[] {
       { question: `What range can I expect from the ${p.name}?`, answer: `${p.rangeKm > 0 ? `The ${p.name} has a claimed range of up to ${p.rangeKm} km. ` : ''}Real range depends on rider weight, speed, terrain and temperature, so look at battery watt-hours and motor power, not just the headline range.${clause(2, (k) => `Use the same checks when comparing "${k}".`)}` },
       { question: `How much is the ${p.name} and can I buy it online?`, answer: `The ${p.name} is ${price}. ${delivery}${clause(3, (k) => `Searching for "${k}"? Use the enquiry button and we will confirm stock and delivery time.`)}` },
       { question: `What should I buy with the ${p.name}?`, answer: `A certified helmet, a strong lock and lights are the essentials.${clause(4, (k) => `Browse our scooter accessories and helmets if you are building a setup around "${k}".`)}` },
+    ];
+  }
+
+  if (isGlove(p)) {
+    return [
+      { question: q1, answer: `${desc} It is a cycling glove for bike and e-bike riders. Check the maker's size chart before you order.` },
+      { question: `How should the ${p.name} fit?`, answer: `Measure around your palm just below the knuckles and match the maker's size chart. Gloves should be snug without bunching, with room to close your fist.${clause(1, (k) => `The same fit check applies when you shop for "${k}".`)}` },
+      { question: `Why wear gloves on an e-bike?`, answer: `Gloves pad your palms against vibration, protect them in a fall and keep your grip in the wet or cold.${clause(2, (k) => `That is why many riders search for "${k}".`)}` },
+      { question: `How much is the ${p.name} and can I buy it online?`, answer: `The ${p.name} is ${price}. ${delivery}${clause(3, (k) => `Searching for "${k}"? Add it to cart or ask us about sizing.`)}` },
+      { question: `How do I care for cycling gloves?`, answer: `Follow the care label: most can be washed on a gentle cycle and air dried away from direct heat.${clause(4, (k) => `This is worth checking before you buy for "${k}".`)}` },
     ];
   }
 

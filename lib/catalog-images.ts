@@ -37,6 +37,7 @@ export const CATALOG_IMAGES: Record<string, CatalogImage> = {
   'helmets-mtb': img('helmets-mountain-bike.webp', 'Giro Fixture mountain bike helmet'),
   'helmets-road': img('helmets-road-bike.webp', 'Giro Agilis road bike helmet'),
   'kids-helmets': img('kids-bike-helmets.webp', 'Kids bike helmet in blue'),
+  'gear-gloves': img('bike-gloves.webp', 'Fox Defend full finger bike gloves in black'),
   'gear-accessories': img('e-bike-accessories.webp', 'E-bike accessories: handlebar phone holder'),
   'gear-parts': img('e-bike-parts.webp', 'E-bike parts: replacement mudguard'),
   'batteries': img('e-bike-batteries.webp', 'E-bike and e-scooter battery charger'),

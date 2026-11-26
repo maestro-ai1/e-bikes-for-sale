@@ -1,5 +1,6 @@
 import type { CatalogNode } from "@/lib/catalog";
 import { helmetKind } from "@/lib/helmet-kinds";
+import { isGlove } from "@/lib/glove-kinds";
 import type { NodeKeywords } from "@/lib/catalog-keywords";
 
 type GearNode = Omit<CatalogNode, "keywords">;
@@ -36,6 +37,12 @@ export const GEAR_KEYWORDS: Record<string, NodeKeywords> = {
     secondary: ["bike riding helmets", "helmet for a bike", "helmets for cycle", "electric bike helmet", "bike helmet sale"],
     supporting: ["cycle helmet sale", "bicycle helmets for sale", "buy bike helmet", "cheap bike helmets"],
     commerce: ["bike helmet sale", "buy bike helmet", "cycle helmet sale"],
+  },
+  "gear-gloves": {
+    primary: "bike gloves", primaryVolume: 1300, primaryKd: 13,
+    secondary: ["mountain bike gloves", "childs bike gloves", "winter biking gloves", "road bike gloves", "fox mountain bike gloves"],
+    supporting: ["best bike gloves", "padded bike gloves", "kids mountain bike gloves"],
+    commerce: ["mens bike gloves"],
   },
   "gear-accessories": {
     primary: "ebike accessories", primaryVolume: 590, primaryKd: 13,
@@ -331,6 +338,53 @@ export const GEAR_NODES: GearNode[] = [
     matches: (p) => p.category === "helmets" && helmetKind(p).road && !helmetKind(p).kids,
   },
   {
+    id: "gear-gloves",
+    kind: "landing",
+    path: "/bike-gloves",
+    name: "Bike Gloves",
+    navLabel: "Bike Gloves",
+    title: "Bike Gloves Australia | Cycling Gloves for Sale",
+    description:
+      "Shop bike gloves in Australia: mountain bike, road, winter and kids cycling gloves from Fox, Giro, Castelli, Fist and BBB, from $19 to $79. Fast dispatch.",
+    h1: "Bike Gloves: MTB, Road, Winter and Kids Cycling Gloves",
+    intro: [
+      "Bike gloves pad your palms against vibration, protect them in a fall and keep your grip in the wet or cold. On an e-bike, where you ride further and faster, a good pair makes long rides more comfortable.",
+      "Our range has 40 pairs of cycling gloves from Fox, Giro, Castelli, Fist, BBB, Cinettica and Black Mountain, from $19 to $79: mountain bike, road, winter and kids gloves.",
+    ],
+    bridge: {
+      heading: "MTB, road, winter and kids gloves",
+      body:
+        "Searches for mountain bike gloves, road bike gloves, winter biking gloves or childs bike gloves all come down to fit, padding and the weather you ride in. MTB gloves are hard-wearing with grip pads, road gloves are light with gel padding, winter gloves add insulation and kids gloves come in youth sizes. Check the maker's size chart for each pair.",
+    },
+    guides: [
+      {
+        heading: "How to choose cycling gloves",
+        body:
+          "Measure around your palm just below the knuckles and match the maker's size chart. Choose full-finger gloves for cold weather and trail protection, and lighter gloves for summer road riding. Gel padding helps on long rides.",
+      },
+      {
+        heading: "Gloves for winter riding",
+        body:
+          "Winter gloves add insulation, and some have touch-screen fingertips so you can use your phone or e-bike display. Choose a pair that is warm but still lets you feel the brake levers.",
+      },
+    ],
+    links: [
+      { label: "E-bike helmets", href: "/e-bike-helmets" },
+      { label: "Kids bike helmets", href: "/kids-bike-helmets" },
+      { label: "E-bike accessories", href: "/e-bike-accessories" },
+    ],
+    productsHeading: "Gloves in stock now",
+    enquiry: "Need help with sizing? Tell us your palm measurement and we will suggest the right gloves.",
+    faqs: [
+      { q: "Which cycling gloves should I buy?", a: "Choose by the riding you do: padded gloves for road riding, hard-wearing full-finger gloves for mountain biking and insulated gloves for winter. Check the size chart for fit." },
+      { q: "Do I need gloves on an e-bike?", a: "They are not compulsory, but gloves pad your palms against vibration, protect them in a fall and keep your grip in the wet or cold." },
+      { q: "Do you sell kids gloves?", a: "Yes. We stock youth gloves from Fist, Giro and Black Mountain in youth sizes. Check the size chart for the right fit." },
+      { q: "How do I find my glove size?", a: "Measure around your palm just below the knuckles and match it to the maker's size chart. Gloves should be snug without bunching, with room to close your fist." },
+      { q: "How do I wash cycling gloves?", a: "Follow the care label. Most can be washed on a gentle cycle and air dried away from direct heat." },
+    ],
+    matches: (p) => isGlove(p),
+  },
+  {
     id: "gear-accessories",
     kind: "landing",
     path: "/e-bike-accessories",
@@ -363,6 +417,7 @@ export const GEAR_NODES: GearNode[] = [
     ],
     links: [
       { label: "E-bike helmets", href: "/e-bike-helmets" },
+      { label: "Bike gloves", href: "/bike-gloves" },
       { label: "E-bike batteries", href: "/electric-bike-batteries" },
       { label: "E-bike parts", href: "/e-bike-parts" },
     ],
@@ -373,7 +428,7 @@ export const GEAR_NODES: GearNode[] = [
       { q: "Do I need a special lock for an e-bike?", a: "A hardened U-lock or folding lock is recommended. Cable locks alone are easy to cut." },
       { q: "Where should I store an e-bike battery?", a: "Store it indoors at room temperature and take it off the bike when parked in public if it is removable." },
     ],
-    matches: (p) => p.category === "accessories",
+    matches: (p) => p.category === "accessories" && !isGlove(p),
   },
   {
     id: "gear-parts",

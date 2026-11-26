@@ -31,6 +31,7 @@ export const NODE_PATHS: Record<string, string> = {
   'helmets-fullface': '/e-bike-helmets/full-face-helmets',
   'helmets-mtb': '/e-bike-helmets/mountain-bike-helmets',
   'helmets-road': '/e-bike-helmets/road-bike-helmets',
+  'gear-gloves': '/bike-gloves',
   'gear-accessories': '/e-bike-accessories',
   'gear-parts': '/e-bike-parts',
   'brand-segway': '/scooters',
